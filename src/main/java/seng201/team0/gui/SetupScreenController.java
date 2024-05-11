@@ -3,8 +3,6 @@ package seng201.team0.gui;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import seng201.team0.GameManager;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Slider;
 
 import java.util.Arrays;
@@ -65,6 +63,7 @@ public class SetupScreenController {
         gameManager.setName(nameInputTextField.getText());
         gameManager.setNumberOfRounds((int) numberOfRoundsSlider.getValue());
         gameManager.setGameDifficulty(gameDifficulty);
+        gameManager.launchUpcomingRoundScreen();
         gameManager.closeSetupScreen();
     }
 }
