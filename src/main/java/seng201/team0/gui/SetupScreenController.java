@@ -31,12 +31,9 @@ public class SetupScreenController {
     public void initialize() {
 
 //        Changes number of rounds based on slider position and updates selected rounds label
-        numberOfRoundsSlider.valueProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                int roundedValue = (int) Math.round(newValue.doubleValue());
-                selectedNumberOfRoundsLabel.setText("Selected number of rounds: " + roundedValue);
-            }
+        numberOfRoundsSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            int roundedValue = (int) Math.round(newValue.doubleValue());
+            selectedNumberOfRoundsLabel.setText("Selected number of rounds: " + roundedValue);
         });
 
 
@@ -61,7 +58,6 @@ public class SetupScreenController {
         easyDifficultyButton.setStyle("");
         hardDifficultyButton.setStyle("");
         button.setStyle("-fx-background-color: #b3b3b3; -fx-background-radius: 5;");
-
     }
 
     @FXML
