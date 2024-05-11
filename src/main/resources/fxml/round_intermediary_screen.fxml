@@ -8,12 +8,13 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="1200.0" />
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="720.0" />
   </columnConstraints>
   <rowConstraints>
+      <RowConstraints maxHeight="876.21337890625" minHeight="10.0" prefHeight="65.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="876.21337890625" minHeight="10.0" prefHeight="65.0" vgrow="SOMETIMES" />
     <RowConstraints maxHeight="912.6192016601562" minHeight="10.0" prefHeight="653.9100341796875" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="720.0" minHeight="10.0" prefHeight="49.5899658203125" vgrow="SOMETIMES" />
@@ -21,7 +22,7 @@
     <RowConstraints maxHeight="351.3974609375" minHeight="0.0" prefHeight="104.94561767578125" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="75.0" prefWidth="400.0" text="Sell" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="75.0" prefWidth="400.0" text="Sell" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
          <font>
             <Font size="30.0" />
          </font>
@@ -29,7 +30,7 @@
             <Insets right="1000.0" />
          </GridPane.margin>
       </Button>
-      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="75.0" prefWidth="400.0" text="Shop" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="75.0" prefWidth="400.0" text="Shop" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
          <font>
             <Font size="30.0" />
          </font>
@@ -37,7 +38,7 @@
             <Insets />
          </GridPane.margin>
       </Button>
-      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="75.0" prefWidth="400.0" text="Start" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="75.0" prefWidth="400.0" text="Start" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
          <font>
             <Font size="30.0" />
          </font>
@@ -45,7 +46,7 @@
             <Insets left="1000.0" />
          </GridPane.margin>
       </Button>
-      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="190.0" prefWidth="220.0" text="Selected Tower 1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="190.0" prefWidth="220.0" text="Selected Tower 1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets right="950.0" />
          </GridPane.margin>
@@ -53,17 +54,17 @@
             <Font size="25.0" />
          </font>
       </Button>
-      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="190.0" prefWidth="220.0" text="Selected Tower 1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="190.0" prefWidth="220.0" text="Selected Tower 1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="190.0" prefWidth="220.0" text="Selected Tower 3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="190.0" prefWidth="220.0" text="Selected Tower 3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
       </Button>
-      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="190.0" prefWidth="220.0" text="Selected Tower 2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="190.0" prefWidth="220.0" text="Selected Tower 2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
@@ -71,7 +72,7 @@
             <Insets right="475.0" />
          </GridPane.margin>
       </Button>
-      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="190.0" prefWidth="220.0" text="Selected Tower 5" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="190.0" prefWidth="220.0" text="Selected Tower 5" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
@@ -79,7 +80,7 @@
             <Insets left="950.0" />
          </GridPane.margin>
       </Button>
-      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="190.0" prefWidth="220.0" text="Selected Tower 4" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="190.0" prefWidth="220.0" text="Selected Tower 4" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
@@ -87,23 +88,23 @@
             <Insets left="475.0" />
          </GridPane.margin>
       </Button>
-      <Label prefHeight="37.0" prefWidth="226.0" text="Selected Towers:" GridPane.rowIndex="2">
+      <Label prefHeight="37.0" prefWidth="226.0" text="Selected Towers:" GridPane.rowIndex="3">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
          <GridPane.margin>
-            <Insets left="25.0" />
+            <Insets left="15.0" />
          </GridPane.margin>
       </Label>
-      <Label prefHeight="37.0" prefWidth="173.0" text="Your Towers:">
+      <Label prefHeight="37.0" prefWidth="173.0" text="Your Towers:" GridPane.rowIndex="1">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
          <GridPane.margin>
-            <Insets left="40.0" />
+            <Insets left="15.0" />
          </GridPane.margin>
       </Label>
-      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="100.0" prefWidth="220.0" text="Tower 1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="100.0" prefWidth="220.0" text="Tower 1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
          <font>
             <Font size="25.0" />
          </font>
@@ -111,7 +112,7 @@
             <Insets right="900.0" />
          </GridPane.margin>
       </Button>
-      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="100.0" prefWidth="220.0" text="Tower 2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="100.0" prefWidth="220.0" text="Tower 2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
          <font>
             <Font size="25.0" />
          </font>
@@ -119,7 +120,7 @@
             <Insets right="300.0" />
          </GridPane.margin>
       </Button>
-      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="100.0" prefWidth="220.0" text="Tower 3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="100.0" prefWidth="220.0" text="Tower 3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
          <font>
             <Font size="25.0" />
          </font>
@@ -127,7 +128,7 @@
             <Insets left="300.0" />
          </GridPane.margin>
       </Button>
-      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="100.0" prefWidth="220.0" text="Tower 4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="100.0" prefWidth="220.0" text="Tower 4" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
          <font>
             <Font size="25.0" />
          </font>
@@ -135,7 +136,7 @@
             <Insets left="900.0" />
          </GridPane.margin>
       </Button>
-      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="100.0" prefWidth="220.0" text="Tower 5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="100.0" prefWidth="220.0" text="Tower 5" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
@@ -143,7 +144,7 @@
             <Insets right="900.0" top="100.0" />
          </GridPane.margin>
       </Button>
-      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="100.0" prefWidth="220.0" text="Tower 8" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="100.0" prefWidth="220.0" text="Tower 8" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
@@ -151,7 +152,7 @@
             <Insets left="900.0" top="100.0" />
          </GridPane.margin>
       </Button>
-      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="100.0" prefWidth="220.0" text="Tower 7" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="100.0" prefWidth="220.0" text="Tower 7" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
@@ -159,7 +160,7 @@
             <Insets left="300.0" top="100.0" />
          </GridPane.margin>
       </Button>
-      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="100.0" prefWidth="220.0" text="Tower 6" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="100.0" prefWidth="220.0" text="Tower 6" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
@@ -167,39 +168,39 @@
             <Insets right="300.0" top="100.0" />
          </GridPane.margin>
       </Button>
-      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="190.0" prefWidth="270.0" text="Selected Upgrade 1" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="190.0" prefWidth="320.0" text="Selected Upgrade 1" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
          <GridPane.margin>
-            <Insets left="25.0" />
+            <Insets left="20.0" />
          </GridPane.margin>
       </Button>
-      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="190.0" prefWidth="270.0" text="Selected Upgrade 2" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="190.0" prefWidth="320.0" text="Selected Upgrade 2" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
          <GridPane.margin>
-            <Insets right="25.0" />
+            <Insets right="20.0" />
          </GridPane.margin>
       </Button>
-      <Label prefHeight="37.0" prefWidth="258.0" text="Selected Upgrades:" GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <Label prefHeight="37.0" prefWidth="258.0" text="Selected Upgrades:" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
          <GridPane.margin>
-            <Insets left="25.0" />
+            <Insets left="20.0" />
          </GridPane.margin>
       </Label>
-      <Label prefHeight="37.0" prefWidth="211.0" text="Your Upgrades:" GridPane.columnIndex="1">
+      <Label prefHeight="37.0" prefWidth="211.0" text="Your Upgrades:" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
          <GridPane.margin>
-            <Insets left="25.0" />
+            <Insets left="20.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Tower 1 Type" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Label text="Tower 1 Type" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
@@ -207,7 +208,7 @@
             <Insets bottom="350.0" right="900.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Tower 1 Collection Amount" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Label text="Tower 1 Collection Amount" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
@@ -215,7 +216,7 @@
             <Insets bottom="250.0" right="900.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Tower 1 Collection Speed" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Label text="Tower 1 Collection Speed" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
@@ -223,7 +224,7 @@
             <Insets bottom="150.0" right="900.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Tower 2 Type" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Label text="Tower 2 Type" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
@@ -231,7 +232,7 @@
             <Insets bottom="350.0" right="300.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Tower 2 Collection Amount" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Label text="Tower 2 Collection Amount" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
@@ -239,7 +240,7 @@
             <Insets bottom="250.0" right="300.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Tower 2 Collection Speed" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Label text="Tower 2 Collection Speed" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
@@ -247,7 +248,7 @@
             <Insets bottom="150.0" right="300.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Tower 3 Type" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Label text="Tower 3 Type" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
@@ -255,7 +256,7 @@
             <Insets bottom="350.0" left="300.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Tower 3 Collection Amount" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Label text="Tower 3 Collection Amount" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
@@ -263,7 +264,7 @@
             <Insets bottom="250.0" left="300.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Tower 3 Collection Speed" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Label text="Tower 3 Collection Speed" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
@@ -271,7 +272,7 @@
             <Insets bottom="150.0" left="300.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Tower 4 Type" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Label text="Tower 4 Type" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
@@ -279,7 +280,7 @@
             <Insets bottom="350.0" left="900.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Tower 4 Collection Amount" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Label text="Tower 4 Collection Amount" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
@@ -287,7 +288,7 @@
             <Insets bottom="249.0" left="900.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Tower 4 Collection Speed" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Label text="Tower 4 Collection Speed" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
@@ -295,7 +296,7 @@
             <Insets bottom="150.0" left="900.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Tower 5 Type" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Label text="Tower 5 Type" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
@@ -303,7 +304,7 @@
             <Insets right="900.0" top="300.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Tower 5 Collection Amount" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Label text="Tower 5 Collection Amount" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
@@ -311,7 +312,7 @@
             <Insets right="900.0" top="400.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Tower 5 Collection Speed" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Label text="Tower 5 Collection Speed" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
@@ -319,7 +320,7 @@
             <Insets right="900.0" top="500.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Tower 6 Type" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Label text="Tower 6 Type" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
@@ -327,7 +328,7 @@
             <Insets right="300.0" top="300.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Tower 6 Collection Amount" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Label text="Tower 6 Collection Amount" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
@@ -335,7 +336,7 @@
             <Insets right="300.0" top="400.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Tower 6 Collection Speed" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Label text="Tower 6 Collection Speed" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
@@ -343,7 +344,7 @@
             <Insets right="300.0" top="500.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Tower 7 Type" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Label text="Tower 7 Type" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
@@ -351,7 +352,7 @@
             <Insets left="300.0" top="300.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Tower 7 Collection Amount" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Label text="Tower 7 Collection Amount" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
@@ -359,7 +360,7 @@
             <Insets left="300.0" top="400.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Tower 7 Collection Speed" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Label text="Tower 7 Collection Speed" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
@@ -367,7 +368,7 @@
             <Insets left="300.0" top="500.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Tower 7 Type" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Label text="Tower 8 Type" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
@@ -375,7 +376,7 @@
             <Insets left="900.0" top="300.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Tower 7 Collection Amount" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Label text="Tower 8 Collection Amount" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
@@ -383,7 +384,7 @@
             <Insets left="900.0" top="400.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Tower 7 Collection Speed" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Label text="Tower 8 Collection Speed" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
@@ -391,7 +392,7 @@
             <Insets left="900.0" top="500.0" />
          </GridPane.margin>
       </Label>
-      <Button mnemonicParsing="false" prefHeight="190.0" prefWidth="270.0" text="Upgrade 1" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+      <Button mnemonicParsing="false" prefHeight="190.0" prefWidth="270.0" text="Upgrade 1" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP">
          <font>
             <Font size="25.0" />
          </font>
@@ -399,23 +400,23 @@
             <Insets left="20.0" top="20.0" />
          </GridPane.margin>
       </Button>
-      <Button mnemonicParsing="false" prefHeight="190.0" prefWidth="270.0" text="Upgrade 1" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Button mnemonicParsing="false" prefHeight="190.0" prefWidth="270.0" text="Upgrade 2" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
          <GridPane.margin>
-            <Insets left="25.0" />
+            <Insets left="20.0" />
          </GridPane.margin>
       </Button>
-      <Button mnemonicParsing="false" prefHeight="190.0" prefWidth="270.0" text="Upgrade 1" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="190.0" prefWidth="270.0" text="Upgrade 3" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
          <font>
             <Font size="25.0" />
          </font>
          <GridPane.margin>
-            <Insets bottom="20.0" left="25.0" />
+            <Insets bottom="20.0" left="20.0" />
          </GridPane.margin>
       </Button>
-      <Label text="Upgrade 1 Specification" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+      <Label text="Upgrade 1 Specification" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
          <font>
             <Font size="25.0" />
          </font>
@@ -423,7 +424,7 @@
             <Insets left="150.0" top="100.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Upgrade 1 Specification" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+      <Label text="Upgrade 3 Specification" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
          <font>
             <Font size="25.0" />
          </font>
@@ -431,12 +432,20 @@
             <Insets bottom="100.0" left="150.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Upgrade 2 Specification" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Label text="Upgrade 2 Specification" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
          <GridPane.margin>
             <Insets left="150.0" />
+         </GridPane.margin>
+      </Label>
+      <Label text="Select your Towers and Upgrades for the upcoming round {Name}." GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+         <font>
+            <Font size="30.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="15.0" />
          </GridPane.margin>
       </Label>
    </children>

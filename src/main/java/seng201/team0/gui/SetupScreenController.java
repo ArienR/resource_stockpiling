@@ -2,18 +2,18 @@ package seng201.team0.gui;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import java.util.*;
+import seng201.team0.GameManager;
 
 public class SetupScreenController {
 
     private GameManager gameManager;
 
     @FXML TextField nameInputTextField;
-    @FXML Slider numberRoundsSlider;
+    @FXML Slider numberOfRoundsSlider;
     @FXML Button easyDifficultyButton;
     @FXML Button hardDifficultyButton;
 
-    SetupScreenController(GameManager gameManager) {
-        this.gameManager = gameManager;
+    public SetupScreenController(GameManager tempGameManager) {
+        this.gameManager = tempGameManager;
     }
 }

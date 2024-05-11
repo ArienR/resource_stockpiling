@@ -40,7 +40,7 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Slider fx:id="numberRoundsSlider" blockIncrement="3.0" majorTickUnit="1.0" max="15.0" maxHeight="-Infinity" maxWidth="-Infinity" min="5.0" minHeight="-Infinity" minWidth="-Infinity" minorTickCount="0" prefHeight="16.0" prefWidth="336.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+      <Slider fx:id="numberOfRoundsSlider" blockIncrement="3.0" majorTickUnit="1.0" max="15.0" maxHeight="-Infinity" maxWidth="-Infinity" min="5.0" minHeight="-Infinity" minWidth="-Infinity" minorTickCount="0" prefHeight="16.0" prefWidth="336.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
       <Label text="Select the Difficulty:" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
          <font>
             <Font size="16.0" />
