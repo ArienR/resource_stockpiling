@@ -1,114 +1,163 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng201.team0.gui.UpcomingRoundScreenController">
+<GridPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng201.team0.gui.UpcomingRoundScreenController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints maxHeight="280.0" minHeight="10.0" prefHeight="145.88824462890625" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="280.0" minHeight="10.0" prefHeight="145.0" vgrow="SOMETIMES" />
     <RowConstraints maxHeight="934.1117553710938" minHeight="10.0" prefHeight="934.1117553710938" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label alignment="TOP_LEFT" text="Select upcoming round" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <Label alignment="TOP_LEFT" text="Select upcoming round" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
          <font>
-            <Font name="System Bold" size="50.0" />
+            <Font name="System Bold" size="40.0" />
          </font>
+         <GridPane.margin>
+            <Insets bottom="30.0" />
+         </GridPane.margin>
       </Label>
       <GridPane GridPane.rowIndex="1">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="300.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="300.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="300.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="300.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="300.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="150.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="150.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="150.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="150.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="selectOptionOneButton" mnemonicParsing="false" onAction="#handleOptionOneSelected" prefHeight="100.0" prefWidth="350.0" text="Select Option One" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+            <Button fx:id="selectOptionOneButton" mnemonicParsing="false" onAction="#handleOptionOneSelected" prefHeight="100.0" prefWidth="350.0" style="-fx-background-radius: 30px;" text="Select Option One" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
                <font>
-                  <Font size="30.0" />
+                  <Font size="25.0" />
                </font>
+               <GridPane.margin>
+                  <Insets top="50.0" />
+               </GridPane.margin>
             </Button>
-            <Label fx:id="optionOneNumberOfCarts" text="Number of carts:" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <VBox alignment="CENTER" spacing="100.0" style="-fx-border-color: black; -fx-border-width: 2px; -fx-border-style: solid; -fx-padding: 10px; -fx-border-radius: 10px; -fx-background-color: #E5E4E2;" GridPane.columnIndex="1" GridPane.rowSpan="4">
+               <children>
+                  <Label alignment="TOP_LEFT" style="-fx-font-weight: bold;" text="Option One">
+                     <font>
+                        <Font size="35.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="optionOneCartType" text="Type of carts:">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="optionOneCartSize" text="Size of carts:">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="optionOneNumberOfCarts" text="Number of carts:">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+               <GridPane.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </GridPane.margin>
+            </VBox>
+            <Button fx:id="selectOptionTwoButton" mnemonicParsing="false" onAction="#handleOptionTwoSelected" prefHeight="100.0" prefWidth="350.0" style="-fx-background-radius: 30px;" text="Select Option Two" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
                <font>
-                  <Font size="40.0" />
+                  <Font size="25.0" />
                </font>
-            </Label>
-            <Label fx:id="optionOneCartSize" text="Size of carts:" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
-               <font>
-                  <Font size="40.0" />
-               </font>
-            </Label>
-            <Label fx:id="optionOneCartType" text="Type of carts:" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-               <font>
-                  <Font size="40.0" />
-               </font>
-            </Label>
-            <Label alignment="TOP_LEFT" style="-fx-font-weight: bold;" text="Option One" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-               <font>
-                  <Font size="45.0" />
-               </font>
-            </Label>
-            <Button fx:id="selectOptionTwoButton" mnemonicParsing="false" onAction="#handleOptionTwoSelected" prefHeight="100.0" prefWidth="350.0" text="Select Option Two" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
-               <font>
-                  <Font size="30.0" />
-               </font>
+               <GridPane.margin>
+                  <Insets top="50.0" />
+               </GridPane.margin>
             </Button>
-            <Label fx:id="optionTwoNumberOfCarts" text="Number of carts:" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <VBox alignment="CENTER" spacing="100.0" style="-fx-border-color: black; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-border-style: solid; -fx-padding: 10px; -fx-background-color: #E5E4E2;" GridPane.columnIndex="2" GridPane.rowSpan="4">
+               <children>
+                  <Label alignment="TOP_LEFT" style="-fx-font-weight: bold;" text="Option Two">
+                     <font>
+                        <Font size="35.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="optionTwoCartType" text="Type of carts:">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="optionTwoCartSize" text="Size of carts:">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="optionTwoNumberOfCarts" text="Number of carts:">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+               </children>
+               <GridPane.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </GridPane.margin>
+            </VBox>
+            <VBox alignment="CENTER" spacing="100.0" style="-fx-border-color: black; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-border-style: solid; -fx-padding: 10px; -fx-background-color: #E5E4E2;" GridPane.columnIndex="3" GridPane.rowSpan="4">
+               <children>
+                  <Label alignment="TOP_LEFT" style="-fx-font-weight: bold;" text="Option Three">
+                     <font>
+                        <Font size="35.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="optionThreeCartType" text="Type of carts:">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="optionThreeCartSize" text="Size of carts:">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="optionThreeNumberOfCarts" text="Number of carts:">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+               <GridPane.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </GridPane.margin>
+            </VBox>
+            <Button fx:id="selectOptionThreeButton" mnemonicParsing="false" onAction="#handleOptionThreeSelected" prefHeight="100.0" prefWidth="350.0" style="-fx-background-radius: 30px;" text="Select Option Three" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
                <font>
-                  <Font size="40.0" />
+                  <Font size="25.0" />
                </font>
-            </Label>
-            <Label fx:id="optionTwoCartSize" text="Size of carts:" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
-               <font>
-                  <Font size="40.0" />
-               </font>
-            </Label>
-            <Label fx:id="optionTwoCartType" text="Type of carts:" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-               <font>
-                  <Font size="40.0" />
-               </font>
-            </Label>
-            <Label alignment="TOP_LEFT" style="-fx-font-weight: bold;" text="Option Two" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-               <font>
-                  <Font size="45.0" />
-               </font>
-            </Label>
-            <Label alignment="TOP_LEFT" style="-fx-font-weight: bold;" text="Option Three" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-               <font>
-                  <Font size="45.0" />
-               </font>
-            </Label>
-            <Label fx:id="optionThreeCartType" text="Type of carts:" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-               <font>
-                  <Font size="40.0" />
-               </font>
-            </Label>
-            <Label fx:id="optionThreeCartSize" text="Size of carts:" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
-               <font>
-                  <Font size="40.0" />
-               </font>
-            </Label>
-            <Label fx:id="optionThreeNumberOfCarts" text="Number of carts:" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
-               <font>
-                  <Font size="40.0" />
-               </font>
-            </Label>
-            <Button fx:id="selectOptionThreeButton" mnemonicParsing="false" onAction="#handleOptionThreeSelected" prefHeight="100.0" prefWidth="350.0" text="Select Option Three" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
-               <font>
-                  <Font size="30.0" />
-               </font>
+               <GridPane.margin>
+                  <Insets top="50.0" />
+               </GridPane.margin>
             </Button>
          </children>
       </GridPane>
