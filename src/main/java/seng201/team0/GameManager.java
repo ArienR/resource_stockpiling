@@ -24,7 +24,36 @@ public class GameManager {
         launchSetupScreen();
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String tempName) {
+        this.name = tempName;
+    }
+
+    public int getNumberOfRounds() {
+        return numberOfRounds;
+    }
+
+    public void setNumberOfRounds(int tempNumberOfRounds) {
+        this.numberOfRounds = tempNumberOfRounds;
+    }
+
+    public String getGameDifficulty() {
+        return gameDifficulty;
+    }
+
+    public void setGameDifficulty(String tempGameDifficulty) {
+        this.gameDifficulty = tempGameDifficulty;
+    }
+
     public void launchSetupScreen() {
         setupScreenLauncher.accept(this);
+    }
+
+    public void closeSetupScreen() {
+        clearScreen.run();
+//        launchRoundIntermediaryScreen();
     }
 }

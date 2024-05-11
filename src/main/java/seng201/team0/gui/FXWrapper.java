@@ -19,20 +19,20 @@ public class FXWrapper {
 
     public void init(Stage stage) {
         this.stage = stage;
-        new GameManager(this::launchSetupScreen, this::clearPane);
+        new GameManager(this::launchSetupScreen, /*this::launchRoundIntermediaryScreen ,*/ this::clearPane);
     }
 
     public void clearPane() {
         pane.getChildren().removeAll(pane.getChildren());
     }
 
-    public void launchSetupScreen(GameManager rocketManager) {
+    public void launchSetupScreen(GameManager gameManager) {
         try {
             FXMLLoader setupScreenLoader = new FXMLLoader(getClass().getResource("/fxml/setup_screen.fxml"));
-            setupScreenLoader.setControllerFactory(param -> new SetupScreenController(rocketManager));
+            setupScreenLoader.setControllerFactory(param -> new SetupScreenController(gameManager));
             Parent setupParent  = setupScreenLoader.load();
             pane.getChildren().add(setupParent);
-            stage.setTitle("Rocket Manager Setup Screen");
+            stage.setTitle("Game Manager Setup Screen");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -43,5 +43,16 @@ public class FXWrapper {
 //        // For now, do nothing or just print a message.
 //    }
 
+    public void launchRoundIntermediaryScreen(GameManager gameManager) {
+        try {
+            FXMLLoader roundIntermediaryScreenLoader = new FXMLLoader(getClass().getResource("/fxml/round_intermediary_screen.fxml"));
+            roundIntermediaryScreenLoader.setControllerFactory(param -> new SetupScreenController(gameManager));
+            Parent setupParent = roundIntermediaryScreenLoader.load();
+            pane.getChildren().add(setupParent);
+            stage.setTitle("Game Manager Round Intermediary Screen");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
