@@ -14,11 +14,14 @@ public class GameManager {
     private final List<Tower> defaultRockets = new ArrayList<>();
     private final Consumer<GameManager> setupScreenLauncher;
     private final Consumer<GameManager> upcomingRoundScreenLauncher;
+    private final Consumer<GameManager> inventoryScreenLauncher;
+
     private final Runnable clearScreen;
 
-    public GameManager(Consumer<GameManager> setupScreenLauncher, Consumer<GameManager> upcomingRoundScreenLauncher1, Runnable clearScreen) {
+    public GameManager(Consumer<GameManager> setupScreenLauncher, Consumer<GameManager> upcomingRoundScreenLauncher, Consumer<GameManager> inventoryScreenLauncher, Runnable clearScreen) {
         this.setupScreenLauncher = setupScreenLauncher;
-        this.upcomingRoundScreenLauncher = upcomingRoundScreenLauncher1;
+        this.upcomingRoundScreenLauncher = upcomingRoundScreenLauncher;
+        this.inventoryScreenLauncher = inventoryScreenLauncher;
 
         this.clearScreen = clearScreen;
 //        defaultRockets.addAll(List.of(new Rocket("Space Shuttle"), new Rocket("Falcon 9"),
@@ -63,4 +66,18 @@ public class GameManager {
     public void launchUpcomingRoundScreen() {
         upcomingRoundScreenLauncher.accept(this);
     }
+
+    public void closeUpcomingRoundScreen() {
+        clearScreen.run();
+        launchInventoryScreen();
+    }
+
+    public void launchInventoryScreen() {
+        inventoryScreenLauncher.accept(this);
+    }
+
+    public void closeInventoryScreen() {
+        clearScreen.run();
+    }
+
 }

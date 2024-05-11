@@ -18,7 +18,7 @@ public class FXWrapper {
 
     public void init(Stage stage) {
         this.stage = stage;
-        new GameManager(this::launchSetupScreen, this::launchUpcomingRoundScreen, /*this::launchRoundIntermediaryScreen ,*/ this::clearPane);
+        new GameManager(this::launchSetupScreen, this::launchUpcomingRoundScreen, this::launchInventoryScreen, this::clearPane);
     }
 
 
@@ -38,33 +38,28 @@ public class FXWrapper {
         }
     }
 
-//    public void launchMainScreen(RocketManager rocketManager) {
-//        System.out.println("Main screen would launch here.");
-//        // For now, do nothing or just print a message.
-//    }
-
     public void launchUpcomingRoundScreen(GameManager gameManager) {
         try {
             FXMLLoader upcomingRoundScreenLoader = new FXMLLoader(getClass().getResource("/fxml/upcoming_round_screen.fxml"));
             upcomingRoundScreenLoader.setControllerFactory(param -> new UpcomingRoundScreenController(gameManager));
             Parent setupParent = upcomingRoundScreenLoader.load();
             pane.getChildren().add(setupParent);
-            stage.setTitle("Select Upcoming Round Screen");
+            stage.setTitle("Upcoming Round Screen");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-//    public void launchRoundIntermediaryScreen(GameManager gameManager) {
-//        try {
-//            FXMLLoader roundIntermediaryScreenLoader = new FXMLLoader(getClass().getResource("/fxml/round_intermediary_screen.fxml"));
-//            roundIntermediaryScreenLoader.setControllerFactory(param -> new SetupScreenController(gameManager));
-//            Parent setupParent = roundIntermediaryScreenLoader.load();
-//            pane.getChildren().add(setupParent);
-//            stage.setTitle("Game Manager Round Intermediary Screen");
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
+    public void launchInventoryScreen(GameManager gameManager) {
+        try {
+            FXMLLoader inventoryScreenLoader = new FXMLLoader(getClass().getResource("/fxml/inventory_screen.fxml"));
+            inventoryScreenLoader.setControllerFactory(param -> new InventoryScreenController(gameManager));
+            Parent setupParent = inventoryScreenLoader.load();
+            pane.getChildren().add(setupParent);
+            stage.setTitle("Inventory Screen");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

@@ -7,21 +7,21 @@ import seng201.team0.GameManager;
 
 public class UpcomingRoundScreenController {
 
-    private Stage stage;
     private GameManager gameManager;
 
-    @FXML Label optionOneCartType;
-    @FXML Label optionOneCartSize;
-    @FXML Label optionOneNumberOfCarts;
-    @FXML Label optionTwoCartType;
-    @FXML Label optionTwoCartSize;
-    @FXML Label optionTwoNumberOfCarts;
-    @FXML Label optionThreeCartType;
-    @FXML Label optionThreeCartSize;
-    @FXML Label optionThreeNumberOfCarts;
+    @FXML Label optionOneCartTypeLabel;
+    @FXML Label optionOneCartSizeLabel;
+    @FXML Label optionOneNumberOfCartsLabel;
+    @FXML Label optionTwoCartTypeLabel;
+    @FXML Label optionTwoCartSizeLabel;
+    @FXML Label optionTwoNumberOfCartsLabel;
+    @FXML Label optionThreeCartTypeLabel;
+    @FXML Label optionThreeCartSizeLabel;
+    @FXML Label optionThreeNumberOfCartsLabel;
     @FXML Button selectOptionOneButton;
     @FXML Button selectOptionTwoButton;
     @FXML Button selectOptionThreeButton;
+    @FXML Button upcomingRoundContinueButton;
 
     public UpcomingRoundScreenController(GameManager tempGameManager) {
         this.gameManager = tempGameManager;
@@ -31,16 +31,10 @@ public class UpcomingRoundScreenController {
         FXWindow.getInstance().setMaximized(true);
     }
 
-    public void handleOptionOneSelected() {
-        System.out.println("Option One Selected");
-    }
-
-    public void handleOptionTwoSelected() {
-        System.out.println("Option Two Selected");
-    }
-
-    public void handleOptionThreeSelected() {
-        System.out.println("Option Three Selected");
+    @FXML
+    private void continueToInventoryAction() {
+        gameManager.launchInventoryScreen();
+        gameManager.closeUpcomingRoundScreen();
     }
 
 }
