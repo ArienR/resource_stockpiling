@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+      <RowConstraints maxHeight="676.8000244140625" minHeight="10.0" prefHeight="116.79998168945315" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="676.8000244140625" minHeight="10.0" prefHeight="590.4000183105469" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="508.19999999999993" minHeight="10.0" prefHeight="485.79997558593743" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="171.8000732421874" minHeight="1.400000000000034" prefHeight="104.59999999999991" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
+         <children>
+            <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-font-weight: bold;" text="Total: {$0000.00}">
+               <font>
+                  <Font size="48.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="20.0" left="250.0" top="20.0" />
+               </HBox.margin>
+            </Label>
+            <Button alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Buy towers &amp; items">
+               <font>
+                  <Font size="36.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="20.0" left="250.0" top="20.0" />
+               </HBox.margin>
+            </Button>
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Go back">
+               <font>
+                  <Font size="36.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="20.0" left="250.0" top="20.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <HBox prefHeight="487.0" prefWidth="1920.0" GridPane.rowIndex="1">
+         <children>
+            <Button maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="350.0" prefWidth="350.0" text="Shop Tower 1">
+               <font>
+                  <Font size="28.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="50.0" left="400.0" top="50.0" />
+               </HBox.margin>
+            </Button>
+            <Button maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="350.0" prefWidth="350.0" text="Shop Tower 2">
+               <font>
+                  <Font size="28.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="50.0" left="50.0" top="50.0" />
+               </HBox.margin>
+            </Button>
+            <Button maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="350.0" prefWidth="350.0" text="Shop Tower 3">
+               <font>
+                  <Font size="28.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="50.0" left="50.0" top="50.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <HBox prefHeight="350.0" prefWidth="1920.0" GridPane.rowIndex="2">
+         <children>
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="350.0" prefWidth="350.0" text="Shop Item 1">
+               <font>
+                  <Font size="28.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="50.0" left="400.0" top="50.0" />
+               </HBox.margin>
+            </Button>
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="350.0" prefWidth="350.0" text="Shop Item 2">
+               <font>
+                  <Font size="28.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="50.0" left="50.0" top="50.0" />
+               </HBox.margin>
+            </Button>
+            <Button maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="350.0" prefWidth="350.0" text="Shop Item 3">
+               <font>
+                  <Font size="28.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="50.0" left="50.0" top="50.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <Label style="-fx-font-weight: bold;" text="Shop" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+         <font>
+            <Font size="50.0" />
+         </font>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+      </Label>
+   </children>
+</GridPane>
