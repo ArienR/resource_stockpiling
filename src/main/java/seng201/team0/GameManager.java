@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.function.Consumer;
 
 public class GameManager {
-    private String name;
+    private String name; // Need to implement feature to check name length is between 3 - 15 characters
     private int numberOfRounds;
     private String gameDifficulty;
     private List<Tower> towerList;
