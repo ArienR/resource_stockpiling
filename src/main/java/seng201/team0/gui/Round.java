@@ -9,11 +9,12 @@ public class Round {
     private int produceCount;
     private int meatCount;
     private int dairyCount;
+    private int sizeOfCarts;
     private int roundDuration;
 
 
-//    Constructor for first round
-    public Round(int produceQuantity, int produceProductionRate) {
+//  Constructor for first round
+    public Round(int produceCount, int roundDuration, int sizeOfCarts) {
 
     }
 }

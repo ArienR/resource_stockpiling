@@ -87,7 +87,7 @@
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </GridPane.margin>
             </VBox>
-            <Button fx:id="selectOptionOneButton" mnemonicParsing="false" prefHeight="75.0" prefWidth="250.0" style="-fx-background-radius: 30px;" text="Select Option One" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
+            <Button fx:id="selectOptionOneButton" mnemonicParsing="false" prefHeight="75.0" prefWidth="250.0" style="-fx-background-radius: 10px;" text="Select Option One" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
                <font>
                   <Font size="20.0" />
                </font>
@@ -150,7 +150,7 @@
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </GridPane.margin>
             </VBox>
-            <Button fx:id="selectOptionTwoButton" mnemonicParsing="false" prefHeight="75.0" prefWidth="250.0" style="-fx-background-radius: 30px;" text="Select Option Two" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
+            <Button fx:id="selectOptionTwoButton" mnemonicParsing="false" prefHeight="75.0" prefWidth="250.0" style="-fx-background-radius: 10px;" text="Select Option Two" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
                <font>
                   <Font size="20.0" />
                </font>
@@ -210,7 +210,7 @@
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </GridPane.margin>
             </VBox>
-            <Button fx:id="selectOptionThreeButton" mnemonicParsing="false" prefHeight="75.0" prefWidth="250.0" style="-fx-background-radius: 30px;" text="Select Option Three" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
+            <Button fx:id="selectOptionThreeButton" mnemonicParsing="false" prefHeight="75.0" prefWidth="250.0" style="-fx-background-radius: 10px;" text="Select Option Three" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
                <font>
                   <Font size="20.0" />
                </font>
@@ -228,7 +228,7 @@
             </Button>
          </children>
       </GridPane>
-      <Label prefHeight="44.0" prefWidth="686.0" text="Select Round {currRound}/{maxRound}" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <Label prefHeight="45.0" prefWidth="554.0" text="Select Round {currRound}/{maxRound}" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
