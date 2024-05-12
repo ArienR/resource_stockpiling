@@ -6,18 +6,14 @@ public class Round {
 
     GameManager gameManager;
 
-    private int produceQuantity;
-    private int produceProductionRate;
-    private int meatQuantity;
-    private int meatProductionRate;
-    private int breadQuantity;
-    private int breadProductionRate;
-    private int dairyQuantity;
-    private int dairyProductionRate;
+    private int produceCount;
+    private int meatCount;
+    private int dairyCount;
+    private int roundDuration;
+
 
 //    Constructor for first round
     public Round(int produceQuantity, int produceProductionRate) {
-        this.produceQuantity = produceQuantity;
-        this.produceProductionRate = produceProductionRate;
+
     }
 }

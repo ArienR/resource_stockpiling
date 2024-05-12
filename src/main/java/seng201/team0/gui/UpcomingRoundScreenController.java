@@ -9,15 +9,21 @@ public class UpcomingRoundScreenController {
 
     private GameManager gameManager;
 
-    @FXML Label optionOneCartTypeLabel;
+    @FXML Label optionOneProduceCountLabel;
+    @FXML Label optionOneMeatCountLabel;
+    @FXML Label optionOneDairyCountLabel;
     @FXML Label optionOneCartSizeLabel;
-    @FXML Label optionOneNumberOfCartsLabel;
-    @FXML Label optionTwoCartTypeLabel;
+    @FXML Label optionOneCartSpeedLabel;
+    @FXML Label optionTwoProduceCountLabel;
+    @FXML Label optionTwoMeatCountLabel;
+    @FXML Label optionTwoDairyCountLabel;
     @FXML Label optionTwoCartSizeLabel;
-    @FXML Label optionTwoNumberOfCartsLabel;
-    @FXML Label optionThreeCartTypeLabel;
+    @FXML Label optionTwoCartSpeedLabel;
+    @FXML Label optionThreeProduceCountLabel;
+    @FXML Label optionThreeMeatCountLabel;
+    @FXML Label optionThreeDairyCountLabel;
     @FXML Label optionThreeCartSizeLabel;
-    @FXML Label optionThreeNumberOfCartsLabel;
+    @FXML Label optionThreeCartSpeedLabel;
     @FXML Button selectOptionOneButton;
     @FXML Button selectOptionTwoButton;
     @FXML Button selectOptionThreeButton;

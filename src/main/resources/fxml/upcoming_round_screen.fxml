@@ -9,13 +9,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane prefHeight="900.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng201.team0.gui.UpcomingRoundScreenController">
+<GridPane prefHeight="900.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng201.team0.gui.UpcomingRoundScreenController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints maxHeight="500.0" minHeight="10.0" prefHeight="934.1117553710938" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="934.1117553710938" minHeight="10.0" prefHeight="934.1117553710938" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="500.0" minHeight="10.0" prefHeight="181.3333282470703" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="934.1117553710938" minHeight="10.0" prefHeight="718.6666717529297" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
       <GridPane GridPane.rowIndex="1">
@@ -35,81 +35,114 @@
             <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
+            <VBox alignment="CENTER_LEFT" spacing="30.0" style="-fx-border-color: black; -fx-border-width: 2px; -fx-border-style: solid; -fx-padding: 10px; -fx-border-radius: 10px; -fx-background-color: #E5E4E2;" GridPane.columnIndex="1" GridPane.rowSpan="4">
+               <children>
+                  <Label alignment="CENTER" prefHeight="44.0" prefWidth="559.0" style="-fx-font-weight: bold;" text="Option One">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="optionOneCartTypeLabel" text="Produce: 0x">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="optionOneCartSizeLabel" text="Meat: 0x">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="optionOneNumberOfCartsLabel" text="Dairy: 0x">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Size of Carts: 0kg">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Speed of Carts: 0km/h">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+               <GridPane.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </GridPane.margin>
+            </VBox>
             <Button fx:id="selectOptionOneButton" mnemonicParsing="false" prefHeight="75.0" prefWidth="250.0" style="-fx-background-radius: 30px;" text="Select Option One" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
                <font>
-                  <Font size="25.0" />
+                  <Font size="20.0" />
                </font>
                <GridPane.margin>
                   <Insets top="10.0" />
                </GridPane.margin>
             </Button>
-            <VBox alignment="CENTER" spacing="50.0" style="-fx-border-color: black; -fx-border-width: 2px; -fx-border-style: solid; -fx-padding: 10px; -fx-border-radius: 10px; -fx-background-color: #E5E4E2;" GridPane.columnIndex="1" GridPane.rowSpan="4">
+            <VBox alignment="CENTER_LEFT" spacing="30.0" style="-fx-border-color: black; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-border-style: solid; -fx-padding: 10px; -fx-background-color: #E5E4E2;" GridPane.columnIndex="2" GridPane.rowSpan="4">
                <children>
-                  <Label alignment="TOP_LEFT" style="-fx-font-weight: bold;" text="Option One">
+                  <Label alignment="TOP_CENTER" prefHeight="44.0" prefWidth="244.0" style="-fx-font-weight: bold;" text="Option Two">
                      <font>
-                        <Font size="35.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="optionOneCartTypeLabel" text="Type of carts:">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="optionOneCartSizeLabel" text="Size of carts:">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="optionOneNumberOfCartsLabel" text="Number of carts:">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Label>
-               </children>
-               <GridPane.margin>
-                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-               </GridPane.margin>
-            </VBox>
-            <Button fx:id="selectOptionTwoButton" mnemonicParsing="false" prefHeight="75.0" prefWidth="350.0" style="-fx-background-radius: 30px;" text="Select Option Two" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
-               <font>
-                  <Font size="25.0" />
-               </font>
-               <GridPane.margin>
-                  <Insets top="10.0" />
-               </GridPane.margin>
-            </Button>
-            <VBox alignment="CENTER" spacing="50.0" style="-fx-border-color: black; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-border-style: solid; -fx-padding: 10px; -fx-background-color: #E5E4E2;" GridPane.columnIndex="2" GridPane.rowSpan="4">
-               <children>
-                  <Label alignment="TOP_LEFT" style="-fx-font-weight: bold;" text="Option Two">
-                     <font>
-                        <Font size="35.0" />
+                        <Font size="30.0" />
                      </font>
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="optionTwoCartTypeLabel" text="Type of carts:">
+                  <Label fx:id="optionOneCartTypeLabel1" text="Produce: 0x">
                      <font>
-                        <Font size="25.0" />
+                        <Font size="18.0" />
                      </font>
                      <VBox.margin>
-                        <Insets />
+                        <Insets left="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="optionTwoCartSizeLabel" text="Size of carts:">
+                  <Label fx:id="optionOneCartSizeLabel1" text="Meat: 0x">
                      <font>
-                        <Font size="25.0" />
+                        <Font size="18.0" />
                      </font>
                      <VBox.margin>
-                        <Insets />
+                        <Insets left="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="optionTwoNumberOfCartsLabel" text="Number of carts:">
+                  <Label fx:id="optionOneNumberOfCartsLabel1" text="Dairy: 0x">
                      <font>
-                        <Font size="25.0" />
+                        <Font size="18.0" />
                      </font>
                      <VBox.margin>
-                        <Insets />
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Size of Carts: 0kg">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Speed of Carts: 0km/h">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" />
                      </VBox.margin>
                   </Label>
                </children>
@@ -117,44 +150,77 @@
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </GridPane.margin>
             </VBox>
-            <VBox alignment="CENTER" spacing="50.0" style="-fx-border-color: black; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-border-style: solid; -fx-padding: 10px; -fx-background-color: #E5E4E2;" GridPane.columnIndex="3" GridPane.rowSpan="4">
+            <Button fx:id="selectOptionTwoButton" mnemonicParsing="false" prefHeight="75.0" prefWidth="250.0" style="-fx-background-radius: 30px;" text="Select Option Two" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets top="10.0" />
+               </GridPane.margin>
+            </Button>
+            <VBox alignment="CENTER_LEFT" spacing="30.0" style="-fx-border-color: black; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-border-style: solid; -fx-padding: 10px; -fx-background-color: #E5E4E2;" GridPane.columnIndex="3" GridPane.rowSpan="4">
                <children>
-                  <Label alignment="TOP_LEFT" style="-fx-font-weight: bold;" text="Option Three">
+                  <Label alignment="TOP_CENTER" prefHeight="44.0" prefWidth="250.0" style="-fx-font-weight: bold;" text="Option Three">
                      <font>
-                        <Font size="35.0" />
+                        <Font size="30.0" />
                      </font>
                   </Label>
-                  <Label fx:id="optionThreeCartTypeLabel" text="Type of carts:">
+                  <Label fx:id="optionOneCartTypeLabel2" text="Produce: 0x">
                      <font>
-                        <Font size="25.0" />
+                        <Font size="18.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
                   </Label>
-                  <Label fx:id="optionThreeCartSizeLabel" text="Size of carts:">
+                  <Label fx:id="optionOneCartSizeLabel2" text="Meat: 0x">
                      <font>
-                        <Font size="25.0" />
+                        <Font size="18.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
                   </Label>
-                  <Label fx:id="optionThreeNumberOfCartsLabel" text="Number of carts:">
+                  <Label fx:id="optionOneNumberOfCartsLabel2" text="Dairy: 0x">
                      <font>
-                        <Font size="25.0" />
+                        <Font size="18.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Size of Carts: 0kg">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Speed of Carts: 0km/h">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
                   </Label>
                </children>
                <GridPane.margin>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </GridPane.margin>
             </VBox>
-            <Button fx:id="selectOptionThreeButton" mnemonicParsing="false" prefHeight="75.0" prefWidth="350.0" style="-fx-background-radius: 30px;" text="Select Option Three" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
+            <Button fx:id="selectOptionThreeButton" mnemonicParsing="false" prefHeight="75.0" prefWidth="250.0" style="-fx-background-radius: 30px;" text="Select Option Three" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
                <font>
-                  <Font size="25.0" />
+                  <Font size="20.0" />
                </font>
                <GridPane.margin>
                   <Insets top="10.0" />
                </GridPane.margin>
             </Button>
-            <Button fx:id="upcomingRoundContinueButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#continueToInventoryAction" prefHeight="70.0" prefWidth="250.0" style="-fx-background-radius: 20px;" text="Continue" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP">
+            <Button fx:id="upcomingRoundContinueButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#continueToInventoryAction" prefHeight="60.0" prefWidth="200.0" style="-fx-background-radius: 10px;" text="Continue" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP">
                <font>
-                  <Font size="25.0" />
+                  <Font size="20.0" />
                </font>
                <GridPane.margin>
                   <Insets top="30.0" />
@@ -162,5 +228,10 @@
             </Button>
          </children>
       </GridPane>
+      <Label prefHeight="44.0" prefWidth="686.0" text="Select Round {currRound}/{maxRound}" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
    </children>
 </GridPane>
