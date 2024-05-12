@@ -10,8 +10,8 @@ public class GameManager {
     private String name;
     private int numberOfRounds;
     private String gameDifficulty;
-    private List<Tower> rocketList;
-    private final List<Tower> defaultRockets = new ArrayList<>();
+    private List<Tower> towerList;
+//    private final List<Tower> defaultRockets = new ArrayList<>();
     private final Consumer<GameManager> setupScreenLauncher;
     private final Consumer<GameManager> upcomingRoundScreenLauncher;
     private final Consumer<GameManager> inventoryScreenLauncher;
