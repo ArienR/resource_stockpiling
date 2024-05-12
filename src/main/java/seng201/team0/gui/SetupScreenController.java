@@ -19,6 +19,7 @@ public class SetupScreenController {
     @FXML private Button hardDifficultyButton;
     @FXML private Label selectedDiffucltyLabel;
     @FXML private Button startGameButton;
+    @FXML private Label startErrorLabel;
 
     private String gameDifficulty;
 
@@ -60,10 +61,15 @@ public class SetupScreenController {
 
     @FXML
     private void startGameAction() {
-        gameManager.setName(nameInputTextField.getText());
-        gameManager.setNumberOfRounds((int) numberOfRoundsSlider.getValue());
-        gameManager.setGameDifficulty(gameDifficulty);
-        gameManager.launchUpcomingRoundScreen();
-        gameManager.closeSetupScreen();
+        String playerName = nameInputTextField.getText();
+        if (playerName.length() > 15 || playerName.length() < 3){
+            startErrorLabel.setText("Please enter a name between 3 and 15 characters");
+        } else {
+            gameManager.setName(nameInputTextField.getText());
+            gameManager.setNumberOfRounds((int) numberOfRoundsSlider.getValue());
+            gameManager.setGameDifficulty(gameDifficulty);
+            gameManager.launchUpcomingRoundScreen();
+            gameManager.closeSetupScreen();
+        }
     }
 }

@@ -50,7 +50,7 @@
                         <Font size="35.0" />
                      </font>
                   </Label>
-                  <Label fx:id="optionOneCartTypeLabel" text="Type of carts:">
+                  <Label fx:id="optionOneCartTypeLabel" text="Produce: 1x">
                      <font>
                         <Font size="25.0" />
                      </font>
