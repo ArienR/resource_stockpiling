@@ -9,23 +9,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng201.team0.gui.UpcomingRoundScreenController">
+<GridPane prefHeight="900.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng201.team0.gui.UpcomingRoundScreenController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints maxHeight="280.0" minHeight="10.0" prefHeight="145.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="934.1117553710938" minHeight="10.0" prefHeight="934.1117553710938" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="500.0" minHeight="10.0" prefHeight="934.1117553710938" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="934.1117553710938" minHeight="10.0" prefHeight="934.1117553710938" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label alignment="TOP_LEFT" text="Select upcoming round" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
-         <font>
-            <Font name="System Bold" size="40.0" />
-         </font>
-         <GridPane.margin>
-            <Insets bottom="30.0" />
-         </GridPane.margin>
-      </Label>
       <GridPane GridPane.rowIndex="1">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="300.0" />
@@ -35,15 +27,15 @@
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="300.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="150.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="150.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="150.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="150.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="120.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="selectOptionOneButton" mnemonicParsing="false" prefHeight="100.0" prefWidth="350.0" style="-fx-background-radius: 30px;" text="Select Option One" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
+            <Button fx:id="selectOptionOneButton" mnemonicParsing="false" prefHeight="75.0" prefWidth="250.0" style="-fx-background-radius: 30px;" text="Select Option One" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
                <font>
                   <Font size="25.0" />
                </font>
@@ -51,7 +43,7 @@
                   <Insets top="10.0" />
                </GridPane.margin>
             </Button>
-            <VBox alignment="CENTER" spacing="100.0" style="-fx-border-color: black; -fx-border-width: 2px; -fx-border-style: solid; -fx-padding: 10px; -fx-border-radius: 10px; -fx-background-color: #E5E4E2;" GridPane.columnIndex="1" GridPane.rowSpan="4">
+            <VBox alignment="CENTER" spacing="50.0" style="-fx-border-color: black; -fx-border-width: 2px; -fx-border-style: solid; -fx-padding: 10px; -fx-border-radius: 10px; -fx-background-color: #E5E4E2;" GridPane.columnIndex="1" GridPane.rowSpan="4">
                <children>
                   <Label alignment="TOP_LEFT" style="-fx-font-weight: bold;" text="Option One">
                      <font>
@@ -78,7 +70,7 @@
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </GridPane.margin>
             </VBox>
-            <Button fx:id="selectOptionTwoButton" mnemonicParsing="false" prefHeight="100.0" prefWidth="350.0" style="-fx-background-radius: 30px;" text="Select Option Two" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
+            <Button fx:id="selectOptionTwoButton" mnemonicParsing="false" prefHeight="75.0" prefWidth="350.0" style="-fx-background-radius: 30px;" text="Select Option Two" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
                <font>
                   <Font size="25.0" />
                </font>
@@ -86,7 +78,7 @@
                   <Insets top="10.0" />
                </GridPane.margin>
             </Button>
-            <VBox alignment="CENTER" spacing="100.0" style="-fx-border-color: black; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-border-style: solid; -fx-padding: 10px; -fx-background-color: #E5E4E2;" GridPane.columnIndex="2" GridPane.rowSpan="4">
+            <VBox alignment="CENTER" spacing="50.0" style="-fx-border-color: black; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-border-style: solid; -fx-padding: 10px; -fx-background-color: #E5E4E2;" GridPane.columnIndex="2" GridPane.rowSpan="4">
                <children>
                   <Label alignment="TOP_LEFT" style="-fx-font-weight: bold;" text="Option Two">
                      <font>
@@ -125,7 +117,7 @@
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </GridPane.margin>
             </VBox>
-            <VBox alignment="CENTER" spacing="100.0" style="-fx-border-color: black; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-border-style: solid; -fx-padding: 10px; -fx-background-color: #E5E4E2;" GridPane.columnIndex="3" GridPane.rowSpan="4">
+            <VBox alignment="CENTER" spacing="50.0" style="-fx-border-color: black; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-border-style: solid; -fx-padding: 10px; -fx-background-color: #E5E4E2;" GridPane.columnIndex="3" GridPane.rowSpan="4">
                <children>
                   <Label alignment="TOP_LEFT" style="-fx-font-weight: bold;" text="Option Three">
                      <font>
@@ -152,7 +144,7 @@
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </GridPane.margin>
             </VBox>
-            <Button fx:id="selectOptionThreeButton" mnemonicParsing="false" prefHeight="100.0" prefWidth="350.0" style="-fx-background-radius: 30px;" text="Select Option Three" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
+            <Button fx:id="selectOptionThreeButton" mnemonicParsing="false" prefHeight="75.0" prefWidth="350.0" style="-fx-background-radius: 30px;" text="Select Option Three" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
                <font>
                   <Font size="25.0" />
                </font>

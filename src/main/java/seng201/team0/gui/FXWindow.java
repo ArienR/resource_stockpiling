@@ -44,9 +44,10 @@ public class FXWindow extends Application {
         launch(args);
     }
 
-    public void setMaximized(boolean maximized) {
+    public void setMaximized() {
         if (primaryStage != null) {
-            primaryStage.setMaximized(maximized);
+            primaryStage.setWidth(1440);
+            primaryStage.setHeight(900);
         }
     }
 
