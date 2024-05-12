@@ -34,7 +34,7 @@ public class UpcomingRoundScreenController {
     }
 
     public void initialize() {
-        FXWindow.getInstance().setMaximized();
+
     }
 
     @FXML

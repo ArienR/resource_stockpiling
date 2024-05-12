@@ -1,5 +1,6 @@
 package seng201.team0;
 
+import seng201.team0.gui.FXWindow;
 import seng201.team0.gui.Tower;
 
 import java.util.ArrayList;
@@ -60,6 +61,7 @@ public class GameManager {
 
     public void closeSetupScreen() {
         clearScreen.run();
+        FXWindow.getInstance().setScreenSize(1440, 900);
         launchUpcomingRoundScreen();
     }
 

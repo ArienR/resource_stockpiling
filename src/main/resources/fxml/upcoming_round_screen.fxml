@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane prefHeight="900.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng201.team0.gui.UpcomingRoundScreenController">
+<GridPane prefHeight="900.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng201.team0.gui.UpcomingRoundScreenController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -42,7 +42,7 @@
                         <Font size="30.0" />
                      </font>
                   </Label>
-                  <Label fx:id="optionOneCartTypeLabel" text="Produce: 0x">
+                  <Label fx:id="optionOneProduceCountLabel" text="Produce: 0x">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -50,7 +50,7 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="optionOneCartSizeLabel" text="Meat: 0x">
+                  <Label fx:id="optionOneMeatCountLabel" text="Meat: 0x">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -58,7 +58,7 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="optionOneNumberOfCartsLabel" text="Dairy: 0x">
+                  <Label fx:id="optionOneDairyCountLabel" text="Dairy: 0x">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -66,7 +66,7 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label text="Size of Carts: 0kg">
+                  <Label fx:id="optionOneCartSizeLabel" text="Size of Carts: 0kg">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -74,7 +74,7 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label text="Speed of Carts: 0km/h">
+                  <Label fx:id="optionOneCartSpeedLabel" text="Speed of Carts: 0km/h">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -105,7 +105,7 @@
                         <Insets />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="optionOneCartTypeLabel1" text="Produce: 0x">
+                  <Label fx:id="optionTwoProduceCountLabel" text="Produce: 0x">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -113,7 +113,7 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="optionOneCartSizeLabel1" text="Meat: 0x">
+                  <Label fx:id="optionTwoMeatCountLabel" text="Meat: 0x">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -121,7 +121,7 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="optionOneNumberOfCartsLabel1" text="Dairy: 0x">
+                  <Label fx:id="optionTwoDairyCountLabel" text="Dairy: 0x">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -129,7 +129,7 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label text="Size of Carts: 0kg">
+                  <Label fx:id="optionTwoCartSizeLabel" text="Size of Carts: 0kg">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -137,7 +137,7 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label text="Speed of Carts: 0km/h">
+                  <Label fx:id="optionTwoCartSpeedLabel" text="Speed of Carts: 0km/h">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -165,7 +165,7 @@
                         <Font size="30.0" />
                      </font>
                   </Label>
-                  <Label fx:id="optionOneCartTypeLabel2" text="Produce: 0x">
+                  <Label fx:id="optionThreeProduceCountLabel" text="Produce: 0x">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -173,7 +173,7 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="optionOneCartSizeLabel2" text="Meat: 0x">
+                  <Label fx:id="optionThreeMeatCountLabel" text="Meat: 0x">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -181,7 +181,7 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="optionOneNumberOfCartsLabel2" text="Dairy: 0x">
+                  <Label fx:id="optionThreeDairyCountLabel" text="Dairy: 0x">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -189,7 +189,7 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label text="Size of Carts: 0kg">
+                  <Label fx:id="optionThreeCartSizeLabel" text="Size of Carts: 0kg">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -197,7 +197,7 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label text="Speed of Carts: 0km/h">
+                  <Label fx:id="optionThreeCartSpeedLabel" text="Speed of Carts: 0km/h">
                      <font>
                         <Font size="18.0" />
                      </font>
