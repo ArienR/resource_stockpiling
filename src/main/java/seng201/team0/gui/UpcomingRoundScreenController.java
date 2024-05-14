@@ -1,9 +1,9 @@
 package seng201.team0.gui;
 
 import javafx.fxml.FXML;
-import javafx.stage.Stage;
 import javafx.scene.control.*;
 import seng201.team0.GameManager;
+import seng201.team0.models.Round;
 
 import java.util.*;
 
@@ -38,9 +38,9 @@ public class UpcomingRoundScreenController {
 
     public UpcomingRoundScreenController(GameManager tempGameManager) {
         this.gameManager = tempGameManager;
-        this.optionOneRound = new Round(3, 3, 3); // Values are placeholders for now
-        this.optionTwoRound = new Round(3, 3, 3); // Values are placeholders for now
-        this.optionThreeRound = new Round(3, 3, 3); // Values are placeholders for now
+        this.optionOneRound = new Round(3, 3, 3, 3); // Values are placeholders for now
+        this.optionTwoRound = new Round(3, 3, 3, 3); // Values are placeholders for now
+        this.optionThreeRound = new Round(3, 3, 3, 3); // Values are placeholders for now
     }
 
     public void initialize() {

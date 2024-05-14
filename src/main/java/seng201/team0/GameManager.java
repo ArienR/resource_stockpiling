@@ -1,9 +1,8 @@
 package seng201.team0;
 
 import seng201.team0.gui.FXWindow;
-import seng201.team0.gui.Tower;
+import seng201.team0.models.Tower;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 

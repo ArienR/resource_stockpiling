@@ -1,4 +1,4 @@
-package seng201.team0.gui;
+package seng201.team0.models;
 
 import seng201.team0.GameManager;
 
@@ -10,11 +10,11 @@ public class Round {
     private int meatCount;
     private int dairyCount;
     private int sizeOfCarts;
-    private int roundDuration;
+    private int cartSpeed;
 
 
 //  Constructor for first round
-    public Round(int produceCount, int roundDuration, int sizeOfCarts) {
+    public Round(int produceCount, int roundDuration, int sizeOfCarts, int cartSpeed) {
 
     }
 }
