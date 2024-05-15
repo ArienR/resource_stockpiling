@@ -10,36 +10,36 @@ public class InventoryScreenController {
     @FXML
     private Label inventoryMessageLabel;
     @FXML
-    private Button inventoryTower1Button;
+    private Button inventoryTowerOneButton;
     @FXML
-    private Button inventoryTower2Button;
+    private Button inventoryTowerTwoButton;
     @FXML
-    private Button inventoryTower3Button;
+    private Button inventoryTowerThreeButton;
     @FXML
-    private Button inventoryTower4Button;
+    private Button inventoryTowerFourButton;
     @FXML
-    private Button inventoryTower5Button;
+    private Button inventoryTowerFiveButton;
     @FXML
-    private Button inventoryTower6Button;
+    private Button inventoryTowerSixButton;
 
     @FXML
-    private Button inventoryTower7Button;
+    private Button inventoryTowerSevenButton;
     @FXML
-    private Button inventoryTower8Button;
+    private Button inventoryTowerEightButton;
     @FXML
-    private Label inventorySelectedTowerType;
+    private Label inventorySelectedTowerTypeLabel;
     @FXML
-    private Label inventorySelectedTowerCollectionAmount;
+    private Label inventorySelectedTowerCollectionAmountLabel;
     @FXML
-    private Label inventorySelectedTowerCollectionSpeed;
+    private Label inventorySelectedTowerCollectionSpeedLabel;
     @FXML
-    private Button inventoryItem1Button, inventoryItem2Button, inventoryItem3Button, inventoryItem4Button;
+    private Button inventoryItemOneButton, inventoryItemTwoButton, inventoryItemThreeButton, inventoryItemFourButton;
     @FXML
-    private Button inventorySelectedTower1, inventorySelectedTower2, inventorySelectedTower3, inventorySelectedTower4, inventorySelectedTower5;
+    private Button inventorySelectedTowerOneButton, inventorySelectedTowerTwoButton, inventorySelectedTowerThreeButton, inventorySelectedTowerFourButton, inventorySelectedTowerFiveButton;
     @FXML
-    private Button inventorySelectedItem1, inventorySelectedItem2;
+    private Button inventorySelectedItemOneButton, inventorySelectedItemTwoButton;
     @FXML
-    private Label inventorySelectedItemNameLabel, inventorySelectedItemType, inventorySelectedItemStat;
+    private Label inventorySelectedItemNameLabel, inventorySelectedItemTypeLabel, inventorySelectedItemStatLabel;
     @FXML
     private Button inventoryStartButton, inventoryShopButton, inventorySellButton;
 
