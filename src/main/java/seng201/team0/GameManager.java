@@ -14,14 +14,18 @@ public class GameManager {
     private final Consumer<GameManager> setupScreenLauncher;
     private final Consumer<GameManager> upcomingRoundScreenLauncher;
     private final Consumer<GameManager> inventoryScreenLauncher;
+    private final Consumer<GameManager> sellShopScreenLauncher;
 
     private final Runnable clearScreen;
 
-    public GameManager(Player player, Consumer<GameManager> setupScreenLauncher, Consumer<GameManager> upcomingRoundScreenLauncher, Consumer<GameManager> inventoryScreenLauncher, Runnable clearScreen) {
+    public GameManager(Player player, Consumer<GameManager> setupScreenLauncher, Consumer<GameManager> upcomingRoundScreenLauncher,
+                       Consumer<GameManager> inventoryScreenLauncher, Consumer<GameManager> sellShopScreenLauncher,
+                       Runnable clearScreen) {
         this.player = player;
         this.setupScreenLauncher = setupScreenLauncher;
         this.upcomingRoundScreenLauncher = upcomingRoundScreenLauncher;
         this.inventoryScreenLauncher = inventoryScreenLauncher;
+        this.sellShopScreenLauncher = sellShopScreenLauncher;
 
         this.clearScreen = clearScreen;
 //        defaultRockets.addAll(List.of(new Rocket("Space Shuttle"), new Rocket("Falcon 9"),
@@ -86,6 +90,14 @@ public class GameManager {
     }
 
     public void closeInventoryScreen() {
+        clearScreen.run();
+    }
+
+    public void launchSellShopScreen() {
+        sellShopScreenLauncher.accept(this);
+    }
+
+    public void closeSellShopScreen() {
         clearScreen.run();
     }
 

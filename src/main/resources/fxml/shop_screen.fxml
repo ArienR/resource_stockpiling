@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng201.team0.gui.ShopScreenController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng201.team0.gui.ShopScreenController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -28,7 +28,7 @@
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="backToIntventoryButton" mnemonicParsing="false" prefHeight="84.0" prefWidth="345.0" style="-fx-background-radius: 20;" text="Back to Inventory">
+            <Button fx:id="backToInventoryButton" mnemonicParsing="false" prefHeight="84.0" prefWidth="345.0" style="-fx-background-radius: 20;" text="Back to Inventory">
                <font>
                   <Font size="20.0" />
                </font>

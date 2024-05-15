@@ -43,7 +43,7 @@
                   <Insets bottom="30.0" left="150.0" top="30.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="goToInventoryButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Go back">
+            <Button fx:id="goToInventoryButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goToInventory" style="-fx-background-radius: 20;" text="Go back">
                <font>
                   <Font size="25.0" />
                </font>
