@@ -14,6 +14,7 @@
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="1277.0" minWidth="10.0" prefWidth="1176.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="825.0000244140624" minWidth="10.0" prefWidth="744.0" />
+      <ColumnConstraints />
   </columnConstraints>
   <rowConstraints>
     <RowConstraints maxHeight="689.800016784668" minHeight="10.0" prefHeight="92.0" vgrow="SOMETIMES" />
@@ -26,7 +27,7 @@
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="5">
          <children>
-            <Label alignment="CENTER" prefHeight="56.0" prefWidth="397.0" style="-fx-font-weight: bold;" text="Sell price: {$0000.00}">
+            <Label fx:id="sellPriceSelectedObjectButton" alignment="CENTER" prefHeight="56.0" prefWidth="397.0" style="-fx-font-weight: bold;" text="Sell price: {$0000.00}">
                <font>
                   <Font size="30.0" />
                </font>
@@ -34,7 +35,7 @@
                   <Insets bottom="20.0" left="150.0" top="30.0" />
                </HBox.margin>
             </Label>
-            <Button alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Sell towers &amp; items">
+            <Button fx:id="sellSelectedObjectButton" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Sell towers &amp; items">
                <font>
                   <Font size="25.0" />
                </font>
@@ -42,7 +43,7 @@
                   <Insets bottom="30.0" left="150.0" top="30.0" />
                </HBox.margin>
             </Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Go back">
+            <Button fx:id="goToInventoryButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Go back">
                <font>
                   <Font size="25.0" />
                </font>
@@ -64,7 +65,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Tower 1">
+            <Button fx:id="sellTower1Button" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Tower 1">
                <font>
                   <Font size="25.0" />
                </font>
@@ -72,7 +73,7 @@
                   <Insets bottom="20.0" left="40.0" right="20.0" top="20.0" />
                </GridPane.margin>
             </Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Tower 5" GridPane.rowIndex="1">
+            <Button fx:id="sellTower5Button" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Tower 5" GridPane.rowIndex="1">
                <font>
                   <Font size="25.0" />
                </font>
@@ -80,7 +81,7 @@
                   <Insets bottom="20.0" left="40.0" right="20.0" top="20.0" />
                </GridPane.margin>
             </Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Tower 2" GridPane.columnIndex="1">
+            <Button fx:id="sellTower2Button" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Tower 2" GridPane.columnIndex="1">
                <font>
                   <Font size="25.0" />
                </font>
@@ -88,7 +89,7 @@
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </GridPane.margin>
             </Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Tower 6" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button fx:id="sellTower6Button" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Tower 6" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="25.0" />
                </font>
@@ -96,7 +97,7 @@
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </GridPane.margin>
             </Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Tower 3" GridPane.columnIndex="2">
+            <Button fx:id="sellTower3Button" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Tower 3" GridPane.columnIndex="2">
                <font>
                   <Font size="25.0" />
                </font>
@@ -104,7 +105,7 @@
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </GridPane.margin>
             </Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Tower 7" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Button fx:id="sellTower7Button" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Tower 7" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font size="25.0" />
                </font>
@@ -112,7 +113,7 @@
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </GridPane.margin>
             </Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Tower 4" GridPane.columnIndex="3">
+            <Button fx:id="sellTower4Button" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Tower 4" GridPane.columnIndex="3">
                <font>
                   <Font size="25.0" />
                </font>
@@ -120,7 +121,7 @@
                   <Insets bottom="20.0" left="20.0" right="40.0" top="20.0" />
                </GridPane.margin>
             </Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Tower 8" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <Button fx:id="sellTower8Button" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Tower 8" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <font>
                   <Font size="25.0" />
                </font>
@@ -139,17 +140,17 @@
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label text="Type">
+                  <Label fx:id="selectedTowerTypeLabel" text="Type">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label text="Collection Amount">
+                  <Label fx:id="selectedTowerCollectionAmountLabel" text="Collection Amount">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label text="Collection Speed">
+                  <Label fx:id="selectedTowerCollectionSpeedLabel" text="Collection Speed">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -173,7 +174,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Item 1">
+            <Button fx:id="sellItem1Button" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Item 1">
                <font>
                   <Font size="25.0" />
                </font>
@@ -181,7 +182,7 @@
                   <Insets bottom="20.0" left="40.0" right="20.0" top="20.0" />
                </GridPane.margin>
             </Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Item 2" GridPane.columnIndex="1">
+            <Button fx:id="sellItem2Button" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Item 2" GridPane.columnIndex="1">
                <font>
                   <Font size="25.0" />
                </font>
@@ -189,7 +190,7 @@
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </GridPane.margin>
             </Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Item 3" GridPane.columnIndex="2">
+            <Button fx:id="sellItem3Button" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Item 3" GridPane.columnIndex="2">
                <font>
                   <Font size="25.0" />
                </font>
@@ -197,7 +198,7 @@
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </GridPane.margin>
             </Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Item 4" GridPane.columnIndex="3">
+            <Button fx:id="sellItem4Button" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Item 4" GridPane.columnIndex="3">
                <font>
                   <Font size="25.0" />
                </font>
