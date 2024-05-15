@@ -9,7 +9,6 @@ public class InventoryScreenController {
     //attributes
     @FXML
     private Label inventoryMessageLabel;
-
     @FXML
     private Button inventoryTower1Button;
     @FXML
