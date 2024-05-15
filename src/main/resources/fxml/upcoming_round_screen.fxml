@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane prefHeight="900.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng201.team0.gui.UpcomingRoundScreenController">
+<GridPane prefHeight="900.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng201.team0.gui.UpcomingRoundScreenController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -42,7 +42,7 @@
                         <Font size="30.0" />
                      </font>
                   </Label>
-                  <Label fx:id="optionOneProduceCountLabel" text="Produce: 0x">
+                  <Label fx:id="option1ProduceCountLabel" text="Produce: 0x">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -50,7 +50,7 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="optionOneMeatCountLabel" text="Meat: 0x">
+                  <Label fx:id="option1MeatCountLabel" text="Meat: 0x">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -58,7 +58,7 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="optionOneDairyCountLabel" text="Dairy: 0x">
+                  <Label fx:id="option1DairyCountLabel" text="Dairy: 0x">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -66,7 +66,7 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="optionOneCartSpeedLabel" text="Cart Speed +0%">
+                  <Label fx:id="option1CartSpeedLabel" text="Cart Speed +0%">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -79,7 +79,7 @@
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </GridPane.margin>
             </VBox>
-            <Button fx:id="selectOptionOneButton" mnemonicParsing="false" prefHeight="75.0" prefWidth="250.0" style="-fx-background-radius: 10px;" text="Select Option One" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
+            <Button fx:id="selectOption1Button" mnemonicParsing="false" prefHeight="75.0" prefWidth="250.0" style="-fx-background-radius: 10px;" text="Select Option One" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
                <font>
                   <Font size="20.0" />
                </font>
@@ -97,7 +97,7 @@
                         <Insets />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="optionTwoProduceCountLabel" text="Produce: 0x">
+                  <Label fx:id="option2ProduceCountLabel" text="Produce: 0x">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -105,7 +105,7 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="optionTwoMeatCountLabel" text="Meat: 0x">
+                  <Label fx:id="option2MeatCountLabel" text="Meat: 0x">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -113,7 +113,7 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="optionTwoDairyCountLabel" text="Dairy: 0x">
+                  <Label fx:id="option2DairyCountLabel" text="Dairy: 0x">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -121,7 +121,7 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="optionTwoCartSpeedLabel" text="Cart Speed +0%">
+                  <Label fx:id="option2CartSpeedLabel" text="Cart Speed +0%">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -134,7 +134,7 @@
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </GridPane.margin>
             </VBox>
-            <Button fx:id="selectOptionTwoButton" mnemonicParsing="false" prefHeight="75.0" prefWidth="250.0" style="-fx-background-radius: 10px;" text="Select Option Two" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
+            <Button fx:id="selectOption2Button" mnemonicParsing="false" prefHeight="75.0" prefWidth="250.0" style="-fx-background-radius: 10px;" text="Select Option Two" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
                <font>
                   <Font size="20.0" />
                </font>
@@ -149,7 +149,7 @@
                         <Font size="30.0" />
                      </font>
                   </Label>
-                  <Label fx:id="optionThreeProduceCountLabel" text="Produce: 0x">
+                  <Label fx:id="option3ProduceCountLabel" text="Produce: 0x">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -157,7 +157,7 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="optionThreeMeatCountLabel" text="Meat: 0x">
+                  <Label fx:id="option3MeatCountLabel" text="Meat: 0x">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -165,7 +165,7 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="optionThreeDairyCountLabel" text="Dairy: 0x">
+                  <Label fx:id="option3DairyCountLabel" text="Dairy: 0x">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -173,7 +173,7 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="optionThreeCartSpeedLabel" text="Cart Speed +0%">
+                  <Label fx:id="option3CartSpeedLabel" text="Cart Speed +0%">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -186,7 +186,7 @@
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </GridPane.margin>
             </VBox>
-            <Button fx:id="selectOptionThreeButton" mnemonicParsing="false" prefHeight="75.0" prefWidth="250.0" style="-fx-background-radius: 10px;" text="Select Option Three" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
+            <Button fx:id="selectOption3Button" mnemonicParsing="false" prefHeight="75.0" prefWidth="250.0" style="-fx-background-radius: 10px;" text="Select Option Three" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
                <font>
                   <Font size="20.0" />
                </font>
@@ -204,7 +204,7 @@
             </Button>
          </children>
       </GridPane>
-      <Label prefHeight="45.0" prefWidth="686.0" text="Select Round {currRound}/{maxRound}" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <Label fx:id="roundSelectTitleLabel" prefHeight="45.0" prefWidth="556.0" text="Select Round {currRound}/{maxRound}" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
