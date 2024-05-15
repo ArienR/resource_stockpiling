@@ -38,14 +38,17 @@ public class InventoryScreenController {
     public void initialize() {
         // Set inventory message to player's name
         inventoryMessageLabel.setText(String.format("Select your Towers and Upgrades for the next round, %s.", gameManager.getPlayer().getName()));
+
+        inventorySellButton.setOnAction(event -> goToSellShop());
     }
 
     public void goToSellShop() {
         gameManager.launchSellShopScreen();
-        gameManager.closeInventoryScreen();
+        gameManager.inventoryScreenToSellScreen();
     }
 
     public void goToBuyShop() {
-        System.out.println("Buy Shop Here"); // Placeholder for buy shop screen
+        gameManager.launchSellShopScreen();
+        gameManager.inventoryScreenToBuyScreen();
     }
 }

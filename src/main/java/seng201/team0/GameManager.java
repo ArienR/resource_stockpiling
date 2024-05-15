@@ -15,17 +15,19 @@ public class GameManager {
     private final Consumer<GameManager> upcomingRoundScreenLauncher;
     private final Consumer<GameManager> inventoryScreenLauncher;
     private final Consumer<GameManager> sellShopScreenLauncher;
+    private final Consumer<GameManager> buyShopScreenLauncher;
 
     private final Runnable clearScreen;
 
     public GameManager(Player player, Consumer<GameManager> setupScreenLauncher, Consumer<GameManager> upcomingRoundScreenLauncher,
-                       Consumer<GameManager> inventoryScreenLauncher, Consumer<GameManager> sellShopScreenLauncher,
+                       Consumer<GameManager> inventoryScreenLauncher, Consumer<GameManager> sellShopScreenLauncher, Consumer<GameManager> buyShopScreenLauncher,
                        Runnable clearScreen) {
         this.player = player;
         this.setupScreenLauncher = setupScreenLauncher;
         this.upcomingRoundScreenLauncher = upcomingRoundScreenLauncher;
         this.inventoryScreenLauncher = inventoryScreenLauncher;
         this.sellShopScreenLauncher = sellShopScreenLauncher;
+        this.buyShopScreenLauncher = buyShopScreenLauncher;
 
         this.clearScreen = clearScreen;
 //        defaultRockets.addAll(List.of(new Rocket("Space Shuttle"), new Rocket("Falcon 9"),
@@ -89,12 +91,22 @@ public class GameManager {
         inventoryScreenLauncher.accept(this);
     }
 
-    public void closeInventoryScreen() {
+    public void inventoryScreenToSellScreen() {
         clearScreen.run();
+        launchSellShopScreen();
+    }
+
+    public void inventoryScreenToBuyScreen() {
+        clearScreen.run();
+        launchBuyShopScreen();
     }
 
     public void launchSellShopScreen() {
         sellShopScreenLauncher.accept(this);
+    }
+
+    public void launchBuyShopScreen() {
+        buyShopScreenLauncher.accept(this);
     }
 
     public void closeSellShopScreen() {

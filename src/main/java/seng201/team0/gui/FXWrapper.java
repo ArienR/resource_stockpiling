@@ -21,7 +21,7 @@ public class FXWrapper {
         this.stage = stage;
         Player player = new Player("");
         new GameManager(player, this::launchSetupScreen, this::launchUpcomingRoundScreen, this::launchInventoryScreen,
-                this::launchSellShopScreen, this::clearPane);
+                this::launchSellShopScreen, this::launchBuyShopScreen, this::clearPane);
     }
 
 
@@ -71,7 +71,19 @@ public class FXWrapper {
             sellShopScreenLoader.setControllerFactory(param -> new SellScreenController(gameManager));
             Parent setupParent = sellShopScreenLoader.load();
             pane.getChildren().add(setupParent);
-            stage.setTitle("Inventory Screen");
+            stage.setTitle("Sell Shop Screen");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void launchBuyShopScreen(GameManager gameManager) {
+        try {
+            FXMLLoader buyShopScreenLoader = new FXMLLoader(getClass().getResource("/fxml/shop_screen.fxml"));
+            buyShopScreenLoader.setControllerFactory(param -> new SellScreenController(gameManager));
+            Parent setupParent = buyShopScreenLoader.load();
+            pane.getChildren().add(setupParent);
+            stage.setTitle("Buy Shop Screen");
         } catch (IOException e) {
             e.printStackTrace();
         }
