@@ -56,7 +56,7 @@
             <Insets left="20.0" />
          </GridPane.margin>
       </Label>
-      <Label fx:id="inventoryMessageLabel" text="Select your Towers and Upgrades for the next round, {Name}." GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+      <Label fx:id="inventoryMessageLabel" prefHeight="45.0" prefWidth="1040.0" text="Select your Towers and Upgrades for the next round, {Name}." GridPane.halignment="LEFT" GridPane.valignment="CENTER">
          <font>
             <Font size="30.0" />
          </font>
@@ -146,7 +146,7 @@
             </GridPane>
             <VBox prefHeight="642.0" prefWidth="841.0">
                <children>
-                  <Label prefHeight="206.0" prefWidth="374.0" style="-fx-font-weight: bold;" text="Tower {x} stats:">
+                  <Label prefHeight="206.0" prefWidth="374.0" style="-fx-font-weight: bold;" text="Tower stats:">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -154,7 +154,7 @@
                         <Insets left="30.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="inventorySelectedTowerType" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="214.0" prefWidth="0.0" text="Tower {x} Type">
+                  <Label fx:id="inventorySelectedTowerType" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="214.0" prefWidth="0.0" text="Tower Type:">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -162,7 +162,7 @@
                         <Insets left="30.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="inventorySelectedTowerCollectionAmount" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="214.0" prefWidth="0.0" text="Tower {x} Collection Amount">
+                  <Label fx:id="inventorySelectedTowerCollectionAmount" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="214.0" prefWidth="0.0" text="Tower Collection Amount:">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -170,7 +170,7 @@
                         <Insets left="30.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="inventorySelectedTowerCollectionSpeed" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="214.0" prefWidth="0.0" text="Tower {x} Collection Speed">
+                  <Label fx:id="inventorySelectedTowerCollectionSpeed" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="214.0" prefWidth="0.0" text="Tower Collection Speed:">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -231,7 +231,7 @@
             </GridPane>
             <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="418.0" prefWidth="500.0">
                <children>
-                  <Label fx:id="inventorySelectedItemNameLabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="105.0" prefWidth="192.0" style="-fx-font-weight: bold;" text="{Name of item}" wrapText="true">
+                  <Label fx:id="inventorySelectedItemNameLabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="105.0" prefWidth="192.0" style="-fx-font-weight: bold;" text="Item Name: " wrapText="true">
                      <font>
                         <Font size="20.0" />
                      </font>

@@ -65,7 +65,7 @@ public class SetupScreenController {
         if (playerName.length() > 15 || playerName.length() < 3){
             startErrorLabel.setText("Please enter a name between 3 and 15 characters");
         } else {
-            gameManager.setName(nameInputTextField.getText());
+            gameManager.getPlayer().setName(nameInputTextField.getText());
             gameManager.setNumberOfRounds((int) numberOfRoundsSlider.getValue());
             gameManager.setGameDifficulty(gameDifficulty);
             gameManager.launchUpcomingRoundScreen();

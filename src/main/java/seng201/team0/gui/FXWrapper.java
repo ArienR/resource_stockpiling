@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import seng201.team0.GameManager;
+import seng201.team0.Player;
 import seng201.team0.gui.SetupScreenController;
 
 import java.io.IOException;
@@ -18,7 +19,8 @@ public class FXWrapper {
 
     public void init(Stage stage) {
         this.stage = stage;
-        new GameManager(this::launchSetupScreen, this::launchUpcomingRoundScreen, this::launchInventoryScreen, this::clearPane);
+        Player player = new Player("");
+        new GameManager(player, this::launchSetupScreen, this::launchUpcomingRoundScreen, this::launchInventoryScreen, this::clearPane);
     }
 
 

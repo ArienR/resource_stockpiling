@@ -7,18 +7,17 @@ import java.util.List;
 import java.util.function.Consumer;
 
 public class GameManager {
-    private String name; // Need to implement feature to check name length is between 3 - 15 characters
     private int numberOfRounds;
+    private Player player;
     private String gameDifficulty;
-    private List<Tower> towerList;
-//    private final List<Tower> defaultRockets = new List<>();
     private final Consumer<GameManager> setupScreenLauncher;
     private final Consumer<GameManager> upcomingRoundScreenLauncher;
     private final Consumer<GameManager> inventoryScreenLauncher;
 
     private final Runnable clearScreen;
 
-    public GameManager(Consumer<GameManager> setupScreenLauncher, Consumer<GameManager> upcomingRoundScreenLauncher, Consumer<GameManager> inventoryScreenLauncher, Runnable clearScreen) {
+    public GameManager(Player player, Consumer<GameManager> setupScreenLauncher, Consumer<GameManager> upcomingRoundScreenLauncher, Consumer<GameManager> inventoryScreenLauncher, Runnable clearScreen) {
+        this.player = player;
         this.setupScreenLauncher = setupScreenLauncher;
         this.upcomingRoundScreenLauncher = upcomingRoundScreenLauncher;
         this.inventoryScreenLauncher = inventoryScreenLauncher;
@@ -28,14 +27,6 @@ public class GameManager {
 //                new Rocket("Falcon Heavy"), new Rocket("Ariane 5"), new Rocket("Saturn 5"),
 //                new Rocket("Delta IV Heavy")));
         launchSetupScreen();
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String tempName) {
-        this.name = tempName;
     }
 
     public int getNumberOfRounds() {
@@ -52,6 +43,14 @@ public class GameManager {
 
     public void setGameDifficulty(String tempGameDifficulty) {
         this.gameDifficulty = tempGameDifficulty;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player tempPlayer) {
+        this.player = player;
     }
 
     public void launchSetupScreen() {
