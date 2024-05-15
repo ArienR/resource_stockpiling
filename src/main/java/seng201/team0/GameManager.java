@@ -4,6 +4,7 @@ import seng201.team0.gui.FXWindow;
 import seng201.team0.models.Tower;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Consumer;
 
 public class GameManager {
@@ -39,6 +40,14 @@ public class GameManager {
 
     public String getGameDifficulty() {
         return gameDifficulty;
+    }
+
+    public float getGameBonus(){
+        if (Objects.equals(gameDifficulty, "Easy")){
+            return 0.75f;
+        } else {
+            return 0.5f;
+        }
     }
 
     public void setGameDifficulty(String tempGameDifficulty) {
