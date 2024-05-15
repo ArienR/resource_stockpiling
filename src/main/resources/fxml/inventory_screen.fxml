@@ -3,8 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -80,23 +78,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Tower 1">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets bottom="10.0" left="20.0" right="10.0" top="20.0" />
-                     </GridPane.margin>
-                  </Button>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Tower 5" GridPane.columnIndex="1">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets bottom="10.0" left="10.0" right="20.0" top="20.0" />
-                     </GridPane.margin>
-                  </Button>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Tower 2" GridPane.rowIndex="1">
+                  <Button fx:id="inventoryTower1Button" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Tower 1">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -104,7 +86,7 @@
                         <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Tower 6" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Button fx:id="inventoryTower5Button" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Tower 5" GridPane.columnIndex="1">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -112,7 +94,7 @@
                         <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Tower 3" GridPane.rowIndex="2">
+                  <Button fx:id="inventoryTower2Button" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Tower 2" GridPane.rowIndex="1">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -120,7 +102,7 @@
                         <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Tower 7" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Button fx:id="inventoryTower6Button" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Tower 6" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -128,20 +110,36 @@
                         <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Tower 4" GridPane.rowIndex="3">
+                  <Button fx:id="inventoryTower3Button" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Tower 3" GridPane.rowIndex="2">
                      <font>
                         <Font size="20.0" />
                      </font>
                      <GridPane.margin>
-                        <Insets bottom="20.0" left="20.0" right="10.0" top="10.0" />
+                        <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Tower 8" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <Button fx:id="inventoryTower7Button" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Tower 7" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font size="20.0" />
                      </font>
                      <GridPane.margin>
-                        <Insets bottom="20.0" left="10.0" right="20.0" top="10.0" />
+                        <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="inventoryTower4Button" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Tower 4" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="inventoryTower8Button" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Tower 8" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
                      </GridPane.margin>
                   </Button>
                </children>
@@ -156,7 +154,7 @@
                         <Insets left="30.0" />
                      </VBox.margin>
                   </Label>
-                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="214.0" prefWidth="386.0" text="Tower {x} Type">
+                  <Label fx:id="inventorySelectedTowerType" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="214.0" prefWidth="386.0" text="Tower {x} Type">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -164,7 +162,7 @@
                         <Insets left="30.0" />
                      </VBox.margin>
                   </Label>
-                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="214.0" prefWidth="543.0" text="Tower {x} Collection Amount">
+                  <Label fx:id="inventorySelectedTowerCollectionAmount" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="214.0" prefWidth="543.0" text="Tower {x} Collection Amount">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -172,7 +170,7 @@
                         <Insets left="30.0" />
                      </VBox.margin>
                   </Label>
-                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="214.0" prefWidth="534.0" text="Tower {x} Collection Speed">
+                  <Label fx:id="inventorySelectedTowerCollectionSpeed" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="214.0" prefWidth="534.0" text="Tower {x} Collection Speed">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -197,15 +195,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Item 1">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
-                     </GridPane.margin>
-                  </Button>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Item 2" GridPane.rowIndex="1">
+                  <Button fx:id="inventoryItem1Button" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Item 1">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -213,7 +203,7 @@
                         <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Item 3" GridPane.rowIndex="2">
+                  <Button fx:id="inventoryItem2Button" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Item 2" GridPane.rowIndex="1">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -221,49 +211,63 @@
                         <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Item 4" GridPane.rowIndex="3">
+                  <Button fx:id="inventoryItem3Button" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Item 3" GridPane.rowIndex="2">
                      <font>
                         <Font size="20.0" />
                      </font>
                      <GridPane.margin>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="inventoryItem4Button" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-radius: 20;" text="Item 4" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                      </GridPane.margin>
                   </Button>
                </children>
             </GridPane>
             <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="642.0" prefWidth="338.0">
                <children>
-                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="165.0" prefWidth="240.0" style="-fx-font-weight: bold;" text="{Name of item}" wrapText="true">
+                  <Label fx:id="inventorySelectedItemNameLabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="105.0" prefWidth="192.0" style="-fx-font-weight: bold;" text="{Name of item}" wrapText="true">
                      <font>
                         <Font size="20.0" />
                      </font>
                      <VBox.margin>
-                        <Insets left="20.0" />
+                        <Insets left="20.0" top="40.0" />
                      </VBox.margin>
                   </Label>
-                  <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: black; -fx-border-width: 5;">
-                     <center>
-                        <ImageView fitHeight="174.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
-                     </center>
-                     <VBox.margin>
-                        <Insets left="25.0" right="25.0" />
-                     </VBox.margin>
-                  </BorderPane>
-                  <Label alignment="TOP_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="221.0" prefWidth="297.0" style="-fx-font-weight: bold;" text="Description:" wrapText="true">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                     <VBox.margin>
+                  <VBox alignment="CENTER_LEFT" prefHeight="243.0" prefWidth="212.0" spacing="30.0">
+                     <children>
+                        <Label text="Item Stats" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="inventorySelectedItemType" text="Tower Type Affect" wrapText="true">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="inventorySelectedItemStat" text="Stat Affected" wrapText="true">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
                         <Insets left="20.0" top="10.0" />
-                     </VBox.margin>
-                  </Label>
+                     </padding>
+                  </VBox>
                </children>
             </VBox>
          </children>
       </HBox>
       <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="4">
          <children>
-            <Button maxHeight="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="170.0" prefWidth="170.0" style="-fx-background-radius: 20;" text="Selected Item 1">
+            <Button fx:id="inventorySelectedItem1" maxHeight="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="170.0" prefWidth="170.0" style="-fx-background-radius: 20;" text="Selected Item 1">
                <font>
                   <Font size="20.0" />
                </font>
@@ -271,7 +275,7 @@
                   <Insets bottom="20.0" left="20.0" top="20.0" />
                </HBox.margin>
             </Button>
-            <Button maxHeight="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="100.0" prefWidth="170.0" style="-fx-background-radius: 20;" text="Selected Item 2">
+            <Button fx:id="inventorySelectedItem2" maxHeight="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="100.0" prefWidth="170.0" style="-fx-background-radius: 20;" text="Selected Item 2">
                <font>
                   <Font size="20.0" />
                </font>
@@ -283,7 +287,7 @@
       </HBox>
       <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="978.0" GridPane.rowIndex="4">
          <children>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="175.0" prefWidth="170.0" style="-fx-background-radius: 20;" text="Selected Tower 1">
+            <Button fx:id="inventorySelectedTower1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="175.0" prefWidth="170.0" style="-fx-background-radius: 20;" text="Selected Tower 1">
                <font>
                   <Font size="20.0" />
                </font>
@@ -291,7 +295,7 @@
                   <Insets bottom="20.0" left="20.0" right="10.0" top="20.0" />
                </HBox.margin>
             </Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="175.0" prefWidth="170.0" style="-fx-background-radius: 20;" text="Selected Tower 2">
+            <Button fx:id="inventorySelectedTower2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="175.0" prefWidth="170.0" style="-fx-background-radius: 20;" text="Selected Tower 2">
                <font>
                   <Font size="20.0" />
                </font>
@@ -299,7 +303,7 @@
                   <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
                </HBox.margin>
             </Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="175.0" prefWidth="170.0" style="-fx-background-radius: 20;" text="Selected Tower 3">
+            <Button fx:id="inventorySelectedTower3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="175.0" prefWidth="170.0" style="-fx-background-radius: 20;" text="Selected Tower 3">
                <font>
                   <Font size="20.0" />
                </font>
@@ -307,7 +311,7 @@
                   <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
                </HBox.margin>
             </Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="175.0" prefWidth="170.0" style="-fx-background-radius: 20;" text="Selected Tower 4">
+            <Button fx:id="inventorySelectedTower4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="175.0" prefWidth="170.0" style="-fx-background-radius: 20;" text="Selected Tower 4">
                <font>
                   <Font size="20.0" />
                </font>
@@ -315,7 +319,7 @@
                   <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
                </HBox.margin>
             </Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="175.0" prefWidth="170.0" style="-fx-background-radius: 20;" text="Selected Tower 5">
+            <Button fx:id="inventorySelectedTower5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="175.0" prefWidth="170.0" style="-fx-background-radius: 20;" text="Selected Tower 5">
                <font>
                   <Font size="20.0" />
                </font>
@@ -335,17 +339,17 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="150.0" text="Sell" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Button fx:id="inventorySellButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="150.0" text="Sell" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="150.0" text="Shop" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Button fx:id="inventoryShopButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="150.0" text="Shop" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="150.0" text="Start" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Button fx:id="inventoryStartButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="150.0" text="Start" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font size="30.0" />
                </font>
