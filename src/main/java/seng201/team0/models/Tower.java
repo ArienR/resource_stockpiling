@@ -2,7 +2,7 @@ package seng201.team0.models;
 
 import java.util.List;
 
-public class Tower implements Purchasable{
+public abstract class Tower implements Purchasable{
 
     // attributes
     private final int gameBonus;
@@ -21,19 +21,19 @@ public class Tower implements Purchasable{
     private int sellPrice;
 
     // constructor
-    public Tower(String towerName, String towerType, float towerSpeed, int towerFillAmount, int buyPrice, int gameBonus){
-        this.towerName = towerName;
-        this.towerType = towerType;
+    public Tower(float towerSpeed, int towerFillAmount, int buyPrice, int gameBonus) {
         this.towerSpeed = towerSpeed;
         this.towerFillAmount = towerFillAmount;
         this.buyPrice = buyPrice;
         this.gameBonus = gameBonus;
+        this.towerName = generateRandomName();
     }
 
     // methods
+    protected abstract String generateRandomName();
     @Override
     public int getSellPrice(){
-        return (int) buyPrice * gameBonus; // This currently increases the sell price as gameBonus < 1
+        return (int) buyPrice * gameBonus;
     }
 
     @Override

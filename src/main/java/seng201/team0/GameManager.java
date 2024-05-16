@@ -10,6 +10,7 @@ import java.util.function.Consumer;
 
 public class GameManager {
     private int numberOfRounds;
+    private boolean isRoundWon = true;
     private int currentRoundNumber;
     private Player player;
     private String gameDifficulty;
@@ -128,4 +129,11 @@ public class GameManager {
         clearScreen.run();
     }
 
+    public boolean isRoundWon() {
+        return isRoundWon;
+    }
+
+    public void setRoundWon(boolean roundWon) {
+        isRoundWon = roundWon;
+    }
 }
