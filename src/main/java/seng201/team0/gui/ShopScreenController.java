@@ -8,8 +8,8 @@ public class ShopScreenController {
 
     GameManager gameManager;
 
-    @FXML Button buyTower1Button, buyTower2Button, buyTower3Button;
-    @FXML Button buyItem1Button, buyItem2Button, buyItem3Button;
+    @FXML Button buyTower1Button, buyTower2Button, buyTower3Button, buyTower4Button;
+    @FXML Button buyItem1Button, buyItem2Button;
     @FXML Button confirmBuyButton;
 
     ShopScreenController(GameManager tempGameManager) {

@@ -31,7 +31,7 @@
                   <Insets right="300.0" />
                </HBox.margin>
             </Label>
-            <Button fx:id="confirmBuyButton" mnemonicParsing="false" prefHeight="54.0" prefWidth="256.0" style="-fx-background-radius: 20;" text="Buy Selected Item">
+            <Button fx:id="confirmBuyButton" mnemonicParsing="false" prefHeight="54.0" prefWidth="256.0" style="-fx-background-radius: 20;" text="Buy Selected">
                <font>
                   <Font size="20.0" />
                </font>
@@ -62,23 +62,31 @@
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="buyTower1Button" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 20px;" text="Tower 1">
+                  <Button fx:id="buyTower1Button" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="170.0" prefWidth="170.0" style="-fx-background-radius: 20px;" text="Tower 1">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Button>
-                  <Button fx:id="buyTower2Button" mnemonicParsing="false" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 20px;" text="Tower 2">
+                  <Button fx:id="buyTower2Button" mnemonicParsing="false" prefHeight="170.0" prefWidth="170.0" style="-fx-background-radius: 20px;" text="Tower 2">
                      <font>
                         <Font size="24.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="50.0" right="50.0" />
+                        <Insets left="30.0" right="30.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="buyTower3Button" mnemonicParsing="false" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 20px;" text="Tower 3">
+                  <Button fx:id="buyTower3Button" mnemonicParsing="false" prefHeight="170.0" prefWidth="170.0" style="-fx-background-radius: 20px;" text="Tower 3">
                      <font>
                         <Font size="24.0" />
                      </font>
+                  </Button>
+                  <Button fx:id="buyTower4Button" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="170.0" prefWidth="170.0" style="-fx-background-radius: 20px;" text="Tower 4">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
                   </Button>
                </children>
                <HBox.margin>
@@ -130,23 +138,18 @@
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1000.0">
                <children>
-                  <Button fx:id="buyItem1Button" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 20px;" text="Item 1">
+                  <Button fx:id="buyItem1Button" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="170.0" prefWidth="170.0" style="-fx-background-radius: 20px;" text="Item 1">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Button>
-                  <Button fx:id="buyItem2Button" mnemonicParsing="false" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 20px;" text="Item 2">
+                  <Button fx:id="buyItem2Button" mnemonicParsing="false" prefHeight="170.0" prefWidth="170.0" style="-fx-background-radius: 20px;" text="Item 2">
                      <font>
                         <Font size="24.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="50.0" right="50.0" />
+                        <Insets left="30.0" />
                      </HBox.margin>
-                  </Button>
-                  <Button fx:id="buyItem3Button" mnemonicParsing="false" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 20px;" text="Item 3">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
                   </Button>
                </children>
             </HBox>

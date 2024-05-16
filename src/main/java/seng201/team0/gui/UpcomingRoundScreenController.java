@@ -38,7 +38,6 @@ public class UpcomingRoundScreenController {
 
     public UpcomingRoundScreenController(GameManager tempGameManager) {
         this.gameManager = tempGameManager;
-        Random cartSpeedPercentage = new Random();
         generateRoundOptions();
     }
 

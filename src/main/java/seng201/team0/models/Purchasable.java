@@ -2,9 +2,9 @@ package seng201.team0.models;
 
 public interface Purchasable {
 
-    int getCost();
+    int getBuyPrice();
 
-    int setCost(int cost);
+    int setBuyPrice(int cost);
 
     int getSellPrice();
 

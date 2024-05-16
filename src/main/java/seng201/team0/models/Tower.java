@@ -6,11 +6,13 @@ public class Tower implements Purchasable{
 
     // attributes
     private final int gameBonus;
+    private int towerLevel;
+    private int consecutiveTowerUses;
     private float breakChance = 0;
     private String towerName;
     private String towerType;
     private float towerSpeed;
-    private int towerAmount;
+    private int towerFillAmount;
     private boolean towerIsBroken = false;
 
     private boolean towerIsSelected = false;
@@ -19,18 +21,13 @@ public class Tower implements Purchasable{
     private int sellPrice;
 
     // constructor
-    public Tower(String towerName, String towerType, float towerSpeed, int towerAmount, int buyPrice, int gameBonus){
+    public Tower(String towerName, String towerType, float towerSpeed, int towerFillAmount, int buyPrice, int gameBonus){
         this.towerName = towerName;
         this.towerType = towerType;
         this.towerSpeed = towerSpeed;
-        this.towerAmount = towerAmount;
+        this.towerFillAmount = towerFillAmount;
         this.buyPrice = buyPrice;
         this.gameBonus = gameBonus;
-
-        /*
-        Need to make list of possible tower names
-        String[] towerNames = {};
-         */
     }
 
     // methods
@@ -45,12 +42,12 @@ public class Tower implements Purchasable{
     }
 
     @Override
-    public int getCost() {
+    public int getBuyPrice() {
         return 0;
     }
 
     @Override
-    public int setCost(int cost) {
+    public int setBuyPrice(int cost) {
         return 0;
     }
 
@@ -88,11 +85,11 @@ public class Tower implements Purchasable{
     }
 
     public int getTowerAmount() {
-        return towerAmount;
+        return towerFillAmount;
     }
 
     public void setTowerAmount(int towerAmount) {
-        this.towerAmount = towerAmount;
+        this.towerFillAmount = towerAmount;
     }
 
     public boolean isTowerIsBroken() {
@@ -111,11 +108,19 @@ public class Tower implements Purchasable{
         this.towerIsSelected = towerIsSelected;
     }
 
-    public int getBuyPrice() {
-        return buyPrice;
+    public int getConsecutiveTowerUses() {
+        return consecutiveTowerUses;
     }
 
-    public void setBuyPrice(int buyPrice) {
-        this.buyPrice = buyPrice;
+    public void setConsecutiveTowerUses(int consecutiveTowerUses) {
+        this.consecutiveTowerUses = consecutiveTowerUses;
+    }
+
+    public int getTowerLevel() {
+        return towerLevel;
+    }
+
+    public void setTowerLevel(int towerLevel) {
+        this.towerLevel = towerLevel;
     }
 }
