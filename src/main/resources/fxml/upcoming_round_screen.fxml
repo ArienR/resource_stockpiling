@@ -209,6 +209,14 @@
             </Label>
          </children>
       </GridPane>
+      <Button fx:id="cartStatsPopupButton" mnemonicParsing="false" onAction="#showCartStatsPopup" style="-fx-background-radius: 10;" text="Cart Stats" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <GridPane.margin>
+            <Insets bottom="10.0" />
+         </GridPane.margin>
+      </Button>
       <Label fx:id="roundSelectTitleLabel" alignment="CENTER" prefHeight="45.0" prefWidth="808.0" text="Select Round {currRound}/{maxRound}" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <font>
             <Font name="System Bold" size="30.0" />

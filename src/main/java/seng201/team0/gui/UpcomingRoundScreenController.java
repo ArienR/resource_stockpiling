@@ -5,6 +5,14 @@ import javafx.scene.control.*;
 import seng201.team0.GameManager;
 import seng201.team0.models.Round;
 
+/* pop up imports
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import java.io.IOException;
+*/
 import java.util.*;
 
 public class UpcomingRoundScreenController {
@@ -35,6 +43,12 @@ public class UpcomingRoundScreenController {
     private @FXML Button selectOption1Button, selectOption2Button, selectOption3Button;
     private @FXML Button upcomingRoundContinueButton;
     private @FXML Label selectRoundError;
+
+    /* pop up code
+    private @FXML Button cartStatsPopupButton;
+    private @FXML Button closeCartStatsPopupButton;
+
+     */
 
     public UpcomingRoundScreenController(GameManager tempGameManager) {
         this.gameManager = tempGameManager;
@@ -99,6 +113,39 @@ public class UpcomingRoundScreenController {
             optionCartSpeedLabels.get(i).setText("Cart Speed: " + sign + Math.abs(cartSpeed) + "%");
         }
     }
+
+    /* pop up code !!! not working
+    @FXML
+    private void showCartStatsPopup() {
+        try {
+            // load a new fxml file
+            FXMLLoader newStageLoader = new FXMLLoader(getClass().getResource("/fxml/game_rules_popup.fxml"));
+            VBox root = newStageLoader.load();
+            Scene modalScene = new Scene(root);
+            Stage modalStage = new Stage();
+            modalStage.setScene(modalScene);
+            modalStage.setWidth(200);
+            modalStage.setHeight(170);
+            modalStage.setResizable(false);
+            modalStage.setTitle("New window popup");
+            // If we want the modal to not block the other window we can change modality to Modality.NONE
+            modalStage.initModality(Modality.WINDOW_MODAL);
+            modalStage.initOwner(closeCartStatsPopupButton.getScene().getWindow());
+            // Show the modal and wait for it to be closed
+            modalStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void closeCartStatsPopup(){
+
+    }
+
+    end of pop up code
+    */
+
 
     @FXML
     private void continueToInventoryAction() {
