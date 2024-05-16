@@ -34,17 +34,16 @@ public class UpcomingRoundScreenController {
     private @FXML Label option3CartSpeedLabel;
     private @FXML Button selectOption1Button, selectOption2Button, selectOption3Button;
     private @FXML Button upcomingRoundContinueButton;
+    private @FXML Label selectRoundError;
 
     public UpcomingRoundScreenController(GameManager tempGameManager) {
         this.gameManager = tempGameManager;
         Random cartSpeedPercentage = new Random();
-//        this.option1Round = new Round(3, cartSpeedPercentage.nextInt(-15, 15)); // Params are placeholders for now
-//        this.option2Round = new Round(3, cartSpeedPercentage.nextInt(-15, 15)); // Params are placeholders for now
-//        this.option3Round = new Round(3, cartSpeedPercentage.nextInt(-15, 15)); // Params are placeholders for now
         generateRoundOptions();
     }
 
     public void initialize() {
+        roundSelectTitleLabel.setText(String.format("Select Round %d/%d", gameManager.getCurrentRoundNumber(), gameManager.getNumberOfRounds()));
         List<Button> selectedRoundButtons = List.of(selectOption1Button, selectOption2Button, selectOption3Button);
         List<Round> roundOptions = List.of(option1Round, option2Round, option3Round);
 
@@ -75,21 +74,12 @@ public class UpcomingRoundScreenController {
         Random cartSpeedPercentage = new Random();
         int currentRoundNumber = gameManager.getCurrentRoundNumber();
 
-        switch (currentRoundNumber) {
-            case 1:
-                option1Round = new Round(3, cartSpeedPercentage.nextInt(-15, 15));
-                option2Round = new Round(3, cartSpeedPercentage.nextInt(-15, 15));
-                option3Round = new Round(3, cartSpeedPercentage.nextInt(-15, 15));
-                break;
-            case 2:
-                option1Round = new Round(5, cartSpeedPercentage.nextInt(-20, 20));
-                option2Round = new Round(5, cartSpeedPercentage.nextInt(-15, 15));
-                option3Round = new Round(5, cartSpeedPercentage.nextInt(-15, 15));
-                break;
-            // Add more cases as needed
-            default:
-                // Handle cases beyond the defined rounds
-                break;
+        if (currentRoundNumber >= 1 && currentRoundNumber <= 5) {
+            option1Round = new Round(3, cartSpeedPercentage.nextInt(-15, 15));
+            option2Round = new Round(3, cartSpeedPercentage.nextInt(-15, 15));
+            option3Round = new Round(3, cartSpeedPercentage.nextInt(-15, 15));
+        } else {
+            // Handle cases beyond the defined range
         }
     }
 
@@ -113,8 +103,12 @@ public class UpcomingRoundScreenController {
 
     @FXML
     private void continueToInventoryAction() {
-        gameManager.launchInventoryScreen();
-        gameManager.closeUpcomingRoundScreen();
+        if (selectedRoundIndex != -1) {
+            gameManager.launchInventoryScreen();
+            gameManager.closeUpcomingRoundScreen();
+        } else {
+            selectRoundError.setText("Please select a round to continue");
+        }
     }
 
 }
