@@ -1,6 +1,8 @@
 package seng201.team0.models;
 
-public class Tower {
+import java.util.List;
+
+public class Tower implements Purchasable{
 
     // attributes
     private final int gameBonus;
@@ -24,11 +26,32 @@ public class Tower {
         this.towerAmount = towerAmount;
         this.buyPrice = buyPrice;
         this.gameBonus = gameBonus;
+
+        /*
+        Need to make list of possible tower names
+        String[] towerNames = {};
+         */
     }
 
     // methods
+    @Override
     public int getSellPrice(){
-        return (int) buyPrice/gameBonus;
+        return (int) buyPrice * gameBonus; // This currently increases the sell price as gameBonus < 1
+    }
+
+    @Override
+    public int setSellPrice() {
+        return 0;
+    }
+
+    @Override
+    public int getCost() {
+        return 0;
+    }
+
+    @Override
+    public int setCost(int cost) {
+        return 0;
     }
 
     //getter and setters

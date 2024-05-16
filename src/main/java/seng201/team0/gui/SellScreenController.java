@@ -21,6 +21,7 @@ public class SellScreenController {
         this.gameManager = tempGameManager;
     }
 
+    @FXML
     public void goToInventory() {
         gameManager.closeSellShopScreen();
         gameManager.launchInventoryScreen();

@@ -1,21 +1,25 @@
 package seng201.team0.models;
 
-import seng201.team0.GameManager;
-
 public class Round {
-
-    GameManager gameManager;
 
     private int produceCount;
     private int meatCount;
     private int dairyCount;
-    private int sizeOfCarts;
-    private int cartSpeed;
+    private int cartSpeedPercentage;
 
 
 //  Constructor for first round
-    public Round(int produceCount, int roundDuration, int sizeOfCarts, int cartSpeed) {
+    public Round(int tempProduceCount, int tempCartSpeedPercentage) {
+        this.produceCount = tempProduceCount;
+        this.cartSpeedPercentage = tempCartSpeedPercentage;
+    }
 
+    public int getProduceCount() {
+        return produceCount;
+    }
+
+    public int getCartSpeedPercentage() {
+        return cartSpeedPercentage;
     }
 
     //create method to sort out active towers into their types

@@ -42,11 +42,13 @@ public class InventoryScreenController {
         inventorySellButton.setOnAction(event -> goToSellShop());
     }
 
+    @FXML
     public void goToSellShop() {
         gameManager.launchSellShopScreen();
         gameManager.inventoryScreenToSellScreen();
     }
 
+    @FXML
     public void goToBuyShop() {
         gameManager.launchSellShopScreen();
         gameManager.inventoryScreenToBuyScreen();

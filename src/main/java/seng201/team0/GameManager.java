@@ -2,6 +2,7 @@ package seng201.team0;
 
 import seng201.team0.gui.FXWindow;
 import seng201.team0.models.Tower;
+import seng201.team0.models.Round;
 
 import java.util.List;
 import java.util.Objects;
@@ -9,6 +10,7 @@ import java.util.function.Consumer;
 
 public class GameManager {
     private int numberOfRounds;
+    private int currentRoundNumber;
     private Player player;
     private String gameDifficulty;
     private final Consumer<GameManager> setupScreenLauncher;
@@ -23,6 +25,7 @@ public class GameManager {
                        Consumer<GameManager> inventoryScreenLauncher, Consumer<GameManager> sellShopScreenLauncher, Consumer<GameManager> buyShopScreenLauncher,
                        Runnable clearScreen) {
         this.player = player;
+        this.currentRoundNumber = 1;
         this.setupScreenLauncher = setupScreenLauncher;
         this.upcomingRoundScreenLauncher = upcomingRoundScreenLauncher;
         this.inventoryScreenLauncher = inventoryScreenLauncher;
@@ -42,6 +45,14 @@ public class GameManager {
 
     public void setNumberOfRounds(int tempNumberOfRounds) {
         this.numberOfRounds = tempNumberOfRounds;
+    }
+
+    public int getCurrentRoundNumber() {
+        return currentRoundNumber;
+    }
+
+    public void setCurrentRoundNumber() {
+        this.currentRoundNumber = currentRoundNumber;
     }
 
     public String getGameDifficulty() {
