@@ -113,4 +113,8 @@ public class GameManager {
         clearScreen.run();
     }
 
+    public void closeBuyShopScreen() {
+        clearScreen.run();
+    }
+
 }

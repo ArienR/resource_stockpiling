@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng201.team0.gui.ShopScreenController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng201.team0.gui.ShopScreenController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -23,12 +23,20 @@
    <children>
       <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
          <children>
-            <Button fx:id="buySelectedItemButton" mnemonicParsing="false" prefHeight="84.0" prefWidth="345.0" style="-fx-background-radius: 20;" text="Buy Selected Item">
+            <Label text="Cost:">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="300.0" />
+               </HBox.margin>
+            </Label>
+            <Button fx:id="confirmBuyButton" mnemonicParsing="false" prefHeight="54.0" prefWidth="256.0" style="-fx-background-radius: 20;" text="Buy Selected Item">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="backToInventoryButton" mnemonicParsing="false" prefHeight="84.0" prefWidth="345.0" style="-fx-background-radius: 20;" text="Back to Inventory">
+            <Button fx:id="backToInventoryButton" mnemonicParsing="false" onAction="#goToInventory" prefHeight="54.0" prefWidth="220.0" style="-fx-background-radius: 20;" text="Back to Inventory">
                <font>
                   <Font size="20.0" />
                </font>
@@ -54,12 +62,12 @@
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="buyTowerOneButton" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 20px;" text="Tower 1">
+                  <Button fx:id="buyTower1Button" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 20px;" text="Tower 1">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Button>
-                  <Button fx:id="buyTowerTwoButton" mnemonicParsing="false" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 20px;" text="Tower 2">
+                  <Button fx:id="buyTower2Button" mnemonicParsing="false" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 20px;" text="Tower 2">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -67,7 +75,7 @@
                         <Insets left="50.0" right="50.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="buyTowerThreeButton" mnemonicParsing="false" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 20px;" text="Tower 3">
+                  <Button fx:id="buyTower3Button" mnemonicParsing="false" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 20px;" text="Tower 3">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -89,7 +97,7 @@
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="selectedTowerAmountLabel" text="Collection Amount">
+                  <Label fx:id="selectedTowerCollectionLabel" text="Collection Amount">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -122,12 +130,12 @@
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1000.0">
                <children>
-                  <Button fx:id="buyItemOneButton" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 20px;" text="Item 1">
+                  <Button fx:id="buyItem1Button" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 20px;" text="Item 1">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Button>
-                  <Button fx:id="buyItemTwoButton" mnemonicParsing="false" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 20px;" text="Item 2">
+                  <Button fx:id="buyItem2Button" mnemonicParsing="false" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 20px;" text="Item 2">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -135,7 +143,7 @@
                         <Insets left="50.0" right="50.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="buyItemThreeButton" mnemonicParsing="false" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 20px;" text="Item 3">
+                  <Button fx:id="buyItem3Button" mnemonicParsing="false" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 20px;" text="Item 3">
                      <font>
                         <Font size="24.0" />
                      </font>
