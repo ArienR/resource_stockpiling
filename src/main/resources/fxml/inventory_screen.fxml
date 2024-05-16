@@ -349,7 +349,7 @@
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button fx:id="inventoryStartButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="150.0" text="Start" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Button fx:id="inventoryStartButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#goToGameScreen" prefWidth="150.0" text="Start" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font size="30.0" />
                </font>

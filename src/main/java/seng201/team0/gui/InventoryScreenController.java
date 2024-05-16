@@ -53,4 +53,10 @@ public class InventoryScreenController {
         gameManager.launchSellShopScreen();
         gameManager.inventoryScreenToBuyScreen();
     }
+
+    @FXML
+    public void goToGameScreen() {
+        gameManager.launchGameScreen();
+        gameManager.inventoryScreenToGameScreen();
+    }
 }

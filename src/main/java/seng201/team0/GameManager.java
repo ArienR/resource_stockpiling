@@ -20,12 +20,15 @@ public class GameManager {
     private final Consumer<GameManager> sellShopScreenLauncher;
     private final Consumer<GameManager> buyShopScreenLauncher;
 
+    private final Consumer<GameManager> gameScreenLauncher;
+
     private final Runnable clearScreen;
 
     public GameManager(Player player, Consumer<GameManager> setupScreenLauncher, Consumer<GameManager> upcomingRoundScreenLauncher,
-                       Consumer<GameManager> inventoryScreenLauncher, Consumer<GameManager> sellShopScreenLauncher, Consumer<GameManager> buyShopScreenLauncher,
+                       Consumer<GameManager> inventoryScreenLauncher, Consumer<GameManager> sellShopScreenLauncher, Consumer<GameManager> buyShopScreenLauncher, Consumer<GameManager> gameScreenLauncher,
                        Runnable clearScreen) {
         this.player = player;
+        this.gameScreenLauncher = gameScreenLauncher;
         this.currentRoundNumber = 1;
         this.setupScreenLauncher = setupScreenLauncher;
         this.upcomingRoundScreenLauncher = upcomingRoundScreenLauncher;
@@ -103,6 +106,11 @@ public class GameManager {
         inventoryScreenLauncher.accept(this);
     }
 
+    public void inventoryScreenToGameScreen() {
+        clearScreen.run();
+        launchGameScreen();
+    }
+
     public void inventoryScreenToSellScreen() {
         clearScreen.run();
         launchSellShopScreen();
@@ -126,6 +134,15 @@ public class GameManager {
     }
 
     public void closeBuyShopScreen() {
+        clearScreen.run();
+    }
+
+    public void launchGameScreen(){
+        gameScreenLauncher.accept(this);
+    }
+
+    //still need to implement
+    public void closelaunchGameScreen() {
         clearScreen.run();
     }
 
