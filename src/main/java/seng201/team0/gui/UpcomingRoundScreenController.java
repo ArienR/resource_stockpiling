@@ -2,17 +2,18 @@ package seng201.team0.gui;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.layout.GridPane;
 import seng201.team0.GameManager;
 import seng201.team0.models.Round;
 
-/* pop up imports
+
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import java.io.IOException;
-*/
+
 import java.util.*;
 
 public class UpcomingRoundScreenController {
@@ -44,11 +45,8 @@ public class UpcomingRoundScreenController {
     private @FXML Button upcomingRoundContinueButton;
     private @FXML Label selectRoundError;
 
-    /* pop up code
     private @FXML Button cartStatsPopupButton;
-    private @FXML Button closeCartStatsPopupButton;
 
-     */
 
     public UpcomingRoundScreenController(GameManager tempGameManager) {
         this.gameManager = tempGameManager;
@@ -114,23 +112,24 @@ public class UpcomingRoundScreenController {
         }
     }
 
-    /* pop up code !!! not working
+
+
     @FXML
-    private void showCartStatsPopup() {
+    private void openGameRulesPopup() {
         try {
             // load a new fxml file
             FXMLLoader newStageLoader = new FXMLLoader(getClass().getResource("/fxml/game_rules_popup.fxml"));
-            VBox root = newStageLoader.load();
+            GridPane root = newStageLoader.load();
             Scene modalScene = new Scene(root);
             Stage modalStage = new Stage();
             modalStage.setScene(modalScene);
-            modalStage.setWidth(200);
-            modalStage.setHeight(170);
+            modalStage.setWidth(400);
+            modalStage.setHeight(600);
             modalStage.setResizable(false);
             modalStage.setTitle("New window popup");
             // If we want the modal to not block the other window we can change modality to Modality.NONE
             modalStage.initModality(Modality.WINDOW_MODAL);
-            modalStage.initOwner(closeCartStatsPopupButton.getScene().getWindow());
+            modalStage.initOwner(cartStatsPopupButton.getScene().getWindow());
             // Show the modal and wait for it to be closed
             modalStage.showAndWait();
         } catch (IOException e) {
@@ -143,8 +142,6 @@ public class UpcomingRoundScreenController {
 
     }
 
-    end of pop up code
-    */
 
 
     @FXML

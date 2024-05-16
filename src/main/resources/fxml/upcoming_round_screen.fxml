@@ -209,7 +209,7 @@
             </Label>
          </children>
       </GridPane>
-      <Button fx:id="cartStatsPopupButton" mnemonicParsing="false" style="-fx-background-radius: 10;" text="Cart Stats" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+      <Button fx:id="cartStatsPopupButton" mnemonicParsing="false" onAction="#openGameRulesPopup" style="-fx-background-radius: 10;" text="Cart Stats" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
          <font>
             <Font size="20.0" />
          </font>
