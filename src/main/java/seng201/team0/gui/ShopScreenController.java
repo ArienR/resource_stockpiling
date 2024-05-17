@@ -34,10 +34,9 @@ public class ShopScreenController {
         this.gameManager = tempGameManager;
     }
 
-
+    @FXML
     private void initialize() {
         this.shop = new Shop();
-        selectedTowerTypeLabel.setText("HELLO");
 
         // Initialize lists of buttons
         towerButtons = List.of(buyTower1Button, buyTower2Button, buyTower3Button, buyTower4Button);
@@ -55,6 +54,7 @@ public class ShopScreenController {
                 selectedTower = towers.get(finalI);
                 selectedTowerIndex = finalI;
                 updateButtonStyles(towerButtons, towerButtons.get(finalI));
+                resetItemSelection();
                 displayTowerStats(selectedTower);
             });
         }
@@ -66,9 +66,22 @@ public class ShopScreenController {
                 selectedItem = items.get(finalI);
                 selectedItemIndex = finalI;
                 updateButtonStyles(itemButtons, itemButtons.get(finalI));
+                resetTowerSelection();
                 displayItemStats(selectedItem);
             });
         }
+    }
+
+    private void resetTowerSelection() {
+        selectedTower = null;
+        selectedTowerIndex = -1;
+        updateButtonStyles(towerButtons, null);
+    }
+
+    private void resetItemSelection() {
+        selectedItem = null;
+        selectedItemIndex = -1;
+        updateButtonStyles(itemButtons, null);
     }
 
     private void updateButtonStyles(List<Button> buttons, Button selectedButton) {
@@ -82,8 +95,8 @@ public class ShopScreenController {
     }
 
     private void displayTowerStats(Tower tower) {
-        selectedTowerFillLabel.setText("Collection: " + tower.getTowerFillAmount());
-        selectedTowerSpeedLabel.setText("Speed: " + tower.getTowerSpeed());
+        selectedTowerFillLabel.setText("Fill Amount: " + tower.getTowerFillAmount());
+        selectedTowerSpeedLabel.setText("Fill Speed: " + tower.getTowerSpeed());
         selectedTowerTypeLabel.setText("Type: " + tower.getClass().getSimpleName());
 
         selectedItemStatLabel.setText("");

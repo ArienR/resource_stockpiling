@@ -62,12 +62,12 @@
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="buyTower1Button" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="170.0" prefWidth="170.0" style="-fx-background-radius: 20px;" text="Tower 1">
+                  <Button fx:id="buyTower1Button" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="170.0" prefWidth="170.0" style="-fx-background-radius: 20px;" text="Tower 1" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Button>
-                  <Button fx:id="buyTower2Button" mnemonicParsing="false" prefHeight="170.0" prefWidth="170.0" style="-fx-background-radius: 20px;" text="Tower 2">
+                  <Button fx:id="buyTower2Button" alignment="CENTER" mnemonicParsing="false" prefHeight="170.0" prefWidth="170.0" style="-fx-background-radius: 20px;" text="Tower 2" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -75,12 +75,12 @@
                         <Insets left="30.0" right="30.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="buyTower3Button" mnemonicParsing="false" prefHeight="170.0" prefWidth="170.0" style="-fx-background-radius: 20px;" text="Tower 3">
+                  <Button fx:id="buyTower3Button" alignment="CENTER" mnemonicParsing="false" prefHeight="170.0" prefWidth="170.0" style="-fx-background-radius: 20px;" text="Tower 3" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Button>
-                  <Button fx:id="buyTower4Button" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="170.0" prefWidth="170.0" style="-fx-background-radius: 20px;" text="Tower 4">
+                  <Button fx:id="buyTower4Button" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="170.0" prefWidth="170.0" style="-fx-background-radius: 20px;" text="Tower 4" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -138,12 +138,12 @@
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1000.0">
                <children>
-                  <Button fx:id="buyItem1Button" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="170.0" prefWidth="170.0" style="-fx-background-radius: 20px;" text="Item 1">
+                  <Button fx:id="buyItem1Button" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="170.0" prefWidth="170.0" style="-fx-background-radius: 20px;" text="Item 1" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Button>
-                  <Button fx:id="buyItem2Button" mnemonicParsing="false" prefHeight="170.0" prefWidth="170.0" style="-fx-background-radius: 20px;" text="Item 2">
+                  <Button fx:id="buyItem2Button" alignment="CENTER" mnemonicParsing="false" prefHeight="170.0" prefWidth="170.0" style="-fx-background-radius: 20px;" text="Item 2" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font size="24.0" />
                      </font>

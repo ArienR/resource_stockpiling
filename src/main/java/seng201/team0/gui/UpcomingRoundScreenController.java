@@ -110,8 +110,6 @@ public class UpcomingRoundScreenController {
         }
     }
 
-
-
     @FXML
     private void openGameRulesPopup() {
         try {

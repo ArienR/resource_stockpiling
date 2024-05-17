@@ -80,7 +80,7 @@ public class FXWrapper {
     public void launchBuyShopScreen(GameManager gameManager) {
         try {
             FXMLLoader buyShopScreenLoader = new FXMLLoader(getClass().getResource("/fxml/shop_screen.fxml"));
-            buyShopScreenLoader.setControllerFactory(param -> new SellScreenController(gameManager));
+            buyShopScreenLoader.setControllerFactory(param -> new ShopScreenController(gameManager));
             Parent setupParent = buyShopScreenLoader.load();
             pane.getChildren().add(setupParent);
             stage.setTitle("Buy Shop Screen");

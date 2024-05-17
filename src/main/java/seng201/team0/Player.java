@@ -6,6 +6,7 @@ import java.util.List;
 public class Player {
     private String name;
     private List<Tower> towerList;
+    private int playerMoney;
 
     public Player(String name) {
         this.name = name;
@@ -25,5 +26,13 @@ public class Player {
 
     public void setTowerList(List<Tower> towerList) {
         this.towerList = towerList;
+    }
+
+    public int getPlayerMoney() {
+        return playerMoney;
+    }
+
+    public void setPlayerMoney(int playerMoney) {
+        this.playerMoney = playerMoney;
     }
 }
