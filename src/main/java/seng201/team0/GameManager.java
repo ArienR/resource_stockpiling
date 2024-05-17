@@ -66,9 +66,9 @@ public class GameManager {
 
     public void setDifficultyBonus(){
         if (Objects.equals(gameDifficulty, "Easy")){
-            difficultyBonus = 1f;
+            difficultyBonus = 0.5f;
         } else {
-            difficultyBonus = 1.25f;
+            difficultyBonus = 0.75f;
         }
     }
 

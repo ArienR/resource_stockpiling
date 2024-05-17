@@ -23,6 +23,7 @@ public abstract class Tower implements Purchasable {
         this.towerSpeed = towerSpeed;
         this.towerFillAmount = towerFillAmount;
         this.buyPrice = buyPrice;
+        this.sellPrice = Math.round(difficultyBonus / (float) buyPrice);
         this.difficultyBonus = difficultyBonus;
         this.towerName = generateRandomName();
     }
@@ -31,7 +32,7 @@ public abstract class Tower implements Purchasable {
     protected abstract String generateRandomName();
     @Override
     public int getSellPrice(){
-        return (int) buyPrice * difficultyBonus;
+        return sellPrice;
     }
 
     @Override
@@ -41,12 +42,12 @@ public abstract class Tower implements Purchasable {
 
     @Override
     public int getBuyPrice() {
-        return 0;
+        return buyPrice;
     }
 
     @Override
-    public int setBuyPrice(int cost) {
-        return cost * difficultyBonus;
+    public void setBuyPrice(int cost) {
+        this.buyPrice = cost;
     }
 
     //getter and setters

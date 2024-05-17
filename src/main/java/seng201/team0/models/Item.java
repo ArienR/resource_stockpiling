@@ -10,8 +10,10 @@ public class Item implements Purchasable {
     private String towerTypeAffected;
     private int fillIncrease;
     private int speedIncrease;
+    private int buyPrice;
 
-    public Item(String towerTypeAffected, int fillIncrease, int speedIncrease) {
+    public Item(String towerTypeAffected, int fillIncrease, int speedIncrease, int buyPrice) {
+        this.buyPrice = buyPrice;
         this.itemName = generateRandomName();
         this.towerTypeAffected = towerTypeAffected;
         this.fillIncrease = fillIncrease;
@@ -30,12 +32,12 @@ public class Item implements Purchasable {
 
     @Override
     public int getBuyPrice() {
-        return 0;
+        return buyPrice;
     }
 
     @Override
-    public int setBuyPrice(int cost) {
-        return 0;
+    public void setBuyPrice(int cost) {
+        this.buyPrice = cost;
     }
 
     @Override

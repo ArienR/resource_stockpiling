@@ -36,10 +36,7 @@ public class InventoryScreenController {
 
     // methods
     public void initialize() {
-        // Set inventory message to player's name
         inventoryMessageLabel.setText(String.format("Select your Towers and Upgrades for the next round, %s.", gameManager.getPlayer().getName()));
-
-        inventorySellButton.setOnAction(event -> goToSellShop());
     }
 
     @FXML

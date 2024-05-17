@@ -3,6 +3,7 @@ package seng201.team0.gui;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import seng201.team0.GameManager;
+import seng201.team0.Player;
 import seng201.team0.models.Item;
 import seng201.team0.models.Tower;
 import seng201.team0.services.Shop;
@@ -22,6 +23,8 @@ public class ShopScreenController {
     @FXML private Label selectedTowerSpeedLabel;
     @FXML private Label selectedTowerTypeLabel;
     @FXML private Label shopPlayerMoneyLabel;
+    @FXML private Label selectedCostLabel;
+    @FXML private Label insufficientFundsLabel, exceedingLimitLabel;
 
     private List<Button> towerButtons;
     private List<Button> itemButtons;
@@ -39,6 +42,8 @@ public class ShopScreenController {
     private void initialize() {
         this.shop = gameManager.getShop();
         shopPlayerMoneyLabel.setText("Money: " + gameManager.getPlayer().getPlayerMoney() + "$");
+        insufficientFundsLabel.setText("");
+        exceedingLimitLabel.setText("");
 
         // Initialize lists of buttons
         towerButtons = List.of(buyTower1Button, buyTower2Button, buyTower3Button, buyTower4Button);
@@ -56,6 +61,7 @@ public class ShopScreenController {
                 updateButtonStyles(towerButtons, towerButtons.get(finalI));
                 resetItemSelection();
                 displayTowerStats(selectedTower);
+                selectedCostLabel.setText("Cost: " + selectedTower.getBuyPrice() + "$");
             });
         }
 
@@ -68,6 +74,7 @@ public class ShopScreenController {
                 updateButtonStyles(itemButtons, itemButtons.get(finalI));
                 resetTowerSelection();
                 displayItemStats(selectedItem);
+                selectedCostLabel.setText("Cost: " + selectedItem.getBuyPrice() + "$");
             });
         }
     }
@@ -112,10 +119,47 @@ public class ShopScreenController {
         selectedTowerTypeLabel.setText("");
     }
 
-//    @FXML
-//    public void onConfirmBuy() {
-//        System.out.println("Buy confirmed");
-//    }
+
+    @FXML
+    public void onConfirmBuy() {
+        Player player = gameManager.getPlayer();
+        if (selectedTower != null) {
+            handleBuy(player.getTowerList(), selectedTower, towerButtons.get(selectedTowerIndex), 8, "Maximum number of towers reached.");
+        } else if (selectedItem != null) {
+            handleBuy(player.getItemList(), selectedItem, itemButtons.get(selectedItemIndex), 4, "Maximum number of items reached.");
+        } else {
+            System.out.println("No item or tower selected.");
+        }
+    }
+
+    private <T> void handleBuy(List<T> playerList, T item, Button button, int maxCount, String maxMessage) {
+        if (playerList.size() >= maxCount) {
+            exceedingLimitLabel.setText(maxMessage);
+            return;
+        }
+
+        int cost = (item instanceof Tower) ? ((Tower) item).getBuyPrice() : ((Item) item).getBuyPrice();
+        Player player = gameManager.getPlayer();
+
+        if (player.getPlayerMoney() >= cost) {
+            playerList.add(item);
+            player.setPlayerMoney(player.getPlayerMoney() - cost);
+            updatePlayerMoneyLabel();
+            disableButton(button);
+            insufficientFundsLabel.setText("");
+        } else {
+            insufficientFundsLabel.setText("Insufficient funds");
+        }
+    }
+
+    private void disableButton(Button button) {
+        button.setDisable(true);
+        button.setStyle("-fx-background-color: #d3d3d3; -fx-text-fill: #a9a9a9; -fx-border-color: #b3b3b3; -fx-background-radius: 30;");
+    }
+
+    private void updatePlayerMoneyLabel() {
+        shopPlayerMoneyLabel.setText("Money: " + gameManager.getPlayer().getPlayerMoney() + "$");
+    }
 
     @FXML
     public void goToInventory() {

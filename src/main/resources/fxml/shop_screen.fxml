@@ -15,15 +15,16 @@
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
-      <RowConstraints maxHeight="676.8000244140625" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+      <RowConstraints />
+    <RowConstraints maxHeight="676.8000244140625" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
     <RowConstraints maxHeight="676.8000244140625" minHeight="10.0" prefHeight="350.0" vgrow="SOMETIMES" />
     <RowConstraints maxHeight="508.19999999999993" minHeight="10.0" prefHeight="350.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="171.8000732421874" minHeight="1.400000000000034" prefHeight="100.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="171.8000732421874" minHeight="1.400000000000034" prefHeight="100.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
+      <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
          <children>
-            <Label text="Cost:">
+            <Label fx:id="selectedCostLabel" text="Cost:">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
@@ -31,7 +32,7 @@
                   <Insets right="300.0" />
                </HBox.margin>
             </Label>
-            <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="256.0" style="-fx-background-radius: 20;" text="Buy Selected">
+            <Button mnemonicParsing="false" onAction="#onConfirmBuy" prefHeight="54.0" prefWidth="256.0" style="-fx-background-radius: 20;" text="Buy Selected">
                <font>
                   <Font size="20.0" />
                </font>
@@ -46,12 +47,12 @@
             </Button>
          </children>
       </HBox>
-      <Label text="Shop - Buy" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <Label text="Shop - Buy" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
       </Label>
-      <GridPane GridPane.rowIndex="1">
+      <GridPane GridPane.rowIndex="2">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="500.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -119,7 +120,7 @@
             </VBox>
          </children>
       </GridPane>
-      <Label fx:id="shopPlayerMoneyLabel" text="Money:" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
+      <Label fx:id="shopPlayerMoneyLabel" text="Money:" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets left="50.0" />
          </GridPane.margin>
@@ -127,7 +128,7 @@
             <Font size="30.0" />
          </font>
       </Label>
-      <GridPane GridPane.rowIndex="2">
+      <GridPane GridPane.rowIndex="3">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="500.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -165,7 +166,7 @@
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="selectedItemStatLabel" text="Stat Affected">
+                  <Label fx:id="selectedItemStatLabel" text="Stat Affected" wrapText="true">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -174,5 +175,24 @@
             </VBox>
          </children>
       </GridPane>
+      <Label fx:id="insufficientFundsLabel" text="Insufficient funds" textFill="RED" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+         <padding>
+            <Insets right="50.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+         <GridPane.margin>
+            <Insets bottom="5.0" />
+         </GridPane.margin>
+      </Label>
+      <Label fx:id="exceedingLimitLabel" text="You have the maximum amount of towers/items" textFill="RED" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+         <padding>
+            <Insets right="50.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
    </children>
 </GridPane>

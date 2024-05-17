@@ -6,7 +6,7 @@ public interface Purchasable {
 
     int getBuyPrice();
 
-    int setBuyPrice(int cost);
+    void setBuyPrice(int cost);
 
     int getSellPrice();
 }

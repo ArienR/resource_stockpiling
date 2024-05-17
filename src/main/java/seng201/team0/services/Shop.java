@@ -35,9 +35,10 @@ public class Shop {
         Random rand = new Random();
         for (int i = 0; i < 2; i++) {
             String towerTypeAffected = "Produce Towers";
+            int buyPrice = rand.nextInt(50, 100);
             int fillIncrease = rand.nextInt(10, 30);
             int speedIncrease = rand.nextInt(10, 30);
-            items.add(new Item(towerTypeAffected, fillIncrease, speedIncrease));
+            items.add(new Item(towerTypeAffected, fillIncrease, speedIncrease, buyPrice));
         }
     }
 
