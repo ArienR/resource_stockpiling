@@ -19,9 +19,7 @@ import java.util.*;
 public class UpcomingRoundScreenController {
 
     private GameManager gameManager;
-    private Round option1Round;
-    private Round option2Round;
-    private Round option3Round;
+    private Round option1Round, option2Round, option3Round;
     private Round selectedRound;
     private int selectedRoundIndex = -1;
     private Random cartSpeedPercentage;
@@ -126,7 +124,7 @@ public class UpcomingRoundScreenController {
             modalStage.setWidth(400);
             modalStage.setHeight(600);
             modalStage.setResizable(false);
-            modalStage.setTitle("New window popup");
+            modalStage.setTitle("Cart Rules");
             // If we want the modal to not block the other window we can change modality to Modality.NONE
             modalStage.initModality(Modality.WINDOW_MODAL);
             modalStage.initOwner(cartStatsPopupButton.getScene().getWindow());

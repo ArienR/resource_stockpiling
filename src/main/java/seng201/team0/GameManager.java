@@ -10,10 +10,11 @@ import java.util.function.Consumer;
 
 public class GameManager {
     private int numberOfRounds;
-    private boolean isRoundWon = true;
+    private boolean roundWon = true;
     private int currentRoundNumber;
     private Player player;
     private String gameDifficulty;
+    private float difficultyBonus;
     private final Consumer<GameManager> setupScreenLauncher;
     private final Consumer<GameManager> upcomingRoundScreenLauncher;
     private final Consumer<GameManager> inventoryScreenLauncher;
@@ -21,8 +22,8 @@ public class GameManager {
     private final Consumer<GameManager> buyShopScreenLauncher;
 
     private final Consumer<GameManager> gameScreenLauncher;
-
     private final Runnable clearScreen;
+
 
     public GameManager(Player player, Consumer<GameManager> setupScreenLauncher, Consumer<GameManager> upcomingRoundScreenLauncher,
                        Consumer<GameManager> inventoryScreenLauncher, Consumer<GameManager> sellShopScreenLauncher, Consumer<GameManager> buyShopScreenLauncher, Consumer<GameManager> gameScreenLauncher,
@@ -63,12 +64,16 @@ public class GameManager {
         return gameDifficulty;
     }
 
-    public float getGameBonus(){
+    public void setDifficultyBonus(){
         if (Objects.equals(gameDifficulty, "Easy")){
-            return 0.75f;
+            difficultyBonus = 1f;
         } else {
-            return 0.5f;
+            difficultyBonus = 1.25f;
         }
+    }
+
+    public float getDifficultyBonus() {
+        return difficultyBonus;
     }
 
     public void setGameDifficulty(String tempGameDifficulty) {
@@ -142,15 +147,15 @@ public class GameManager {
     }
 
     //still need to implement
-    public void closelaunchGameScreen() {
+    public void closeGameScreen() {
         clearScreen.run();
     }
 
     public boolean isRoundWon() {
-        return isRoundWon;
+        return roundWon;
     }
 
     public void setRoundWon(boolean roundWon) {
-        isRoundWon = roundWon;
+        this.roundWon = roundWon;
     }
 }

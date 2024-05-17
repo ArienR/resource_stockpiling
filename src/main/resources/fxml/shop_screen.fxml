@@ -31,7 +31,7 @@
                   <Insets right="300.0" />
                </HBox.margin>
             </Label>
-            <Button fx:id="confirmBuyButton" mnemonicParsing="false" prefHeight="54.0" prefWidth="256.0" style="-fx-background-radius: 20;" text="Buy Selected">
+            <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="256.0" style="-fx-background-radius: 20;" text="Buy Selected">
                <font>
                   <Font size="20.0" />
                </font>
@@ -105,12 +105,12 @@
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="selectedTowerCollectionLabel" text="Collection Amount">
+                  <Label fx:id="selectedTowerFillLabel" text="Fill Amount">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="selectedTowerSpeedLabel" text="Collection Speed">
+                  <Label fx:id="selectedTowerSpeedLabel" text="Fill Speed">
                      <font>
                         <Font size="24.0" />
                      </font>

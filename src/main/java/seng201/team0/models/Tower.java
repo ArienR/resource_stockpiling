@@ -1,11 +1,9 @@
 package seng201.team0.models;
 
-import java.util.List;
-
-public abstract class Tower implements Purchasable{
+public abstract class Tower implements Purchasable {
 
     // attributes
-    private final int gameBonus;
+    private final int difficultyBonus;
     private int towerLevel;
     private int consecutiveTowerUses;
     private float breakChance = 0;
@@ -13,19 +11,19 @@ public abstract class Tower implements Purchasable{
     private String towerType;
     private float towerSpeed;
     private int towerFillAmount;
-    private boolean towerIsBroken = false;
+    private boolean towerBroken = false;
 
-    private boolean towerIsSelected = false;
+    private boolean towerSelected = false;
 
     private int buyPrice;
     private int sellPrice;
 
     // constructor
-    public Tower(float towerSpeed, int towerFillAmount, int buyPrice, int gameBonus) {
+    public Tower(float towerSpeed, int towerFillAmount, int buyPrice, int difficultyBonus) {
         this.towerSpeed = towerSpeed;
         this.towerFillAmount = towerFillAmount;
         this.buyPrice = buyPrice;
-        this.gameBonus = gameBonus;
+        this.difficultyBonus = difficultyBonus;
         this.towerName = generateRandomName();
     }
 
@@ -33,12 +31,12 @@ public abstract class Tower implements Purchasable{
     protected abstract String generateRandomName();
     @Override
     public int getSellPrice(){
-        return (int) buyPrice * gameBonus;
+        return (int) buyPrice * difficultyBonus;
     }
 
     @Override
-    public int setSellPrice() {
-        return 0;
+    public int setSellPrice(int cost) {
+        return cost / difficultyBonus;
     }
 
     @Override
@@ -48,7 +46,7 @@ public abstract class Tower implements Purchasable{
 
     @Override
     public int setBuyPrice(int cost) {
-        return 0;
+        return cost * difficultyBonus;
     }
 
     //getter and setters
@@ -84,28 +82,28 @@ public abstract class Tower implements Purchasable{
         this.towerSpeed = towerSpeed;
     }
 
-    public int getTowerAmount() {
+    public int getTowerFillAmount() {
         return towerFillAmount;
     }
 
-    public void setTowerAmount(int towerAmount) {
+    public void setTowerFillAmount(int towerAmount) {
         this.towerFillAmount = towerAmount;
     }
 
-    public boolean isTowerIsBroken() {
-        return towerIsBroken;
+    public boolean isTowerBroken() {
+        return towerBroken;
     }
 
     public void setTowerIsBroken(boolean towerIsBroken) {
-        this.towerIsBroken = towerIsBroken;
+        this.towerBroken = towerIsBroken;
     }
 
-    public boolean isTowerIsSelected() {
-        return towerIsSelected;
+    public boolean isTowerSelected() {
+        return towerSelected;
     }
 
     public void setTowerIsSelected(boolean towerIsSelected) {
-        this.towerIsSelected = towerIsSelected;
+        this.towerSelected = towerIsSelected;
     }
 
     public int getConsecutiveTowerUses() {
