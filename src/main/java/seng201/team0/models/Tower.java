@@ -9,7 +9,7 @@ public abstract class Tower implements Purchasable {
     private float breakChance = 0;
     private String towerName;
     private String towerType;
-    private float towerSpeed;
+    private int towerSpeed;
     private int towerFillAmount;
     private boolean towerBroken = false;
 
@@ -19,7 +19,7 @@ public abstract class Tower implements Purchasable {
     private int sellPrice;
 
     // constructor
-    public Tower(float towerSpeed, int towerFillAmount, int buyPrice, int difficultyBonus) {
+    public Tower(int towerSpeed, int towerFillAmount, int buyPrice, int difficultyBonus) {
         this.towerSpeed = towerSpeed;
         this.towerFillAmount = towerFillAmount;
         this.buyPrice = buyPrice;
@@ -74,11 +74,11 @@ public abstract class Tower implements Purchasable {
         this.towerType = towerType;
     }
 
-    public float getTowerSpeed() {
+    public int getTowerSpeed() {
         return towerSpeed;
     }
 
-    public void setTowerSpeed(float towerSpeed) {
+    public void setTowerSpeed(int towerSpeed) {
         this.towerSpeed = towerSpeed;
     }
 

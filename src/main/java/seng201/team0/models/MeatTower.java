@@ -6,7 +6,7 @@ import java.util.Random;
 public class MeatTower extends Tower {
     private static final List<String> meatNames = List.of("Beef Tower", "Chicken Tower", "Pork Tower", "Lamb Tower");
 
-    public MeatTower(float towerSpeed, int towerFillAmount, int buyPrice, int gameBonus) {
+    public MeatTower(int towerSpeed, int towerFillAmount, int buyPrice, int gameBonus) {
         super(towerSpeed, towerFillAmount, buyPrice, gameBonus);
     }
 

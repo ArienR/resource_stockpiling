@@ -23,7 +23,7 @@ public class Shop {
     private void generateRandomTowers() {
         Random rand = new Random();
         for (int i = 0; i < 4; i++) {
-            float towerSpeed = rand.nextFloat();
+            int towerSpeed = rand.nextInt(30, 60);
             int towerFillAmount = rand.nextInt(80, 120);
             int buyPrice = rand.nextInt(400, 600);
             int gameBonus = rand.nextInt(50);
@@ -34,10 +34,10 @@ public class Shop {
     private void generateRandomItems() {
         Random rand = new Random();
         for (int i = 0; i < 2; i++) {
-            String towerTypeAffected = "Produce Tower";
-            float collectionIncrease = rand.nextFloat();
-            float speedIncrease = rand.nextFloat();
-            items.add(new Item(towerTypeAffected, collectionIncrease, speedIncrease));
+            String towerTypeAffected = "Produce Towers";
+            int fillIncrease = rand.nextInt(10, 30);
+            int speedIncrease = rand.nextInt(10, 30);
+            items.add(new Item(towerTypeAffected, fillIncrease, speedIncrease));
         }
     }
 

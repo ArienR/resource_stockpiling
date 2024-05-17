@@ -3,6 +3,7 @@ package seng201.team0;
 import seng201.team0.gui.FXWindow;
 import seng201.team0.models.Tower;
 import seng201.team0.models.Round;
+import seng201.team0.services.Shop;
 
 import java.util.List;
 import java.util.Objects;
@@ -13,8 +14,10 @@ public class GameManager {
     private boolean roundWon = true;
     private int currentRoundNumber;
     private Player player;
+    private Shop shop;
     private String gameDifficulty;
     private float difficultyBonus;
+    private boolean isRoundEnded;
     private final Consumer<GameManager> setupScreenLauncher;
     private final Consumer<GameManager> upcomingRoundScreenLauncher;
     private final Consumer<GameManager> inventoryScreenLauncher;
@@ -36,11 +39,8 @@ public class GameManager {
         this.inventoryScreenLauncher = inventoryScreenLauncher;
         this.sellShopScreenLauncher = sellShopScreenLauncher;
         this.buyShopScreenLauncher = buyShopScreenLauncher;
-
         this.clearScreen = clearScreen;
-//        defaultRockets.addAll(List.of(new Rocket("Space Shuttle"), new Rocket("Falcon 9"),
-//                new Rocket("Falcon Heavy"), new Rocket("Ariane 5"), new Rocket("Saturn 5"),
-//                new Rocket("Delta IV Heavy")));
+        this.shop = new Shop();
         launchSetupScreen();
     }
 
@@ -108,6 +108,10 @@ public class GameManager {
     }
 
     public void launchInventoryScreen() {
+        if (isRoundEnded) {
+            resetShop();
+            isRoundEnded = false;
+        }
         inventoryScreenLauncher.accept(this);
     }
 
@@ -157,5 +161,13 @@ public class GameManager {
 
     public void setRoundWon(boolean roundWon) {
         this.roundWon = roundWon;
+    }
+
+    private void resetShop() {
+        this.shop = new Shop();
+    }
+
+    public Shop getShop() {
+        return shop;
     }
 }

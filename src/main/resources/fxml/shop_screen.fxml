@@ -119,7 +119,7 @@
             </VBox>
          </children>
       </GridPane>
-      <Label text="Money:" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
+      <Label fx:id="shopPlayerMoneyLabel" text="Money:" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets left="50.0" />
          </GridPane.margin>

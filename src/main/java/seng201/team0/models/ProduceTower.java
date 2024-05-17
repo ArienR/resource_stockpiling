@@ -6,7 +6,7 @@ import java.util.Random;
 public class ProduceTower extends Tower implements Purchasable {
     private static final List<String> produceNames = List.of("Apple Tower", "Banana Tower", "Orange Tower", "Grape Tower");
 
-    public ProduceTower(float towerSpeed, int towerFillAmount, int buyPrice, int gameBonus) {
+    public ProduceTower(int towerSpeed, int towerFillAmount, int buyPrice, int gameBonus) {
         super(towerSpeed, towerFillAmount, buyPrice, gameBonus);
     }
 

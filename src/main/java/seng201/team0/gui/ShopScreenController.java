@@ -21,6 +21,7 @@ public class ShopScreenController {
     @FXML private Label selectedTowerFillLabel;
     @FXML private Label selectedTowerSpeedLabel;
     @FXML private Label selectedTowerTypeLabel;
+    @FXML private Label shopPlayerMoneyLabel;
 
     private List<Button> towerButtons;
     private List<Button> itemButtons;
@@ -36,15 +37,14 @@ public class ShopScreenController {
 
     @FXML
     private void initialize() {
-        this.shop = new Shop();
+        this.shop = gameManager.getShop();
+        shopPlayerMoneyLabel.setText("Money: " + gameManager.getPlayer().getPlayerMoney() + "$");
 
         // Initialize lists of buttons
         towerButtons = List.of(buyTower1Button, buyTower2Button, buyTower3Button, buyTower4Button);
         itemButtons = List.of(buyItem1Button, buyItem2Button);
         List<Tower> towers = shop.getTowers();
         List<Item> items = shop.getItems();
-        System.out.println(towers);
-        System.out.println(items);
 
         // Set up tower buttons
         for (int i = 0; i < towerButtons.size(); i++) {
@@ -104,7 +104,7 @@ public class ShopScreenController {
     }
 
     private void displayItemStats(Item item) {
-        selectedItemStatLabel.setText("Fill Increase: " + item.getCollectionIncrease() + ", Speed Increase: " + item.getSpeedIncrease());
+        selectedItemStatLabel.setText("Fill Increase: " + item.getCollectionIncrease() + "%" + ", Speed Increase: " + item.getSpeedIncrease() + "%");
         selectedItemTypeLabel.setText("Affects: " + item.getTowerTypeAffected());
 
         selectedTowerFillLabel.setText("");
