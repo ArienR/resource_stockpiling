@@ -13,6 +13,9 @@ public class GameManager {
     private int numberOfRounds;
     private boolean roundWon = true;
     private int currentRoundNumber;
+
+    private boolean isEndOfGame = false;
+    private boolean gameWon = false;
     private Player player;
     private Shop shop;
     private String gameDifficulty;
@@ -55,9 +58,8 @@ public class GameManager {
     public int getCurrentRoundNumber() {
         return currentRoundNumber;
     }
-
-    public void setCurrentRoundNumber() {
-        this.currentRoundNumber = currentRoundNumber;
+    public void incrementCurrentRoundNumber() {
+        this.currentRoundNumber +=1;
     }
 
     public String getGameDifficulty() {
@@ -169,5 +171,21 @@ public class GameManager {
 
     public Shop getShop() {
         return shop;
+    }
+
+    public boolean isEndOfGame() {
+        return isEndOfGame;
+    }
+
+    public void setEndOfGame(boolean endOfGame) {
+        isEndOfGame = endOfGame;
+    }
+
+    public boolean isGameWon() {
+        return gameWon;
+    }
+
+    public void setGameWon(boolean gameWon) {
+        this.gameWon = gameWon;
     }
 }

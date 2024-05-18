@@ -22,8 +22,14 @@ public class UpcomingRoundScreenController {
     private Round option1Round, option2Round, option3Round;
     private Round selectedRound;
     private int selectedRoundIndex = -1;
+
+    private int easyCartSpeedReduction = 25;
     private Random cartSpeedPercentage;
     private List<Label> optionProduceCountLabels;
+
+    private List<Label> optionMeatCountLabels;
+
+    private List<Label> optionDairyCountLabels;
     private List<Label> optionCartSpeedLabels;
 
     private @FXML Label roundSelectTitleLabel;
@@ -59,6 +65,12 @@ public class UpcomingRoundScreenController {
         optionProduceCountLabels = List.of(option1ProduceCountLabel, option2ProduceCountLabel, option3ProduceCountLabel);
         updateProduceCountLabels();
 
+        optionMeatCountLabels = List.of(option1MeatCountLabel, option2MeatCountLabel, option3MeatCountLabel);
+        updateMeatCountLabels();
+
+        optionDairyCountLabels = List.of(option1DairyCountLabel, option2DairyCountLabel, option3DairyCountLabel);
+        updateDairyCountLabels();
+
         optionCartSpeedLabels = List.of(option1CartSpeedLabel, option2CartSpeedLabel, option3CartSpeedLabel);
         updateCartSpeedLabels();
 
@@ -81,14 +93,35 @@ public class UpcomingRoundScreenController {
 
     public void generateRoundOptions() {
         Random cartSpeedPercentage = new Random();
+        Random cartCount = new Random();
         int currentRoundNumber = gameManager.getCurrentRoundNumber();
-
-        if (currentRoundNumber >= 1 && currentRoundNumber <= 5) {
-            option1Round = new Round(3, cartSpeedPercentage.nextInt(-15, 15));
-            option2Round = new Round(3, cartSpeedPercentage.nextInt(-15, 15));
-            option3Round = new Round(3, cartSpeedPercentage.nextInt(-15, 15));
-        } else {
-            // Handle cases beyond the defined range
+        if (gameManager.getGameDifficulty().equals("Hard")){
+            easyCartSpeedReduction = 0;
+        }
+        if (currentRoundNumber == 1) {
+            option1Round = new Round(1,0,0, cartSpeedPercentage.nextInt(-20, 0)-easyCartSpeedReduction);
+            option2Round = new Round(2,0,0, cartSpeedPercentage.nextInt(-40, -25)-easyCartSpeedReduction);
+            option3Round = new Round(3,0,0, cartSpeedPercentage.nextInt(-70, -50)-easyCartSpeedReduction);
+        } else if (currentRoundNumber == 2){
+            option1Round = new Round(cartCount.nextInt(2, 4),0,0, cartSpeedPercentage.nextInt(-25, -0)-easyCartSpeedReduction);
+            option2Round = new Round(cartCount.nextInt(3, 5),0,0, cartSpeedPercentage.nextInt(-50, -25)-easyCartSpeedReduction);
+            option3Round = new Round(cartCount.nextInt(4, 6),0,0, cartSpeedPercentage.nextInt(-75, -50)-easyCartSpeedReduction);
+        } else if (currentRoundNumber >= 3 && currentRoundNumber <= 6){
+            option1Round = new Round(cartCount.nextInt(7, 10),0,0, cartSpeedPercentage.nextInt(25, 50)-easyCartSpeedReduction);
+            option2Round = new Round(cartCount.nextInt(4, 7),cartCount.nextInt(1,3),0, cartSpeedPercentage.nextInt(-25, 25)-easyCartSpeedReduction);
+            option3Round = new Round(cartCount.nextInt(1, 4),cartCount.nextInt(2,4),0, cartSpeedPercentage.nextInt(-25, 25)-easyCartSpeedReduction);
+        } else if (currentRoundNumber >= 7 && currentRoundNumber <= 9){
+            option1Round = new Round(cartCount.nextInt(7, 10),cartCount.nextInt(0,2),cartCount.nextInt(0,2), cartSpeedPercentage.nextInt(25, 50)-easyCartSpeedReduction);
+            option2Round = new Round(cartCount.nextInt(4, 7),cartCount.nextInt(4,6),0, cartSpeedPercentage.nextInt(0, 50)-easyCartSpeedReduction);
+            option3Round = new Round(cartCount.nextInt(2, 4),cartCount.nextInt(2,4),cartCount.nextInt(0,2), cartSpeedPercentage.nextInt(0, 50)-easyCartSpeedReduction);
+        } else if (currentRoundNumber >= 10 && currentRoundNumber <= 12){
+            option1Round = new Round(cartCount.nextInt(7, 10),cartCount.nextInt(2,4),cartCount.nextInt(2,4), cartSpeedPercentage.nextInt(25, 50)-easyCartSpeedReduction);
+            option2Round = new Round(cartCount.nextInt(4, 7),cartCount.nextInt(5,7),cartCount.nextInt(2,4), cartSpeedPercentage.nextInt(0, 25)-easyCartSpeedReduction);
+            option3Round = new Round(0,cartCount.nextInt(4,6),cartCount.nextInt(4,6), cartSpeedPercentage.nextInt(-25, 25)-easyCartSpeedReduction);
+        } else if (currentRoundNumber >= 13 && currentRoundNumber <= 15){
+            option1Round = new Round(cartCount.nextInt(1, 4),cartCount.nextInt(1,4),cartCount.nextInt(1,5), cartSpeedPercentage.nextInt(50, 75)-easyCartSpeedReduction);
+            option2Round = new Round(cartCount.nextInt(3, 5),cartCount.nextInt(3,5),cartCount.nextInt(3,5), cartSpeedPercentage.nextInt(0, 50)-easyCartSpeedReduction);
+            option3Round = new Round(cartCount.nextInt(0, 1),cartCount.nextInt(0,2),cartCount.nextInt(7,10), cartSpeedPercentage.nextInt(0, 50)-easyCartSpeedReduction);
         }
     }
 
@@ -97,6 +130,22 @@ public class UpcomingRoundScreenController {
 
         for (int i = 0; i < roundOptions.size(); i++) {
             optionProduceCountLabels.get(i).setText("Produce Count: " + roundOptions.get(i).getProduceCount() + "x");
+        }
+    }
+
+    private void updateMeatCountLabels() {
+        List<Round> roundOptions = List.of(option1Round, option2Round, option3Round);
+
+        for (int i = 0; i < roundOptions.size(); i++) {
+            optionMeatCountLabels.get(i).setText("Meat Count: " + roundOptions.get(i).getMeatCount() + "x");
+        }
+    }
+
+    private void updateDairyCountLabels() {
+        List<Round> roundOptions = List.of(option1Round, option2Round, option3Round);
+
+        for (int i = 0; i < roundOptions.size(); i++) {
+            optionDairyCountLabels.get(i).setText("Dairy Count: " + roundOptions.get(i).getDairyCount() + "x");
         }
     }
 
