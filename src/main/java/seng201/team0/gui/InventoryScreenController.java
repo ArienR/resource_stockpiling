@@ -63,7 +63,9 @@ public class InventoryScreenController {
         populateTowerButtons();
         populateItemButtons();
 
-        equipSelectedTower();
+        populateTowerButtons();
+        populateItemButtons();
+        setupEquipButtons();
     }
 
     private void populateTowerButtons() {
@@ -118,15 +120,54 @@ public class InventoryScreenController {
         }
     }
 
-    private void equipSelectedTower() {
+    private void setupEquipButtons() {
         for (int i = 0; i < selectedTowerButtons.size(); i++) {
             int finalI = i;
             selectedTowerButtons.get(i).setOnAction(event -> {
-                if (selectedTowerIndex != -1) {
-                    selectedTowerButtons.get(finalI).setText(gameManager.getPlayer().getTowerList().get(selectedTowerIndex).getTowerName());
-                    gameManager.getPlayer().getEquippedTowers()[finalI] = gameManager.getPlayer().getTowerList().get(selectedTowerIndex);
+                if (selectedTower != null) {
+                    equipTower(finalI);
                 }
             });
+        }
+        for (int i = 0; i < selectedItemButtons.size(); i++) {
+            int finalI = i;
+            selectedItemButtons.get(i).setOnAction(event -> {
+                if (selectedItem != null) {
+                    equipItem(finalI);
+                }
+            });
+        }
+    }
+
+    private void equipTower(int slot) {
+        List<Tower> equippedTowers = gameManager.getPlayer().getEquippedTowers();
+        if (!equippedTowers.contains(selectedTower)) {
+            if (equippedTowers.size() < 5) {
+                if (slot < equippedTowers.size()) {
+                    equippedTowers.set(slot, selectedTower);
+                } else {
+                    equippedTowers.add(selectedTower);
+                }
+                selectedTowerButtons.get(slot).setText(selectedTower.getTowerName());
+            } else {
+                System.out.println("Maximum towers equipped.");
+            }
+        }
+    }
+
+    private void equipItem(int slot) {
+        List<Item> equippedItems = gameManager.getPlayer().getEquippedItems();
+        if (!equippedItems.contains(selectedItem)) {
+            if (equippedItems.size() < 2) {
+                if (slot < equippedItems.size()) {
+                    equippedItems.set(slot, selectedItem);
+                } else {
+                    equippedItems.add(selectedItem);
+                }
+                selectedItemButtons.get(slot).setText(selectedItem.getItemName());
+            } else {
+                System.out.println("Maximum items equipped.");
+            }
         }
     }
 

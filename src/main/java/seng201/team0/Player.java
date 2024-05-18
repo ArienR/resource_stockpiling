@@ -11,8 +11,8 @@ public class Player {
     private List<Item> itemList;
     private List<Tower> purchasedTowers;
     private List<Item> purchasedItems;
-    private Tower[] equippedTowers = new Tower[5];
-    private Item[] equippedItems= new Item[2];
+    private List<Tower> equippedTowers = new ArrayList<>();
+    private List<Item> equippedItems = new ArrayList<>();
     private int playerMoney;
 
     public Player(String name) {
@@ -71,11 +71,19 @@ public class Player {
         this.purchasedItems = purchasedItems;
     }
 
-    public Tower[] getEquippedTowers() {
+    public List<Tower> getEquippedTowers() {
         return equippedTowers;
     }
 
-    public Item[] getEquippedItems() {
+    public void setEquippedTowers(List<Tower> equippedTowers) {
+        this.equippedTowers = equippedTowers;
+    }
+
+    public List<Item> getEquippedItems() {
         return equippedItems;
+    }
+
+    public void setEquippedItems(List<Item> equippedItems) {
+        this.equippedItems = equippedItems;
     }
 }
