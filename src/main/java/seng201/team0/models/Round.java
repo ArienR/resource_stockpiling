@@ -22,5 +22,11 @@ public class Round {
         return cartSpeedPercentage;
     }
 
-    //create method to sort out active towers into their types
+    public int getMeatCount() {
+        return meatCount;
+    }
+
+    public int getDairyCount() {
+        return dairyCount;
+    }
 }

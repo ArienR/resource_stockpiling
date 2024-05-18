@@ -11,6 +11,7 @@ public class Item implements Purchasable {
     private int fillIncrease;
     private int speedIncrease;
     private int buyPrice;
+    private int sellPrice;
 
     public Item(String towerTypeAffected, int fillIncrease, int speedIncrease, int buyPrice) {
         this.buyPrice = buyPrice;

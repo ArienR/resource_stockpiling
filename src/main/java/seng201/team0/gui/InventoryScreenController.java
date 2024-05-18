@@ -62,9 +62,6 @@ public class InventoryScreenController {
 
         populateTowerButtons();
         populateItemButtons();
-
-        populateTowerButtons();
-        populateItemButtons();
         setupEquipButtons();
     }
 
@@ -121,6 +118,14 @@ public class InventoryScreenController {
     }
 
     private void setupEquipButtons() {
+        for (Button button : selectedTowerButtons) {
+            button.setText("");
+            button.setStyle("-fx-opacity: 0.5;");
+        }
+        for (Button button : selectedItemButtons) {
+            button.setText("");
+            button.setStyle("-fx-opacity: 0.5;");
+        }
         for (int i = 0; i < selectedTowerButtons.size(); i++) {
             int finalI = i;
             selectedTowerButtons.get(i).setOnAction(event -> {
@@ -149,6 +154,7 @@ public class InventoryScreenController {
                     equippedTowers.add(selectedTower);
                 }
                 selectedTowerButtons.get(slot).setText(selectedTower.getTowerName());
+                selectedTowerButtons.get(slot).setStyle("-fx-opacity: 1;");
             } else {
                 System.out.println("Maximum towers equipped.");
             }
@@ -165,6 +171,7 @@ public class InventoryScreenController {
                     equippedItems.add(selectedItem);
                 }
                 selectedItemButtons.get(slot).setText(selectedItem.getItemName());
+                selectedItemButtons.get(slot).setStyle("-fx-opacity: 1;");
             } else {
                 System.out.println("Maximum items equipped.");
             }

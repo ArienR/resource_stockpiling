@@ -96,22 +96,22 @@
             </HBox>
             <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="50.0" GridPane.columnIndex="1">
                <children>
-                  <Label text="Tower Stats">
+                  <Label text="Tower Stats:">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="selectedTowerTypeLabel" text="Type">
+                  <Label fx:id="selectedTowerTypeLabel" text="Type:">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="selectedTowerFillLabel" text="Fill Amount">
+                  <Label fx:id="selectedTowerFillLabel" text="Fill Amount:">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="selectedTowerSpeedLabel" text="Fill Speed">
+                  <Label fx:id="selectedTowerSpeedLabel" text="Fill Speed:">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -156,12 +156,12 @@
             </HBox>
             <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="50.0" GridPane.columnIndex="1">
                <children>
-                  <Label text="Item Stats">
+                  <Label text="Item Stats:">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="selectedItemTypeLabel" text="Tower Type Affect">
+                  <Label fx:id="selectedItemTypeLabel" text="Affects: Type">
                      <font>
                         <Font size="24.0" />
                      </font>
