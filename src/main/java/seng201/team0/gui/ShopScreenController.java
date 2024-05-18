@@ -5,6 +5,7 @@ import javafx.scene.control.*;
 import seng201.team0.GameManager;
 import seng201.team0.Player;
 import seng201.team0.models.Item;
+import seng201.team0.models.Purchasable;
 import seng201.team0.models.Tower;
 import seng201.team0.services.Shop;
 
@@ -45,15 +46,19 @@ public class ShopScreenController {
         insufficientFundsLabel.setText("");
         exceedingLimitLabel.setText("");
 
+        Player player = gameManager.getPlayer();
+
         // Initialize lists of buttons
         towerButtons = List.of(buyTower1Button, buyTower2Button, buyTower3Button, buyTower4Button);
         itemButtons = List.of(buyItem1Button, buyItem2Button);
         List<Tower> towers = shop.getTowers();
         List<Item> items = shop.getItems();
 
+
         // Set up tower buttons
         for (int i = 0; i < towerButtons.size(); i++) {
             int finalI = i;
+            Tower tower = towers.get(i);
             towerButtons.get(i).setText(towers.get(i).getTowerName());
             towerButtons.get(i).setOnAction(event -> {
                 selectedTower = towers.get(finalI);
@@ -63,10 +68,15 @@ public class ShopScreenController {
                 displayTowerStats(selectedTower);
                 selectedCostLabel.setText("Cost: " + selectedTower.getBuyPrice() + "$");
             });
+
+            if (player.getPurchasedTowers().contains(tower)) {
+                disableButton(towerButtons.get(i));
+            }
         }
 
         for (int i = 0; i < itemButtons.size(); i++) {
             int finalI = i;
+            Item item = items.get(i);
             itemButtons.get(i).setText(items.get(i).getItemName());
             itemButtons.get(i).setOnAction(event -> {
                 selectedItem = items.get(finalI);
@@ -76,6 +86,10 @@ public class ShopScreenController {
                 displayItemStats(selectedItem);
                 selectedCostLabel.setText("Cost: " + selectedItem.getBuyPrice() + "$");
             });
+
+            if (player.getPurchasedItems().contains(item)) {
+                disableButton(itemButtons.get(i));
+            }
         }
     }
 
@@ -124,25 +138,26 @@ public class ShopScreenController {
     public void onConfirmBuy() {
         Player player = gameManager.getPlayer();
         if (selectedTower != null) {
-            handleBuy(player.getTowerList(), selectedTower, towerButtons.get(selectedTowerIndex), 8, "Maximum number of towers reached.");
+            handleBuy(player.getTowerList(), player.getPurchasedTowers(), selectedTower, towerButtons.get(selectedTowerIndex), 8, "Maximum number of towers reached.");
         } else if (selectedItem != null) {
-            handleBuy(player.getItemList(), selectedItem, itemButtons.get(selectedItemIndex), 4, "Maximum number of items reached.");
+            handleBuy(player.getItemList(), player.getPurchasedItems(), selectedItem, itemButtons.get(selectedItemIndex), 4, "Maximum number of items reached.");
         } else {
             System.out.println("No item or tower selected.");
         }
     }
 
-    private <T> void handleBuy(List<T> playerList, T item, Button button, int maxCount, String maxMessage) {
+    private <T> void handleBuy(List<T> playerList, List<T> purchasedList, Purchasable purchasable, Button button, int maxCount, String maxMessage) {
         if (playerList.size() >= maxCount) {
             exceedingLimitLabel.setText(maxMessage);
             return;
         }
 
-        int cost = (item instanceof Tower) ? ((Tower) item).getBuyPrice() : ((Item) item).getBuyPrice();
+        int cost = purchasable.getBuyPrice();
         Player player = gameManager.getPlayer();
 
         if (player.getPlayerMoney() >= cost) {
-            playerList.add(item);
+            playerList.add((T) purchasable);
+            purchasedList.add((T) purchasable);
             player.setPlayerMoney(player.getPlayerMoney() - cost);
             updatePlayerMoneyLabel();
             disableButton(button);
