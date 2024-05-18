@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
-<?import javafx.scene.shape.Polyline?>
+<?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
@@ -32,27 +32,45 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Circle fill="#737171" radius="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
-      <Circle fill="#00bf60" radius="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-      <Circle fill="#ff5757" radius="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" GridPane.columnIndex="4" GridPane.halignment="LEFT" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
-      <Circle fill="#737171" radius="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
-      <Circle fill="#e4cccc" radius="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" GridPane.columnIndex="4" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-      <Label alignment="BOTTOM_RIGHT" text="Tower 1" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c9c9c9" height="200.0" stroke="BLACK" strokeType="INSIDE" width="233.0" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
+         <GridPane.margin>
+            <Insets top="25.0" />
+         </GridPane.margin>
+      </Rectangle>
+      <Circle fill="#737171" radius="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+      <Circle fill="#00bf60" radius="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+      <Circle fill="#ff5757" radius="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" GridPane.columnIndex="4" GridPane.halignment="LEFT" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+      <Circle fill="#737171" radius="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+      <Circle fill="#e4cccc" radius="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+      <Label alignment="CENTER" prefHeight="31.0" prefWidth="146.0" text="Tower 1" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="3">
          <font>
             <Font size="26.0" />
          </font>
          <GridPane.margin>
-            <Insets right="30.0" />
+            <Insets />
          </GridPane.margin>
       </Label>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff5757" height="200.0" scaleX="0.5" scaleY="0.5" scaleZ="0.5" stroke="#0d0d0d" strokeType="OUTSIDE" strokeWidth="6.0" width="200.0" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4cccc" height="200.0" scaleX="0.5" scaleY="0.5" scaleZ="0.5" stroke="#0d0d0d" strokeDashOffset="1.0" strokeType="OUTSIDE" strokeWidth="6.0" width="200.0" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00c14a" height="200.0" scaleX="0.5" scaleY="0.5" scaleZ="0.5" stroke="#0d0d0d" strokeType="OUTSIDE" strokeWidth="6.0" width="200.0" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="4" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4cccc" height="75.0" scaleX="0.5" scaleY="0.5" scaleZ="0.5" stroke="#0d0d0d" strokeType="OUTSIDE" strokeWidth="6.0" width="250.0" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00c14a" height="75.0" scaleX="0.5" scaleY="0.5" scaleZ="0.5" stroke="#0d0d0d" strokeDashOffset="1.0" strokeType="OUTSIDE" strokeWidth="6.0" width="250.0" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff5757" height="75.0" scaleX="0.5" scaleY="0.5" scaleZ="0.5" stroke="#0d0d0d" strokeType="OUTSIDE" strokeWidth="6.0" width="250.0" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+         <GridPane.margin>
+            <Insets top="100.0" />
+         </GridPane.margin>
+      </Rectangle>
+      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <children>
             <Label alignment="CENTER" prefHeight="36.0" prefWidth="1309.0" style="-fx-font-weight: bold;" text="Round {x} / {num of rounds}">
                <font>
-                  <Font size="25.0" />
+                  <Font size="32.0" />
                </font>
                <HBox.margin>
                   <Insets top="30.0" />
@@ -60,220 +78,189 @@
             </Label>
          </children>
       </HBox>
-      <Label scaleX="0.5" scaleY="0.5" scaleZ="0.5" style="-fx-font-weight: bold;" text="Butchers" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
-         <font>
-            <Font size="32.0" />
-         </font>
-         <GridPane.margin>
-            <Insets />
-         </GridPane.margin>
-      </Label>
-      <Label scaleX="0.5" scaleY="0.5" scaleZ="0.5" style="-fx-font-weight: bold;" text="Produce" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
-         <font>
-            <Font size="32.0" />
-         </font>
-         <GridPane.margin>
-            <Insets />
-         </GridPane.margin>
-      </Label>
-      <Label scaleX="0.75" scaleY="0.75" scaleZ="0.75" style="-fx-font-weight: bold;" text="Dairy" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP">
-         <font>
-            <Font size="32.0" />
-         </font>
-         <GridPane.margin>
-            <Insets />
-         </GridPane.margin>
-      </Label>
-      <Label alignment="BOTTOM_RIGHT" text="Tower 2" GridPane.columnIndex="4" GridPane.rowIndex="2">
+      <Label alignment="CENTER" prefHeight="31.0" prefWidth="148.0" text="Tower 5" GridPane.columnIndex="4" GridPane.rowIndex="7">
          <font>
             <Font size="26.0" />
          </font>
          <GridPane.margin>
-            <Insets left="30.0" />
+            <Insets />
          </GridPane.margin>
       </Label>
-      <Label alignment="BOTTOM_RIGHT" text="Tower 3" GridPane.columnIndex="4" GridPane.rowIndex="6">
+      <Label alignment="CENTER" prefHeight="31.0" prefWidth="149.0" text="Tower 3" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="7">
          <font>
             <Font size="26.0" />
-         </font>
-         <GridPane.margin>
-            <Insets left="30.0" />
-         </GridPane.margin>
-      </Label>
-      <Label alignment="BOTTOM_RIGHT" text="Tower 4" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
-         <font>
-            <Font size="26.0" />
-         </font>
-         <GridPane.margin>
-            <Insets right="30.0" />
-         </GridPane.margin>
-      </Label>
-      <Label alignment="BOTTOM_RIGHT" text="Tower 5" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </Label>
-      <Label scaleX="0.5" scaleY="0.5" scaleZ="0.5" style="-fx-font-weight: bold;" text="5x" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
-         <font>
-            <Font size="32.0" />
          </font>
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
       </Label>
-      <Label scaleX="0.5" scaleY="0.5" scaleZ="0.5" style="-fx-font-weight: bold;" text="3x" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
+      <Label alignment="CENTER" text="Tower 4" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
          <font>
-            <Font size="32.0" />
+            <Font size="26.0" />
          </font>
+      </Label>
+      <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="125.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
-      </Label>
-      <Label scaleX="0.75" scaleY="0.75" scaleZ="0.75" style="-fx-font-weight: bold;" text="0x" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
+         <children>
+            <Label alignment="CENTER" prefHeight="20.0" prefWidth="257.0" text="{Type}">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="30.0" prefWidth="202.0" text="{Speed}">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="20.0" prefWidth="223.0" text="{Amount} L/s">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c9c9c9" height="100.0" stroke="BLACK" strokeType="INSIDE" width="40.0" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+         <GridPane.margin>
+            <Insets left="125.0" />
+         </GridPane.margin>
+      </Rectangle>
+      <Polygon fill="#c9c9c9" points="-118.33330535888672, 35.6666259765625, -76.9999771118164, 35.66661071777344, -76.9999771118164, -16.333389282226562" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+         <GridPane.margin>
+            <Insets right="15.0" top="4.0" />
+         </GridPane.margin>
+      </Polygon>
+      <Polygon fill="#c9c9c9" points="-118.33330535888672, 35.6666259765625, -76.9999771118164, 35.66661071777344, -76.9999771118164, -16.333389282226562" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+         <GridPane.margin>
+            <Insets right="150.0" top="4.0" />
+         </GridPane.margin>
+      </Polygon>
+      <Label style="-fx-font-weight: bold;" text="Dairy 12x" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
          <font>
-            <Font size="32.0" />
+            <Font size="16.0" />
          </font>
+         <GridPane.margin>
+            <Insets bottom="35.0" />
+         </GridPane.margin>
+      </Label>
+      <Label style="-fx-font-weight: bold;" text="Meat 0x" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <GridPane.margin>
+            <Insets top="100.0" />
+         </GridPane.margin>
+      </Label>
+      <Label style="-fx-font-weight: bold;" text="Produce 5x" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <GridPane.margin>
+            <Insets top="35.0" />
+         </GridPane.margin>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#494a4a" height="97.0" stroke="BLACK" strokeType="INSIDE" width="1181.0" GridPane.rowIndex="5">
+         <GridPane.margin>
+            <Insets left="260.0" />
+         </GridPane.margin>
+      </Rectangle>
+      <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="125.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+         <children>
+            <Label alignment="CENTER" prefHeight="20.0" prefWidth="257.0" text="{Type}">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="30.0" prefWidth="202.0" text="{Speed}">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="20.0" prefWidth="223.0" text="{Amount} L/s">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+         <GridPane.margin>
+            <Insets left="15.0" />
+         </GridPane.margin>
+      </VBox>
+      <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="125.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+         <children>
+            <Label alignment="CENTER" prefHeight="20.0" prefWidth="257.0" text="{Type}">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="30.0" prefWidth="202.0" text="{Speed} ">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="20.0" prefWidth="223.0" text="{Amount} L/s">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+         <GridPane.margin>
+            <Insets left="15.0" />
+         </GridPane.margin>
+      </VBox>
+      <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="125.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+         <children>
+            <Label alignment="CENTER" prefHeight="20.0" prefWidth="257.0" text="{Type}">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="30.0" prefWidth="202.0" text="{Speed}">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="20.0" prefWidth="223.0" text="{Amount} L/s">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="125.0" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="7">
+         <children>
+            <Label alignment="CENTER" prefHeight="20.0" prefWidth="257.0" text="{Type}">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="30.0" prefWidth="202.0" text="{Speed}">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="20.0" prefWidth="223.0" text="{Amount} L/s">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <Label alignment="CENTER" prefHeight="31.0" prefWidth="146.0" text="Tower 2" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="67.0" stroke="BLACK" strokeType="INSIDE" width="112.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
-      </Label>
-      <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="145.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="67.0" stroke="BLACK" strokeType="INSIDE" width="112.0" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
          <GridPane.margin>
-            <Insets left="140.0" top="20.0" />
+            <Insets right="25.0" />
          </GridPane.margin>
-         <children>
-            <Label text="{Type}">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <Label prefHeight="30.0" prefWidth="177.0" text="{Speed} KPH">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <Label text="{Amount} L/s">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-         </children>
-      </VBox>
-      <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="145.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
-         <children>
-            <Label text="{Type}">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <Label prefHeight="35.0" prefWidth="270.0" text="{Speed} KPH">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <Label text="{Amount} L/s">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-         </children>
-         <GridPane.margin>
-            <Insets top="20.0" />
-         </GridPane.margin>
-      </VBox>
-      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="145.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="7">
-         <children>
-            <Label text="{Type}">
-               <font>
-                  <Font size="24.0" />
-               </font>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </Label>
-            <Label prefHeight="35.0" prefWidth="270.0" text="{Speed} KPH">
-               <font>
-                  <Font size="24.0" />
-               </font>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </Label>
-            <Label text="{Amount} L/s">
-               <font>
-                  <Font size="24.0" />
-               </font>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </Label>
-         </children>
-         <GridPane.margin>
-            <Insets top="50.0" />
-         </GridPane.margin>
-      </VBox>
-      <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="145.0" GridPane.columnIndex="4" GridPane.rowIndex="7">
-         <children>
-            <Label text="{Type}">
-               <font>
-                  <Font size="24.0" />
-               </font>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </Label>
-            <Label prefHeight="35.0" prefWidth="270.0" text="{Speed} KPH">
-               <font>
-                  <Font size="24.0" />
-               </font>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </Label>
-            <Label text="{Amount} L/s">
-               <font>
-                  <Font size="24.0" />
-               </font>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </Label>
-         </children>
-         <GridPane.margin>
-            <Insets top="20.0" />
-         </GridPane.margin>
-      </VBox>
-      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="145.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
-         <children>
-            <Label text="{Type}">
-               <font>
-                  <Font size="24.0" />
-               </font>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </Label>
-            <Label prefHeight="35.0" prefWidth="270.0" text="{Speed} KPH">
-               <font>
-                  <Font size="24.0" />
-               </font>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </Label>
-            <Label text="{Amount} L/s">
-               <font>
-                  <Font size="24.0" />
-               </font>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </Label>
-         </children>
-         <GridPane.margin>
-            <Insets top="50.0" />
-         </GridPane.margin>
-      </VBox>
-      <Polyline fill="CHARTREUSE" points="-50.0, -40.0, 120.66665649414062, 55.333343505859375, -50.0, 55.333343505859375, -50.0, -40.0" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      </Rectangle>
    </children>
 </GridPane>
