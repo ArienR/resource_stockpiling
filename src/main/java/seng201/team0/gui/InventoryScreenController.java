@@ -3,9 +3,11 @@ package seng201.team0.gui;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import seng201.team0.GameManager;
+import seng201.team0.Player;
 import seng201.team0.models.Item;
 import seng201.team0.models.Tower;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class InventoryScreenController {
@@ -33,8 +35,12 @@ public class InventoryScreenController {
 
     private List<Button> towerButtons;
     private List<Button> itemButtons;
+    private List<Button> selectedTowerButtons;
+    private List<Button> selectedItemButtons;
     private Tower selectedTower;
     private Item selectedItem;
+    private int selectedTowerIndex = -1;
+    private int selectedItemIndex = -1;
 
 
     // constructor
@@ -45,13 +51,19 @@ public class InventoryScreenController {
     // methods
     @FXML
     public void initialize() {
-        inventoryMessageLabel.setText(String.format("Select your Towers and Upgrades for the next round, %s.", gameManager.getPlayer().getName()));
+        Player player = gameManager.getPlayer();
+
+        inventoryMessageLabel.setText(String.format("Select your Towers and Upgrades for the next round, %s.", player.getName()));
 
         towerButtons = List.of(inventoryTower1Button, inventoryTower2Button, inventoryTower3Button, inventoryTower4Button, inventoryTower5Button, inventoryTower6Button, inventoryTower7Button, inventoryTower8Button);
         itemButtons = List.of(inventoryItem1Button, inventoryItem2Button, inventoryItem3Button, inventoryItem4Button);
+        selectedTowerButtons = List.of(inventorySelectedTower1Button, inventorySelectedTower2Button, inventorySelectedTower3Button, inventorySelectedTower4Button, inventorySelectedTower5Button);
+        selectedItemButtons = List.of(inventorySelectedItem1Button, inventorySelectedItem2Button);
 
         populateTowerButtons();
         populateItemButtons();
+
+        equipSelectedTower();
     }
 
     private void populateTowerButtons() {
@@ -65,6 +77,8 @@ public class InventoryScreenController {
                 towerButtons.get(i).setOnAction(event -> {
                     selectedTower = towers.get(finalI);
                     selectedItem = null;
+                    selectedTowerIndex = finalI;
+                    selectedItemIndex = -1;
                     displayTowerStats(selectedTower);
                     removeItemStats();
                     updateButtonStyles(towerButtons, towerButtons.get(finalI));
@@ -89,6 +103,8 @@ public class InventoryScreenController {
                 itemButtons.get(i).setOnAction(event -> {
                     selectedItem = items.get(finalI);
                     selectedTower = null;
+                    selectedItemIndex = finalI;
+                    selectedTowerIndex = -1;
                     displayItemStats(selectedItem);
                     removeTowerStats();
                     updateButtonStyles(itemButtons, itemButtons.get(finalI));
@@ -99,6 +115,18 @@ public class InventoryScreenController {
                 itemButtons.get(i).setDisable(true);
                 itemButtons.get(i).setStyle("-fx-opacity: 0.5;");
             }
+        }
+    }
+
+    private void equipSelectedTower() {
+        for (int i = 0; i < selectedTowerButtons.size(); i++) {
+            int finalI = i;
+            selectedTowerButtons.get(i).setOnAction(event -> {
+                if (selectedTowerIndex != -1) {
+                    selectedTowerButtons.get(finalI).setText(gameManager.getPlayer().getTowerList().get(selectedTowerIndex).getTowerName());
+                    gameManager.getPlayer().getEquippedTowers()[finalI] = gameManager.getPlayer().getTowerList().get(selectedTowerIndex);
+                }
+            });
         }
     }
 

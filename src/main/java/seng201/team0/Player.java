@@ -11,6 +11,8 @@ public class Player {
     private List<Item> itemList;
     private List<Tower> purchasedTowers;
     private List<Item> purchasedItems;
+    private Tower[] equippedTowers = new Tower[5];
+    private Item[] equippedItems= new Item[2];
     private int playerMoney;
 
     public Player(String name) {
@@ -67,5 +69,13 @@ public class Player {
 
     public void setPurchasedItems(List<Item> purchasedItems) {
         this.purchasedItems = purchasedItems;
+    }
+
+    public Tower[] getEquippedTowers() {
+        return equippedTowers;
+    }
+
+    public Item[] getEquippedItems() {
+        return equippedItems;
     }
 }
