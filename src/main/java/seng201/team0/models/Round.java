@@ -23,11 +23,13 @@ public class Round {
 
     public int getMeatCount(){
         System.out.println("M" + meatCount);
-        return meatCount;}
+        return meatCount;
+    }
 
     public int getDairyCount(){
         System.out.println("D" + dairyCount);
-        return dairyCount;}
+        return dairyCount;
+    }
 
     public int getCartSpeedPercentage() {
         return cartSpeedPercentage;

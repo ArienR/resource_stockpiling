@@ -1,10 +1,16 @@
 package seng201.team0.gui;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.*;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import seng201.team0.GameManager;
+import seng201.team0.Player;
+import seng201.team0.models.Tower;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,19 +26,15 @@ public class AfterRoundScreenController implements Initializable {
     private GameManager gameManager;
 
     @FXML
-    private TableView<?> afterRoundTable;
-
+    private Label currentScoreLabel;
     @FXML
-    private TableColumn<?, ?> tableCompensationColumn;
-
+    private TableView<Tower> afterRoundTable;
     @FXML
-    private TableColumn<?, ?> tableStatusColumn;
-
+    private TableColumn<Tower, String> towerStatusColumn;
     @FXML
-    private TableColumn<?, ?> towerNameColumn;
-
+    private TableColumn<Tower, String> towerNameColumn;
     @FXML
-    private TableColumn<?, ?> tableUsedColumn;
+    private TableColumn<Tower, Integer> towerUsesColumn;
 
     public AfterRoundScreenController(GameManager tempGameManager) {
         this.gameManager = tempGameManager;
@@ -40,7 +42,21 @@ public class AfterRoundScreenController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        Player player = gameManager.getPlayer();
+        ObservableList<Tower> towerData = FXCollections.observableArrayList(getTowerData());
 
+        currentScoreLabel.setText("Current Score: " + player.getPlayerScore());
+
+        towerNameColumn.setCellValueFactory(new PropertyValueFactory<>("towerName"));
+        towerStatusColumn.setCellValueFactory(new PropertyValueFactory<>("towerStatus"));
+        towerUsesColumn.setCellValueFactory(new PropertyValueFactory<>("consecutiveUses"));
+
+        afterRoundTable.setItems(towerData);
+    }
+
+    private ObservableList<Tower> getTowerData() {
+        Player player = gameManager.getPlayer();
+        return FXCollections.observableArrayList(player.getTowerList());
     }
 
     @FXML

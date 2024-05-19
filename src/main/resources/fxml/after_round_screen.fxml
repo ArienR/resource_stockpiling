@@ -15,25 +15,24 @@
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="1434.6666259765625" minWidth="10.0" prefWidth="1432.0" />
    </columnConstraints>
    <rowConstraints>
-      <RowConstraints maxHeight="180.66666412353516" minHeight="10.0" prefHeight="142.3333282470703" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="426.66668701171875" minHeight="10.0" prefHeight="358.6666717529297" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="484.0" minHeight="10.0" prefHeight="239.33331298828125" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="201.33331298828125" minHeight="10.0" prefHeight="107.66668701171875" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="284.0" minHeight="10.0" prefHeight="266.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="464.0" minHeight="10.0" prefHeight="341.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="484.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="201.33331298828125" minHeight="10.0" prefHeight="128.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
       <TableView fx:id="afterRoundTable" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="940.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <columns>
-            <TableColumn fx:id="tableTowerColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="317.0" text="Tower Name" />
-            <TableColumn fx:id="tableUsedColumn" editable="false" minWidth="0.0" prefWidth="212.0" text="Consecutive Uses" />
-            <TableColumn fx:id="tableStatusColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="157.0" text="Status" />
-            <TableColumn fx:id="tableCompensationColumn" prefWidth="141.3333740234375" text="Compensation" />
-            <TableColumn fx:id="tableLevelColumn" prefWidth="115.333251953125" text="Level" />
+            <TableColumn fx:id="towerNameColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="340.0" text="Tower Name" />
+            <TableColumn fx:id="towerUsesColumn" editable="false" minWidth="0.0" prefWidth="200.0" text="Consecutive Uses" />
+            <TableColumn fx:id="towerStatusColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="200.0" text="Status" />
+            <TableColumn fx:id="tableLevelColumn" prefWidth="200.0" text="Level" />
          </columns>
          <GridPane.margin>
             <Insets left="100.0" right="100.0" />
          </GridPane.margin>
       </TableView>
-      <Label text="Current Score: {x}" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <Label fx:id="currentScoreLabel" alignment="CENTER" prefHeight="44.0" prefWidth="675.0" text="Current Score: {x}" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
@@ -41,31 +40,10 @@
             <Insets />
          </GridPane.margin>
       </Label>
-      <Button fx:id="goToUpcomingRoundButton" mnemonicParsing="false" onAction="#afterRoundToSelectRound" text="Continue to Select Round" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+      <Button fx:id="goToUpcomingRoundButton" mnemonicParsing="false" onAction="#afterRoundToSelectRound" style="-fx-background-radius: 10;" text="Continue to Select Round" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <GridPane GridPane.rowIndex="2">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints maxHeight="128.0" minHeight="10.0" prefHeight="128.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="160.0" minHeight="10.0" prefHeight="112.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Label alignment="CENTER" text="No Random Event" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-               <font>
-                  <Font name="System Bold" size="36.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" text="{None}" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-         </children>
-      </GridPane>
    </children>
 </GridPane>

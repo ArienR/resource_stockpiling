@@ -1,5 +1,8 @@
 package seng201.team0.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Tower implements Purchasable {
 
     // attributes
@@ -120,5 +123,9 @@ public abstract class Tower implements Purchasable {
 
     public void setTowerLevel(int towerLevel) {
         this.towerLevel = towerLevel;
+    }
+
+    public String getTowerStatus() {
+        return towerBroken ? "Broken" : "Operational";
     }
 }

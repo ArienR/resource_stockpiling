@@ -14,9 +14,13 @@ public class Player {
     private List<Tower> equippedTowers = new ArrayList<>();
     private List<Item> equippedItems = new ArrayList<>();
     private int playerMoney;
+    private int totalPlayerMoney;
+    private int playerScore;
 
     public Player(String name) {
         this.name = name;
+        this.playerScore = 0;
+        this.totalPlayerMoney = 0;
         this.towerList = new ArrayList<>();
         this.itemList = new ArrayList<>();
         this.purchasedTowers = new ArrayList<>();
@@ -85,5 +89,21 @@ public class Player {
 
     public void setEquippedItems(List<Item> equippedItems) {
         this.equippedItems = equippedItems;
+    }
+
+    public int getPlayerScore() {
+        return playerScore;
+    }
+
+    public void setPlayerScore(int playerScore) {
+        this.playerScore = playerScore;
+    }
+
+    public int getTotalPlayerMoney() {
+        return totalPlayerMoney;
+    }
+
+    public void setTotalPlayerMoney(int totalPlayerMoney) {
+        this.totalPlayerMoney = totalPlayerMoney;
     }
 }
