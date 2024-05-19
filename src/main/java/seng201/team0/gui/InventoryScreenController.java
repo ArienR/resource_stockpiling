@@ -7,6 +7,7 @@ import seng201.team0.Player;
 import seng201.team0.models.Item;
 import seng201.team0.models.Tower;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -52,6 +53,8 @@ public class InventoryScreenController {
     @FXML
     public void initialize() {
         Player player = gameManager.getPlayer();
+        player.setEquippedTowers(new ArrayList<>()); // Emptying equipped towers
+        player.setEquippedItems(new ArrayList<>()); // Emptying equipped towers
 
         inventoryMessageLabel.setText(String.format("Select your Towers and Upgrades for the next round, %s.", player.getName()));
 

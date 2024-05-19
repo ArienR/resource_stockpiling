@@ -5,16 +5,14 @@ public abstract class Tower implements Purchasable {
     // attributes
     private final int difficultyBonus;
     private int towerLevel;
-    private int consecutiveTowerUses;
+    private int consecutiveUses;
     private float breakChance = 0;
     private String towerName;
     private String towerType;
     private int towerSpeed;
     private int towerFillAmount;
     private boolean towerBroken = false;
-
     private boolean towerSelected = false;
-
     private int buyPrice;
     private int sellPrice;
 
@@ -26,6 +24,7 @@ public abstract class Tower implements Purchasable {
         this.sellPrice = Math.round(difficultyBonus / (float) buyPrice);
         this.difficultyBonus = difficultyBonus;
         this.towerName = generateRandomName();
+        this.consecutiveUses = 0;
     }
 
     // methods
@@ -107,12 +106,12 @@ public abstract class Tower implements Purchasable {
         this.towerSelected = towerIsSelected;
     }
 
-    public int getConsecutiveTowerUses() {
-        return consecutiveTowerUses;
+    public int getConsecutiveUses() {
+        return consecutiveUses;
     }
 
-    public void setConsecutiveTowerUses(int consecutiveTowerUses) {
-        this.consecutiveTowerUses = consecutiveTowerUses;
+    public void setConsecutiveUses(int consecutiveUses) {
+        this.consecutiveUses = consecutiveUses;
     }
 
     public int getTowerLevel() {
