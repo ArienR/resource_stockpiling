@@ -9,8 +9,14 @@ import seng201.team0.GameManager;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ *Controller class that interacts with the 'after round screen'
+ */
 public class AfterRoundScreenController implements Initializable {
 
+    /**
+     * of gameManager that
+     */
     private GameManager gameManager;
 
     @FXML
