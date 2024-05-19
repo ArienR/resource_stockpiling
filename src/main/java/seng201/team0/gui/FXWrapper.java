@@ -21,7 +21,7 @@ public class FXWrapper {
         this.stage = stage;
         Player player = new Player("");
         new GameManager(player, this::launchSetupScreen, this::launchUpcomingRoundScreen, this::launchInventoryScreen,
-                this::launchSellShopScreen, this::launchBuyShopScreen, this::launchGameScreen, this::clearPane);
+                this::launchSellShopScreen, this::launchBuyShopScreen, this::launchGameScreen, this::launchAfterRoundScreen, this::clearPane);
     }
 
 
@@ -96,6 +96,18 @@ public class FXWrapper {
             Parent setupParent = gameScreenLoader.load();
             pane.getChildren().add(setupParent);
             stage.setTitle("Game Screen");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void launchAfterRoundScreen(GameManager gameManager) {
+        try {
+            FXMLLoader afterRoundScreenLoader = new FXMLLoader(getClass().getResource("/fxml/after_round_screen.fxml"));
+            afterRoundScreenLoader.setControllerFactory(param -> new AfterRoundScreenController(gameManager));
+            Parent setupParent = afterRoundScreenLoader.load();
+            pane.getChildren().add(setupParent);
+            stage.setTitle("After Round Screen");
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -3,7 +3,7 @@ package seng201.team0.gui;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-public class GameScreenPopupController {
+public class GameRulesPopupController {
 
     @FXML Label cartStatsLabel;
 

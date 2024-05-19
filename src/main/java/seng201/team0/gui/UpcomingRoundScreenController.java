@@ -183,13 +183,6 @@ public class UpcomingRoundScreenController {
     }
 
     @FXML
-    private void closeCartStatsPopup(){
-
-    }
-
-
-
-    @FXML
     private void continueToInventoryAction() {
         if (selectedRoundIndex != -1) {
             gameManager.launchInventoryScreen();

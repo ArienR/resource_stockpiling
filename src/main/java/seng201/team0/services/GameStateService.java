@@ -11,7 +11,8 @@ public class GameStateService {
     // will be changed to a non button fxml later
     public void isEndOfGame() {
         if (gameManager.isRoundWon() == true && gameManager.getCurrentRoundNumber() + 1 < gameManager.getNumberOfRounds()) {
-            // continue to next round & launch after round screen
+            gameManager.launchAfterRoundScreen();
+            gameManager.closeGameScreen();
             gameManager.incrementCurrentRoundNumber();
             System.out.println(gameManager.getCurrentRoundNumber());
         } else if (gameManager.isRoundWon() == true && gameManager.getCurrentRoundNumber() + 1 == gameManager.getNumberOfRounds()) {
