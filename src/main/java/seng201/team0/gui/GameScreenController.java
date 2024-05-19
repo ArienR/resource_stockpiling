@@ -30,16 +30,12 @@ public class GameScreenController {
     @FXML
     public void roundLost() {
         gameManager.setRoundWon(false);
-        checkGameEnd();
+        gameStateService.isEndOfGame();
     }
 
     @FXML
     public void roundWon() {
         gameManager.setRoundWon(true);
-        checkGameEnd();
-    }
-
-    public void checkGameEnd() {
         gameStateService.isEndOfGame();
     }
 }

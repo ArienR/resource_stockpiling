@@ -69,6 +69,7 @@ public class SetupScreenController {
             gameManager.getPlayer().setPlayerMoney(1500);
             gameManager.setNumberOfRounds((int) numberOfRoundsSlider.getValue());
             gameManager.setGameDifficulty(gameDifficulty);
+            gameManager.setDifficultyBonus(gameDifficulty);
             gameManager.launchUpcomingRoundScreen();
             gameManager.closeSetupScreen();
         }
