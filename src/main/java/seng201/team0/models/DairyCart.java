@@ -4,9 +4,9 @@ public class DairyCart extends Cart{
 
     private String cartType;
 
-    DairyCart(int tempCartSpeed, int tempCartCapacity, String tempCartType) {
-        super(10, 10);
-        this.cartType = tempCartType;
+    public DairyCart(int changedCartSpeedPercentage) {
+        super(30, 30);
+        this.cartType = "Dairy";
     }
 
 }

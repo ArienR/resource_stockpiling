@@ -1,10 +1,12 @@
 package seng201.team0;
 
 import seng201.team0.gui.FXWindow;
+import seng201.team0.models.ProduceCart;
 import seng201.team0.models.Tower;
 import seng201.team0.models.Round;
 import seng201.team0.services.Shop;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Consumer;
@@ -21,6 +23,8 @@ public class GameManager {
     private String gameDifficulty;
     private float difficultyBonus;
     private boolean isRoundEnded;
+
+    private Round upcomingRound;
     private final Consumer<GameManager> setupScreenLauncher;
     private final Consumer<GameManager> upcomingRoundScreenLauncher;
     private final Consumer<GameManager> inventoryScreenLauncher;
@@ -215,5 +219,13 @@ public class GameManager {
 
     public void setGameWon(boolean gameWon) {
         this.gameWon = gameWon;
+    }
+
+    public Round getUpcomingRound() {
+        return upcomingRound;
+    }
+
+    public void setUpcomingRound(Round upcomingRound) {
+        this.upcomingRound = upcomingRound;
     }
 }

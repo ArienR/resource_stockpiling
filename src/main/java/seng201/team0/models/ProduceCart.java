@@ -2,10 +2,13 @@ package seng201.team0.models;
 
 public class ProduceCart extends Cart{
 
-    private String cartType;
+    private String cartType = "Produce";
 
-    ProduceCart(int tempCartSpeed, int tempCartCapacity, String tempCartType) {
+    public ProduceCart(int changedCartSpeedPercentage) {
         super(10, 10);
-        this.cartType = tempCartType;
+    }
+
+    public String getCartType() {
+        return cartType;
     }
 }
