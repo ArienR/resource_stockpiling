@@ -32,12 +32,4 @@ public class Round {
     public int getCartSpeedPercentage() {
         return cartSpeedPercentage;
     }
-
-    public int getMeatCount() {
-        return meatCount;
-    }
-
-    public int getDairyCount() {
-        return dairyCount;
-    }
 }
