@@ -23,7 +23,7 @@ public class AfterRoundScreenController implements Initializable {
     private TableColumn<?, ?> tableStatusColumn;
 
     @FXML
-    private TableColumn<?, ?> tableTowerColumn;
+    private TableColumn<?, ?> towerNameColumn;
 
     @FXML
     private TableColumn<?, ?> tableUsedColumn;
@@ -35,5 +35,11 @@ public class AfterRoundScreenController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+    }
+
+    @FXML
+    public void afterRoundToSelectRound() {
+        gameManager.launchUpcomingRoundScreen();
+        gameManager.closeAfterRoundScreen();
     }
 }

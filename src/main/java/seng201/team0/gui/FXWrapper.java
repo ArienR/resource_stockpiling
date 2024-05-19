@@ -21,7 +21,8 @@ public class FXWrapper {
         this.stage = stage;
         Player player = new Player("");
         new GameManager(player, this::launchSetupScreen, this::launchUpcomingRoundScreen, this::launchInventoryScreen,
-                this::launchSellShopScreen, this::launchBuyShopScreen, this::launchGameScreen, this::launchAfterRoundScreen, this::clearPane);
+                this::launchSellShopScreen, this::launchBuyShopScreen, this::launchGameScreen, this::launchAfterRoundScreen,
+                this::launchEndScreen, this::clearPane);
     }
 
 
@@ -113,4 +114,15 @@ public class FXWrapper {
         }
     }
 
+    public void launchEndScreen(GameManager gameManager) {
+        try {
+            FXMLLoader endScreenLoader = new FXMLLoader(getClass().getResource("/fxml/end_screen.fxml"));
+            endScreenLoader.setControllerFactory(param -> new EndScreenController(gameManager));
+            Parent setupParent = endScreenLoader.load();
+            pane.getChildren().add(setupParent);
+            stage.setTitle("End Screen");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

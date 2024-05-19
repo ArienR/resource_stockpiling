@@ -26,19 +26,19 @@ public class GameManager {
     private final Consumer<GameManager> inventoryScreenLauncher;
     private final Consumer<GameManager> sellShopScreenLauncher;
     private final Consumer<GameManager> buyShopScreenLauncher;
-
     private final Consumer<GameManager> gameScreenLauncher;
-
     private final Consumer<GameManager> afterRoundScreenLauncher;
+    private final Consumer<GameManager> endScreenLauncher;
     private final Runnable clearScreen;
 
 
     public GameManager(Player player, Consumer<GameManager> setupScreenLauncher, Consumer<GameManager> upcomingRoundScreenLauncher,
                        Consumer<GameManager> inventoryScreenLauncher, Consumer<GameManager> sellShopScreenLauncher, Consumer<GameManager> buyShopScreenLauncher, Consumer<GameManager> gameScreenLauncher,
-                       Consumer<GameManager> afterRoundScreenLauncher,
+                       Consumer<GameManager> afterRoundScreenLauncher, Consumer<GameManager> endScreenLauncher,
                        Runnable clearScreen) {
         this.player = player;
         this.gameScreenLauncher = gameScreenLauncher;
+        this.endScreenLauncher = endScreenLauncher;
         this.currentRoundNumber = 1;
         this.setupScreenLauncher = setupScreenLauncher;
         this.upcomingRoundScreenLauncher = upcomingRoundScreenLauncher;
@@ -137,16 +137,6 @@ public class GameManager {
         launchBuyShopScreen();
     }
 
-    public void gameScreenToAfterRoundScreen() {
-        clearScreen.run();
-        launchAfterRoundScreen();
-    }
-
-    public void gameScreenToEndScreen() {
-        clearScreen.run();
-//        launchEndScreen();
-    }
-
     public void launchSellShopScreen() {
         sellShopScreenLauncher.accept(this);
     }
@@ -168,13 +158,31 @@ public class GameManager {
     }
 
     //still need to implement
-    public void closeGameScreen() {
+    public void gameScreenToAfterRoundScreen() {
         clearScreen.run();
         launchAfterRoundScreen();
     }
 
     public void launchAfterRoundScreen(){
         afterRoundScreenLauncher.accept(this);
+    }
+
+    public void closeAfterRoundScreen() {
+        clearScreen.run();
+        launchUpcomingRoundScreen();
+    }
+
+    public void gameScreenToEndScreen() {
+        clearScreen.run();
+        launchEndScreen();
+    }
+
+    public void closeEndScreen() {
+        clearScreen.run();
+    }
+
+    public void launchEndScreen() {
+        endScreenLauncher.accept(this);
     }
 
     public boolean isRoundWon() {

@@ -23,8 +23,8 @@
    <children>
       <TableView fx:id="afterRoundTable" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="940.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <columns>
-            <TableColumn fx:id="tableTowerColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="240.00001525878906" prefWidth="358.0" text="Tower" />
-            <TableColumn fx:id="tableUsedColumn" editable="false" prefWidth="171.0" text="Consecutive Uses" />
+            <TableColumn fx:id="tableTowerColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="317.0" text="Tower Name" />
+            <TableColumn fx:id="tableUsedColumn" editable="false" minWidth="0.0" prefWidth="212.0" text="Consecutive Uses" />
             <TableColumn fx:id="tableStatusColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="157.0" text="Status" />
             <TableColumn fx:id="tableCompensationColumn" prefWidth="141.3333740234375" text="Compensation" />
             <TableColumn fx:id="tableLevelColumn" prefWidth="115.333251953125" text="Level" />
@@ -41,7 +41,7 @@
             <Insets />
          </GridPane.margin>
       </Label>
-      <Button fx:id="goToUpcomingRoundButton" mnemonicParsing="false" text="Continue to next round" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+      <Button fx:id="goToUpcomingRoundButton" mnemonicParsing="false" onAction="#afterRoundToSelectRound" text="Continue to Select Round" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>
