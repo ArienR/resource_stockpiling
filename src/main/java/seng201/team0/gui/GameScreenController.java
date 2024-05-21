@@ -66,7 +66,7 @@ public class GameScreenController {
         meatCartsRemaining.setText("Meat " + listOfMeatCarts.size() + "x");
         dairyCartsRemaining.setText("Dairy " + listOfDairyCarts.size() + "x");
 
-        populateTowers();
+//        populateTowers();
     }
 
 

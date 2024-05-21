@@ -10,19 +10,20 @@ public class GameStateService {
 
     // will be changed to a non button fxml later
     public void isEndOfGame() {
-        if (gameManager.isRoundWon() == true && gameManager.getCurrentRoundNumber() + 1 < gameManager.getNumberOfRounds()) {
+        if (gameManager.isRoundWon() == true && gameManager.getCurrentRoundNumber() < gameManager.getNumberOfRounds()) {
+            gameManager.incrementCurrentRoundNumber();
             gameManager.launchAfterRoundScreen();
             gameManager.gameScreenToAfterRoundScreen();
+        } else if (gameManager.isRoundWon() == true && gameManager.getCurrentRoundNumber() == gameManager.getNumberOfRounds()) {
             gameManager.incrementCurrentRoundNumber();
-        } else if (gameManager.isRoundWon() == true && gameManager.getCurrentRoundNumber() + 1 == gameManager.getNumberOfRounds()) {
-            gameManager.launchEndScreen();
-            gameManager.gameScreenToEndScreen();
             gameManager.setEndOfGame(true);
             gameManager.setGameWon(true);
-        } else {
             gameManager.launchEndScreen();
             gameManager.gameScreenToEndScreen();
+        } else {
             gameManager.setEndOfGame(true);
+            gameManager.launchEndScreen();
+            gameManager.gameScreenToEndScreen();
         }
     }
 
