@@ -14,7 +14,6 @@ public class GenerateCartsService {
     int produceCartCount;
     int meatCartCount;
     int dairyCartCount;
-
     int changedCartSpeedPercentage;
 
     public GenerateCartsService(GameManager gameManager){
