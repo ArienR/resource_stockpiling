@@ -19,7 +19,7 @@
     <RowConstraints maxHeight="386.66668701171875" minHeight="10.0" prefHeight="210.66665649414062" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label alignment="CENTER" text="Win/Loss Message" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+      <Label fx:id="gameOutcomeLabel" alignment="CENTER" text="Win/Loss Message" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
          <font>
             <Font name="System Bold" size="40.0" />
          </font>
