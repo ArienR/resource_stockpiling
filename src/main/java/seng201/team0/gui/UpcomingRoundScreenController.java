@@ -99,7 +99,7 @@ public class UpcomingRoundScreenController {
             easyCartSpeedReduction = 0;
         }
         if (currentRoundNumber == 1) {
-            option1Round = new Round(5,3,2, cartSpeedPercentage.nextInt(-20, 0)-easyCartSpeedReduction);
+            option1Round = new Round(1,0,0, cartSpeedPercentage.nextInt(-20, 0)-easyCartSpeedReduction);
             option2Round = new Round(2,0,0, cartSpeedPercentage.nextInt(-40, -25)-easyCartSpeedReduction);
             option3Round = new Round(3,0,0, cartSpeedPercentage.nextInt(-70, -50)-easyCartSpeedReduction);
         } else if (currentRoundNumber == 2){
