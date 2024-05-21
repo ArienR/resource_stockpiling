@@ -53,12 +53,11 @@ public class GameScreenController {
         produceCartsRemaining.setText("Produce " + listOfProduceCarts.size() + "x");
         meatCartsRemaining.setText("Meat " + listOfMeatCarts.size() + "x");
         dairyCartsRemaining.setText("Dairy " + listOfDairyCarts.size() + "x");
-        gameTowers = new ArrayList<>();
-        gameTowers.add(gameTowerLabel0);
-        gameTowers.add(gameTowerLabel1);
-        gameTowers.add(gameTowerLabel2);
-        gameTowers.add(gameTowerLabel3);
-        gameTowers.add(gameTowerLabel4);
+        List<List> gameTowers = new ArrayList<>();
+        List<Object> towerList1 = new ArrayList<>();
+
+
+
         populateTowers();
     }
 
@@ -73,7 +72,7 @@ public class GameScreenController {
     @FXML
     private void populateTower(int i, List<Tower> towers){
         if (i < towers.size()) {
-            gameTowers.get(i).setText(towers.get(i).getTowerName());
+            towers.get(i).getTowerName().setText(towers.get(i).getTowerName());
             // make gameTower into a List of type lists containing a Lists of type <T> containing all the tower name, size, speed, type etc.
         } else {
             gameTowers.get(i).setText("Empty");
