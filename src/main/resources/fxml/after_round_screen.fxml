@@ -26,7 +26,7 @@
             <TableColumn fx:id="towerNameColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="340.0" text="Tower Name" />
             <TableColumn fx:id="towerUsesColumn" editable="false" minWidth="0.0" prefWidth="200.0" text="Consecutive Uses" />
             <TableColumn fx:id="towerStatusColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="200.0" text="Status" />
-            <TableColumn fx:id="tableLevelColumn" prefWidth="200.0" text="Level" />
+            <TableColumn fx:id="towerLevelColumn" prefWidth="200.0" text="Level" />
          </columns>
          <GridPane.margin>
             <Insets left="100.0" right="100.0" />

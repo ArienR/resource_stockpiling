@@ -1,15 +1,13 @@
 package seng201.team0.models;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public abstract class Tower implements Purchasable {
 
     // attributes
     private final int difficultyBonus;
     private int towerLevel;
-    private int consecutiveUses;
-    private float breakChance = 0;
+    private int consecutiveUses = 0;
+
+    private int consecutiveNonUses = 0;
     private String towerName;
     private String towerType;
     private int towerSpeed;
@@ -51,15 +49,6 @@ public abstract class Tower implements Purchasable {
     @Override
     public void setBuyPrice(int cost) {
         this.buyPrice = cost;
-    }
-
-    //getter and setters
-    public float getBreakChance() {
-        return breakChance;
-    }
-
-    public void setBreakChance(float breakChance) {
-        this.breakChance = breakChance;
     }
 
     public String getTowerName() {
@@ -114,16 +103,36 @@ public abstract class Tower implements Purchasable {
         return consecutiveUses;
     }
 
-    public void setConsecutiveUses(int consecutiveUses) {
-        this.consecutiveUses = consecutiveUses;
+    public void incrementConsecutiveUses() {
+        this.consecutiveUses += 1;
+    }
+
+    public void wipeConsecutiveUses() {
+        this.consecutiveUses = 0;
+    }
+
+    public int getConsecutiveNonUses() {
+        return consecutiveNonUses;
+    }
+
+    public void incrementConsecutiveNonUses() {
+        this.consecutiveNonUses += 1;
+    }
+
+    public void wipeConsecutiveNonUses() {
+        this.consecutiveNonUses = 0;
     }
 
     public int getTowerLevel() {
         return towerLevel;
     }
 
-    public void setTowerLevel(int towerLevel) {
-        this.towerLevel = towerLevel;
+    public void incrementTowerLevel(){
+        this.towerLevel += 1;
+    }
+
+    public void decreaseTowerLevel(){
+        this.towerLevel -= 1;
     }
 
     public String getTowerStatus() {

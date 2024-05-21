@@ -35,6 +35,8 @@ public class AfterRoundScreenController implements Initializable {
     private TableColumn<Tower, String> towerNameColumn;
     @FXML
     private TableColumn<Tower, Integer> towerUsesColumn;
+    @FXML
+    private TableColumn<Tower, Integer> towerLevelColumn;
 
     public AfterRoundScreenController(GameManager tempGameManager) {
         this.gameManager = tempGameManager;
@@ -48,8 +50,9 @@ public class AfterRoundScreenController implements Initializable {
         currentScoreLabel.setText("Current Score: " + player.getPlayerScore());
 
         towerNameColumn.setCellValueFactory(new PropertyValueFactory<>("towerName"));
-        towerStatusColumn.setCellValueFactory(new PropertyValueFactory<>("towerStatus"));
         towerUsesColumn.setCellValueFactory(new PropertyValueFactory<>("consecutiveUses"));
+        towerStatusColumn.setCellValueFactory(new PropertyValueFactory<>("towerStatus"));
+        towerLevelColumn.setCellValueFactory(new PropertyValueFactory<>("towerLevel"));
 
         afterRoundTable.setItems(towerData);
     }
