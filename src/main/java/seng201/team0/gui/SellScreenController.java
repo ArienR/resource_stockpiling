@@ -84,7 +84,7 @@ public class SellScreenController {
                     removeTowerStats();
                     updateButtonStyles(itemButtons, itemButtons.get(finalI));
                     updateButtonStyles(towerButtons, null);
-                    sellPriceSelectedObjectLabel.setText("Sell Price: " + Math.round((float) selectedItem.getBuyPrice() * gameManager.getDifficultyBonus()));
+                    sellPriceSelectedObjectLabel.setText("Sell Price: " + Math.round((float) selectedItem.getBuyPrice() * gameManager.getDifficultyBonus()) + "$");
                 });
             } else {
                 itemButtons.get(i).setText("");

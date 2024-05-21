@@ -3,7 +3,7 @@ package seng201.team0.models;
 public abstract class Tower implements Purchasable {
 
     // attributes
-    private final int difficultyBonus;
+    private int difficultyBonus;
     private int towerLevel;
     private int consecutiveUses = 0;
 
@@ -16,19 +16,20 @@ public abstract class Tower implements Purchasable {
     private boolean towerBroken = false;
     private boolean towerSelected = false;
     private int buyPrice;
-    private int sellPrice;
+    private int sellPrice; // This logic is done in the shop as we have difficulty bonus, is this redundant?
 
     // constructor
     public Tower(int towerSpeed, int towerFillAmount, int buyPrice, int difficultyBonus) {
         this.towerSpeed = towerSpeed;
         this.towerFillAmount = towerFillAmount;
         this.buyPrice = buyPrice;
-        this.sellPrice = Math.round(difficultyBonus / (float) buyPrice);
         this.difficultyBonus = difficultyBonus;
         this.towerName = generateRandomName();
         this.consecutiveUses = 0;
         this.towerLevel = 1;
     }
+
+    public Tower() {} // Empty super constructor to store typeAffected for an item
 
     // methods
     protected abstract String generateRandomName();

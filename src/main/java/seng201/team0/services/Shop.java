@@ -33,7 +33,7 @@ public class Shop {
         int currentRoundNumber = gameManager.getCurrentRoundNumber();
 
         for (int i = 0; i < 4; i++) {
-            int towerSpeed = rand.nextInt(30, 60);
+            int towerSpeed = rand.nextInt(1, 3);
             int towerFillAmount = rand.nextInt(80, 120);
             int buyPrice = rand.nextInt(400, 500);
             int gameBonus = rand.nextInt(50);
@@ -62,7 +62,8 @@ public class Shop {
     private void generateRandomItems() {
         Random rand = new Random();
         for (int i = 0; i < 2; i++) {
-            String towerTypeAffected = "Produce Towers";
+            List<Tower> towerTypeList = List.of(new ProduceTower(), new MeatTower(), new DairyTower());
+            Tower towerTypeAffected = towerTypeList.get(rand.nextInt(3));
             int buyPrice = rand.nextInt(50, 100);
             int fillIncrease = rand.nextInt(10, 30);
             int speedIncrease = rand.nextInt(10, 30);

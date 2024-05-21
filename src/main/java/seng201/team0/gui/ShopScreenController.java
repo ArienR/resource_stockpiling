@@ -116,9 +116,9 @@ public class ShopScreenController {
     }
 
     private void displayTowerStats(Tower tower) {
-        selectedTowerFillLabel.setText("Fill Amount: " + tower.getTowerFillAmount());
-        selectedTowerSpeedLabel.setText("Fill Speed: " + tower.getTowerSpeed());
-        selectedTowerTypeLabel.setText("Type: " + tower.getClass().getSimpleName());
+        selectedTowerFillLabel.setText("Fill Amount: " + tower.getTowerFillAmount() + " Litres");
+        selectedTowerSpeedLabel.setText("Fill Speed: " + tower.getTowerSpeed() + " Fill/Second");
+        selectedTowerTypeLabel.setText("Type: " + splitCamelCase(tower.getClass().getSimpleName()));
 
         selectedItemStatLabel.setText("");
         selectedItemTypeLabel.setText("");
@@ -126,11 +126,16 @@ public class ShopScreenController {
 
     private void displayItemStats(Item item) {
         selectedItemStatLabel.setText("Fill Increase: " + item.getCollectionIncrease() + "%" + ", Speed Increase: " + item.getSpeedIncrease() + "%");
-        selectedItemTypeLabel.setText("Affects: " + item.getTowerTypeAffected());
+        selectedItemTypeLabel.setText("Affects: " + splitCamelCase(item.getTowerTypeAffected().getClass().getSimpleName()));
 
         selectedTowerFillLabel.setText("");
         selectedTowerSpeedLabel.setText("");
         selectedTowerTypeLabel.setText("");
+    }
+
+
+    public static String splitCamelCase(String s) {
+        return s.replaceAll("([a-z])([A-Z])", "$1 $2");
     }
 
 

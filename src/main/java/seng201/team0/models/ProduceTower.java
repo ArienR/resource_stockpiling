@@ -16,6 +16,8 @@ public class ProduceTower extends Tower {
         super(towerSpeed, towerFillAmount, buyPrice, gameBonus);
     }
 
+    public ProduceTower() {} // Empty constructor to store typeAffected for an item
+
     @Override
     protected String generateRandomName() {
         Random rand = new Random();

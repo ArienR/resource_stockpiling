@@ -7,13 +7,13 @@ public class Item implements Purchasable {
 
     private static final List<String> itemNames = List.of("Speed Booster", "Collection Enhancer", "Range Extender");
     private String itemName;
-    private String towerTypeAffected;
+    private Tower towerTypeAffected;
     private int fillIncrease;
     private int speedIncrease;
     private int buyPrice;
     private int sellPrice;
 
-    public Item(String towerTypeAffected, int fillIncrease, int speedIncrease, int buyPrice) {
+    public Item(Tower towerTypeAffected, int fillIncrease, int speedIncrease, int buyPrice) {
         this.buyPrice = buyPrice;
         this.itemName = generateRandomName();
         this.towerTypeAffected = towerTypeAffected;
@@ -54,11 +54,11 @@ public class Item implements Purchasable {
         this.itemName = itemName;
     }
 
-    public String getTowerTypeAffected() {
+    public Tower getTowerTypeAffected() {
         return towerTypeAffected;
     }
 
-    public void setTowerTypeAffected(String towerTypeAffected) {
+    public void setTowerTypeAffected(Tower towerTypeAffected) {
         this.towerTypeAffected = towerTypeAffected;
     }
 

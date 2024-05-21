@@ -15,6 +15,8 @@ public class DairyTower extends Tower {
         super(towerSpeed, towerFillAmount, buyPrice, gameBonus);
     }
 
+    public DairyTower() {} // Empty constructor to store typeAffected for an item
+
     @Override
     protected String generateRandomName() {
         Random rand = new Random();

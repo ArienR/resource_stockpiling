@@ -16,6 +16,8 @@ public class MeatTower extends Tower {
         super(towerSpeed, towerFillAmount, buyPrice, gameBonus);
     }
 
+    public MeatTower() {} // Empty constructor to store typeAffected for an item
+
     @Override
     protected String generateRandomName() {
         Random rand = new Random();
