@@ -7,6 +7,7 @@ public abstract class Tower implements Purchasable {
     private int towerLevel;
     private int consecutiveUses = 0;
 
+    private String towerTableLevel = "1";
     private int consecutiveNonUses = 0;
     private String towerName;
     private String towerType;
@@ -137,5 +138,13 @@ public abstract class Tower implements Purchasable {
 
     public String getTowerStatus() {
         return towerBroken ? "Broken" : "Operational";
+    }
+
+    public String getTowerTableLevel() {
+        return towerTableLevel;
+    }
+
+    public void setTowerTableLevel(String towerTableLevel) {
+        this.towerTableLevel = towerTableLevel;
     }
 }

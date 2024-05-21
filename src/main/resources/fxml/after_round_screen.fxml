@@ -23,10 +23,10 @@
    <children>
       <TableView fx:id="afterRoundTable" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="940.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <columns>
-            <TableColumn fx:id="towerNameColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="340.0" text="Tower Name" />
-            <TableColumn fx:id="towerUsesColumn" editable="false" minWidth="0.0" prefWidth="200.0" text="Consecutive Uses" />
-            <TableColumn fx:id="towerStatusColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="200.0" text="Status" />
-            <TableColumn fx:id="towerLevelColumn" prefWidth="200.0" text="Level" />
+            <TableColumn fx:id="towerNameColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="340.0" style="-fx-alignment: CENTER;" text="Tower Name" />
+            <TableColumn fx:id="towerUsesColumn" editable="false" minWidth="0.0" prefWidth="200.0" style="-fx-alignment: CENTER;" text="Consecutive Uses" />
+            <TableColumn fx:id="towerStatusColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="200.0" style="-fx-alignment: CENTER;" text="Status" />
+            <TableColumn fx:id="towerTableLevelColumn" prefWidth="200.0" style="-fx-alignment: CENTER;" text="Level" />
          </columns>
          <GridPane.margin>
             <Insets left="100.0" right="100.0" />
@@ -45,5 +45,6 @@
             <Font size="24.0" />
          </font>
       </Button>
+      <Label text="Towers" GridPane.rowIndex="2" />
    </children>
 </GridPane>

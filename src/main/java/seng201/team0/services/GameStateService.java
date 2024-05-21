@@ -46,6 +46,7 @@ public class GameStateService {
     }
 
     public void usedTowerRandomEvent(Tower tower){
+        int levelBefore = tower.getTowerLevel();
         int consecutiveUses = tower.getConsecutiveUses();
         if (consecutiveUses == 0){
             tower.incrementTowerLevel();
@@ -63,9 +64,16 @@ public class GameStateService {
             gameManager.getPlayer().setPlayerMoney(playerMoney + Math.round((float) (tower.getBuyPrice()/4)));
         }
         tower.wipeConsecutiveNonUses();
+        int currentLevel = tower.getTowerLevel();
+        if (levelBefore != currentLevel){
+            tower.setTowerTableLevel(levelBefore + "  ==>  " + currentLevel);
+        } else {
+            tower.setTowerTableLevel(String.valueOf(currentLevel));
+        }
     }
 
     public void unusedTowerRandomEvent(Tower tower){
+        int levelBefore = tower.getTowerLevel();
         int levelDownChance = tower.getConsecutiveNonUses();
         if (levelDownChance >= getRandomEvent()){
             if (tower.getTowerLevel() > 1){
@@ -74,6 +82,12 @@ public class GameStateService {
         }
         tower.wipeConsecutiveUses();
         tower.incrementConsecutiveNonUses();
+        int currentLevel = tower.getTowerLevel();
+        if (levelBefore != currentLevel){
+            tower.setTowerTableLevel(levelBefore + "  ==>  " + currentLevel);
+        } else {
+            tower.setTowerTableLevel(String.valueOf(currentLevel));
+        }
     }
 
     public int getRandomEvent(){
