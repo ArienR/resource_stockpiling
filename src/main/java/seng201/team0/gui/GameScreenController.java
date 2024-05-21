@@ -91,9 +91,9 @@ public class GameScreenController {
     }
 
     private void setTowerLabels(int index, Object fillAmount, Object name, Object speed, Tower tower) {
-        towerAmountLabels.get(index).setText("Fill Amount: " + fillAmount);
+        towerAmountLabels.get(index).setText("Fill Amount: " + fillAmount + " Litres");
         towerNameLabels.get(index).setText(name.toString());
-        towerSpeedLabels.get(index).setText("Speed: " + speed);
+        towerSpeedLabels.get(index).setText("Speed: " + speed + " Fill/Second");
 
         // Set the circle color based on the tower type
         String color = getColorByType(tower);
@@ -102,9 +102,9 @@ public class GameScreenController {
 
     private String getColorByType(Tower tower) {
         if (tower instanceof ProduceTower) {
-            return "#228B22";
+            return "##00C14A";
         } else if (tower instanceof MeatTower) {
-            return "#D22B2B";
+            return "#FF5757";
         } else if (tower instanceof DairyTower) {
             return "#E3CCCC";
         } else {
