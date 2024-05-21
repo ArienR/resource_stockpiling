@@ -36,7 +36,19 @@ public class GameScreenController {
     private Label produceCartsRemaining, meatCartsRemaining, dairyCartsRemaining;
 
     @FXML
-    private Label gameTowerLabel0, gameTowerLabel1, gameTowerLabel2, gameTowerLabel3, gameTowerLabel4;
+    private Label tower1AmountLabel, tower1NameLabel, tower1SpeedLabel;
+
+    @FXML
+    private Label tower2AmountLabel, tower2NameLabel, tower2SpeedLabel;
+
+    @FXML
+    private Label tower3AmountLabel, tower3NameLabel, tower3SpeedLabel;
+
+    @FXML
+    private Label tower4AmountLabel, tower4NameLabel, tower4SpeedLabel;
+
+    @FXML
+    private Label tower5AmountLabel, tower5NameLabel ,tower5SpeedLabel;
 
     // constructor
     public GameScreenController(GameManager tempGameManager) {
@@ -53,10 +65,6 @@ public class GameScreenController {
         produceCartsRemaining.setText("Produce " + listOfProduceCarts.size() + "x");
         meatCartsRemaining.setText("Meat " + listOfMeatCarts.size() + "x");
         dairyCartsRemaining.setText("Dairy " + listOfDairyCarts.size() + "x");
-        List<List> gameTowers = new ArrayList<>();
-        List<Object> towerList1 = new ArrayList<>();
-
-
 
         populateTowers();
     }

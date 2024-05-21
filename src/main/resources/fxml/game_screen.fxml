@@ -43,7 +43,7 @@
       <Circle fill="#ff5757" radius="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" GridPane.columnIndex="4" GridPane.halignment="LEFT" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
       <Circle fill="#737171" radius="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
       <Circle fill="#e4cccc" radius="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-      <Label fx:id="gameTowerNameLabel1" alignment="CENTER" prefHeight="31.0" prefWidth="146.0" text="Tower 1" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="3">
+      <Label fx:id="tower1NameLabel" alignment="CENTER" prefHeight="31.0" prefWidth="146.0" text="Tower 1" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="3">
          <font>
             <Font size="26.0" />
          </font>
@@ -79,7 +79,7 @@
             </Label>
          </children>
       </HBox>
-      <Label fx:id="gameTowerNameLabel5" alignment="CENTER" prefHeight="31.0" prefWidth="148.0" text="Tower 5" GridPane.columnIndex="4" GridPane.rowIndex="7">
+      <Label fx:id="tower5NameLabel" alignment="CENTER" prefHeight="31.0" prefWidth="148.0" text="Tower 5" GridPane.columnIndex="4" GridPane.halignment="LEFT" GridPane.rowIndex="7" GridPane.valignment="CENTER">
          <font>
             <Font size="26.0" />
          </font>
@@ -87,7 +87,7 @@
             <Insets />
          </GridPane.margin>
       </Label>
-      <Label fx:id="gameTowerNameLabel3" alignment="CENTER" prefHeight="31.0" prefWidth="149.0" text="Tower 3" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="7">
+      <Label fx:id="tower3NameLabel" alignment="CENTER" prefHeight="31.0" prefWidth="149.0" text="Tower 3" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="7">
          <font>
             <Font size="26.0" />
          </font>
@@ -95,7 +95,7 @@
             <Insets />
          </GridPane.margin>
       </Label>
-      <Label fx:id="gameTowerNameLabel4" alignment="CENTER" text="Tower 4" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+      <Label fx:id="tower4NameLabel" alignment="CENTER" prefHeight="31.0" prefWidth="138.0" text="Tower 4" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
          <font>
             <Font size="26.0" />
          </font>
@@ -105,12 +105,12 @@
             <Insets />
          </GridPane.margin>
          <children>
-            <Label fx:id="gameTowerSpeedLabel1" alignment="CENTER" prefHeight="30.0" prefWidth="202.0" text="{Speed}">
+            <Label fx:id="tower1SpeedLabel" alignment="CENTER" prefHeight="30.0" prefWidth="202.0" text="{Speed}">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="gameTowerAmountLabel1" alignment="CENTER" prefHeight="20.0" prefWidth="223.0" text="{Amount} L/s">
+            <Label fx:id="tower1AmountLabel" alignment="CENTER" prefHeight="20.0" prefWidth="223.0" text="{Amount} L/s">
                <font>
                   <Font size="16.0" />
                </font>
@@ -134,12 +134,12 @@
       </Polygon>
       <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="125.0" spacing="20.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
          <children>
-            <Label fx:id="gameTowerSpeedLabel2" alignment="CENTER" prefHeight="30.0" prefWidth="202.0" text="{Speed}">
+            <Label fx:id="tower2SpeedLabel" alignment="CENTER" prefHeight="30.0" prefWidth="202.0" text="{Speed}">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="gameTowerAmountLabel2" alignment="CENTER" prefHeight="20.0" prefWidth="223.0" text="{Amount} L/s">
+            <Label fx:id="tower2AmountLabel" alignment="CENTER" prefHeight="20.0" prefWidth="223.0" text="{Amount} L/s">
                <font>
                   <Font size="16.0" />
                </font>
@@ -175,7 +175,7 @@
             <Insets left="260.0" />
          </GridPane.margin>
       </Rectangle>
-      <Label fx:id="gameTowerNameLabel2" alignment="CENTER" prefHeight="31.0" prefWidth="146.0" text="Tower 2" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+      <Label fx:id="tower2NameLabel" alignment="CENTER" prefHeight="31.0" prefWidth="146.0" text="Tower 2" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
          <font>
             <Font size="26.0" />
          </font>
@@ -194,12 +194,12 @@
       <Button mnemonicParsing="false" onAction="#roundLost" text="temp round lost button" GridPane.columnIndex="1" />
       <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="125.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
          <children>
-            <Label fx:id="gameTowerSpeedLabel3" alignment="CENTER" prefHeight="30.0" prefWidth="202.0" text="{Speed}">
+            <Label fx:id="tower3SpeedLabel" alignment="CENTER" prefHeight="30.0" prefWidth="202.0" text="{Speed}">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="gameTowerAmountLabel3" alignment="CENTER" prefHeight="20.0" prefWidth="223.0" text="{Amount} L/s">
+            <Label fx:id="tower3AmountLabel" alignment="CENTER" prefHeight="20.0" prefWidth="223.0" text="{Amount} L/s">
                <font>
                   <Font size="16.0" />
                </font>
@@ -208,12 +208,12 @@
       </VBox>
       <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="125.0" spacing="20.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="7">
          <children>
-            <Label fx:id="gameTowerSpeedLabel4" alignment="CENTER" prefHeight="30.0" prefWidth="202.0" text="{Speed}">
+            <Label fx:id="tower4SpeedLabel" alignment="CENTER" prefHeight="30.0" prefWidth="202.0" text="{Speed}">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="gameTowerAmountLabel4" alignment="CENTER" prefHeight="20.0" prefWidth="223.0" text="{Amount} L/s">
+            <Label fx:id="tower4AmountLabel" alignment="CENTER" prefHeight="20.0" prefWidth="223.0" text="{Amount} L/s">
                <font>
                   <Font size="16.0" />
                </font>
@@ -222,12 +222,12 @@
       </VBox>
       <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="125.0" spacing="20.0" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="7">
          <children>
-            <Label fx:id="gameTowerSpeedLabel5" alignment="CENTER" prefHeight="30.0" prefWidth="202.0" text="{Speed}">
+            <Label fx:id="tower5SpeedLabel" alignment="CENTER" prefHeight="30.0" prefWidth="202.0" text="{Speed}">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="gameTowerTypeLabel5" alignment="CENTER" prefHeight="20.0" prefWidth="223.0" text="{Amount} L/s">
+            <Label fx:id="tower5AmountLabel" alignment="CENTER" prefHeight="20.0" prefWidth="223.0" text="{Amount} L/s">
                <font>
                   <Font size="16.0" />
                </font>
