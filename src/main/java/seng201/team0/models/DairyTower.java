@@ -4,7 +4,12 @@ import java.util.List;
 import java.util.Random;
 
 public class DairyTower extends Tower {
-    private static final List<String> dairyNames = List.of("Milk Tower", "Cheese Tower", "Yogurt Tower", "Butter Tower");
+    private static final List<String> dairyNames = List.of(
+            "Milk Tower", "Cheese Tower", "Butter Tower", "Yogurt Tower",
+            "Cream Tower", "Ice Cream Tower", "Cottage Cheese Tower", "Sour Cream Tower",
+            "Whipped Cream Tower", "Buttermilk Tower", "Ricotta Tower", "Mozzarella Tower",
+            "Cheddar Tower", "Parmesan Tower", "Feta Tower", "Gouda Tower",
+            "Brie Tower", "Swiss Cheese Tower", "Blue Cheese Tower", "Provolone Tower");
 
     public DairyTower(int towerSpeed, int towerFillAmount, int buyPrice, int gameBonus) {
         super(towerSpeed, towerFillAmount, buyPrice, gameBonus);

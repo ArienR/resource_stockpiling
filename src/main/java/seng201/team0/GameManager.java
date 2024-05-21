@@ -52,7 +52,7 @@ public class GameManager {
         this.afterRoundScreenLauncher = afterRoundScreenLauncher;
 
         this.clearScreen = clearScreen;
-        this.shop = new Shop();
+        this.shop = new Shop(this);
         launchSetupScreen();
     }
 
@@ -115,6 +115,7 @@ public class GameManager {
 
     public void closeUpcomingRoundScreen() {
         clearScreen.run();
+        resetShop();
         launchInventoryScreen();
     }
 
@@ -198,7 +199,7 @@ public class GameManager {
     }
 
     private void resetShop() {
-        this.shop = new Shop();
+        this.shop = new Shop(this);
     }
 
     public Shop getShop() {

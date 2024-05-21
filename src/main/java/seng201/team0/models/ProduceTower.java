@@ -5,7 +5,12 @@ import java.util.Random;
 
 public class ProduceTower extends Tower {
 
-    private static final List<String> produceNames = List.of("Apple Tower", "Banana Tower", "Orange Tower", "Grape Tower");
+    private static final List<String> produceNames = List.of(
+            "Apple Tower", "Banana Tower", "Orange Tower", "Grape Tower",
+            "Cherry Tower", "Peach Tower", "Pineapple Tower", "Watermelon Tower",
+            "Mango Tower", "Blueberry Tower", "Strawberry Tower", "Lemon Tower",
+            "Kiwi Tower", "Avocado Tower", "Coconut Tower", "Papaya Tower",
+            "Plum Tower", "Pear Tower", "Pomegranate Tower", "Fig Tower");
 
     public ProduceTower(int towerSpeed, int towerFillAmount, int buyPrice, int gameBonus) {
         super(towerSpeed, towerFillAmount, buyPrice, gameBonus);
