@@ -211,7 +211,7 @@
                         <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button fx:id="inventoryItem3Button" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-radius: 10;" text="Item 3" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="2">
+                  <Button fx:id="inventoryItem3Button" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-radius: 10;" text="Item 3" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="2">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -219,7 +219,7 @@
                         <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button fx:id="inventoryItem4Button" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-radius: 10;" text="Item 4" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="3">
+                  <Button fx:id="inventoryItem4Button" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-radius: 10;" text="Item 4" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="3">
                      <font>
                         <Font size="16.0" />
                      </font>

@@ -113,7 +113,7 @@
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </GridPane.margin>
             </Button>
-            <Button fx:id="sellTower4Button" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="239.0" style="-fx-background-radius: 10;" text="Tower 4" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="3">
+            <Button fx:id="sellTower4Button" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-radius: 10;" text="Tower 4" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="3">
                <font>
                   <Font size="25.0" />
                </font>
@@ -190,7 +190,7 @@
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </GridPane.margin>
             </Button>
-            <Button fx:id="sellItem3Button" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-radius: 10;" text="Item 3" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="2">
+            <Button fx:id="sellItem3Button" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-radius: 10;" text="Item 3" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="2">
                <font>
                   <Font size="25.0" />
                </font>
@@ -241,7 +241,7 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label fx:id="selectedItemStatLabel" text="Fill Increase:">
+            <Label fx:id="selectedItemStatLabel" text="Stat Affect:">
                <font>
                   <Font size="24.0" />
                </font>

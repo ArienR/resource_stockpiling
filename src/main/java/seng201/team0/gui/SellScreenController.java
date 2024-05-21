@@ -59,7 +59,8 @@ public class SellScreenController {
                     removeItemStats();
                     updateButtonStyles(towerButtons, towerButtons.get(finalI));
                     updateButtonStyles(itemButtons, null);
-                    sellPriceSelectedObjectLabel.setText("Sell Price: " + Math.round((float) selectedTower.getBuyPrice() * gameManager.getDifficultyBonus()));
+                    sellPriceSelectedObjectLabel.setText("Sell Price: " +
+                            Math.round((float) selectedTower.getBuyPrice() * gameManager.getDifficultyBonus()) + "$");
                 });
             } else {
                 towerButtons.get(i).setText("");
@@ -84,7 +85,8 @@ public class SellScreenController {
                     removeTowerStats();
                     updateButtonStyles(itemButtons, itemButtons.get(finalI));
                     updateButtonStyles(towerButtons, null);
-                    sellPriceSelectedObjectLabel.setText("Sell Price: " + Math.round((float) selectedItem.getBuyPrice() * gameManager.getDifficultyBonus()) + "$");
+                    sellPriceSelectedObjectLabel.setText("Sell Price: " +
+                            Math.round((float) selectedItem.getBuyPrice() * gameManager.getDifficultyBonus()) + "$");
                 });
             } else {
                 itemButtons.get(i).setText("");
@@ -113,7 +115,7 @@ public class SellScreenController {
             clearSelection();
         }
 
-        playerMoneyLabel.setText("Money: " + gameManager.getPlayer().getPlayerMoney());
+        playerMoneyLabel.setText("Money: " + gameManager.getPlayer().getPlayerMoney() + "$");
     }
 
 
@@ -128,25 +130,30 @@ public class SellScreenController {
     }
 
     private void displayTowerStats(Tower tower) {
-        selectedTowerCollectionAmountLabel.setText("Fill Amount: " + tower.getTowerFillAmount());
-        selectedTowerCollectionSpeedLabel.setText("Fill Speed: " + tower.getTowerSpeed());
-        selectedTowerTypeLabel.setText("Type: " + tower.getClass().getSimpleName());
+        selectedTowerCollectionAmountLabel.setText("Fill Amount: " + tower.getTowerFillAmount() + " Litres");
+        selectedTowerCollectionSpeedLabel.setText("Fill Speed: " + tower.getTowerSpeed() + " Fill/Second");
+        selectedTowerTypeLabel.setText("Type: " + splitCamelCase(tower.getClass().getSimpleName()));
     }
 
     private void removeTowerStats() {
-        selectedTowerCollectionAmountLabel.setText("Fill Amount: ");
-        selectedTowerCollectionSpeedLabel.setText("Fill Speed: ");
-        selectedTowerTypeLabel.setText("Type: ");
+        selectedTowerCollectionAmountLabel.setText("");
+        selectedTowerCollectionSpeedLabel.setText("");
+        selectedTowerTypeLabel.setText("");
     }
 
     private void displayItemStats(Item item) {
-        selectedItemStatLabel.setText("Fill Increase: " + item.getCollectionIncrease() + "%\n" + "Speed Increase: " + item.getSpeedIncrease() + "%");
-        selectedItemTypeLabel.setText("Affects: " + item.getTowerTypeAffected());
+        selectedItemStatLabel.setText("Fill Increase: " + item.getCollectionIncrease() + "%\n" +
+                "Speed Increase: " + item.getSpeedIncrease() + "%");
+        selectedItemTypeLabel.setText("Affects: " + splitCamelCase(item.getTowerTypeAffected().getClass().getSimpleName()));
     }
 
     private void removeItemStats() {
-        selectedItemStatLabel.setText("Fill Increase: ");
-        selectedItemTypeLabel.setText("Affects: ");
+        selectedItemStatLabel.setText("");
+        selectedItemTypeLabel.setText("");
+    }
+
+    public static String splitCamelCase(String s) {
+        return s.replaceAll("([a-z])([A-Z])", "$1 $2");
     }
 
     private void clearSelection() {

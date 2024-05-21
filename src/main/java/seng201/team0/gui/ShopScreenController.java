@@ -54,8 +54,13 @@ public class ShopScreenController {
         List<Tower> towers = shop.getTowers();
         List<Item> items = shop.getItems();
 
-
         // Set up tower buttons
+        populateTowerButtons(towers);
+        populateItemButtons(items);
+    }
+
+    public void populateTowerButtons(List<Tower> towers) {
+        Player player = gameManager.getPlayer();
         for (int i = 0; i < towerButtons.size(); i++) {
             int finalI = i;
             Tower tower = towers.get(i);
@@ -73,7 +78,10 @@ public class ShopScreenController {
                 disableButton(towerButtons.get(i));
             }
         }
+    }
 
+    public void populateItemButtons(List<Item> items) {
+        Player player = gameManager.getPlayer();
         for (int i = 0; i < itemButtons.size(); i++) {
             int finalI = i;
             Item item = items.get(i);
@@ -125,7 +133,8 @@ public class ShopScreenController {
     }
 
     private void displayItemStats(Item item) {
-        selectedItemStatLabel.setText("Fill Increase: " + item.getCollectionIncrease() + "%" + ", Speed Increase: " + item.getSpeedIncrease() + "%");
+        selectedItemStatLabel.setText("Fill Increase: " + item.getCollectionIncrease() +
+                "%\n" + "Speed Increase: " + item.getSpeedIncrease() + "%");
         selectedItemTypeLabel.setText("Affects: " + splitCamelCase(item.getTowerTypeAffected().getClass().getSimpleName()));
 
         selectedTowerFillLabel.setText("");
@@ -146,8 +155,6 @@ public class ShopScreenController {
             handleBuy(player.getTowerList(), player.getPurchasedTowers(), selectedTower, towerButtons.get(selectedTowerIndex), 8, "Maximum number of towers reached.");
         } else if (selectedItem != null) {
             handleBuy(player.getItemList(), player.getPurchasedItems(), selectedItem, itemButtons.get(selectedItemIndex), 4, "Maximum number of items reached.");
-        } else {
-            System.out.println("No item or tower selected.");
         }
     }
 

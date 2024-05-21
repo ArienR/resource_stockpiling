@@ -175,8 +175,6 @@ public class InventoryScreenController {
                 }
                 selectedItemButtons.get(slot).setText(selectedItem.getItemName());
                 selectedItemButtons.get(slot).setStyle("-fx-opacity: 1;");
-            } else {
-                System.out.println("Maximum items equipped.");
             }
         }
     }
@@ -192,9 +190,9 @@ public class InventoryScreenController {
     }
 
     private void displayTowerStats(Tower tower) {
-        inventorySelectedTowerFillAmountLabel.setText("Fill Amount: " + tower.getTowerFillAmount());
-        inventorySelectedTowerFillSpeedLabel.setText("Fill Speed: " + tower.getTowerSpeed());
-        inventorySelectedTowerTypeLabel.setText("Type: " + tower.getClass().getSimpleName());
+        inventorySelectedTowerFillAmountLabel.setText("Fill Amount: " + tower.getTowerFillAmount() + " Litres");
+        inventorySelectedTowerFillSpeedLabel.setText("Fill Speed: " + tower.getTowerSpeed() + " Fill/Second");
+        inventorySelectedTowerTypeLabel.setText("Type: " + splitCamelCase(tower.getClass().getSimpleName()));
     }
 
     private void removeTowerStats() {
@@ -205,12 +203,16 @@ public class InventoryScreenController {
 
     private void displayItemStats(Item item) {
         inventorySelectedItemStatLabel.setText("Fill Increase: " + item.getCollectionIncrease() + "%\n" + "Speed Increase: " + item.getSpeedIncrease() + "%");
-        inventorySelectedItemTypeLabel.setText("Affects: " + item.getTowerTypeAffected());
+        inventorySelectedItemTypeLabel.setText("Affects: " + splitCamelCase(item.getTowerTypeAffected().getClass().getSimpleName()));
     }
 
     private void removeItemStats() {
         inventorySelectedItemStatLabel.setText("Fill Increase: " + "\n" + "Speed Increase: ");
         inventorySelectedItemTypeLabel.setText("Affects: ");
+    }
+
+    public static String splitCamelCase(String s) {
+        return s.replaceAll("([a-z])([A-Z])", "$1 $2");
     }
 
     @FXML
