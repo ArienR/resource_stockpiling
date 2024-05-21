@@ -46,13 +46,12 @@ public class GameStateService {
     }
 
     public void usedTowerRandomEvent(Tower tower){
-        System.out.print("used");
-        int breakChance = tower.getConsecutiveUses();
-        if (breakChance == 0){
+        int consecutiveUses = tower.getConsecutiveUses();
+        if (consecutiveUses == 0){
             tower.incrementTowerLevel();
             tower.incrementConsecutiveUses();
         }
-        else if (breakChance < getRandomEvent()){
+        else if (consecutiveUses < getRandomEvent()){
             tower.incrementTowerLevel();
             if (tower.getConsecutiveUses() < 5){
                 tower.incrementConsecutiveUses();
@@ -67,7 +66,6 @@ public class GameStateService {
     }
 
     public void unusedTowerRandomEvent(Tower tower){
-        System.out.print("unused");
         int levelDownChance = tower.getConsecutiveNonUses();
         if (levelDownChance >= getRandomEvent()){
             if (tower.getTowerLevel() > 1){

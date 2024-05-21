@@ -7,7 +7,7 @@ public abstract class Tower implements Purchasable {
     private int towerLevel;
     private int consecutiveUses = 0;
 
-    private int consecutiveNoneUses = 0;
+    private int consecutiveNonUses = 0;
     private String towerName;
     private String towerType;
     private int towerSpeed;
@@ -112,15 +112,15 @@ public abstract class Tower implements Purchasable {
     }
 
     public int getConsecutiveNonUses() {
-        return consecutiveNoneUses;
+        return consecutiveNonUses;
     }
 
     public void incrementConsecutiveNonUses() {
-        this.consecutiveNoneUses += 1;
+        this.consecutiveNonUses += 1;
     }
 
     public void wipeConsecutiveNonUses() {
-        this.consecutiveNoneUses = 0;
+        this.consecutiveNonUses = 0;
     }
 
     public int getTowerLevel() {
