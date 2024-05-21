@@ -75,6 +75,8 @@ public class GameScreenController {
         towerCircles = List.of(tower1Circle, tower2Circle, tower3Circle, tower4Circle, tower5Circle);
 
         populateTowers();
+
+
     }
 
     private void populateTowers() {
