@@ -15,6 +15,7 @@ public class GameStateService {
             gameManager.gameScreenToAfterRoundScreen();
             gameManager.incrementCurrentRoundNumber();
         } else if (gameManager.isRoundWon() == true && gameManager.getCurrentRoundNumber() + 1 == gameManager.getNumberOfRounds()) {
+            gameManager.incrementCurrentRoundNumber();
             gameManager.launchEndScreen();
             gameManager.gameScreenToEndScreen();
             gameManager.setEndOfGame(true);

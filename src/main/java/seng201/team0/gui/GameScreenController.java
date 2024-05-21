@@ -58,7 +58,7 @@ public class GameScreenController {
 
 
 
-        populateTowers();
+//        populateTowers();
     }
 
 
