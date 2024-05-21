@@ -72,7 +72,7 @@ public class GameScreenController {
     @FXML
     private void populateTower(int i, List<Tower> towers){
         if (i < towers.size()) {
-            towers.get(i).getTowerName().setText(towers.get(i).getTowerName());
+//            towers.get(i).getTowerName().setText(towers.get(i).getTowerName());
             // make gameTower into a List of type lists containing a Lists of type <T> containing all the tower name, size, speed, type etc.
         } else {
             gameTowers.get(i).setText("Empty");
