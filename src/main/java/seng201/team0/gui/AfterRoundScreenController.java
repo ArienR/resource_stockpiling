@@ -50,6 +50,7 @@ public class AfterRoundScreenController implements Initializable {
         towerNameColumn.setCellValueFactory(new PropertyValueFactory<>("towerName"));
         towerStatusColumn.setCellValueFactory(new PropertyValueFactory<>("towerStatus"));
         towerUsesColumn.setCellValueFactory(new PropertyValueFactory<>("consecutiveUses"));
+        towerUsesColumn.setCellValueFactory(new PropertyValueFactory<>("towerLevel"));
 
         afterRoundTable.setItems(towerData);
     }
