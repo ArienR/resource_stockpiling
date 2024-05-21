@@ -25,7 +25,7 @@ public class Shop {
         for (int i = 0; i < 4; i++) {
             int towerSpeed = rand.nextInt(30, 60);
             int towerFillAmount = rand.nextInt(80, 120);
-            int buyPrice = rand.nextInt(400, 600);
+            int buyPrice = rand.nextInt(400, 500);
             int gameBonus = rand.nextInt(50);
             towers.add(new ProduceTower(towerSpeed, towerFillAmount, buyPrice, gameBonus));
         }

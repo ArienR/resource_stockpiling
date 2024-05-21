@@ -28,6 +28,7 @@ public abstract class Tower implements Purchasable {
         this.difficultyBonus = difficultyBonus;
         this.towerName = generateRandomName();
         this.consecutiveUses = 0;
+        this.towerLevel = 1;
     }
 
     // methods
