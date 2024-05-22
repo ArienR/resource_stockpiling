@@ -34,7 +34,9 @@ public class EndScreenController {
         roundsCompletedLabel.setText(String.format("You earned a total of: %d", player.getTotalPlayerMoney()));
         scoreAchievedLabel.setText(String.format("You achieved a score of: %d", player.getPlayerScore()));
     }
+
     @FXML
-    public void closeGameAction(){
+    public void closeGameAction() {
+        gameManager.closeEndScreen();
     }
 }
