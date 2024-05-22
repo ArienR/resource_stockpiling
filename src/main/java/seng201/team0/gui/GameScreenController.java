@@ -1,6 +1,7 @@
 package seng201.team0.gui;
 
 import javafx.animation.TranslateTransition;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -14,6 +15,7 @@ import seng201.team0.services.GameStateService;
 import seng201.team0.services.GenerateCartsService;
 import javafx.scene.shape.Rectangle;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -32,6 +34,8 @@ public class GameScreenController {
     private List<ProduceCart> listOfProduceCarts;
     private List<MeatCart> listOfMeatCarts;
     private List<DairyCart> listOfDairyCarts;
+
+    private List<?> listOfAllCarts = new ArrayList<>();
 
     @FXML
     private AnchorPane cartTrackAnchorPane;
@@ -137,12 +141,21 @@ public class GameScreenController {
     public void startRound(){
         startRoundButton.setDisable(true);
         startRoundButton.setVisible(false);
+        cartTrackAnchorPane.setVisible(true);
         ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
 
         // Schedule the task 5 times with a delay of 2 seconds between each execution
         for (int i=0; i < listOfProduceCarts.size(); i++) {
-            int executionCount = i;
-            executor.schedule(() -> spawnCart(listOfProduceCarts.get(executionCount)), i * 1500, TimeUnit.MILLISECONDS);
+            int index = i;
+            executor.schedule(() -> spawnCart(listOfProduceCarts.get(index)), i * 2000, TimeUnit.MILLISECONDS);
+        }
+        for (int i=0; i < listOfMeatCarts.size(); i++) {
+            int index = i;
+            executor.schedule(() -> spawnCart(listOfMeatCarts.get(index)), i * 2500, TimeUnit.MILLISECONDS);
+        }
+        for (int i=0; i < listOfDairyCarts.size(); i++) {
+            int index = i;
+            executor.schedule(() -> spawnCart(listOfDairyCarts.get(index)), i * 3000, TimeUnit.MILLISECONDS);
         }
 
         // Shutdown the executor after all tasks are completed
@@ -152,25 +165,35 @@ public class GameScreenController {
 
 
     public void spawnCart(Cart cart){
-        Rectangle cartGUI = new Rectangle(50, 50, 50, 50);
-        if (cart instanceof ProduceCart) {
-            cartGUI.setFill(Color.GREEN);
-        } else if (cart instanceof MeatCart){
-            cartGUI.setFill(Color.RED);
-        } else {
-            cartGUI.setFill(Color.WHITESMOKE);
-        }
-        System.out.println("reach");
+        Platform.runLater(() -> {
+            Rectangle cartGui = new Rectangle(50, 50, 50, 50);
+            if (cart instanceof ProduceCart) {
+                cartGui.setFill(Color.GREEN);
+            } else if (cart instanceof MeatCart) {
+                cartGui.setFill(Color.RED);
+            } else {
+                cartGui.setFill(Color.WHITESMOKE);
+            }
 
-        cartTrackAnchorPane.getChildren().add(cartGUI);
+            //this line is not running correctly
+            try {
+                // Attempt to add the Rectangle to the AnchorPane
+                cartTrackAnchorPane.getChildren().add(cartGui);
+            } catch (Exception e) {
+                // Handle the exception
+                e.printStackTrace(); // Print the stack trace for debugging purposes
+                // Optionally, display an error message to the user or perform other error-handling tasks
+            }
 
-        //animate cart
-        animateCart(cartGUI);
+            int timeToReachEnd = cart.cartSpeed;
+            //animate cart
+            animateCart(cartGui, timeToReachEnd);
+        });
     }
 
-    public void animateCart(Rectangle cartGui){
-
-        TranslateTransition translateCart = new TranslateTransition(Duration.seconds(3), cartGui);
+    public void animateCart(Rectangle cartGui, int timeToReachEnd){
+        System.out.println("animate");
+        TranslateTransition translateCart = new TranslateTransition(Duration.millis(timeToReachEnd), cartGui);
         translateCart.setByX(1050);
         translateCart.play();
     }
