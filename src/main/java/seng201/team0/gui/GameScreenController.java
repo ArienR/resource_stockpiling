@@ -1,16 +1,23 @@
 package seng201.team0.gui;
 
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.util.Duration;
 import seng201.team0.GameManager;
 import seng201.team0.models.*;
 import seng201.team0.services.GameStateService;
 import seng201.team0.services.GenerateCartsService;
+import javafx.scene.shape.Rectangle;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class GameScreenController {
 
@@ -21,6 +28,13 @@ public class GameScreenController {
     private GenerateCartsService generateCartsService;
 
     private boolean roundWon = true;
+
+    private List<ProduceCart> listOfProduceCarts;
+    private List<MeatCart> listOfMeatCarts;
+    private List<DairyCart> listOfDairyCarts;
+
+    @FXML
+    private AnchorPane cartTrackAnchorPane;
 
     @FXML
     private Label produceCartsRemaining, meatCartsRemaining, dairyCartsRemaining;
@@ -50,6 +64,9 @@ public class GameScreenController {
     @FXML
     private Label roundTitleLabel;
 
+    @FXML
+    private Button startRoundButton;
+
     // constructor
     public GameScreenController(GameManager tempGameManager) {
         this.gameManager = tempGameManager;
@@ -61,9 +78,9 @@ public class GameScreenController {
         roundTitleLabel.setText(String.format("Round %d/%d", gameManager.getCurrentRoundNumber(), gameManager.getNumberOfRounds()));
         this.gameStateService = new GameStateService(gameManager);
 
-        List<ProduceCart> listOfProduceCarts = generateCartsService.generateProduceCarts(gameManager);
-        List<MeatCart> listOfMeatCarts = generateCartsService.generateMeatCarts(gameManager);
-        List<DairyCart> listOfDairyCarts = generateCartsService.generateDairyCarts(gameManager);
+        this.listOfProduceCarts = generateCartsService.generateProduceCarts(gameManager);
+        this.listOfMeatCarts = generateCartsService.generateMeatCarts(gameManager);
+        this.listOfDairyCarts = generateCartsService.generateDairyCarts(gameManager);
 
         produceCartsRemaining.setText("Produce " + listOfProduceCarts.size() + "x");
         meatCartsRemaining.setText("Meat " + listOfMeatCarts.size() + "x");
@@ -75,7 +92,6 @@ public class GameScreenController {
         towerCircles = List.of(tower1Circle, tower2Circle, tower3Circle, tower4Circle, tower5Circle);
 
         populateTowers();
-
 
     }
 
@@ -102,17 +118,63 @@ public class GameScreenController {
         towerCircles.get(index).setFill(Color.web(color));
     }
 
+    //THIS CODE IS CURRENTLY BROKEN AND CAUSING ISSUES WITH ANIMATIONS
     private String getColorByType(Tower tower) {
         if (tower instanceof ProduceTower) {
-            return "##00C14A";
+//            return "##00C14A";
+            return "green";
         } else if (tower instanceof MeatTower) {
-            return "#FF5757";
+//            return "#FF5757";
+            return "red";
         } else if (tower instanceof DairyTower) {
-            return "#E3CCCC";
+//            return "#E3CCCC";
+            return "cream";
         } else {
             return "grey";
         }
     }
+    @FXML
+    public void startRound(){
+        startRoundButton.setDisable(true);
+        startRoundButton.setVisible(false);
+        ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
+
+        // Schedule the task 5 times with a delay of 2 seconds between each execution
+        for (int i=0; i < listOfProduceCarts.size(); i++) {
+            int executionCount = i;
+            executor.schedule(() -> spawnCart(listOfProduceCarts.get(executionCount)), i * 1500, TimeUnit.MILLISECONDS);
+        }
+
+        // Shutdown the executor after all tasks are completed
+        executor.shutdown();
+
+    }
+
+
+    public void spawnCart(Cart cart){
+        Rectangle cartGUI = new Rectangle(50, 50, 50, 50);
+        if (cart instanceof ProduceCart) {
+            cartGUI.setFill(Color.GREEN);
+        } else if (cart instanceof MeatCart){
+            cartGUI.setFill(Color.RED);
+        } else {
+            cartGUI.setFill(Color.WHITESMOKE);
+        }
+        System.out.println("reach");
+
+        cartTrackAnchorPane.getChildren().add(cartGUI);
+
+        //animate cart
+        animateCart(cartGUI);
+    }
+
+    public void animateCart(Rectangle cartGui){
+
+        TranslateTransition translateCart = new TranslateTransition(Duration.seconds(3), cartGui);
+        translateCart.setByX(1050);
+        translateCart.play();
+    }
+
 
     @FXML
     public void roundLost() {
