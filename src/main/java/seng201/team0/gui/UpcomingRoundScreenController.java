@@ -23,7 +23,7 @@ public class UpcomingRoundScreenController {
     private Round selectedRound;
     private int selectedRoundIndex = -1;
 
-    private int hardCartSpeedIncrease= 10;
+    private int hardCartSpeedIncrease= 0;
     private Random cartSpeedPercentage;
     private List<Label> optionProduceCountLabels;
 
@@ -96,7 +96,7 @@ public class UpcomingRoundScreenController {
         Random cartCount = new Random();
         int currentRoundNumber = gameManager.getCurrentRoundNumber();
         if (gameManager.getGameDifficulty().equals("Hard")){
-            hardCartSpeedIncrease = 0;
+            hardCartSpeedIncrease = 10;
         }
         if (currentRoundNumber == 1) {
             option1Round = new Round(3,4,5, cartSpeedPercentage.nextInt(-2, 0)+hardCartSpeedIncrease);

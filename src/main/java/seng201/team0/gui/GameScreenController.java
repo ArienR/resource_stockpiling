@@ -140,6 +140,9 @@ public class GameScreenController {
             return "grey";
         }
     }
+
+    // fillCarts
+    public void fillProduceCarts(){}
     @FXML
     public void startRound(){
         startRoundButton.setDisable(true);
@@ -207,6 +210,7 @@ public class GameScreenController {
         translateCart.setOnFinished(event ->{
             activeCarts -= 1;
             double cartFinalDistance = cartGui.getLayoutX() + cartGui.getTranslateX();
+            // change it to 1000 when ready.
             if (cartFinalDistance >= 1100) {
                 roundLost();
             } else {
