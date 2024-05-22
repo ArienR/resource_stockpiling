@@ -12,5 +12,4 @@ public class DairyCart extends Cart{
         this.scoreValue = 3000;
         this.cartCompensation = 700;
     }
-
 }
