@@ -22,12 +22,10 @@ public class GameStateService {
             gameManager.gameScreenToAfterRoundScreen();
         } else if (gameManager.isRoundWon() == true && gameManager.getCurrentRoundNumber() == gameManager.getNumberOfRounds()) {
             gameManager.incrementCurrentRoundNumber();
-            gameManager.setEndOfGame(true);
             gameManager.setGameWon(true);
             gameManager.launchEndScreen();
             gameManager.gameScreenToEndScreen();
         } else {
-            gameManager.setEndOfGame(true);
             gameManager.launchEndScreen();
             gameManager.gameScreenToEndScreen();
         }

@@ -16,8 +16,8 @@ public class AnimateCartsService {
         this.cartType = cartType;
     }
 
-    public generatePane(){
-        AnchorPane cartPane = new AnchorPane();
-    }
+//    public generatePane(){
+//        AnchorPane cartPane = new AnchorPane();
+//    }
 
 }
