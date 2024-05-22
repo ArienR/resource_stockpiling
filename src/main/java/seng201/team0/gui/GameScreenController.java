@@ -29,11 +29,13 @@ public class GameScreenController {
 
     private GenerateCartsService generateCartsService;
 
-    private boolean roundWon = true;
+    private int activeCarts = 0;
 
     private List<ProduceCart> listOfProduceCarts;
     private List<MeatCart> listOfMeatCarts;
     private List<DairyCart> listOfDairyCarts;
+
+    private int changedCartSpeed;
 
     private List<?> listOfAllCarts = new ArrayList<>();
 
@@ -41,7 +43,7 @@ public class GameScreenController {
     private AnchorPane cartTrackAnchorPane;
 
     @FXML
-    private Label produceCartsRemaining, meatCartsRemaining, dairyCartsRemaining;
+    private Label produceCartsRemainingLabel, meatCartsRemainingLabel, dairyCartsRemainingLabel;
 
     @FXML
     private Circle tower1Circle, tower2Circle, tower3Circle, tower4Circle, tower5Circle;
@@ -85,10 +87,11 @@ public class GameScreenController {
         this.listOfProduceCarts = generateCartsService.generateProduceCarts(gameManager);
         this.listOfMeatCarts = generateCartsService.generateMeatCarts(gameManager);
         this.listOfDairyCarts = generateCartsService.generateDairyCarts(gameManager);
+        this.changedCartSpeed = generateCartsService.getChangedCartSpeed();
 
-        produceCartsRemaining.setText("Produce " + listOfProduceCarts.size() + "x");
-        meatCartsRemaining.setText("Meat " + listOfMeatCarts.size() + "x");
-        dairyCartsRemaining.setText("Dairy " + listOfDairyCarts.size() + "x");
+        produceCartsRemainingLabel.setText("Produce " + listOfProduceCarts.size() + "x");
+        meatCartsRemainingLabel.setText("Meat " + listOfMeatCarts.size() + "x");
+        dairyCartsRemainingLabel.setText("Dairy " + listOfDairyCarts.size() + "x");
 
         towerAmountLabels = List.of(tower1AmountLabel, tower2AmountLabel, tower3AmountLabel, tower4AmountLabel, tower5AmountLabel);
         towerNameLabels = List.of(tower1NameLabel, tower2NameLabel, tower3NameLabel, tower4NameLabel, tower5NameLabel);
@@ -151,11 +154,11 @@ public class GameScreenController {
         }
         for (int i=0; i < listOfMeatCarts.size(); i++) {
             int index = i;
-            executor.schedule(() -> spawnCart(listOfMeatCarts.get(index)), i * 2500, TimeUnit.MILLISECONDS);
+            executor.schedule(() -> spawnCart(listOfMeatCarts.get(index)), i * 2000, TimeUnit.MILLISECONDS);
         }
         for (int i=0; i < listOfDairyCarts.size(); i++) {
             int index = i;
-            executor.schedule(() -> spawnCart(listOfDairyCarts.get(index)), i * 3000, TimeUnit.MILLISECONDS);
+            executor.schedule(() -> spawnCart(listOfDairyCarts.get(index)), i * 2000, TimeUnit.MILLISECONDS);
         }
 
         // Shutdown the executor after all tasks are completed
@@ -167,6 +170,7 @@ public class GameScreenController {
     public void spawnCart(Cart cart){
         Platform.runLater(() -> {
             Rectangle cartGui = new Rectangle(50, 50, 50, 50);
+            cartGui.setLayoutY(-25);
             if (cart instanceof ProduceCart) {
                 cartGui.setFill(Color.GREEN);
             } else if (cart instanceof MeatCart) {
@@ -184,18 +188,39 @@ public class GameScreenController {
                 e.printStackTrace(); // Print the stack trace for debugging purposes
                 // Optionally, display an error message to the user or perform other error-handling tasks
             }
-
-            int timeToReachEnd = cart.cartSpeed;
+            System.out.println(cart.cartSpeed);
+            System.out.println(changedCartSpeed);
+            int speedIncrease = cart.cartSpeed+changedCartSpeed;
+            int timeToReachEnd = (int) (speedIncrease*500);
             //animate cart
+            activeCarts += 1;
             animateCart(cartGui, timeToReachEnd);
         });
     }
 
     public void animateCart(Rectangle cartGui, int timeToReachEnd){
-        System.out.println("animate");
+        System.out.println(timeToReachEnd);
         TranslateTransition translateCart = new TranslateTransition(Duration.millis(timeToReachEnd), cartGui);
         translateCart.setByX(1050);
+
+        //check if cart has reached the end.
+        translateCart.setOnFinished(event ->{
+            activeCarts -= 1;
+            double cartFinalDistance = cartGui.getLayoutX() + cartGui.getTranslateX();
+            if (cartFinalDistance >= 1100) {
+                roundLost();
+            } else {
+                checkActiveCarts();
+            }
+        });
+
         translateCart.play();
+    }
+
+    private void checkActiveCarts() {
+        if (activeCarts == 0){
+            roundWon();
+        }
     }
 
 

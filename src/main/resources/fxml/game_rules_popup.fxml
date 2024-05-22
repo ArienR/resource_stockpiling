@@ -34,12 +34,12 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label text="Cart Speed: {x kph}">
+            <Label text="Cart Speed: 10 kph">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label text="Cart Size: {x L}">
+            <Label text="Cart Size: 100 L}">
                <font>
                   <Font size="16.0" />
                </font>
@@ -76,12 +76,12 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label text="Cart Speed: {x kph}">
+            <Label text="Cart Speed: 30 kph">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label text="Cart Size: {x L}">
+            <Label text="Cart Size: 300 L">
                <font>
                   <Font size="16.0" />
                </font>
@@ -108,12 +108,12 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label text="Cart Speed: {x kph}">
+            <Label text="Cart Speed: 20 kph">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label text="Cart Size: {x L}">
+            <Label text="Cart Size: 200 L">
                <font>
                   <Font size="16.0" />
                </font>

@@ -14,20 +14,20 @@ public class GenerateCartsService {
     int produceCartCount;
     int meatCartCount;
     int dairyCartCount;
-    int changedCartSpeedPercentage;
+    int changedCartSpeed;
 
     public GenerateCartsService(GameManager gameManager){
         Round upcomingRound = gameManager.getUpcomingRound();
         produceCartCount = upcomingRound.getProduceCount();
         meatCartCount = upcomingRound.getMeatCount();
         dairyCartCount = upcomingRound.getDairyCount();
-        changedCartSpeedPercentage = upcomingRound.getCartSpeedPercentage();
+        changedCartSpeed = upcomingRound.getChangedCartSpeed();
     }
 
     public List<ProduceCart> generateProduceCarts(GameManager gameManager){
         List<ProduceCart> listOfProduceCarts = new ArrayList<>();
         for (int i = 0; i < produceCartCount; i++){
-            listOfProduceCarts.add(new ProduceCart(changedCartSpeedPercentage));
+            listOfProduceCarts.add(new ProduceCart(changedCartSpeed));
         }
         return listOfProduceCarts;
     }
@@ -35,7 +35,7 @@ public class GenerateCartsService {
     public List<MeatCart> generateMeatCarts(GameManager gameManager){
         List<MeatCart> listOfMeatCarts = new ArrayList<>();
         for (int i = 0; i < meatCartCount; i++){
-            listOfMeatCarts.add(new MeatCart(changedCartSpeedPercentage));
+            listOfMeatCarts.add(new MeatCart(changedCartSpeed));
         }
         return listOfMeatCarts;
     }
@@ -45,9 +45,13 @@ public class GenerateCartsService {
     public List<DairyCart> generateDairyCarts(GameManager gameManager){
         List<DairyCart> listOfDairyCarts = new ArrayList<DairyCart>();
         for (int i = 0; i < dairyCartCount; i++){
-            listOfDairyCarts.add(new DairyCart(changedCartSpeedPercentage));
+            listOfDairyCarts.add(new DairyCart(changedCartSpeed));
         }
         return listOfDairyCarts;
+    }
+
+    public int getChangedCartSpeed(){
+        return changedCartSpeed;
     }
 
 }

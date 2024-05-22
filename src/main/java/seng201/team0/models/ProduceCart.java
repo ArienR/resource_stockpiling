@@ -7,7 +7,7 @@ public class ProduceCart extends Cart{
     private int cartCompensation;
 
     public ProduceCart(int changedCartSpeedPercentage) {
-        super(10, 10);
+        super(30, 100);
         this.scoreValue = 1000;
         this.cartCompensation = 300;
     }

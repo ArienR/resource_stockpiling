@@ -5,15 +5,15 @@ public class Round {
     private int produceCount;
     private int meatCount;
     private int dairyCount;
-    private int cartSpeedPercentage;
+    private int cartSpeedChange;
 
 
 //  Constructor for first round
-    public Round(int tempProduceCount, int tempMeatCount, int tempDairyCount, int tempCartSpeedPercentage) {
+    public Round(int tempProduceCount, int tempMeatCount, int tempDairyCount, int tempCartSpeedChange) {
         this.produceCount = tempProduceCount;
         this.meatCount = tempMeatCount;
         this.dairyCount = tempDairyCount;
-        this.cartSpeedPercentage = tempCartSpeedPercentage;
+        this.cartSpeedChange = tempCartSpeedChange;
     }
 
     public int getProduceCount() {
@@ -26,7 +26,7 @@ public class Round {
     public int getDairyCount(){
         return dairyCount;}
 
-    public int getCartSpeedPercentage() {
-        return cartSpeedPercentage;
+    public int getChangedCartSpeed() {
+        return cartSpeedChange;
     }
 }
