@@ -187,12 +187,11 @@ public class GameScreenController {
 
             int timeToReachEnd = cart.cartSpeed;
             //animate cart
-            animateCart(cartGui, timeToReachEnd);
+            animateCart(cartGui, timeToReachEnd*5);
         });
     }
 
     public void animateCart(Rectangle cartGui, int timeToReachEnd){
-        System.out.println("animate");
         TranslateTransition translateCart = new TranslateTransition(Duration.millis(timeToReachEnd), cartGui);
         translateCart.setByX(1050);
         translateCart.play();
