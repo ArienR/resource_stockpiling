@@ -15,8 +15,8 @@ import java.util.Random;
 public class Shop {
 
     GameManager gameManager;
-    private List<Tower> towers;
-    private List<Item> items;
+    private final List<Tower> towers;
+    private final List<Item> items;
 
     public Shop(GameManager gameManager) {
         this.gameManager = gameManager;
@@ -26,37 +26,64 @@ public class Shop {
         generateRandomItems();
     }
 
-
-    // This still needs to be fixed so that we can assure the player gets at least enough of the particular tower to pre[are for the round
+    // This still needs to be fixed so that we can assure the player gets at least enough of the particular tower to prepare for the round
     private void generateRandomTowers() {
         Random rand = new Random();
         int currentRoundNumber = gameManager.getCurrentRoundNumber();
 
-        for (int i = 0; i < 4; i++) {
-            int towerSpeed = rand.nextInt(1, 4);
-            int towerFillAmount = rand.nextInt(80, 120);
-            int buyPrice = rand.nextInt(400, 500);
-            int gameBonus = rand.nextInt(50);
+        if (currentRoundNumber < 3) {
+            for (int i = 0; i < 4; i++) {
+                towers.add(generateProduceTower(rand));
+            }
+        } else if (currentRoundNumber <= 6) {
+            towers.add(generateProduceTower(rand));
+            towers.add(generateMeatTower(rand));
 
-            if (currentRoundNumber < 3) {
-                towers.add(new ProduceTower(towerSpeed, towerFillAmount, buyPrice, gameBonus));
-            } else if (currentRoundNumber <= 6){
+            for (int i = 0; i < 2; i++) {
                 if (rand.nextBoolean()) {
-                    towers.add(new ProduceTower(towerSpeed, towerFillAmount, buyPrice, gameBonus));
+                    towers.add(generateProduceTower(rand));
                 } else {
-                    towers.add(new MeatTower(towerSpeed, towerFillAmount, buyPrice, gameBonus));
+                    towers.add(generateMeatTower(rand));
                 }
-            } else {
+            }
+        } else {
+            towers.add(generateDairyTower(rand));
+
+            for (int i = 0; i < 3; i++) {
                 int towerType = rand.nextInt(3);
                 if (towerType == 0) {
-                    towers.add(new ProduceTower(towerSpeed, towerFillAmount, buyPrice, gameBonus));
+                    towers.add(generateProduceTower(rand));
                 } else if (towerType == 1) {
-                    towers.add(new MeatTower(towerSpeed, towerFillAmount, buyPrice, gameBonus));
+                    towers.add(generateMeatTower(rand));
                 } else {
-                    towers.add(new DairyTower(towerSpeed, towerFillAmount, buyPrice, gameBonus));
+                    towers.add(generateDairyTower(rand));
                 }
             }
         }
+    }
+
+    private ProduceTower generateProduceTower(Random rand) {
+        int towerSpeed = rand.nextInt(1, 4);
+        int towerFillAmount = rand.nextInt(80, 120);
+        int buyPrice = rand.nextInt(400, 500);
+        int gameBonus = rand.nextInt(50);
+        return new ProduceTower(towerSpeed, towerFillAmount, buyPrice, gameBonus);
+    }
+
+    private MeatTower generateMeatTower(Random rand) {
+        int towerSpeed = rand.nextInt(1, 4);
+        int towerFillAmount = rand.nextInt(80, 120);
+        int buyPrice = rand.nextInt(400, 500);
+        int gameBonus = rand.nextInt(50);
+        return new MeatTower(towerSpeed, towerFillAmount, buyPrice, gameBonus);
+    }
+
+    private DairyTower generateDairyTower(Random rand) {
+        int towerSpeed = rand.nextInt(1, 4);
+        int towerFillAmount = rand.nextInt(80, 120);
+        int buyPrice = rand.nextInt(400, 500);
+        int gameBonus = rand.nextInt(50);
+        return new DairyTower(towerSpeed, towerFillAmount, buyPrice, gameBonus);
     }
 
     private void generateRandomItems() {

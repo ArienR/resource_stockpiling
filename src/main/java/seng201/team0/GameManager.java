@@ -1,14 +1,9 @@
 package seng201.team0;
 
+import javafx.application.Platform;
 import seng201.team0.gui.FXWindow;
-import seng201.team0.models.ProduceCart;
-import seng201.team0.models.Tower;
 import seng201.team0.models.Round;
 import seng201.team0.services.Shop;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
 import java.util.function.Consumer;
 
 /**
@@ -40,7 +35,7 @@ public class GameManager {
     /**
      * Holds the singleton instance of the player.
      */
-    private Player player;
+    private final Player player;
 
     /**
      * Holds the shop which is updated every round.
@@ -113,18 +108,18 @@ public class GameManager {
     private final Runnable clearScreen;
 
     /**
-     * Constructs a new GameManager with the given player and screen launchers.
+     * Constructs a new GameManager singleton with the given player and screen launchers.
      *
-     * @param player
-     * @param setupScreenLauncher
-     * @param upcomingRoundScreenLauncher
-     * @param inventoryScreenLauncher
-     * @param sellShopScreenLauncher
-     * @param buyShopScreenLauncher
-     * @param gameScreenLauncher
-     * @param afterRoundScreenLauncher
-     * @param endScreenLauncher
-     * @param clearScreen
+     * @param player the player singleton
+     * @param setupScreenLauncher consumer to launch FXML setup screen
+     * @param upcomingRoundScreenLauncher consumer to launch FXML upcoming screen
+     * @param inventoryScreenLauncher consumer to launch FXML inventory screen
+     * @param sellShopScreenLauncher consumer to launch FXML sell screen
+     * @param buyShopScreenLauncher consumer to launch FXML shop screen
+     * @param gameScreenLauncher consumer to launch FXML game screen
+     * @param afterRoundScreenLauncher consumer to launch FXML after round screen
+     * @param endScreenLauncher consumer to launch FXML end screen
+     * @param clearScreen runnable which clears the window
      */
 
     public GameManager(Player player, Consumer<GameManager> setupScreenLauncher, Consumer<GameManager> upcomingRoundScreenLauncher,
@@ -195,7 +190,7 @@ public class GameManager {
      * Sets the difficulty bonus which is used to calculate how much a tower sells
      * for based on the difficulty they have chosen.
      *
-     * @param difficulty
+     * @param difficulty string indicating difficulty
      */
     public void setDifficultyBonus(String difficulty){
         if (difficulty.equals("Easy")){
@@ -217,9 +212,9 @@ public class GameManager {
 
     /**
      * Sets the difficulty string to "Easy" or "Hard" based on what the user has
-     * selected
+     * selected.
      *
-     * @param tempGameDifficulty
+     * @param tempGameDifficulty string based on setup screen selection
      */
     public void setGameDifficulty(String tempGameDifficulty) {
         this.gameDifficulty = tempGameDifficulty;
@@ -359,7 +354,7 @@ public class GameManager {
 
     /**
      * Launches the after round screen. Providing the stats of the players towers and
-     * any random events that may have occured.
+     * any random events that may have occurred.
      */
     public void launchAfterRoundScreen(){
         afterRoundScreenLauncher.accept(this);
@@ -386,7 +381,8 @@ public class GameManager {
      * Closes the ends screen which, quitting the application.
      */
     public void closeEndScreen() {
-        clearScreen.run();
+        Platform.exit();
+        System.exit(0);
     }
 
     /**
@@ -411,7 +407,7 @@ public class GameManager {
      * Sets the round won attribute to true to trigger either the upcoming round
      * screen on the end game screen.
      *
-     * @param roundWon
+     * @param roundWon boolean based on the outcome of the previous round
      */
     public void setRoundWon(boolean roundWon) {
         this.roundWon = roundWon;
@@ -448,7 +444,7 @@ public class GameManager {
     /**
      * Sets the game won variable after every round to assure consistency.
      *
-     * @param gameWon
+     * @param gameWon boolean indicating if the player has won the game
      */
     public void setGameWon(boolean gameWon) {
         this.gameWon = gameWon;
@@ -468,7 +464,7 @@ public class GameManager {
      * Sets the upcoming round to that which the user has picked from the upcoming
      * round screen.
      *
-     * @param upcomingRound
+     * @param upcomingRound round based on current round number
      */
     public void setUpcomingRound(Round upcomingRound) {
         this.upcomingRound = upcomingRound;
