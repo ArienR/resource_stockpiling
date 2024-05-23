@@ -147,10 +147,16 @@ public class ShopScreenController {
     @FXML
     public void onConfirmBuy() {
         Player player = gameManager.getPlayer();
+
         if (selectedTower != null) {
             handleBuy(player.getTowerList(), player.getPurchasedTowers(), selectedTower, towerButtons.get(selectedTowerIndex), 8, "Maximum number of towers reached.");
+            selectedTower = null;
+            selectedTowerIndex = -1;
+
         } else if (selectedItem != null) {
             handleBuy(player.getItemList(), player.getPurchasedItems(), selectedItem, itemButtons.get(selectedItemIndex), 4, "Maximum number of items reached.");
+            selectedItem = null;
+            selectedItemIndex = -1;
         }
     }
 
