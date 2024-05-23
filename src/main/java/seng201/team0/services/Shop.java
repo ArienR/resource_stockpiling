@@ -2,11 +2,7 @@ package seng201.team0.services;
 
 
 import seng201.team0.GameManager;
-import seng201.team0.models.Item;
-import seng201.team0.models.MeatTower;
-import seng201.team0.models.ProduceTower;
-import seng201.team0.models.DairyTower;
-import seng201.team0.models.Tower;
+import seng201.team0.models.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +38,7 @@ public class Shop {
      */
     public Shop(GameManager gameManager) {
         this.gameManager = gameManager;
-        towers = new ArrayList<>();
+        this.towers = new ArrayList<>();
         items = new ArrayList<>();
         generateRandomTowers();
         generateRandomItems();
@@ -133,13 +129,43 @@ public class Shop {
      */
     private void generateRandomItems() {
         Random rand = new Random();
-        for (int i = 0; i < 2; i++) {
-            List<Tower> towerTypeList = List.of(new ProduceTower(), new MeatTower(), new DairyTower());
-            Tower towerTypeAffected = towerTypeList.get(rand.nextInt(3));
-            int buyPrice = rand.nextInt(50, 100);
-            int fillIncrease = rand.nextInt(0, 3) * 100;
-            int speedIncrease = rand.nextInt(0, 3) * 100;
-            items.add(new Item(towerTypeAffected, fillIncrease, speedIncrease, buyPrice, gameManager.getDifficultyBonus()));
+        try {
+            Round upcomingRound = gameManager.getUpcomingRound();
+            if (upcomingRound == null) {
+                System.err.println("Upcoming round is not set. Cannot generate random items.");
+                return;
+            }
+
+            int numberProduceCarts = upcomingRound.getProduceCount();
+            int numberMeatCarts = upcomingRound.getMeatCount();
+            int numberDairyCarts = upcomingRound.getDairyCount();
+            System.out.println(numberProduceCarts);
+            System.out.println(numberMeatCarts);
+            System.out.println(numberDairyCarts);
+            int totalCarts = numberProduceCarts + numberMeatCarts + numberDairyCarts;
+
+            for (int i = 0; i < 2; i++) {
+                Tower towerTypeAffected;
+                int itemTypeLots = rand.nextInt(totalCarts);
+                if (itemTypeLots < numberProduceCarts) {
+                    towerTypeAffected = new ProduceTower();
+                } else if (itemTypeLots < numberProduceCarts + numberMeatCarts) {
+                    towerTypeAffected = new MeatTower();
+                } else {
+                    towerTypeAffected = new DairyTower();
+                }
+
+                int fillIncrease = 0;
+                int speedIncrease = 0;
+                while (fillIncrease == 0 && speedIncrease == 0) {
+                    fillIncrease = rand.nextInt(6) * 5;
+                    speedIncrease = rand.nextInt(6) * 5;
+                }
+                int buyPrice = (fillIncrease + speedIncrease) * rand.nextInt(41) / 10;
+                items.add(new Item(towerTypeAffected, fillIncrease, speedIncrease, buyPrice, gameManager.getDifficultyBonus()));
+            }
+        } catch (NullPointerException e) {
+            e.printStackTrace();
         }
     }
 

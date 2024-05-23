@@ -93,11 +93,12 @@ public class GameStateService {
         return r.nextInt(1, 11);
     }
 
+    // move to RoundLogicService
     public void moneyEarned(){
         int playerMoney = gameManager.getPlayer().getPlayerMoney();
         // money earned from killing carts
-        int moneyEarnedLastRound = 1000;
-        gameManager.getPlayer().setPlayerMoney(playerMoney+moneyEarnedLastRound);
+//        int moneyEarnedLastRound = GameStateService.getMone();
+//        gameManager.getPlayer().setPlayerMoney(playerMoney+moneyEarnedLastRound);
     }
 
 }
