@@ -11,12 +11,4 @@ public class ProduceCart extends Cart{
         this.scoreValue = 1000;
         this.cartCompensation = 300;
     }
-
-    public String getCartType() {
-        return cartType;
-    }
-
-    public int getScoreValue() {
-        return scoreValue;
-    }
 }

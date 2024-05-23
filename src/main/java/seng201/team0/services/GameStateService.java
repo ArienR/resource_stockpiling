@@ -14,13 +14,13 @@ public class GameStateService {
 
     // will be changed to a non button fxml later
     public void isEndOfGame() {
-        if (gameManager.isRoundWon() == true && gameManager.getCurrentRoundNumber() < gameManager.getNumberOfRounds()) {
+        if (gameManager.isRoundWon() && gameManager.getCurrentRoundNumber() < gameManager.getNumberOfRounds()) {
             randomEvents();
             moneyEarned();
             gameManager.incrementCurrentRoundNumber();
             gameManager.launchAfterRoundScreen();
             gameManager.gameScreenToAfterRoundScreen();
-        } else if (gameManager.isRoundWon() == true && gameManager.getCurrentRoundNumber() == gameManager.getNumberOfRounds()) {
+        } else if (gameManager.isRoundWon() && gameManager.getCurrentRoundNumber() == gameManager.getNumberOfRounds()) {
             gameManager.incrementCurrentRoundNumber();
             gameManager.setGameWon(true);
             gameManager.launchEndScreen();

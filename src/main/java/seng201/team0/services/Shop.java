@@ -95,8 +95,8 @@ public class Shop {
      * @return a new ProduceTower with random attributes
      */
     private ProduceTower generateProduceTower(Random rand) {
-        int towerSpeed = rand.nextInt(1, 4);
-        int towerFillAmount = rand.nextInt(80, 120);
+        int towerSpeed = rand.nextInt(5, 8);
+        int towerFillAmount = rand.nextInt(50, 70);
         int buyPrice = rand.nextInt(400, 500);
         return new ProduceTower(towerSpeed, towerFillAmount, buyPrice, gameManager.getDifficultyBonus());
     }
@@ -120,7 +120,6 @@ public class Shop {
      * @param rand the Random object for randomisation
      * @return a new DairyTower with random attributes
      */
-    // WTF is gameBonus?
     private DairyTower generateDairyTower(Random rand) {
         int towerSpeed = rand.nextInt(1, 4);
         int towerFillAmount = rand.nextInt(80, 120);

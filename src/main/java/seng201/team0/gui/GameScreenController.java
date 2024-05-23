@@ -14,10 +14,10 @@ import seng201.team0.models.*;
 import seng201.team0.services.GameStateService;
 import seng201.team0.services.GenerateCartsService;
 import javafx.scene.shape.Rectangle;
+import seng201.team0.services.RoundLogicService;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -27,11 +27,11 @@ public class GameScreenController {
     private GameManager gameManager;
 
     private GameStateService gameStateService;
-
+    private RoundLogicService roundLogicService;
     private GenerateCartsService generateCartsService;
 
-    private int MILLISECONDS_CONVERSION_FACTOR = 1000;
-    private float KPH_TO_MPS = 3.6f;
+    private final int MILLISECONDS_CONVERSION_FACTOR = 1000;
+    private final float KPH_TO_MPS = 3.6f;
 
     private int activeCarts = 0;
 
@@ -45,10 +45,8 @@ public class GameScreenController {
 
     @FXML
     private AnchorPane cartTrackAnchorPane;
-
     @FXML
     private Label produceCartsRemainingLabel, meatCartsRemainingLabel, dairyCartsRemainingLabel;
-
     @FXML
     private Circle tower1Circle, tower2Circle, tower3Circle, tower4Circle, tower5Circle;
     @FXML
@@ -103,7 +101,6 @@ public class GameScreenController {
         towerCircles = List.of(tower1Circle, tower2Circle, tower3Circle, tower4Circle, tower5Circle);
 
         populateTowers();
-
     }
 
     private void populateTowers() {
@@ -174,7 +171,6 @@ public class GameScreenController {
 
         // Shutdown the executor after all tasks are completed
         animateCartsExecutor.shutdown();
-
     }
 
 
