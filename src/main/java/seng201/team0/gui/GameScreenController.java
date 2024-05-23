@@ -200,13 +200,9 @@ public class GameScreenController {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            System.out.println(cart.cartSpeed);
-            System.out.println(changedCartSpeed);
             float totalSpeed = cart.cartSpeed + changedCartSpeed;
-            System.out.println(totalSpeed);
             float totalDistance = gameManager.getTrackDistance();
             float totalTime = totalDistance/(totalSpeed/KPH_TO_MPS);
-            System.out.println(totalTime);
             int timeToReachEnd = (int) (totalTime * MILLISECONDS_CONVERSION_FACTOR);
             //animate cart
             activeCarts += 1;
@@ -215,7 +211,6 @@ public class GameScreenController {
     }
 
     public void animateCart(Rectangle cartGui, int timeToReachEnd) {
-        System.out.println(timeToReachEnd);
         TranslateTransition translateCart = new TranslateTransition(Duration.millis(timeToReachEnd), cartGui);
         translateCart.setByX(1050);
 

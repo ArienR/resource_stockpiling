@@ -7,13 +7,11 @@ public abstract class Tower implements Purchasable {
     private String towerTableLevel = "1";
     private int consecutiveNonUses = 0;
     private String towerName;
-    private String towerType;
     private int towerSpeed;
     private int towerFillAmount;
     private boolean towerBroken = false;
-    private boolean towerSelected = false;
     private int buyPrice;
-    private int sellPrice; // This logic is done in the shop as we have difficulty bonus, is this redundant?
+    private int sellPrice;
 
     // constructor
     public Tower(int towerSpeed, int towerFillAmount, int buyPrice, float difficultyBonus) {
@@ -44,32 +42,12 @@ public abstract class Tower implements Purchasable {
         return towerName;
     }
 
-    public void setTowerName(String towerName) {
-        this.towerName = towerName;
-    }
-
-    public String getTowerType() {
-        return towerType;
-    }
-
-    public void setTowerType(String towerType) {
-        this.towerType = towerType;
-    }
-
     public int getTowerSpeed() {
         return towerSpeed;
     }
 
-    public void setTowerSpeed(int towerSpeed) {
-        this.towerSpeed = towerSpeed;
-    }
-
     public int getTowerFillAmount() {
         return towerFillAmount;
-    }
-
-    public void setTowerFillAmount(int towerAmount) {
-        this.towerFillAmount = towerAmount;
     }
 
     public boolean isTowerBroken() {
@@ -78,14 +56,6 @@ public abstract class Tower implements Purchasable {
 
     public void setTowerIsBroken(boolean towerIsBroken) {
         this.towerBroken = towerIsBroken;
-    }
-
-    public boolean isTowerSelected() {
-        return towerSelected;
-    }
-
-    public void setTowerIsSelected(boolean towerIsSelected) {
-        this.towerSelected = towerIsSelected;
     }
 
     public int getConsecutiveUses() {

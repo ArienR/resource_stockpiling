@@ -27,31 +27,39 @@ public class RoundLogicService {
         int totalMeatCartCapacity = calculateTotalCartCapacity(meatCarts);
         int totalDairyCartCapacity = calculateTotalCartCapacity(dairyCarts);
 
+        List<Tower> towers = gameManager.getPlayer().getEquippedTowers();
+        boolean canWin = true;
         int trackDistance = gameManager.getTrackDistance();
         // size - 1 used to compensate for time between first cart spawning and last cart finishing
-        float timeAvailableForProduce = trackDistance / ((produceCarts.get(0).getCartSpeed() / KPH_TO_MPS) + produceCarts.size() - 1);
-        float timeAvailableForMeat = trackDistance / ((meatCarts.get(0).getCartSpeed() / KPH_TO_MPS) + meatCarts.size() - 1);
-        float timeAvailableForDairy = trackDistance / ((dairyCarts.get(0).getCartSpeed() / KPH_TO_MPS) + dairyCarts.size() - 1);
-
-        float produceFillRateRequired = totalProduceCartCapacity / timeAvailableForProduce;
-        float meatFillRateRequired = totalMeatCartCapacity / timeAvailableForMeat;
-        float dairyFillRateRequired = totalDairyCartCapacity / timeAvailableForDairy;
-
-        List<Tower> towers = gameManager.getPlayer().getEquippedTowers();
-        float produceTowerFillRate = calculateTowerFillRate(towers, ProduceTower.class);
-        float meatTowerFillRate = calculateTowerFillRate(towers, MeatTower.class);
-        float dairyTowerFillRate = calculateTowerFillRate(towers, DairyTower.class);
-
-        boolean canWin = true;
-
-        if (produceTowerFillRate <= produceFillRateRequired) {
-            canWin = false;
+        if (!produceCarts.isEmpty()) {
+            float timeAvailableForProduce = trackDistance / ((produceCarts.get(0).getCartSpeed() / KPH_TO_MPS) + produceCarts.size() - 1);
+            float produceFillRateRequired = totalProduceCartCapacity / timeAvailableForProduce;
+            float produceTowerFillRate = calculateTowerFillRate(towers, ProduceTower.class);
+            System.out.println(produceTowerFillRate);
+            System.out.println(produceFillRateRequired);
+            if (produceTowerFillRate <= produceFillRateRequired) {
+                canWin = false;
+            }
         }
-        if (meatTowerFillRate <= meatFillRateRequired) {
-            canWin = false;
+        if (!meatCarts.isEmpty()) {
+            float timeAvailableForMeat = trackDistance / ((meatCarts.get(0).getCartSpeed() / KPH_TO_MPS) + meatCarts.size() - 1);
+            float meatFillRateRequired = totalMeatCartCapacity / timeAvailableForMeat;
+            float meatTowerFillRate = calculateTowerFillRate(towers, MeatTower.class);
+            System.out.println(meatTowerFillRate);
+            System.out.println(meatFillRateRequired);
+            if (meatTowerFillRate <= meatFillRateRequired) {
+                canWin = false;
+            }
         }
-        if (dairyTowerFillRate <= dairyFillRateRequired) {
-            canWin = false;
+        if (!dairyCarts.isEmpty()) {
+            float timeAvailableForDairy = trackDistance / ((dairyCarts.get(0).getCartSpeed() / KPH_TO_MPS) + dairyCarts.size() - 1);
+            float dairyFillRateRequired = totalDairyCartCapacity / timeAvailableForDairy;
+            float dairyTowerFillRate = calculateTowerFillRate(towers, DairyTower.class);
+            System.out.println(dairyTowerFillRate);
+            System.out.println(dairyFillRateRequired);
+            if (dairyTowerFillRate <= dairyFillRateRequired) {
+                canWin = false;
+            }
         }
 
         return canWin;
@@ -61,7 +69,7 @@ public class RoundLogicService {
         float totalTowerFillRate = 0;
         for (Tower tower : towers) {
             if (towerType.isInstance(tower)) {
-                totalTowerFillRate = (float) tower.getTowerFillAmount() / tower.getTowerSpeed();
+                totalTowerFillRate = (float) tower.getTowerFillAmount() * tower.getTowerSpeed();
             }
         }
         return totalTowerFillRate;
