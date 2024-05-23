@@ -62,7 +62,7 @@ public class GameManager {
      * Indicates if the round has ended, used to reset the shop.
      */
 
-    private boolean isRoundEnded;
+    private boolean isRoundEnded = true;
 
     /**
      * Holds the upcoming round which was selected by the user.
@@ -268,7 +268,7 @@ public class GameManager {
      */
     public void closeUpcomingRoundScreen() {
         clearScreen.run();
-        resetShop();
+        isRoundEnded = true;
         launchInventoryScreen();
     }
 
@@ -278,6 +278,7 @@ public class GameManager {
      */
     public void launchInventoryScreen() {
         if (isRoundEnded) {
+            System.out.println("reached");
             resetShop();
             isRoundEnded = false;
         }

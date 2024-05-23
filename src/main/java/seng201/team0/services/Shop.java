@@ -2,11 +2,7 @@ package seng201.team0.services;
 
 
 import seng201.team0.GameManager;
-import seng201.team0.models.Item;
-import seng201.team0.models.MeatTower;
-import seng201.team0.models.ProduceTower;
-import seng201.team0.models.DairyTower;
-import seng201.team0.models.Tower;
+import seng201.team0.models.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +38,7 @@ public class Shop {
      */
     public Shop(GameManager gameManager) {
         this.gameManager = gameManager;
-        towers = new ArrayList<>();
+        this.towers = new ArrayList<>();
         items = new ArrayList<>();
         generateRandomTowers();
         generateRandomItems();
@@ -133,13 +129,29 @@ public class Shop {
      */
     private void generateRandomItems() {
         Random rand = new Random();
-        for (int i = 0; i < 2; i++) {
-            List<Tower> towerTypeList = List.of(new ProduceTower(), new MeatTower(), new DairyTower());
-            Tower towerTypeAffected = towerTypeList.get(rand.nextInt(3));
-            int buyPrice = rand.nextInt(50, 100);
-            int fillIncrease = rand.nextInt(0, 3) * 100;
-            int speedIncrease = rand.nextInt(0, 3) * 100;
-            items.add(new Item(towerTypeAffected, fillIncrease, speedIncrease, buyPrice, gameManager.getDifficultyBonus()));
+        try {
+            int numberProduceCarts = gameManager.getUpcomingRound().getProduceCount();
+            int numberMeatCarts = gameManager.getUpcomingRound().getMeatCount();
+            int numberDairyCarts = gameManager.getUpcomingRound().getDairyCount();
+            System.out.println(numberProduceCarts);
+            System.out.println(numberMeatCarts);
+            System.out.println(numberDairyCarts);
+            int totalCarts = numberProduceCarts + numberMeatCarts + numberDairyCarts;
+            System.out.println(totalCarts);
+            for (int i = 0; i < 2; i++) {
+                Tower towerTypeAffected;
+                int itemTypeLots = rand.nextInt(1, totalCarts + 1);
+                if (itemTypeLots <= numberProduceCarts) {
+                    towerTypeAffected = new ProduceTower();
+                } else if (itemTypeLots <= numberMeatCarts) {
+                    towerTypeAffected = new MeatTower();
+                } else {
+                    towerTypeAffected = new DairyTower();
+                }
+            }
+        } catch (NullPointerException e) {
+            // Print the stack trace
+            e.printStackTrace();
         }
     }
 

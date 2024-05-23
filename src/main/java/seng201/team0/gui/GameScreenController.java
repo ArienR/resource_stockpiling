@@ -41,8 +41,6 @@ public class GameScreenController {
 
     private int changedCartSpeed;
 
-    private List<?> listOfAllCarts = new ArrayList<>();
-
     @FXML
     private AnchorPane cartTrackAnchorPane;
     @FXML

@@ -94,7 +94,7 @@ public class UpcomingRoundScreenController {
         Random cartCount = new Random();
         int currentRoundNumber = gameManager.getCurrentRoundNumber();
         if (currentRoundNumber == 1) {
-            option1Round = new Round(3,4,5, cartSpeedPercentage.nextInt(-2, 0));
+            option1Round = new Round(1,0,0, cartSpeedPercentage.nextInt(-2, 0));
             option2Round = new Round(2,0,0, cartSpeedPercentage.nextInt(-4, -2));
             option3Round = new Round(3,0,0, cartSpeedPercentage.nextInt(-7, -5));
         } else if (currentRoundNumber == 2){
