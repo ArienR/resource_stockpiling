@@ -55,6 +55,7 @@ public class AfterRoundScreenController implements Initializable {
         towerTableLevelColumn.setCellValueFactory(new PropertyValueFactory<>("towerTableLevel"));
 
         afterRoundTable.setItems(towerData);
+
     }
 
     private ObservableList<Tower> getTowerData() {
@@ -64,7 +65,16 @@ public class AfterRoundScreenController implements Initializable {
 
     @FXML
     public void afterRoundToSelectRound() {
+        removeBrokenTowers();
         gameManager.launchUpcomingRoundScreen();
         gameManager.closeAfterRoundScreen();
+    }
+
+    public void removeBrokenTowers(){
+        for (Tower tower: gameManager.getPlayer().getPurchasedTowers()){
+            if (tower.isTowerBroken()){
+                gameManager.getPlayer().removeBrokenTower(tower);
+            }
+        }
     }
 }

@@ -100,6 +100,9 @@ public class Player {
         return towerList;
     }
 
+    // make java doc
+    public void removeBrokenTower(Tower tower){this.towerList.remove(tower);}
+
     /**
      * Gets the player's current money amount.
      *

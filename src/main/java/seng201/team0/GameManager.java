@@ -53,8 +53,15 @@ public class GameManager {
     private float difficultyBonus;
 
     /**
+     * Holds the distance of the track in metres.
+     */
+
+    private int trackDistance;
+
+    /**
      * Indicates if the round has ended, used to reset the shop.
      */
+
     private boolean isRoundEnded;
 
     /**
@@ -468,5 +475,13 @@ public class GameManager {
      */
     public void setUpcomingRound(Round upcomingRound) {
         this.upcomingRound = upcomingRound;
+    }
+
+    public int getTrackDistance() {
+        return trackDistance;
+    }
+
+    public void setTrackDistance(int trackDistance) {
+        this.trackDistance = trackDistance;
     }
 }

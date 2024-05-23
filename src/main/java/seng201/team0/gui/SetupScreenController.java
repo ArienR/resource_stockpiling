@@ -20,6 +20,7 @@ public class SetupScreenController {
     @FXML private Label selectedDiffucltyLabel;
     @FXML private Button startGameButton;
     @FXML private Label startErrorLabel;
+    @FXML private Label selectedDistanceLabel1;
 
     private String gameDifficulty;
 
@@ -39,15 +40,21 @@ public class SetupScreenController {
 //        Initializes game difficulty to easy
         gameDifficulty = "Easy";
         updateGameDifficultyLabel("Easy", easyDifficultyButton);
+        gameManager.setTrackDistance(80);
+        selectedDistanceLabel1.setText("Track distance: " + gameManager.getTrackDistance() +"m");
 
         easyDifficultyButton.setOnAction(event -> {
             gameDifficulty = "Easy";
             updateGameDifficultyLabel("Easy", easyDifficultyButton);
+            gameManager.setTrackDistance(80);
+            selectedDistanceLabel1.setText("Track distance: " + gameManager.getTrackDistance() +"m");
         });
 
         hardDifficultyButton.setOnAction(event -> {
             gameDifficulty = "Hard";
             updateGameDifficultyLabel("Hard", hardDifficultyButton);
+            gameManager.setTrackDistance(50);
+            selectedDistanceLabel1.setText("Track distance: " + gameManager.getTrackDistance() +"m");
         });
 
     }

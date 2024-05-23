@@ -154,6 +154,14 @@
                         <Insets left="30.0" />
                      </VBox.margin>
                   </Label>
+                  <Label fx:id="inventorySelectedTowerLevelLabel" prefHeight="206.0" prefWidth="374.0" text="Tower Level:">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="25.0" />
+                     </VBox.margin>
+                  </Label>
                   <Label fx:id="inventorySelectedTowerTypeLabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="214.0" prefWidth="0.0" text="Type:">
                      <font>
                         <Font size="20.0" />

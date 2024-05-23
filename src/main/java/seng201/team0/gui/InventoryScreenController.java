@@ -25,6 +25,7 @@ public class InventoryScreenController {
     @FXML private Button inventoryTower6Button;
     @FXML private Button inventoryTower7Button;
     @FXML private Button inventoryTower8Button;
+    @FXML private Label inventorySelectedTowerLevelLabel;
     @FXML private Label inventorySelectedTowerTypeLabel;
     @FXML private Label inventorySelectedTowerFillAmountLabel;
     @FXML private Label inventorySelectedTowerFillSpeedLabel;
@@ -190,12 +191,14 @@ public class InventoryScreenController {
     }
 
     private void displayTowerStats(Tower tower) {
+        inventorySelectedTowerLevelLabel.setText("Tower Level: " + tower.getTowerLevel());
         inventorySelectedTowerFillAmountLabel.setText("Fill Amount: " + tower.getTowerFillAmount() + " Litres");
         inventorySelectedTowerFillSpeedLabel.setText("Fill Speed: " + tower.getTowerSpeed() + " Fill/Second");
         inventorySelectedTowerTypeLabel.setText("Type: " + splitCamelCase(tower.getClass().getSimpleName()));
     }
 
     private void removeTowerStats() {
+        inventorySelectedTowerLevelLabel.setText("Tower Level: ");
         inventorySelectedTowerFillAmountLabel.setText("Fill Amount: ");
         inventorySelectedTowerFillSpeedLabel.setText("Fill Speed: ");
         inventorySelectedTowerTypeLabel.setText("Type: ");

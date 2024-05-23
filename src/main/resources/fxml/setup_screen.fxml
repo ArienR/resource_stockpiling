@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <GridPane fx:id="SetupScreenController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng201.team0.gui.SetupScreenController">
@@ -57,23 +58,10 @@
             <Insets left="20.0" />
          </GridPane.margin>
       </Button>
-      <Button fx:id="startGameButton" mnemonicParsing="false" onAction="#startGameAction" prefHeight="35.0" prefWidth="140.0" text="Start Game!" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="TOP" />
-      <Label fx:id="selectedNumberOfRoundsLabel" text="Selected number of rounds: 5" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
-         <font>
-            <Font size="15.0" />
-         </font>
+      <Button fx:id="startGameButton" mnemonicParsing="false" onAction="#startGameAction" prefHeight="35.0" prefWidth="140.0" text="Start Game!" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="TOP">
          <GridPane.margin>
-            <Insets bottom="30.0" />
-         </GridPane.margin>
-      </Label>
-      <Label fx:id="selectedDiffucltyLabel" text="Select your difficulty" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
-         <font>
-            <Font size="15.0" />
-         </font>
-         <GridPane.margin>
-            <Insets top="30.0" />
-         </GridPane.margin>
-      </Label>
+            <Insets top="10.0" />
+         </GridPane.margin></Button>
       <Label fx:id="startErrorLabel" alignment="CENTER" prefHeight="18.0" prefWidth="677.0" style="-fx-font-weight: bold;" textFill="RED" GridPane.columnSpan="2" GridPane.rowIndex="7">
          <opaqueInsets>
             <Insets />
@@ -82,5 +70,27 @@
             <Insets top="20.0" />
          </GridPane.margin>
       </Label>
+      <VBox spacing="10.0" style="-fx-alignment: center;" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+         <children>
+            <Label fx:id="selectedNumberOfRoundsLabel" alignment="CENTER" text="Selected number of rounds: 5">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="selectedDiffucltyLabel" text="Select your difficulty">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="selectedDistanceLabel1" text="{Track distance: [x]m}">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+      </VBox>
    </children>
 </GridPane>

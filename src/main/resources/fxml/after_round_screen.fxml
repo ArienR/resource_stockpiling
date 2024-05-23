@@ -45,6 +45,5 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <Label text="Towers" GridPane.rowIndex="2" />
    </children>
 </GridPane>

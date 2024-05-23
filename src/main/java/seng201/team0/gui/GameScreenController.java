@@ -17,6 +17,7 @@ import javafx.scene.shape.Rectangle;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -28,6 +29,9 @@ public class GameScreenController {
     private GameStateService gameStateService;
 
     private GenerateCartsService generateCartsService;
+
+    private int MILLISECONDS_CONVERSION_FACTOR = 1000;
+    private float KPH_TO_MPS = 3.6f;
 
     private int activeCarts = 0;
 
@@ -142,72 +146,84 @@ public class GameScreenController {
     }
 
     // fillCarts
-    public void fillProduceCarts(){}
     @FXML
-    public void startRound(){
+    public void startRound() {
         startRoundButton.setDisable(true);
         startRoundButton.setVisible(false);
         cartTrackAnchorPane.setVisible(true);
-        ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
+        startCartAnimations();
+    }
+
+
+    public void startCartAnimations() {
+        ScheduledExecutorService animateCartsExecutor = Executors.newSingleThreadScheduledExecutor();
 
         // Schedule the task 5 times with a delay of 2 seconds between each execution
-        for (int i=0; i < listOfProduceCarts.size(); i++) {
+        for (int i = 0; i < listOfProduceCarts.size(); i++) {
             int index = i;
-            executor.schedule(() -> spawnCart(listOfProduceCarts.get(index)), i * 2000, TimeUnit.MILLISECONDS);
+            animateCartsExecutor.schedule(() -> spawnCart(listOfProduceCarts.get(index)), i * 1000, TimeUnit.MILLISECONDS);
         }
-        for (int i=0; i < listOfMeatCarts.size(); i++) {
+        for (int i = 0; i < listOfMeatCarts.size(); i++) {
             int index = i;
-            executor.schedule(() -> spawnCart(listOfMeatCarts.get(index)), i * 2000, TimeUnit.MILLISECONDS);
+            animateCartsExecutor.schedule(() -> spawnCart(listOfMeatCarts.get(index)), i * 1000, TimeUnit.MILLISECONDS);
         }
-        for (int i=0; i < listOfDairyCarts.size(); i++) {
+        for (int i = 0; i < listOfDairyCarts.size(); i++) {
             int index = i;
-            executor.schedule(() -> spawnCart(listOfDairyCarts.get(index)), i * 2000, TimeUnit.MILLISECONDS);
+            animateCartsExecutor.schedule(() -> spawnCart(listOfDairyCarts.get(index)), i * 1000, TimeUnit.MILLISECONDS);
         }
 
         // Shutdown the executor after all tasks are completed
-        executor.shutdown();
+        animateCartsExecutor.shutdown();
 
     }
 
 
-    public void spawnCart(Cart cart){
+    public void spawnCart(Cart cart) {
         Platform.runLater(() -> {
-            Rectangle cartGui = new Rectangle(50, 50, 50, 50);
-            cartGui.setLayoutY(-25);
+            Rectangle cartGui;
             if (cart instanceof ProduceCart) {
+                cartGui = new Rectangle(30, 30, 30, 30);
+                cartGui.setLayoutY(5);
+                cartGui.setLayoutX(10);
                 cartGui.setFill(Color.GREEN);
             } else if (cart instanceof MeatCart) {
+                cartGui = new Rectangle(40, 40, 40, 40);
+                cartGui.setLayoutY(-10);
+                cartGui.setLayoutX(0);
                 cartGui.setFill(Color.RED);
             } else {
+                cartGui = new Rectangle(50, 50, 50, 50);
+                cartGui.setLayoutY(-25);
+                cartGui.setLayoutX(-10);
                 cartGui.setFill(Color.WHITESMOKE);
             }
 
-            //this line is not running correctly
             try {
-                // Attempt to add the Rectangle to the AnchorPane
                 cartTrackAnchorPane.getChildren().add(cartGui);
             } catch (Exception e) {
-                // Handle the exception
-                e.printStackTrace(); // Print the stack trace for debugging purposes
-                // Optionally, display an error message to the user or perform other error-handling tasks
+                e.printStackTrace();
             }
             System.out.println(cart.cartSpeed);
             System.out.println(changedCartSpeed);
-            int speedIncrease = cart.cartSpeed+changedCartSpeed;
-            int timeToReachEnd = (int) (speedIncrease*500);
+            float totalSpeed = cart.cartSpeed + changedCartSpeed;
+            System.out.println(totalSpeed);
+            float totalDistance = gameManager.getTrackDistance();
+            float totalTime = totalDistance/(totalSpeed/KPH_TO_MPS);
+            System.out.println(totalTime);
+            int timeToReachEnd = (int) (totalTime * MILLISECONDS_CONVERSION_FACTOR);
             //animate cart
             activeCarts += 1;
             animateCart(cartGui, timeToReachEnd);
         });
     }
 
-    public void animateCart(Rectangle cartGui, int timeToReachEnd){
+    public void animateCart(Rectangle cartGui, int timeToReachEnd) {
         System.out.println(timeToReachEnd);
         TranslateTransition translateCart = new TranslateTransition(Duration.millis(timeToReachEnd), cartGui);
         translateCart.setByX(1050);
 
         //check if cart has reached the end.
-        translateCart.setOnFinished(event ->{
+        translateCart.setOnFinished(event -> {
             activeCarts -= 1;
             double cartFinalDistance = cartGui.getLayoutX() + cartGui.getTranslateX();
             // change it to 1000 when ready.
@@ -222,11 +238,10 @@ public class GameScreenController {
     }
 
     private void checkActiveCarts() {
-        if (activeCarts == 0){
+        if (activeCarts == 0) {
             roundWon();
         }
     }
-
 
     @FXML
     public void roundLost() {
@@ -234,10 +249,9 @@ public class GameScreenController {
         gameStateService.isEndOfGame();
     }
 
-    @FXML
+
     public void roundWon() {
         gameManager.setRoundWon(true);
         gameStateService.isEndOfGame();
     }
 }
-
