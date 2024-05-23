@@ -18,6 +18,7 @@ public class RoundLogicService {
 
     public boolean canWinRound() {
         GenerateCartsService generateCarts = new GenerateCartsService(gameManager);
+        List<Item> items = gameManager.getPlayer().getEquippedItems();
 
         List<ProduceCart> produceCarts = generateCarts.generateProduceCarts(gameManager);
         List<MeatCart> meatCarts = generateCarts.generateMeatCarts(gameManager);
@@ -34,9 +35,7 @@ public class RoundLogicService {
         if (!produceCarts.isEmpty()) {
             float timeAvailableForProduce = trackDistance / ((produceCarts.get(0).getCartSpeed() / KPH_TO_MPS) + produceCarts.size() - 1);
             float produceFillRateRequired = totalProduceCartCapacity / timeAvailableForProduce;
-            float produceTowerFillRate = calculateTowerFillRate(towers, ProduceTower.class);
-            System.out.println(produceTowerFillRate);
-            System.out.println(produceFillRateRequired);
+            float produceTowerFillRate = calculateTowerFillRate(towers, ProduceTower.class, items);
             if (produceTowerFillRate <= produceFillRateRequired) {
                 canWin = false;
             }
@@ -44,9 +43,7 @@ public class RoundLogicService {
         if (!meatCarts.isEmpty()) {
             float timeAvailableForMeat = trackDistance / ((meatCarts.get(0).getCartSpeed() / KPH_TO_MPS) + meatCarts.size() - 1);
             float meatFillRateRequired = totalMeatCartCapacity / timeAvailableForMeat;
-            float meatTowerFillRate = calculateTowerFillRate(towers, MeatTower.class);
-            System.out.println(meatTowerFillRate);
-            System.out.println(meatFillRateRequired);
+            float meatTowerFillRate = calculateTowerFillRate(towers, MeatTower.class, items);
             if (meatTowerFillRate <= meatFillRateRequired) {
                 canWin = false;
             }
@@ -54,9 +51,7 @@ public class RoundLogicService {
         if (!dairyCarts.isEmpty()) {
             float timeAvailableForDairy = trackDistance / ((dairyCarts.get(0).getCartSpeed() / KPH_TO_MPS) + dairyCarts.size() - 1);
             float dairyFillRateRequired = totalDairyCartCapacity / timeAvailableForDairy;
-            float dairyTowerFillRate = calculateTowerFillRate(towers, DairyTower.class);
-            System.out.println(dairyTowerFillRate);
-            System.out.println(dairyFillRateRequired);
+            float dairyTowerFillRate = calculateTowerFillRate(towers, DairyTower.class, items);
             if (dairyTowerFillRate <= dairyFillRateRequired) {
                 canWin = false;
             }
@@ -65,13 +60,35 @@ public class RoundLogicService {
         return canWin;
     }
 
-    private <T extends Tower> float calculateTowerFillRate(List<Tower> towers, Class<T> towerType) {
-        float totalTowerFillRate = 0;
-        for (Tower tower : towers) {
-            if (towerType.isInstance(tower)) {
-                totalTowerFillRate = (float) tower.getTowerFillAmount() * tower.getTowerSpeed();
+    private <T extends Tower> float calculateTowerFillRate(List<Tower> towers, Class<T> towerType, List<Item> items) {
+        float totalItemIncrease = calculateTotalItemIncrease(towerType, items);
+        float totalTowerFillRate = calculateTotalTowerFillRate(towers, towerType, totalItemIncrease);
+
+        return totalTowerFillRate;
+    }
+
+    private <T extends Tower> float calculateTotalItemIncrease(Class<T> towerType, List<Item> items) {
+        float totalItemIncrease = 1.0f;
+
+        for (Item item : items) {
+            if (towerType.isAssignableFrom(item.getTowerTypeAffected().getClass())) {
+                totalItemIncrease += (item.getSpeedIncrease() + item.getCollectionIncrease()) / 100.0f;
             }
         }
+
+        return totalItemIncrease;
+    }
+
+    private <T extends Tower> float calculateTotalTowerFillRate(List<Tower> towers, Class<T> towerType, float totalItemIncrease) {
+        float totalTowerFillRate = 0.0f;
+
+        for (Tower tower : towers) {
+            if (towerType.isInstance(tower)) {
+                float towerFillRate = tower.getTowerFillAmount() * tower.getTowerSpeed();
+                totalTowerFillRate += towerFillRate * totalItemIncrease;
+            }
+        }
+
         return totalTowerFillRate;
     }
 
