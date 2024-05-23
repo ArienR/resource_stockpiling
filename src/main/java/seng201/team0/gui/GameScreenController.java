@@ -85,6 +85,7 @@ public class GameScreenController {
         generateCartsService = new GenerateCartsService(gameManager);
         roundTitleLabel.setText(String.format("Round %d/%d", gameManager.getCurrentRoundNumber(), gameManager.getNumberOfRounds()));
         this.gameStateService = new GameStateService(gameManager);
+        this.roundLogicService = new RoundLogicService((gameManager));
 
         this.listOfProduceCarts = generateCartsService.generateProduceCarts(gameManager);
         this.listOfMeatCarts = generateCartsService.generateMeatCarts(gameManager);
@@ -218,25 +219,16 @@ public class GameScreenController {
         TranslateTransition translateCart = new TranslateTransition(Duration.millis(timeToReachEnd), cartGui);
         translateCart.setByX(1050);
 
-        //check if cart has reached the end.
         translateCart.setOnFinished(event -> {
             activeCarts -= 1;
-            double cartFinalDistance = cartGui.getLayoutX() + cartGui.getTranslateX();
-            // change it to 1000 when ready.
-            if (cartFinalDistance >= 1100) {
+            if (activeCarts == 0 && roundLogicService.canWinRound()){
+                roundWon();
+            } else if (activeCarts == 0 && !roundLogicService.canWinRound()){
                 roundLost();
-            } else {
-                checkActiveCarts();
             }
         });
 
         translateCart.play();
-    }
-
-    private void checkActiveCarts() {
-        if (activeCarts == 0) {
-            roundWon();
-        }
     }
 
     @FXML
