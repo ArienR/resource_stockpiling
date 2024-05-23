@@ -145,7 +145,6 @@ public class GameManager {
         this.afterRoundScreenLauncher = afterRoundScreenLauncher;
 
         this.clearScreen = clearScreen;
-        this.shop = new Shop(this);
         launchSetupScreen();
     }
 
