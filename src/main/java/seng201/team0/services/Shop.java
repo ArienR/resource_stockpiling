@@ -51,35 +51,33 @@ public class Shop {
      */
     private void generateRandomTowers() {
         Random rand = new Random();
-        int currentRoundNumber = gameManager.getCurrentRoundNumber();
+        Round upcomingRound = gameManager.getUpcomingRound();
+        int numberProduceCarts = upcomingRound.getProduceCount();
+        int numberMeatCarts = upcomingRound.getMeatCount();
+        int numberDairyCarts = upcomingRound.getDairyCount();
+        int totalCarts = numberProduceCarts + numberMeatCarts + numberDairyCarts;
 
-        if (currentRoundNumber < 3) {
-            for (int i = 0; i < 4; i++) {
-                towers.add(generateProduceTower(rand));
-            }
-        } else if (currentRoundNumber <= 6) {
+        int towersToGenerate = 4;
+        if (numberProduceCarts != 0){
+            towersToGenerate -= 1;
             towers.add(generateProduceTower(rand));
+        }
+        if (numberMeatCarts != 0){
+            towersToGenerate -= 1;
             towers.add(generateMeatTower(rand));
-
-            for (int i = 0; i < 2; i++) {
-                if (rand.nextBoolean()) {
-                    towers.add(generateProduceTower(rand));
-                } else {
-                    towers.add(generateMeatTower(rand));
-                }
-            }
-        } else {
+        }
+        if (numberDairyCarts != 0){
+            towersToGenerate -= 1;
             towers.add(generateDairyTower(rand));
-
-            for (int i = 0; i < 3; i++) {
-                int towerType = rand.nextInt(3);
-                if (towerType == 0) {
-                    towers.add(generateProduceTower(rand));
-                } else if (towerType == 1) {
-                    towers.add(generateMeatTower(rand));
-                } else {
-                    towers.add(generateDairyTower(rand));
-                }
+        }
+        for (int i = 0; i < towersToGenerate; i++){
+            int itemTypeLots = rand.nextInt(totalCarts);
+            if (itemTypeLots < numberProduceCarts) {
+                towers.add(generateProduceTower(rand));
+            } else if (itemTypeLots < numberProduceCarts + numberMeatCarts) {
+                towers.add(generateMeatTower(rand));
+            } else {
+                towers.add(generateDairyTower(rand));
             }
         }
     }
@@ -91,9 +89,9 @@ public class Shop {
      * @return a new ProduceTower with random attributes
      */
     private ProduceTower generateProduceTower(Random rand) {
-        int towerSpeed = rand.nextInt(5, 8);
-        int towerFillAmount = rand.nextInt(50, 70);
-        int buyPrice = rand.nextInt(400, 500);
+        int towerSpeed = rand.nextInt(3, 5);
+        int towerFillAmount = rand.nextInt(25, 50);
+        int buyPrice = towerSpeed*towerFillAmount*rand.nextInt(8, 12);
         return new ProduceTower(towerSpeed, towerFillAmount, buyPrice, gameManager.getDifficultyBonus());
     }
 
@@ -104,9 +102,9 @@ public class Shop {
      * @return a new MeatTower with random attributes
      */
     private MeatTower generateMeatTower(Random rand) {
-        int towerSpeed = rand.nextInt(1, 4);
-        int towerFillAmount = rand.nextInt(80, 120);
-        int buyPrice = rand.nextInt(400, 500);
+        int towerSpeed = rand.nextInt(3, 5);
+        int towerFillAmount = rand.nextInt(25, 50);
+        int buyPrice = towerSpeed*towerFillAmount*rand.nextInt(8, 12);
         return new MeatTower(towerSpeed, towerFillAmount, buyPrice, gameManager.getDifficultyBonus());
     }
 
@@ -117,9 +115,9 @@ public class Shop {
      * @return a new DairyTower with random attributes
      */
     private DairyTower generateDairyTower(Random rand) {
-        int towerSpeed = rand.nextInt(1, 4);
-        int towerFillAmount = rand.nextInt(80, 120);
-        int buyPrice = rand.nextInt(400, 500);
+        int towerSpeed = rand.nextInt(3, 5);
+        int towerFillAmount = rand.nextInt(25, 50);
+        int buyPrice = towerSpeed*towerFillAmount*rand.nextInt(8, 12);
         return new DairyTower(towerSpeed, towerFillAmount, buyPrice, gameManager.getDifficultyBonus());
     }
 
@@ -139,9 +137,6 @@ public class Shop {
             int numberProduceCarts = upcomingRound.getProduceCount();
             int numberMeatCarts = upcomingRound.getMeatCount();
             int numberDairyCarts = upcomingRound.getDairyCount();
-            System.out.println(numberProduceCarts);
-            System.out.println(numberMeatCarts);
-            System.out.println(numberDairyCarts);
             int totalCarts = numberProduceCarts + numberMeatCarts + numberDairyCarts;
 
             for (int i = 0; i < 2; i++) {
@@ -161,7 +156,7 @@ public class Shop {
                     fillIncrease = rand.nextInt(6) * 5;
                     speedIncrease = rand.nextInt(6) * 5;
                 }
-                int buyPrice = (fillIncrease + speedIncrease) * rand.nextInt(41) / 10;
+                int buyPrice = (fillIncrease + speedIncrease) * rand.nextInt(80, 120)/10;
                 items.add(new Item(towerTypeAffected, fillIncrease, speedIncrease, buyPrice, gameManager.getDifficultyBonus()));
             }
         } catch (NullPointerException e) {

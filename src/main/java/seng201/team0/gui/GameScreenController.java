@@ -128,16 +128,13 @@ public class GameScreenController {
     //THIS CODE IS CURRENTLY BROKEN AND CAUSING ISSUES WITH ANIMATIONS
     private String getColorByType(Tower tower) {
         if (tower instanceof ProduceTower) {
-//            return "##00C14A";
-            return "green";
+            return "#00C14A";
         } else if (tower instanceof MeatTower) {
-//            return "#FF5757";
-            return "red";
+            return "#FF5757";
         } else if (tower instanceof DairyTower) {
-//            return "#E3CCCC";
-            return "cream";
+            return "#E3CCCC";
         } else {
-            return "grey";
+            return "#737171";
         }
     }
 
