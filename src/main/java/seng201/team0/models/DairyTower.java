@@ -11,8 +11,8 @@ public class DairyTower extends Tower {
             "Cheddar Tower", "Parmesan Tower", "Feta Tower", "Gouda Tower",
             "Brie Tower", "Swiss Cheese Tower", "Blue Cheese Tower", "Provolone Tower");
 
-    public DairyTower(int towerSpeed, int towerFillAmount, int buyPrice, int gameBonus) {
-        super(towerSpeed, towerFillAmount, buyPrice, gameBonus);
+    public DairyTower(int towerSpeed, int towerFillAmount, int buyPrice, float difficultyBonus) {
+        super(towerSpeed, towerFillAmount, buyPrice, difficultyBonus);
     }
 
     public DairyTower() {} // Empty constructor to store typeAffected for an item

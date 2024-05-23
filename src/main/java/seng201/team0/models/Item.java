@@ -13,8 +13,9 @@ public class Item implements Purchasable {
     private int buyPrice;
     private int sellPrice;
 
-    public Item(Tower towerTypeAffected, int fillIncrease, int speedIncrease, int buyPrice) {
+    public Item(Tower towerTypeAffected, int fillIncrease, int speedIncrease, int buyPrice, float difficultyBonus) {
         this.buyPrice = buyPrice;
+        this.sellPrice = Math.round(this.buyPrice * difficultyBonus);
         this.itemName = generateRandomName();
         this.towerTypeAffected = towerTypeAffected;
         this.fillIncrease = fillIncrease;
@@ -27,23 +28,13 @@ public class Item implements Purchasable {
     }
 
     @Override
-    public int setSellPrice(int cost) {
-        return 0;
-    }
-
-    @Override
     public int getBuyPrice() {
         return buyPrice;
     }
 
     @Override
-    public void setBuyPrice(int cost) {
-        this.buyPrice = cost;
-    }
-
-    @Override
     public int getSellPrice() {
-        return 0;
+        return sellPrice;
     }
 
     public String getItemName() {

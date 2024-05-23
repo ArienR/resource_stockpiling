@@ -46,15 +46,11 @@ public class ShopScreenController {
         insufficientFundsLabel.setText("");
         exceedingLimitLabel.setText("");
 
-        Player player = gameManager.getPlayer();
-
-        // Initialize lists of buttons
         towerButtons = List.of(buyTower1Button, buyTower2Button, buyTower3Button, buyTower4Button);
         itemButtons = List.of(buyItem1Button, buyItem2Button);
         List<Tower> towers = shop.getTowers();
         List<Item> items = shop.getItems();
 
-        // Set up tower buttons
         populateTowerButtons(towers);
         populateItemButtons(items);
     }
@@ -133,8 +129,8 @@ public class ShopScreenController {
     }
 
     private void displayItemStats(Item item) {
-        selectedItemStatLabel.setText("Fill Increase: " + item.getCollectionIncrease() +
-                "%\n" + "Speed Increase: " + item.getSpeedIncrease() + "%");
+        selectedItemStatLabel.setText("Fill Increase: " + item.getCollectionIncrease() + "%\n" +
+                "Speed Increase: " + item.getSpeedIncrease() + "%");
         selectedItemTypeLabel.setText("Affects: " + splitCamelCase(item.getTowerTypeAffected().getClass().getSimpleName()));
 
         selectedTowerFillLabel.setText("");
@@ -158,8 +154,8 @@ public class ShopScreenController {
         }
     }
 
-    private <T> void handleBuy(List<T> playerList, List<T> purchasedList, Purchasable purchasable, Button button, int maxCount, String maxMessage) {
-        if (playerList.size() >= maxCount) {
+    private <T> void handleBuy(List<T> playerInventoryList, List<T> purchasedList, Purchasable purchasable, Button button, int maxCount, String maxMessage) {
+        if (playerInventoryList.size() >= maxCount) {
             exceedingLimitLabel.setText(maxMessage);
             return;
         }
@@ -168,7 +164,7 @@ public class ShopScreenController {
         Player player = gameManager.getPlayer();
 
         if (player.getPlayerMoney() >= cost) {
-            playerList.add((T) purchasable);
+            playerInventoryList.add((T) purchasable);
             purchasedList.add((T) purchasable);
             player.setPlayerMoney(player.getPlayerMoney() - cost);
             updatePlayerMoneyLabel();

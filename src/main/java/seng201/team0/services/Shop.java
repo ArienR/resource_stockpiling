@@ -98,8 +98,7 @@ public class Shop {
         int towerSpeed = rand.nextInt(1, 4);
         int towerFillAmount = rand.nextInt(80, 120);
         int buyPrice = rand.nextInt(400, 500);
-        int gameBonus = rand.nextInt(50);
-        return new ProduceTower(towerSpeed, towerFillAmount, buyPrice, gameBonus);
+        return new ProduceTower(towerSpeed, towerFillAmount, buyPrice, gameManager.getDifficultyBonus());
     }
 
     /**
@@ -112,8 +111,7 @@ public class Shop {
         int towerSpeed = rand.nextInt(1, 4);
         int towerFillAmount = rand.nextInt(80, 120);
         int buyPrice = rand.nextInt(400, 500);
-        int gameBonus = rand.nextInt(50);
-        return new MeatTower(towerSpeed, towerFillAmount, buyPrice, gameBonus);
+        return new MeatTower(towerSpeed, towerFillAmount, buyPrice, gameManager.getDifficultyBonus());
     }
 
     /**
@@ -122,12 +120,12 @@ public class Shop {
      * @param rand the Random object for randomisation
      * @return a new DairyTower with random attributes
      */
+    // WTF is gameBonus?
     private DairyTower generateDairyTower(Random rand) {
         int towerSpeed = rand.nextInt(1, 4);
         int towerFillAmount = rand.nextInt(80, 120);
         int buyPrice = rand.nextInt(400, 500);
-        int gameBonus = rand.nextInt(50);
-        return new DairyTower(towerSpeed, towerFillAmount, buyPrice, gameBonus);
+        return new DairyTower(towerSpeed, towerFillAmount, buyPrice, gameManager.getDifficultyBonus());
     }
 
     /**
@@ -142,7 +140,7 @@ public class Shop {
             int buyPrice = rand.nextInt(50, 100);
             int fillIncrease = rand.nextInt(0, 3) * 100;
             int speedIncrease = rand.nextInt(0, 3) * 100;
-            items.add(new Item(towerTypeAffected, fillIncrease, speedIncrease, buyPrice));
+            items.add(new Item(towerTypeAffected, fillIncrease, speedIncrease, buyPrice, gameManager.getDifficultyBonus()));
         }
     }
 

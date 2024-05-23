@@ -2,11 +2,8 @@ package seng201.team0.models;
 
 public abstract class Tower implements Purchasable {
 
-    // attributes
-    private int difficultyBonus;
     private int towerLevel;
     private int consecutiveUses = 0;
-
     private String towerTableLevel = "1";
     private int consecutiveNonUses = 0;
     private String towerName;
@@ -19,11 +16,11 @@ public abstract class Tower implements Purchasable {
     private int sellPrice; // This logic is done in the shop as we have difficulty bonus, is this redundant?
 
     // constructor
-    public Tower(int towerSpeed, int towerFillAmount, int buyPrice, int difficultyBonus) {
+    public Tower(int towerSpeed, int towerFillAmount, int buyPrice, float difficultyBonus) {
         this.towerSpeed = towerSpeed;
         this.towerFillAmount = towerFillAmount;
         this.buyPrice = buyPrice;
-        this.difficultyBonus = difficultyBonus;
+        this.sellPrice = Math.round(this.buyPrice * difficultyBonus);
         this.towerName = generateRandomName();
         this.consecutiveUses = 0;
         this.towerLevel = 1;
@@ -39,18 +36,8 @@ public abstract class Tower implements Purchasable {
     }
 
     @Override
-    public int setSellPrice(int cost) {
-        return cost / difficultyBonus;
-    }
-
-    @Override
     public int getBuyPrice() {
         return buyPrice;
-    }
-
-    @Override
-    public void setBuyPrice(int cost) {
-        this.buyPrice = cost;
     }
 
     public String getTowerName() {

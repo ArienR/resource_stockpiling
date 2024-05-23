@@ -59,8 +59,7 @@ public class SellScreenController {
                     removeItemStats();
                     updateButtonStyles(towerButtons, towerButtons.get(finalI));
                     updateButtonStyles(itemButtons, null);
-                    sellPriceSelectedObjectLabel.setText("Sell Price: " +
-                            Math.round((float) selectedTower.getBuyPrice() * gameManager.getDifficultyBonus()) + "$");
+                    sellPriceSelectedObjectLabel.setText("Sell Price: " + selectedTower.getSellPrice() + "$");
                 });
             } else {
                 towerButtons.get(i).setText("");
@@ -85,8 +84,7 @@ public class SellScreenController {
                     removeTowerStats();
                     updateButtonStyles(itemButtons, itemButtons.get(finalI));
                     updateButtonStyles(towerButtons, null);
-                    sellPriceSelectedObjectLabel.setText("Sell Price: " +
-                            Math.round((float) selectedItem.getBuyPrice() * gameManager.getDifficultyBonus()) + "$");
+                    sellPriceSelectedObjectLabel.setText("Sell Price: " + selectedItem.getSellPrice() + "$");
                 });
             } else {
                 itemButtons.get(i).setText("");
@@ -98,19 +96,15 @@ public class SellScreenController {
 
     private void sellSelectedObject() {
         Player player = gameManager.getPlayer();
-        float difficultyBonus = gameManager.getDifficultyBonus();
-        int sellPrice = 0;
 
         if (selectedTower != null) {
-            sellPrice = Math.round((float) selectedTower.getBuyPrice() * difficultyBonus);
             player.getTowerList().remove(selectedTower);
-            player.setPlayerMoney(player.getPlayerMoney() + sellPrice);
+            player.setPlayerMoney(player.getPlayerMoney() + selectedTower.getSellPrice());
             populateTowerButtons();
             clearSelection();
         } else if (selectedItem != null) {
-            sellPrice = Math.round((float) selectedItem.getBuyPrice() * difficultyBonus);
             player.getItemList().remove(selectedItem);
-            player.setPlayerMoney(player.getPlayerMoney() + sellPrice);
+            player.setPlayerMoney(player.getPlayerMoney() + selectedItem.getSellPrice());
             populateItemButtons();
             clearSelection();
         }
