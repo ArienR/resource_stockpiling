@@ -17,6 +17,7 @@ public class InventoryScreenController {
     private GameManager gameManager;
 
     @FXML private Label inventoryMessageLabel;
+    @FXML private Label insufficientTowersLabel;
     @FXML private Button inventoryTower1Button;
     @FXML private Button inventoryTower2Button;
     @FXML private Button inventoryTower3Button;
@@ -58,6 +59,7 @@ public class InventoryScreenController {
         player.setEquippedItems(new ArrayList<>()); // Emptying equipped towers
 
         inventoryMessageLabel.setText(String.format("Select your Towers and Upgrades for the next round, %s.", player.getName()));
+        insufficientTowersLabel.setText("");
 
         towerButtons = List.of(inventoryTower1Button, inventoryTower2Button, inventoryTower3Button, inventoryTower4Button, inventoryTower5Button, inventoryTower6Button, inventoryTower7Button, inventoryTower8Button);
         itemButtons = List.of(inventoryItem1Button, inventoryItem2Button, inventoryItem3Button, inventoryItem4Button);
@@ -232,7 +234,11 @@ public class InventoryScreenController {
 
     @FXML
     public void goToGameScreen() {
-        gameManager.launchGameScreen();
-        gameManager.inventoryScreenToGameScreen();
+        if (!gameManager.getPlayer().getEquippedTowers().isEmpty()) {
+            gameManager.launchGameScreen();
+            gameManager.inventoryScreenToGameScreen();
+        } else {
+            insufficientTowersLabel.setText("Please select at least one tower to begin");
+        }
     }
 }

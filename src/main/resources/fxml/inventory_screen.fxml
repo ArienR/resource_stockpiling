@@ -356,5 +356,13 @@
             </Button>
          </children>
       </GridPane>
+      <Label fx:id="insufficientTowersLabel" text="Please select at least one tower to begin" textFill="RED" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+         <padding>
+            <Insets right="20.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
    </children>
 </GridPane>
