@@ -17,11 +17,13 @@ public class GameStateService {
         if (gameManager.isRoundWon() && gameManager.getCurrentRoundNumber() < gameManager.getNumberOfRounds()) {
             randomEvents();
             moneyEarned();
+            scoreEarned();
             gameManager.incrementCurrentRoundNumber();
             gameManager.launchAfterRoundScreen();
             gameManager.gameScreenToAfterRoundScreen();
         } else if (gameManager.isRoundWon() && gameManager.getCurrentRoundNumber() == gameManager.getNumberOfRounds()) {
             gameManager.incrementCurrentRoundNumber();
+            scoreEarned();
             gameManager.setGameWon(true);
             gameManager.launchEndScreen();
             gameManager.gameScreenToEndScreen();
@@ -89,25 +91,36 @@ public class GameStateService {
         return r.nextInt(1, 6);
     }
 
-    // move to RoundLogicService
     public void moneyEarned(){
         int playerMoney = gameManager.getPlayer().getPlayerMoney();
-        // money earned from killing carts
         int numberProduceCarts = gameManager.getUpcomingRound().getProduceCount();
-        int valueProduceCart = new ProduceCart(0).getMoneyValue();
+        int moneyValueProduceCart = new ProduceCart(0).getMoneyValue();
         int numberMeatCarts = gameManager.getUpcomingRound().getMeatCount();
-        int valueMeatCart = new MeatCart(0).getMoneyValue();
+        int moneyValueMeatCart = new MeatCart(0).getMoneyValue();
         int numberDairyCarts = gameManager.getUpcomingRound().getDairyCount();
-        int valueDairyCart = new DairyCart(0).getMoneyValue();
+        int moneyValueDairyCart = new DairyCart(0).getMoneyValue();
         float speedValueMultiplier = gameManager.getUpcomingRound().getChangedCartSpeed()/10.0f;
         System.out.println(speedValueMultiplier);
 
 
-        int moneyEarnedInRound = (int) ((numberProduceCarts*valueProduceCart+numberMeatCarts*valueMeatCart+numberDairyCarts*valueDairyCart)*(1+speedValueMultiplier));
+        int moneyEarnedInRound = (int) ((numberProduceCarts*moneyValueProduceCart+numberMeatCarts*moneyValueMeatCart+numberDairyCarts*moneyValueDairyCart)*(1+speedValueMultiplier));
         System.out.println(moneyEarnedInRound);
 
 
         gameManager.getPlayer().setPlayerMoney(playerMoney+moneyEarnedInRound);
+
+    }
+
+    public void scoreEarned(){
+        int numberProduceCarts = gameManager.getUpcomingRound().getProduceCount();
+        int scoreValueProduceCart = new ProduceCart(0).getScoreValue();
+        int numberMeatCarts = gameManager.getUpcomingRound().getMeatCount();
+        int scoreValueMeatCart = new MeatCart(0).getScoreValue();
+        int numberDairyCarts = gameManager.getUpcomingRound().getDairyCount();
+        int scoreValueDairyCart = new DairyCart(0).getScoreValue();
+        int scoreEarnedInRound = (int) ((numberProduceCarts*scoreValueProduceCart+numberMeatCarts*scoreValueMeatCart
+                +numberDairyCarts*scoreValueDairyCart)*gameManager.getDifficultyBonus());
+        gameManager.getPlayer().addToPlayerScore(scoreEarnedInRound);
     }
 
 }

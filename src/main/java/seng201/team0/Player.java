@@ -48,11 +48,6 @@ public class Player {
     private int playerMoney;
 
     /**
-     * Holds the total money accumulated by the player.
-     */
-    private int totalPlayerMoney;
-
-    /**
      * Holds the players score value.
      */
     private int playerScore;
@@ -66,7 +61,6 @@ public class Player {
     public Player(String name) {
         this.name = name;
         this.playerScore = 0;
-        this.totalPlayerMoney = 0;
         this.towerList = new ArrayList<>();
         this.itemList = new ArrayList<>();
         this.purchasedTowers = new ArrayList<>();
@@ -101,7 +95,9 @@ public class Player {
     }
 
     // make java doc
-    public void removeBrokenTower(Tower tower){this.towerList.remove(tower);}
+    public void removeBrokenTower(Tower tower) {
+        this.towerList.remove(tower);
+    }
 
     /**
      * Gets the player's current money amount.
@@ -194,13 +190,9 @@ public class Player {
         return playerScore;
     }
 
-    /**
-     * Gets the player's total accumulated money, used to display at the
-     * end of the game.
-     *
-     * @return player's total accumulated money
-     */
-    public int getTotalPlayerMoney() {
-        return totalPlayerMoney;
+    public void addToPlayerScore(int tempRoundScore) {
+        playerScore += tempRoundScore;
     }
+
 }
+

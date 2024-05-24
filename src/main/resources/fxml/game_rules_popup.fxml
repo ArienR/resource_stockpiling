@@ -34,17 +34,17 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label text="Cart Speed: 10 kph">
+            <Label text="Cart Speed: 30 kph">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label text="Cart Size: 100 L}">
+            <Label text="Cart Size: 300 L">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label text="Score earned from destorying: {x amount}">
+            <Label text="Score earned from destorying: 500">
                <font>
                   <Font size="16.0" />
                </font>
@@ -76,7 +76,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label text="Cart Speed: 30 kph">
+            <Label text="Cart Speed: 40 kph">
                <font>
                   <Font size="16.0" />
                </font>
@@ -86,7 +86,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label text="Score earned from destorying: {x amount}">
+            <Label text="Score earned from destorying: 1500">
                <font>
                   <Font size="16.0" />
                </font>
@@ -108,7 +108,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label text="Cart Speed: 20 kph">
+            <Label text="Cart Speed: 35 kph">
                <font>
                   <Font size="16.0" />
                </font>
@@ -118,7 +118,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label text="Score earned from destorying: {x amount}">
+            <Label text="Score earned from destorying: 1000">
                <font>
                   <Font size="16.0" />
                </font>
