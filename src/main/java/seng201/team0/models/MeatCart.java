@@ -2,8 +2,8 @@ package seng201.team0.models;
 
 public class MeatCart extends Cart{
 
-    public MeatCart() {
-        super(35, 200);
+    public MeatCart(int tempBonusSpeed) {
+        super(35 + tempBonusSpeed, 200);
     }
 
     public int getScoreValue() {

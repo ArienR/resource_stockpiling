@@ -12,7 +12,7 @@ public class ProduceCartTest {
 
     @BeforeEach
     public void setupTest() {
-        produceCart = new ProduceCart();
+        produceCart = new ProduceCart(0);
     }
 
     @Test

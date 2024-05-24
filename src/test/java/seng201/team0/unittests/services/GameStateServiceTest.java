@@ -59,11 +59,12 @@ public class GameStateServiceTest {
 
     private int calculateExpectedMoney(Round round, String difficulty, int roundNumber) {
         int numberProduceCarts = round.getProduceCount();
-        int moneyValueProduceCart = new ProduceCart().getMoneyValue();
+        int bonusCartSpeed = round.getChangedCartSpeed();
+        int moneyValueProduceCart = new ProduceCart(bonusCartSpeed).getMoneyValue();
         int numberMeatCarts = round.getMeatCount();
-        int moneyValueMeatCart = new MeatCart().getMoneyValue();
+        int moneyValueMeatCart = new MeatCart(bonusCartSpeed).getMoneyValue();
         int numberDairyCarts = round.getDairyCount();
-        int moneyValueDairyCart = new DairyCart().getMoneyValue();
+        int moneyValueDairyCart = new DairyCart(bonusCartSpeed).getMoneyValue();
         float speedValueMultiplier = round.getChangedCartSpeed() / 10.0f;
         int moneyEarnedInRound = (int) ((numberProduceCarts * moneyValueProduceCart + numberMeatCarts * moneyValueMeatCart + numberDairyCarts * moneyValueDairyCart) * (1 + speedValueMultiplier));
         if ("Hard".equals(difficulty)) {
@@ -74,11 +75,12 @@ public class GameStateServiceTest {
 
     private int calculateExpectedScore(Round round, float difficultyBonus) {
         int numberProduceCarts = round.getProduceCount();
-        int scoreValueProduceCart = new ProduceCart().getScoreValue();
+        int bonusCartSpeed = round.getChangedCartSpeed();
+        int scoreValueProduceCart = new ProduceCart(bonusCartSpeed).getScoreValue();
         int numberMeatCarts = round.getMeatCount();
-        int scoreValueMeatCart = new MeatCart().getScoreValue();
+        int scoreValueMeatCart = new MeatCart(bonusCartSpeed).getScoreValue();
         int numberDairyCarts = round.getDairyCount();
-        int scoreValueDairyCart = new DairyCart().getScoreValue();
+        int scoreValueDairyCart = new DairyCart(bonusCartSpeed).getScoreValue();
         return (int) ((numberProduceCarts * scoreValueProduceCart + numberMeatCarts * scoreValueMeatCart + numberDairyCarts * scoreValueDairyCart) * difficultyBonus);
     }
 }

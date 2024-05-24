@@ -103,7 +103,6 @@ public class InventoryScreenController {
             if (i < items.size()) {
                 Item item = items.get(i);
                 itemButtons.get(i).setText(item.getItemName());
-                itemButtons.get(i).setDisable(true);
                 int finalI = i;
                 itemButtons.get(i).setOnAction(event -> {
                     selectedItem = items.get(finalI);

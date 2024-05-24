@@ -8,7 +8,6 @@ public class Round {
     private final int cartSpeedChange;
 
 
-//  Constructor for first round
     public Round(int tempProduceCount, int tempMeatCount, int tempDairyCount, int tempCartSpeedChange) {
         this.produceCount = tempProduceCount;
         this.meatCount = tempMeatCount;

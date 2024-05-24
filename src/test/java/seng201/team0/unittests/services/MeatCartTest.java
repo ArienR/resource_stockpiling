@@ -13,7 +13,7 @@ public class MeatCartTest {
 
     @BeforeEach
     public void setupTest() {
-        meatCart = new MeatCart();
+        meatCart = new MeatCart(0);
     }
 
     @Test

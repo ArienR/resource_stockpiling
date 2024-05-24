@@ -150,7 +150,7 @@ public class ShopService {
      * @param rand the Random object for randomisation
      * @return a new DairyTower with random attributes
      */
-    private DairyTower generateDairyTower(Random rand) {
+    public DairyTower generateDairyTower(Random rand) {
         int towerSpeed = rand.nextInt(3, 6);
         int towerFillAmount = rand.nextInt(50, 61);
         int towerLevel = getRequiredTowerLevel(gameManager.getCurrentRoundNumber(), rand);

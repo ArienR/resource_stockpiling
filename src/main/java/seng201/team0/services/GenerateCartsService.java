@@ -27,7 +27,7 @@ public class GenerateCartsService {
     public List<ProduceCart> generateProduceCarts(){
         List<ProduceCart> listOfProduceCarts = new ArrayList<>();
         for (int i = 0; i < produceCartCount; i++){
-            listOfProduceCarts.add(new ProduceCart());
+            listOfProduceCarts.add(new ProduceCart(changedCartSpeed));
         }
         return listOfProduceCarts;
     }
@@ -35,7 +35,7 @@ public class GenerateCartsService {
     public List<MeatCart> generateMeatCarts(){
         List<MeatCart> listOfMeatCarts = new ArrayList<>();
         for (int i = 0; i < meatCartCount; i++){
-            listOfMeatCarts.add(new MeatCart());
+            listOfMeatCarts.add(new MeatCart(changedCartSpeed));
         }
         return listOfMeatCarts;
     }
@@ -45,7 +45,7 @@ public class GenerateCartsService {
     public List<DairyCart> generateDairyCarts(){
         List<DairyCart> listOfDairyCarts = new ArrayList<DairyCart>();
         for (int i = 0; i < dairyCartCount; i++){
-            listOfDairyCarts.add(new DairyCart());
+            listOfDairyCarts.add(new DairyCart(changedCartSpeed));
         }
         return listOfDairyCarts;
     }

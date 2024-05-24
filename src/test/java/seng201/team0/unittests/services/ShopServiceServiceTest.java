@@ -1,6 +1,7 @@
 package seng201.team0.unittests.services;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import seng201.team0.GameManager;
 import seng201.team0.Player;
@@ -144,7 +145,6 @@ public class ShopServiceServiceTest {
             testGameManager.incrementCurrentRoundNumber();
         }
         assertEquals(10, testGameManager.getCurrentRoundNumber());
-        System.out.println(testGameManager.getCurrentRoundNumber());
         testShopService = new ShopService(testGameManager);
         List<Item> shopItems = testShopService.getItems();
 
@@ -165,7 +165,6 @@ public class ShopServiceServiceTest {
             testGameManager.incrementCurrentRoundNumber();
         }
         assertEquals(15, testGameManager.getCurrentRoundNumber());
-        System.out.println(testGameManager.getCurrentRoundNumber());
         testShopService = new ShopService(testGameManager);
         List<Item> shopItems = testShopService.getItems();
 
@@ -248,20 +247,95 @@ public class ShopServiceServiceTest {
     }
 
     @Test
-    void testGenerateMeatTower() {
+    void testGenerateProduceTowerRoundTen() {
         for (int i = 0; i < 9; i++) {
             testGameManager.incrementCurrentRoundNumber();
         }
-        assertEquals(15, testGameManager.getCurrentRoundNumber());
-        System.out.println(testGameManager.getCurrentRoundNumber());
+        assertEquals(10, testGameManager.getCurrentRoundNumber());
+        testShopService = new ShopService(testGameManager);
+        Random rand = new Random();
+        ProduceTower produceTower = testShopService.generateProduceTower(rand, testGameManager.getCurrentRoundNumber());
+
+        assertTrue(produceTower.getTowerSpeed() >= 3 && produceTower.getTowerSpeed() <= 5);
+        assertTrue(produceTower.getTowerFillAmount() >= 10 && produceTower.getTowerFillAmount() <= 20);
+        assertTrue(produceTower.getBuyPrice() >= 210 && produceTower.getBuyPrice() <= 2000);
+    }
+
+    @Test
+    void testGenerateMeatTowerRoundTen() {
+        for (int i = 0; i < 9; i++) {
+            testGameManager.incrementCurrentRoundNumber();
+        }
+        assertEquals(10, testGameManager.getCurrentRoundNumber());
         testShopService = new ShopService(testGameManager);
         Random rand = new Random();
         MeatTower meatTower = testShopService.generateMeatTower(rand);
-        System.out.println(meatTower.getTowerLevel());
 
         assertTrue(meatTower.getTowerSpeed() >= 3 && meatTower.getTowerSpeed() <= 5);
         assertTrue(meatTower.getTowerFillAmount() >= 30 && meatTower.getTowerFillAmount() <= 40);
-        System.out.println(meatTower.getBuyPrice());
         assertTrue(meatTower.getBuyPrice() >= 315 && meatTower.getBuyPrice() <= 2250);
+    }
+
+    @Test
+    void testGenerateDairyTowerRoundTen() {
+        for (int i = 0; i < 9; i++) {
+            testGameManager.incrementCurrentRoundNumber();
+        }
+        assertEquals(10, testGameManager.getCurrentRoundNumber());
+        testShopService = new ShopService(testGameManager);
+        Random rand = new Random();
+        DairyTower dairyTower = testShopService.generateDairyTower(rand);
+
+        assertTrue(dairyTower.getTowerSpeed() >= 3 && dairyTower.getTowerSpeed() <= 5);
+        assertTrue(dairyTower.getTowerFillAmount() >= 50 && dairyTower.getTowerFillAmount() <= 60);
+        assertTrue(dairyTower.getBuyPrice() >= 525 && dairyTower.getBuyPrice() <= 3000);
+    }
+
+    @RepeatedTest(20)
+    void testGetRequiredTowerLevelRound1To3() {
+        Random rand = new Random();
+        int roundNumber = 1;
+        int level = testShopService.getRequiredTowerLevel(roundNumber, rand);
+        assertEquals(1, level);
+
+        roundNumber = 3;
+        level = testShopService.getRequiredTowerLevel(roundNumber, rand);
+        assertEquals(1, level);
+    }
+
+    @RepeatedTest(20)
+    void testGetRequiredTowerLevelRound4To6() {
+        Random rand = new Random();
+        for (int roundNumber = 4; roundNumber <= 6; roundNumber++) {
+            int level = testShopService.getRequiredTowerLevel(roundNumber, rand);
+            assertTrue(level >= 1 && level <= 3);
+        }
+    }
+
+    @RepeatedTest(20)
+    void testGetRequiredTowerLevelRound7To9() {
+        Random rand = new Random();
+        for (int roundNumber = 7; roundNumber <= 9; roundNumber++) {
+            int level = testShopService.getRequiredTowerLevel(roundNumber, rand);
+            assertTrue(level >= 2 && level <= 4);
+        }
+    }
+
+    @RepeatedTest(20)
+    void testGetRequiredTowerLevelRound10To12() {
+        Random rand = new Random();
+        for (int roundNumber = 10; roundNumber <= 12; roundNumber++) {
+            int level = testShopService.getRequiredTowerLevel(roundNumber, rand);
+            assertTrue(level >= 3 && level <= 5);
+        }
+    }
+
+    @RepeatedTest(20)
+    void testGetRequiredTowerLevelRound13AndAbove() {
+        Random rand = new Random();
+        for (int roundNumber = 13; roundNumber <= 20; roundNumber++) { // Test up to round 20 for thoroughness
+            int level = testShopService.getRequiredTowerLevel(roundNumber, rand);
+            assertTrue(level >= 4 && level <= 6);
+        }
     }
 }

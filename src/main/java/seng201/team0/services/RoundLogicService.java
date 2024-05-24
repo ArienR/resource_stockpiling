@@ -64,14 +64,13 @@ public class RoundLogicService {
         return canWin;
     }
 
-    private <T extends Tower> float calculateTowerFillRate(List<Tower> towers, Class<T> towerType, List<Item> items) {
+    public <T extends Tower> float calculateTowerFillRate(List<Tower> towers, Class<T> towerType, List<Item> items) {
         float totalItemIncrease = calculateTotalItemIncrease(towerType, items);
-        float totalTowerFillRate = calculateTotalTowerFillRate(towers, towerType, totalItemIncrease);
 
-        return totalTowerFillRate;
+        return calculateTotalTowerFillRate(towers, towerType, totalItemIncrease);
     }
 
-    private <T extends Tower> float calculateTotalItemIncrease(Class<T> towerType, List<Item> items) {
+    public <T extends Tower> float calculateTotalItemIncrease(Class<T> towerType, List<Item> items) {
         float totalItemIncrease = 1.0f;
 
         for (Item item : items) {
@@ -83,12 +82,12 @@ public class RoundLogicService {
         return totalItemIncrease;
     }
 
-    private <T extends Tower> float calculateTotalTowerFillRate(List<Tower> towers, Class<T> towerType, float totalItemIncrease) {
+    public <T extends Tower> float calculateTotalTowerFillRate(List<Tower> towers, Class<T> towerType, float totalItemIncrease) {
         float totalTowerFillRate = 0.0f;
 
         for (Tower tower : towers) {
             if (towerType.isInstance(tower)) {
-                float towerFillRate = tower.getTowerFillAmount() * tower.getTowerSpeed() * (3+tower.getTowerLevel())/4;
+                float towerFillRate = (float) (tower.getTowerFillAmount() * tower.getTowerSpeed() * (3 + tower.getTowerLevel())) /4;
                 totalTowerFillRate += towerFillRate * totalItemIncrease;
             }
         }
@@ -96,7 +95,7 @@ public class RoundLogicService {
         return totalTowerFillRate;
     }
 
-    private int calculateTotalCartCapacity(List<? extends Cart> carts) {
+    public int calculateTotalCartCapacity(List<? extends Cart> carts) {
         int totalCartCapacity = 0;
         for (Cart cart : carts) {
             totalCartCapacity += cart.getCartCapacity();
