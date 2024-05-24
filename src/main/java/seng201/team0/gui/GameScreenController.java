@@ -110,19 +110,29 @@ public class GameScreenController {
 
                 setTowerLabels(i, tower.getTowerFillAmount(), tower.getTowerName(), tower.getTowerSpeed(), tower);
             } else {
-                setTowerLabels(i, "Empty", "Empty", "Empty", null);
+                setTowerLabels(i, "", "", "", null);
             }
         }
     }
 
     private void setTowerLabels(int index, Object fillAmount, Object name, Object speed, Tower tower) {
-        towerAmountLabels.get(index).setText("Fill Amount: " + fillAmount + " Litres");
-        towerNameLabels.get(index).setText(name.toString());
-        towerSpeedLabels.get(index).setText("Speed: " + speed + " Fill/Second");
+        if (fillAmount != "") {
+            towerAmountLabels.get(index).setText("Fill Amount: " + fillAmount + " Litres");
+            towerNameLabels.get(index).setText(name.toString());
+            towerSpeedLabels.get(index).setText("Speed: " + speed + " Fill/Second");
 
-        // Set the circle color based on the tower type
-        String color = getColorByType(tower);
-        towerCircles.get(index).setFill(Color.web(color));
+            // Set the circle color based on the tower type
+            String color = getColorByType(tower);
+            towerCircles.get(index).setFill(Color.web(color));
+        } else {
+            towerAmountLabels.get(index).setText("");
+            towerNameLabels.get(index).setText(name.toString());
+            towerSpeedLabels.get(index).setText("");
+
+            // Set the circle color based on the tower type
+            String color = getColorByType(tower);
+            towerCircles.get(index).setFill(Color.web(color));
+        }
     }
 
     //THIS CODE IS CURRENTLY BROKEN AND CAUSING ISSUES WITH ANIMATIONS
