@@ -43,7 +43,7 @@ public class ShopScreenController {
     @FXML
     private void initialize() {
         this.shop = gameManager.getShop();
-        shopPlayerMoneyLabel.setText("Money: " + gameManager.getPlayer().getPlayerMoney() + "$");
+        shopPlayerMoneyLabel.setText("Money: $" + gameManager.getPlayer().getPlayerMoney());
         insufficientFundsLabel.setText("");
         exceedingLimitLabel.setText("");
 
@@ -68,7 +68,7 @@ public class ShopScreenController {
                 updateButtonStyles(towerButtons, towerButtons.get(finalI));
                 resetItemSelection();
                 displayTowerStats(selectedTower);
-                selectedCostLabel.setText("Cost: " + selectedTower.getBuyPrice() + "$");
+                selectedCostLabel.setText("Cost: $" + selectedTower.getBuyPrice());
             });
 
             if (player.getPurchasedTowers().contains(tower)) {
@@ -89,7 +89,7 @@ public class ShopScreenController {
                 updateButtonStyles(itemButtons, itemButtons.get(finalI));
                 resetTowerSelection();
                 displayItemStats(selectedItem);
-                selectedCostLabel.setText("Cost: " + selectedItem.getBuyPrice() + "$");
+                selectedCostLabel.setText("Cost: $" + selectedItem.getBuyPrice());
             });
 
             if (player.getPurchasedItems().contains(item)) {

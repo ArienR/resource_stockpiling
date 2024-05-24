@@ -34,7 +34,7 @@ public class SellScreenController {
 
     @FXML
     public void initialize() {
-        playerMoneyLabel.setText("Money: " + gameManager.getPlayer().getPlayerMoney() + "$");
+        playerMoneyLabel.setText("Money: $" + gameManager.getPlayer().getPlayerMoney());
         towerButtons = List.of(sellTower1Button, sellTower2Button, sellTower3Button, sellTower4Button, sellTower5Button, sellTower6Button, sellTower7Button, sellTower8Button);
         itemButtons = List.of(sellItem1Button, sellItem2Button, sellItem3Button, sellItem4Button);
 
@@ -59,7 +59,7 @@ public class SellScreenController {
                     removeItemStats();
                     updateButtonStyles(towerButtons, towerButtons.get(finalI));
                     updateButtonStyles(itemButtons, null);
-                    sellPriceSelectedObjectLabel.setText("Sell Price: " + selectedTower.getSellPrice() + "$");
+                    sellPriceSelectedObjectLabel.setText("Sell Price: $" + selectedTower.getSellPrice());
                 });
             } else {
                 towerButtons.get(i).setText("");
@@ -84,7 +84,7 @@ public class SellScreenController {
                     removeTowerStats();
                     updateButtonStyles(itemButtons, itemButtons.get(finalI));
                     updateButtonStyles(towerButtons, null);
-                    sellPriceSelectedObjectLabel.setText("Sell Price: " + selectedItem.getSellPrice() + "$");
+                    sellPriceSelectedObjectLabel.setText("Sell Price: $" + selectedItem.getSellPrice());
                 });
             } else {
                 itemButtons.get(i).setText("");
@@ -109,7 +109,7 @@ public class SellScreenController {
             clearSelection();
         }
 
-        playerMoneyLabel.setText("Money: " + gameManager.getPlayer().getPlayerMoney() + "$");
+        playerMoneyLabel.setText("Money: $" + gameManager.getPlayer().getPlayerMoney());
     }
 
 
