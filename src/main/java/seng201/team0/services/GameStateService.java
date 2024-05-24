@@ -7,13 +7,30 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 
+/**
+ * Manages if the game has been won or lost,
+ * application of random events, and calculation of scores and money.
+ */
 public class GameStateService {
 
-    private GameManager gameManager;
-    public GameStateService(GameManager tempGameManager) {this.gameManager = tempGameManager;}
+    /**
+     * The GameManager singleton.
+     */
+    private final GameManager gameManager;
 
+    /**
+     * Constructs a new GameStateService to manage game state.
+     *
+     * @param tempGameManager The GameManager that holds and manages the overall game state.
+     */
+    public GameStateService(GameManager tempGameManager) {
+        this.gameManager = tempGameManager;
+    }
 
-    // will be changed to a non button fxml later
+    /**
+     * Evaluates if the game or a round has ended and progresses the game state accordingly.
+     * Handles transitions between screens based on the game or round outcomes.
+     */
     public void isEndOfGame() {
         if (gameManager.isRoundWon() && gameManager.getCurrentRoundNumber() < gameManager.getNumberOfRounds()) {
             randomEvents();
@@ -35,6 +52,9 @@ public class GameStateService {
         }
     }
 
+    /**
+     * Applies random events to each tower based on whether they were used in the last round.
+     */
     public void randomEvents(){
         List<Tower> allTowers = gameManager.getPlayer().getTowerList();
         List<Tower> usedTowers = gameManager.getPlayer().getEquippedTowers();
@@ -47,14 +67,18 @@ public class GameStateService {
         }
     }
 
+    /**
+     * Handles random events for towers that were used in the last round.
+     *
+     * @param tower The tower that was used.
+     */
     public void usedTowerRandomEvent(Tower tower){
         int levelBefore = tower.getTowerLevel();
         int consecutiveUses = tower.getConsecutiveUses();
         if (consecutiveUses == 0){
             tower.incrementTowerLevel();
             tower.incrementConsecutiveUses();
-        }
-        else if (consecutiveUses < getRandomEvent()){
+        } else if (consecutiveUses < getRandomEvent()){
             tower.incrementTowerLevel();
         } else {
             tower.setTowerIsBroken(true);
@@ -70,6 +94,11 @@ public class GameStateService {
         }
     }
 
+    /**
+     * Handles random events for towers that were not used in the last round.
+     *
+     * @param tower The tower that was not used.
+     */
     public void unusedTowerRandomEvent(Tower tower){
         int levelBefore = tower.getTowerLevel();
         tower.incrementConsecutiveNonUses();
@@ -88,11 +117,19 @@ public class GameStateService {
         }
     }
 
+    /**
+     * Generates a random number between 1 and 5, used to determine the outcome of random events.
+     *
+     * @return A random integer between 1 and 5.
+     */
     public int getRandomEvent(){
         Random r = new Random();
         return r.nextInt(1, 6);
     }
 
+    /**
+     * Calculates and adds the money earned after a round based on cart speeds and counts.
+     */
     public void moneyEarned(){
         int playerMoney = gameManager.getPlayer().getPlayerMoney();
         int bonusCartSpeed = gameManager.getUpcomingRound().getChangedCartSpeed();
@@ -112,6 +149,9 @@ public class GameStateService {
 
     }
 
+    /**
+     * Calculates and adds the score after a round based on cart speeds and counts.
+     */
     public void scoreEarned() {
         int numberProduceCarts = gameManager.getUpcomingRound().getProduceCount();
         int bonusCartSpeed = gameManager.getUpcomingRound().getChangedCartSpeed();

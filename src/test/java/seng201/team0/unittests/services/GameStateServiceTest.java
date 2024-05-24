@@ -1,6 +1,8 @@
 package seng201.team0.unittests.services;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import seng201.team0.GameManager;
 import seng201.team0.Player;
@@ -17,7 +19,6 @@ public class GameStateServiceTest {
     private GameManager testGameManager;
     private GameStateService testGameStateService;
     private Tower tower;
-
 
     @BeforeEach
     public void setupTest() {
@@ -55,6 +56,14 @@ public class GameStateServiceTest {
     }
 
     @Test
+    void testGameIsLost() {
+        testGameManager.setRoundWon(false);
+        testGameStateService.isEndOfGame();
+        assertFalse(testGameManager.isRoundWon());
+        assertFalse(testGameManager.isGameWon());
+    }
+
+    @Test
     void testRandomEvents() {
         tower.incrementConsecutiveUses();
         testGameStateService.randomEvents();
@@ -62,11 +71,41 @@ public class GameStateServiceTest {
     }
 
     @Test
+    void testUsedTowerRandomEventWithNoPriorUses() {
+        testGameStateService.randomEvents();
+        assertEquals(1, tower.getConsecutiveUses());
+        assertEquals(2, tower.getTowerLevel());
+        assertFalse(tower.isTowerBroken());
+    }
+
+    @Test
+    void testUsedTowerRandomEventWithHighConsecutiveUses() {
+        for (int i = 0; i < 9; i++) {
+            tower.incrementConsecutiveUses();
+        }
+        int initialMoney = player.getPlayerMoney();
+        testGameStateService.randomEvents();
+        assertTrue(tower.isTowerBroken());
+        assertEquals(initialMoney + Math.round((float) (tower.getBuyPrice() / 4)), player.getPlayerMoney());
+    }
+    @Test
     void testMoneyEarnedCalculation() {
         int initialMoney = 1000;
         player.setPlayerMoney(initialMoney);
         testGameStateService.moneyEarned();
         assertTrue(player.getPlayerMoney() > initialMoney);
+    }
+
+    @Test
+    void testTowerLevelDecreasesWhenThresholdExceeded() {
+        for (int i = 0; i < 4; i++) {
+            tower.incrementConsecutiveNonUses();
+        }
+        tower.incrementTowerLevel();
+        int initialLevel = tower.getTowerLevel();
+        testGameStateService.unusedTowerRandomEvent(tower);
+        assertTrue(tower.getTowerLevel() < initialLevel);
+        assertEquals("2  ==>  1", tower.getTowerTableLevel());
     }
 
     @Test
