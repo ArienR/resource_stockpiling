@@ -11,7 +11,17 @@ import seng201.team0.gui.SetupScreenController;
 
 import java.io.IOException;
 
+/**
+ * Holds all the launchers for the screen to assure they launch with their corresponding fxml files.
+ */
 public class FXWrapper {
+
+    /**
+     * Constructs a new FXWrapper instance.
+     */
+    public FXWrapper() {
+        // Default constructor
+    }
 
     @FXML
     private Pane pane;

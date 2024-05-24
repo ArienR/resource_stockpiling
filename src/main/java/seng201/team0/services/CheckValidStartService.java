@@ -8,6 +8,13 @@ import seng201.team0.Player;
 public class CheckValidStartService {
 
     /**
+     * Constructs a new CheckValidStartService instance.
+     */
+    public CheckValidStartService() {
+        // Default constructor
+    }
+
+    /**
      * Static method to check if the player can start a round.
      *
      * @param player the player singleton.

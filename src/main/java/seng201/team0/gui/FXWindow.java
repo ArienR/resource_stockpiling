@@ -8,10 +8,25 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * FXWindow controls the size of the screen.
+ */
 public class FXWindow extends Application {
     private static FXWindow instance;
     private Stage primaryStage;
 
+    /**
+     * Constructs a new FXWindow instance.
+     */
+    public FXWindow() {
+        // Default constructor
+    }
+
+    /**
+     * Returns itself to become public.
+     *
+     * @return FXWindow itself.
+     */
     public static FXWindow getInstance() {
         return instance;
     }
@@ -44,6 +59,12 @@ public class FXWindow extends Application {
         launch(args);
     }
 
+    /**
+     * Adjusts the window size after the player has chosen to start the game.
+     *
+     * @param width A width in pixels.
+     * @param height A height for the screen in pixels.
+     */
     public void setScreenSize(double width, double height) {
         if (primaryStage != null) {
             primaryStage.setWidth(width);

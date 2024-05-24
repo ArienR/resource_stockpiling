@@ -86,6 +86,7 @@ public class RoundLogicService {
     /**
      * Calculates the fill rate for a specific type of tower, considering equipped items.
      *
+     * @param <T>       the type of the tower.
      * @param towers    the list of towers equipped.
      * @param towerType the class of the tower type to calculate the fill rate for.
      * @param items     the list of equipped items that might affect the towers.
@@ -100,6 +101,7 @@ public class RoundLogicService {
     /**
      * Calculates the total increase factor from equipped items that affect a specific type of tower.
      *
+     * @param <T>       the type of the tower.
      * @param towerType the class of towers to check against the items.
      * @param items the items equipped by the player.
      * @return the total increase factor for tower fill rate and collection rate due to items.
@@ -119,6 +121,7 @@ public class RoundLogicService {
     /**
      * Calculates the cumulative fill rate for all towers of a specific type, modified by item effects.
      *
+     * @param <T>       the type of the tower.
      * @param towers the list of towers equipped.
      * @param towerType the class of the tower type to calculate for.
      * @param totalItemIncrease the cumulative increase factor from items.

@@ -5,6 +5,10 @@ import seng201.team0.models.Tower;
 
 import java.util.ArrayList;
 import java.util.List;
+
+/**
+ * The player class containing all the users towers, items, and name.
+ */
 public class Player {
 
     /**
@@ -94,7 +98,11 @@ public class Player {
         return towerList;
     }
 
-    // make java doc
+    /**
+     * Removes the given tower from the tower list
+     *
+     * @param tower The Tower to be removed.
+     */
     public void removeBrokenTower(Tower tower) {
         this.towerList.remove(tower);
     }
@@ -192,6 +200,8 @@ public class Player {
 
     /**
      * Add a given amount tp the player's current score.
+     *
+     * @param tempRoundScore The amount to be added.
      */
     public void addToPlayerScore(int tempRoundScore) {
         playerScore += tempRoundScore;

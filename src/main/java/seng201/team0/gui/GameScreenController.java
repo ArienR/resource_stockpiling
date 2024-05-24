@@ -21,6 +21,9 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Controller for the game screen which displays animations to the user.
+ */
 public class GameScreenController {
 
     /**
@@ -115,7 +118,11 @@ public class GameScreenController {
     @FXML
     private Button startRoundButton;
 
-    // constructor
+    /**
+     * The constructor for GameScreenController which takes in GameManager singleton.
+     *
+     * @param tempGameManager The singleton GameManager instance.
+     */
     public GameScreenController(GameManager tempGameManager) {
         this.gameManager = tempGameManager;
     }

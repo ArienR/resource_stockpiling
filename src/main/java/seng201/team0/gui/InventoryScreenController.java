@@ -11,6 +11,10 @@ import seng201.team0.services.CheckValidStartService;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Controller for the inventory screen which allows the player to select towers
+ * for upcoming rounds.
+ */
 public class InventoryScreenController {
 
     /**

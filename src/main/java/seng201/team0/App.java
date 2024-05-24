@@ -9,6 +9,13 @@ import seng201.team0.gui.FXWindow;
 public class App {
 
     /**
+     * Constructs a new App instance.
+     */
+    public App() {
+        // Default constructor
+    }
+
+    /**
      * Entry point which runs the javaFX application
      * Due to how JavaFX works we must call MainWindow.launchWrapper() from here,
      * trying to run MainWindow itself will cause an error

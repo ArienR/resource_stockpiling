@@ -113,6 +113,7 @@ public class ShopService {
      * scales with the towers' ability.
      *
      * @param rand the Random object for randomisation
+     * @param roundNumber the current round
      * @return a new ProduceTower with random attributes
      */
     public ProduceTower generateProduceTower(Random rand, int roundNumber) {
