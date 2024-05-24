@@ -235,11 +235,12 @@ public class InventoryScreenController {
 
     @FXML
     public void goToGameScreen() {
-        if (CheckValidStartService.checkValidStart(gameManager).isEmpty()) {
+        Player player = gameManager.getPlayer();
+        if (CheckValidStartService.checkValidStart(player).isEmpty()) {
             gameManager.launchGameScreen();
             gameManager.inventoryScreenToGameScreen();
         } else {
-            insufficientTowersLabel.setText(CheckValidStartService.checkValidStart(gameManager));
+            insufficientTowersLabel.setText(CheckValidStartService.checkValidStart(player));
         }
     }
 }
