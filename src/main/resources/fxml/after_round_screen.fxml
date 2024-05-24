@@ -37,7 +37,7 @@
             <Font name="System Bold" size="36.0" />
          </font>
          <GridPane.margin>
-            <Insets />
+            <Insets top="75.0" />
          </GridPane.margin>
       </Label>
       <Button fx:id="goToUpcomingRoundButton" mnemonicParsing="false" onAction="#afterRoundToSelectRound" style="-fx-background-radius: 10;" text="Continue to Select Round" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
@@ -45,5 +45,13 @@
             <Font size="24.0" />
          </font>
       </Button>
+      <Label fx:id="currentScoreLabel1" alignment="CENTER" prefHeight="44.0" prefWidth="675.0" text="Round Won!" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+         <font>
+            <Font name="System Bold" size="48.0" />
+         </font>
+         <GridPane.margin>
+            <Insets top="50.0" />
+         </GridPane.margin>
+      </Label>
    </children>
 </GridPane>

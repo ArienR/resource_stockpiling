@@ -12,8 +12,8 @@ public class ProduceTower extends Tower {
             "Kiwi Tower", "Avocado Tower", "Coconut Tower", "Papaya Tower",
             "Plum Tower", "Pear Tower", "Pomegranate Tower", "Fig Tower");
 
-    public ProduceTower(int towerSpeed, int towerFillAmount, int buyPrice, float difficultyBonus) {
-        super(towerSpeed, towerFillAmount, buyPrice, difficultyBonus);
+    public ProduceTower(int towerSpeed, int towerFillAmount, int buyPrice, float difficultyBonus, int towerLevel) {
+        super(towerSpeed, towerFillAmount, buyPrice, difficultyBonus, towerLevel);
     }
 
     public ProduceTower() {} // Empty constructor to store typeAffected for an item

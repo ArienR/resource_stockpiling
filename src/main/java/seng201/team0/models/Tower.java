@@ -14,14 +14,14 @@ public abstract class Tower implements Purchasable {
     private int sellPrice;
 
     // constructor
-    public Tower(int towerSpeed, int towerFillAmount, int buyPrice, float difficultyBonus) {
+    public Tower(int towerSpeed, int towerFillAmount, int buyPrice, float difficultyBonus, int towerLevel) {
         this.towerSpeed = towerSpeed;
         this.towerFillAmount = towerFillAmount;
         this.buyPrice = buyPrice;
         this.sellPrice = Math.round(this.buyPrice * difficultyBonus);
         this.towerName = generateRandomName();
         this.consecutiveUses = 0;
-        this.towerLevel = 1;
+        this.towerLevel = towerLevel;
     }
 
     public Tower() {} // Empty super constructor to store typeAffected for an item

@@ -84,7 +84,7 @@ public class RoundLogicService {
 
         for (Tower tower : towers) {
             if (towerType.isInstance(tower)) {
-                float towerFillRate = tower.getTowerFillAmount() * tower.getTowerSpeed();
+                float towerFillRate = tower.getTowerFillAmount() * tower.getTowerSpeed() * (4+tower.getTowerLevel()/4);
                 totalTowerFillRate += towerFillRate * totalItemIncrease;
             }
         }

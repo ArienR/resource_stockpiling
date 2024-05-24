@@ -1,7 +1,7 @@
 package seng201.team0.services;
 
 import seng201.team0.GameManager;
-import seng201.team0.models.Tower;
+import seng201.team0.models.*;
 
 import java.util.List;
 import java.util.Random;
@@ -97,8 +97,21 @@ public class GameStateService {
     public void moneyEarned(){
         int playerMoney = gameManager.getPlayer().getPlayerMoney();
         // money earned from killing carts
-//        int moneyEarnedLastRound = GameStateService.getMone();
-//        gameManager.getPlayer().setPlayerMoney(playerMoney+moneyEarnedLastRound);
+        int numberProduceCarts = gameManager.getUpcomingRound().getProduceCount();
+        int valueProduceCart = new ProduceCart(0).getMoneyValue();
+        int numberMeatCarts = gameManager.getUpcomingRound().getMeatCount();
+        int valueMeatCart = new MeatCart(0).getMoneyValue();
+        int numberDairyCarts = gameManager.getUpcomingRound().getDairyCount();
+        int valueDairyCart = new DairyCart(0).getMoneyValue();
+        float speedValueMultiplier = gameManager.getUpcomingRound().getChangedCartSpeed()/10.0f;
+        System.out.println(speedValueMultiplier);
+
+
+        int moneyEarnedInRound = (int) ((numberProduceCarts*valueProduceCart+numberMeatCarts*valueMeatCart+numberDairyCarts*valueDairyCart)*(1+speedValueMultiplier));
+        System.out.println(moneyEarnedInRound);
+
+
+        gameManager.getPlayer().setPlayerMoney(playerMoney+moneyEarnedInRound);
     }
 
 }

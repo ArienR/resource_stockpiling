@@ -12,8 +12,8 @@ public class MeatTower extends Tower {
             "Mussel Tower", "Oyster Tower", "Sausage Tower", "Bacon Tower"
     );
 
-    public MeatTower(int towerSpeed, int towerFillAmount, int buyPrice, float difficultyBonus) {
-        super(towerSpeed, towerFillAmount, buyPrice, difficultyBonus);
+    public MeatTower(int towerSpeed, int towerFillAmount, int buyPrice, float difficultyBonus, int towerLevel) {
+        super(towerSpeed, towerFillAmount, buyPrice, difficultyBonus, towerLevel);
     }
 
     public MeatTower() {} // Empty constructor to store typeAffected for an item

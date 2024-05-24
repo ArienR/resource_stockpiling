@@ -20,6 +20,7 @@ public class ShopScreenController {
     @FXML private Button buyItem1Button, buyItem2Button;
     @FXML private Label selectedItemStatLabel;
     @FXML private Label selectedItemTypeLabel;
+    @FXML private Label selectedTowerLevelLabel;
     @FXML private Label selectedTowerFillLabel;
     @FXML private Label selectedTowerSpeedLabel;
     @FXML private Label selectedTowerTypeLabel;
@@ -120,6 +121,7 @@ public class ShopScreenController {
     }
 
     private void displayTowerStats(Tower tower) {
+        selectedTowerLevelLabel.setText("Tower Level: " + tower.getTowerLevel());
         selectedTowerFillLabel.setText("Fill Amount: " + tower.getTowerFillAmount() + " Litres");
         selectedTowerSpeedLabel.setText("Fill Speed: " + tower.getTowerSpeed() + " Fill/Second");
         selectedTowerTypeLabel.setText("Type: " + splitCamelCase(tower.getClass().getSimpleName()));
@@ -132,7 +134,7 @@ public class ShopScreenController {
         selectedItemStatLabel.setText("Fill Increase: " + item.getCollectionIncrease() + "%\n" +
                 "Speed Increase: " + item.getSpeedIncrease() + "%");
         selectedItemTypeLabel.setText("Affects: " + splitCamelCase(item.getTowerTypeAffected().getClass().getSimpleName()));
-
+        selectedTowerLevelLabel.setText("");
         selectedTowerFillLabel.setText("");
         selectedTowerSpeedLabel.setText("");
         selectedTowerTypeLabel.setText("");
