@@ -91,7 +91,9 @@ public abstract class Tower implements Purchasable {
     }
 
     public void decreaseTowerLevel(){
-        this.towerLevel -= 1;
+        if (towerLevel > 1) {
+            this.towerLevel -= 1;
+        }
     }
 
     public String getTowerStatus() {
