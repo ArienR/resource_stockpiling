@@ -5,7 +5,14 @@ import java.util.Random;
 
 public class Item implements Purchasable {
 
-    private static final List<String> itemNames = List.of("Speed Booster", "Collection Enhancer", "Range Extender");
+    private static final List<String> itemNames = List.of("Grocery Galvanizer", "Market Maestro", "Aisle Accelerator",
+            "Checkout Champion", "Cart Catalyst", "Stockroom Speedster", "Supermarket Surge",
+            "Retail Rocket", "Bountiful Booster", "Fulfillment Fury", "Supply Streamliner",
+            "Stockpile Sprinter", "Distribution Dynamo", "Warehouse Whirlwind", "Market Mover",
+            "Expedition Enhancer", "Inventory Igniter", "Cart Crusader", "Harvest Helper",
+            "Delivery Dynamo", "Provision Propeller", "Cart Commander", "Stock Swift",
+            "Vendor Velocity", "Retail Rush"
+    );
     private String itemName;
     private Tower towerTypeAffected;
     private int fillIncrease;

@@ -19,7 +19,7 @@ public class SellScreenController {
     private @FXML Button sellItem1Button, sellItem2Button, sellItem3Button, sellItem4Button;
     private @FXML Label sellPriceSelectedObjectLabel;
     private @FXML Button sellSelectedObjectButton, goToInventoryButton;
-    private @FXML Label selectedTowerTypeLabel, selectedTowerCollectionAmountLabel, selectedTowerCollectionSpeedLabel;
+    private @FXML Label selectedTowerLevelLabel, selectedTowerTypeLabel, selectedTowerCollectionAmountLabel, selectedTowerCollectionSpeedLabel;
     private @FXML Label selectedItemTypeLabel, selectedItemStatLabel;
 
     private List<Button> towerButtons;
@@ -124,6 +124,7 @@ public class SellScreenController {
     }
 
     private void displayTowerStats(Tower tower) {
+        selectedTowerLevelLabel.setText("Tower Level: " + tower.getTowerLevel());
         selectedTowerCollectionAmountLabel.setText("Fill Amount: " + tower.getTowerFillAmount() + " Litres");
         selectedTowerCollectionSpeedLabel.setText("Fill Speed: " + tower.getTowerSpeed() + " Fill/Second");
         selectedTowerTypeLabel.setText("Type: " + splitCamelCase(tower.getClass().getSimpleName()));
