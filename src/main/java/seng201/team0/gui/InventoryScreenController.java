@@ -14,7 +14,7 @@ import java.util.List;
 public class InventoryScreenController {
 
     //attributes
-    private GameManager gameManager;
+    private final GameManager gameManager;
 
     @FXML private Label inventoryMessageLabel;
     @FXML private Label insufficientTowersLabel;
@@ -34,7 +34,6 @@ public class InventoryScreenController {
     @FXML private Button inventorySelectedTower1Button, inventorySelectedTower2Button, inventorySelectedTower3Button, inventorySelectedTower4Button, inventorySelectedTower5Button;
     @FXML private Button inventorySelectedItem1Button, inventorySelectedItem2Button;
     @FXML private Label inventorySelectedItemTypeLabel, inventorySelectedItemStatLabel;
-    @FXML private Button inventoryStartButton, inventoryShopButton, inventorySellButton;
 
     /**
      * The buttons which will display the users towers.
@@ -127,6 +126,7 @@ public class InventoryScreenController {
                     removeItemStats();
                     updateButtonStyles(towerButtons, towerButtons.get(finalI));
                     updateButtonStyles(itemButtons, null);
+                    disableItemButtons();
                 });
             } else {
                 towerButtons.get(i).setText("Empty");
@@ -155,6 +155,7 @@ public class InventoryScreenController {
                     removeTowerStats();
                     updateButtonStyles(itemButtons, itemButtons.get(finalI));
                     updateButtonStyles(towerButtons, null);
+                    disableTowerButtons();
                 });
             } else {
                 itemButtons.get(i).setText("Empty");
@@ -162,6 +163,14 @@ public class InventoryScreenController {
                 itemButtons.get(i).setStyle("-fx-opacity: 0.5;");
             }
         }
+    }
+
+    private void disableTowerButtons() {
+        towerButtons.forEach(button -> button.setDisable(true));
+    }
+
+    private void disableItemButtons() {
+        itemButtons.forEach(button -> button.setDisable(true));
     }
 
     /**
@@ -210,8 +219,10 @@ public class InventoryScreenController {
                 }
                 selectedTowerButtons.get(slot).setText(selectedTower.getTowerName());
                 selectedTowerButtons.get(slot).setStyle("-fx-opacity: 1;");
-            } else {
-                System.out.println("Maximum towers equipped.");
+                selectedTowerButtons.get(slot).setDisable(true);
+                towerButtons.get(selectedTowerIndex).setDisable(true);
+                selectedItem = null;
+                selectedItemIndex = -1;
             }
         }
     }
@@ -230,8 +241,12 @@ public class InventoryScreenController {
                 } else {
                     equippedItems.add(selectedItem);
                 }
+                selectedItemButtons.get(slot).setDisable(true);
                 selectedItemButtons.get(slot).setText(selectedItem.getItemName());
                 selectedItemButtons.get(slot).setStyle("-fx-opacity: 1;");
+                itemButtons.get(selectedItemIndex).setDisable(true);
+                selectedItem = null;
+                selectedItemIndex = -1;
             }
         }
     }

@@ -17,6 +17,9 @@ import java.util.List;
  */
 public class ShopScreenController {
 
+    /**
+     * The singleton GameManager instance.
+     */
     GameManager gameManager;
 
     @FXML private Button buyTower1Button, buyTower2Button, buyTower3Button, buyTower4Button;

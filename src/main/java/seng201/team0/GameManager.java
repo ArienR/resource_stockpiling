@@ -496,10 +496,20 @@ public class GameManager {
         this.upcomingRound = upcomingRound;
     }
 
+    /**
+     * Gets the track distance that was set based on the difficulty chosen at the start.
+     *
+     * @return Track distance in metres.
+     */
     public int getTrackDistance() {
         return trackDistance;
     }
 
+    /**
+     * Sets the track distance when the difficulty is chosen at setup.
+     *
+     * @param trackDistance Track distance in metres.
+     */
     public void setTrackDistance(int trackDistance) {
         this.trackDistance = trackDistance;
     }

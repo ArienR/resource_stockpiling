@@ -45,4 +45,14 @@ public class GenerateCartsServiceTest {
         assertEquals(30, generateCartsService.generateMeatCarts().get(0).getCartSpeed());
         assertEquals(35, generateCartsService.generateDairyCarts().get(0).getCartSpeed());
     }
+
+    @Test
+    void testCartSpeedValue() {
+        gameManager = new GameManager(player);
+        Round upcomingRound = new Round(3, 2, 1, -5);
+        gameManager.setUpcomingRound(upcomingRound);
+        generateCartsService = new GenerateCartsService(gameManager);
+
+        assertEquals(-5, generateCartsService.getChangedCartSpeed());
+    }
 }

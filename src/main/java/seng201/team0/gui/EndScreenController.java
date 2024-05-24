@@ -5,8 +5,14 @@ import javafx.scene.control.*;
 import seng201.team0.GameManager;
 import seng201.team0.Player;
 
+/**
+ * The controller which manages the UI of the end screen, displaying a few of the player stats.
+ */
 public class EndScreenController {
 
+    /**
+     * The singleton GameManager instance.
+     */
     GameManager gameManager;
 
     @FXML
@@ -18,10 +24,19 @@ public class EndScreenController {
     @FXML
     private Label gameOutcomeLabel;
 
+    /**
+     * Constructor initializes the controller with a reference to the game manager.
+     *
+     * @param gameManager The GameManager singleton instance.
+     */
     EndScreenController(GameManager gameManager) {
         this.gameManager = gameManager;
     }
 
+    /**
+     * Initialises the UI and displays a few of the players stats including their money,
+     * total score, and final round achieved.
+     */
     public void initialize() {
         Player player = gameManager.getPlayer();
         if (gameManager.isGameWon()){
@@ -35,6 +50,9 @@ public class EndScreenController {
         scoreAchievedLabel.setText(String.format("You achieved a score of: %d", player.getPlayerScore()));
     }
 
+    /**
+     * Closes the application.
+     */
     @FXML
     public void closeGameAction() {
         gameManager.closeEndScreen();

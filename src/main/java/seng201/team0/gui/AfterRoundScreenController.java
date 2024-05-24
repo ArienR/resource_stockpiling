@@ -21,9 +21,9 @@ import java.util.ResourceBundle;
 public class AfterRoundScreenController implements Initializable {
 
     /**
-     * of gameManager that
+     * The singleton GameManager instance.
      */
-    private GameManager gameManager;
+    private final GameManager gameManager;
 
     @FXML
     private Label currentScoreLabel;
@@ -38,10 +38,22 @@ public class AfterRoundScreenController implements Initializable {
     @FXML
     private TableColumn<Tower, String> towerTableLevelColumn;
 
+    /**
+     * Constructor initializes the controller with a reference to the game manager.
+     *
+     * @param tempGameManager The GameManager singleton instance.
+     */
     public AfterRoundScreenController(GameManager tempGameManager) {
         this.gameManager = tempGameManager;
     }
 
+    /**
+     * Initializes the controller and sets up the table to display tower data.
+     * This sets the table columns to the properties of Tower objects.
+     *
+     * @param url The location used to resolve relative paths for the root object.
+     * @param resourceBundle The resources used to localize the root object.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Player player = gameManager.getPlayer();
@@ -58,11 +70,20 @@ public class AfterRoundScreenController implements Initializable {
 
     }
 
+    /**
+     * Gets the current list of towers from the players' inventory.
+     *
+     * @return An ObservableList containing the towers.
+     */
     private ObservableList<Tower> getTowerData() {
         Player player = gameManager.getPlayer();
         return FXCollections.observableArrayList(player.getTowerList());
     }
 
+    /**
+     * Handles the transition from the after round screen to the select upcoming
+     * round screen.
+     */
     @FXML
     public void afterRoundToSelectRound() {
         removeBrokenTowers();
@@ -70,6 +91,10 @@ public class AfterRoundScreenController implements Initializable {
         gameManager.closeAfterRoundScreen();
     }
 
+    /**
+     * Handles the event that a tower breaks, and it must be removed from the players
+     * list of towers.
+     */
     public void removeBrokenTowers(){
         for (Tower tower: gameManager.getPlayer().getPurchasedTowers()){
             if (tower.isTowerBroken()){

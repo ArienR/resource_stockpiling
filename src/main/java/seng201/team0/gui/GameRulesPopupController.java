@@ -7,9 +7,11 @@ public class GameRulesPopupController {
 
     @FXML Label cartStatsLabel;
 
+    /**
+     * Closes the popup to show the user the carts' stats.
+     */
     @FXML
     private void onCancel() {
-        // close modal
         ((Stage) cartStatsLabel.getScene().getWindow()).close();
     }
 }

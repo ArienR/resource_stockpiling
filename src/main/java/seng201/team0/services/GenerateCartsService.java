@@ -81,7 +81,7 @@ public class GenerateCartsService {
      * @return List of DairyCart objects, each configured with a modified cart speed.
      */
     public List<DairyCart> generateDairyCarts(){
-        List<DairyCart> listOfDairyCarts = new ArrayList<DairyCart>();
+        List<DairyCart> listOfDairyCarts = new ArrayList<>();
         for (int i = 0; i < dairyCartCount; i++){
             listOfDairyCarts.add(new DairyCart(changedCartSpeed));
         }
@@ -96,5 +96,4 @@ public class GenerateCartsService {
     public int getChangedCartSpeed(){
         return changedCartSpeed;
     }
-
 }
