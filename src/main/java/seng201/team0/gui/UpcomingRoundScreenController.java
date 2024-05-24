@@ -6,8 +6,6 @@ import javafx.scene.layout.GridPane;
 import seng201.team0.GameManager;
 import seng201.team0.models.Round;
 
-
-import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
@@ -26,12 +24,42 @@ public class UpcomingRoundScreenController {
      * The GameManager singleton.
      */
     private final GameManager gameManager;
+
+    /**
+     * The three round options for the user to choose from.
+     */
     private Round option1Round, option2Round, option3Round;
+
+    /**
+     * The round the user has chosen.
+     */
     private Round selectedRound;
+
+    /**
+     * The index for the selected round.
+     */
     private int selectedRoundIndex = -1;
+
+    /**
+     * List of labels for the produce count.
+     */
     private List<Label> optionProduceCountLabels;
+
+    /**
+     * List of labels for the meat count.
+     */
     private List<Label> optionMeatCountLabels;
+
+
+    /**
+     * List of labels for the dairy count.
+     */
     private List<Label> optionDairyCountLabels;
+
+
+    /**
+     * List of labels for the cart speed.
+     */
     private List<Label> optionCartSpeedLabels;
 
     private @FXML Label roundSelectTitleLabel;

@@ -48,9 +48,9 @@ public class RoundLogicService {
         boolean canWin = true;
         int trackDistance = gameManager.getTrackDistance();
         // size - 1 used to compensate for time between first cart spawning and last cart finishing
-        float KPH_TO_MPS = 3.6f;
+        float kphToMps = 3.6f;
         if (!produceCarts.isEmpty()) {
-            float timeAvailableForProduce = trackDistance / ((produceCarts.get(0).getCartSpeed() / KPH_TO_MPS) + produceCarts.size() - 1);
+            float timeAvailableForProduce = trackDistance / ((produceCarts.get(0).getCartSpeed() / kphToMps) + produceCarts.size() - 1);
             float produceFillRateRequired = totalProduceCartCapacity / timeAvailableForProduce;
             float produceTowerFillRate = calculateTowerFillRate(towers, ProduceTower.class, items);
             System.out.println("Produce tower fill: " + produceTowerFillRate);
@@ -60,7 +60,7 @@ public class RoundLogicService {
             }
         }
         if (!meatCarts.isEmpty()) {
-            float timeAvailableForMeat = trackDistance / ((meatCarts.get(0).getCartSpeed() / KPH_TO_MPS) + meatCarts.size() - 1);
+            float timeAvailableForMeat = trackDistance / ((meatCarts.get(0).getCartSpeed() / kphToMps) + meatCarts.size() - 1);
             float meatFillRateRequired = totalMeatCartCapacity / timeAvailableForMeat;
             float meatTowerFillRate = calculateTowerFillRate(towers, MeatTower.class, items);
             System.out.println("Meat tower fill: " + meatTowerFillRate);
@@ -70,7 +70,7 @@ public class RoundLogicService {
             }
         }
         if (!dairyCarts.isEmpty()) {
-            float timeAvailableForDairy = trackDistance / ((dairyCarts.get(0).getCartSpeed() / KPH_TO_MPS) + dairyCarts.size() - 1);
+            float timeAvailableForDairy = trackDistance / ((dairyCarts.get(0).getCartSpeed() / kphToMps) + dairyCarts.size() - 1);
             float dairyFillRateRequired = totalDairyCartCapacity / timeAvailableForDairy;
             float dairyTowerFillRate = calculateTowerFillRate(towers, DairyTower.class, items);
             System.out.println("Dairy tower fill: " + dairyTowerFillRate);

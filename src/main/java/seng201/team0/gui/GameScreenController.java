@@ -23,20 +23,54 @@ import java.util.concurrent.TimeUnit;
 
 public class GameScreenController {
 
+    /**
+     * The singleton instance of GameManager.
+     */
     private final GameManager gameManager;
 
+    /**
+     * The service to check if the game is over.
+     */
     private GameStateService gameStateService;
+
+    /**
+     * The service to see if the user has won or not.
+     */
     private RoundLogicService roundLogicService;
 
+    /**
+     * Conversion constant for milliseconds ot seconds.
+     */
     private final int MILLISECONDS_CONVERSION_FACTOR = 1000;
+
+    /**
+     * Conversion constant from kilometres per hour to meters per second.
+     */
     private final float KPH_TO_MPS = 3.6f;
 
+    /**
+     * The amount of active carts on the screen.
+     */
     private int activeCarts = 0;
 
+    /**
+     * The list of all the produce carts.
+     */
     private List<ProduceCart> listOfProduceCarts;
+
+    /**
+     * The list of all the meat carts.
+     */
     private List<MeatCart> listOfMeatCarts;
+
+    /**
+     * The list of all the dairy carts.
+     */
     private List<DairyCart> listOfDairyCarts;
 
+    /**
+     * The changed cart speed which the user has selected.
+     */
     private int changedCartSpeed;
 
     @FXML
@@ -56,18 +90,28 @@ public class GameScreenController {
     @FXML
     private Label tower5AmountLabel, tower5NameLabel, tower5SpeedLabel;
 
-    @FXML
+    /**
+     * The labels for the tower fill amounts.
+     */
     private List<Label> towerAmountLabels;
-    @FXML
+
+    /**
+     * The list for the tower name labels.
+     */
     private List<Label> towerNameLabels;
-    @FXML
+
+    /**
+     * The list for the tower speed labels.
+     */
     private List<Label> towerSpeedLabels;
-    @FXML
+
+    /**
+     * The list for the tower UI circles.
+     */
     private List<Circle> towerCircles;
 
     @FXML
     private Label roundTitleLabel;
-
     @FXML
     private Button startRoundButton;
 

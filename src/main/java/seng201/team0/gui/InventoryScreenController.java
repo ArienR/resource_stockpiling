@@ -13,7 +13,9 @@ import java.util.List;
 
 public class InventoryScreenController {
 
-    //attributes
+    /**
+     * The singleton GameManager instance.
+     */
     private final GameManager gameManager;
 
     @FXML private Label inventoryMessageLabel;

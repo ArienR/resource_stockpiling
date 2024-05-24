@@ -5,9 +5,6 @@ import javafx.scene.control.*;
 import seng201.team0.GameManager;
 import javafx.scene.control.Slider;
 
-import java.util.Arrays;
-import java.util.Objects;
-
 /**
  * Controls the setup screen where the player will pick their name, number of rounds, and difficulty.
  */

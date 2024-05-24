@@ -15,6 +15,9 @@ import java.util.List;
  */
 public class SellScreenController {
 
+    /**
+     * The singleton GameManager instance.
+     */
     private GameManager gameManager;
 
     private @FXML Label playerMoneyLabel;
