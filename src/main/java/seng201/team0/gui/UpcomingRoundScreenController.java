@@ -102,7 +102,7 @@ public class UpcomingRoundScreenController {
             option2Round = new Round(cartCount.nextInt(3, 5),0,0, cartSpeedPercentage.nextInt(-5, -2));
             option3Round = new Round(cartCount.nextInt(4, 6),0,0, cartSpeedPercentage.nextInt(-7, -5));
         } else if (currentRoundNumber >= 3 && currentRoundNumber <= 6){
-            option1Round = new Round(cartCount.nextInt(7, 10),0,0, cartSpeedPercentage.nextInt(2, 5));
+            option1Round = new Round(cartCount.nextInt(1, 2),0,0, cartSpeedPercentage.nextInt(2, 5));
             option2Round = new Round(cartCount.nextInt(4, 7),cartCount.nextInt(1,3),0, cartSpeedPercentage.nextInt(-2, 2));
             option3Round = new Round(cartCount.nextInt(1, 4),cartCount.nextInt(2,4),0, cartSpeedPercentage.nextInt(-2, 2));
         } else if (currentRoundNumber >= 7 && currentRoundNumber <= 9){

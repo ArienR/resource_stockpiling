@@ -105,10 +105,10 @@ public class Shop {
      * @return a new ProduceTower with random attributes
      */
     private ProduceTower generateProduceTower(Random rand) {
-        int towerSpeed = rand.nextInt(3, 5);
-        int towerFillAmount = rand.nextInt(25, 50);
+        int towerSpeed = rand.nextInt(3, 6);
+        int towerFillAmount = rand.nextInt(10, 21);
         int towerLevel = getRequiredTowerLevel(gameManager.getCurrentRoundNumber(), rand);
-        int buyPrice = towerSpeed*towerFillAmount*(4+towerLevel)/4*rand.nextInt(8, 12);
+        int buyPrice = towerSpeed*towerFillAmount*(3+towerLevel)/4*rand.nextInt(6, 10);
         return new ProduceTower(towerSpeed, towerFillAmount, buyPrice, gameManager.getDifficultyBonus(), towerLevel);
     }
 
@@ -120,10 +120,10 @@ public class Shop {
      * @return a new MeatTower with random attributes
      */
     private MeatTower generateMeatTower(Random rand) {
-        int towerSpeed = rand.nextInt(3, 5);
-        int towerFillAmount = rand.nextInt(25, 50);
+        int towerSpeed = rand.nextInt(3, 6);
+        int towerFillAmount = rand.nextInt(30, 41);
         int towerLevel = getRequiredTowerLevel(gameManager.getCurrentRoundNumber(), rand);
-        int buyPrice = towerSpeed*towerFillAmount*(4+towerLevel)/4*rand.nextInt(8, 12);
+        int buyPrice = towerSpeed*towerFillAmount/2*(3+towerLevel)/4*rand.nextInt(6, 10);
         return new MeatTower(towerSpeed, towerFillAmount, buyPrice, gameManager.getDifficultyBonus(), towerLevel);
     }
 
@@ -134,10 +134,10 @@ public class Shop {
      * @return a new DairyTower with random attributes
      */
     private DairyTower generateDairyTower(Random rand) {
-        int towerSpeed = rand.nextInt(3, 5);
-        int towerFillAmount = rand.nextInt(25, 50);
+        int towerSpeed = rand.nextInt(3, 6);
+        int towerFillAmount = rand.nextInt(50, 61);
         int towerLevel = getRequiredTowerLevel(gameManager.getCurrentRoundNumber(), rand);
-        int buyPrice = towerSpeed*towerFillAmount*(4+towerLevel)/4*rand.nextInt(8, 12);
+        int buyPrice = towerSpeed*towerFillAmount*(3+towerLevel)/4*rand.nextInt(6, 10);
         return new DairyTower(towerSpeed, towerFillAmount, buyPrice, gameManager.getDifficultyBonus(), towerLevel);
     }
 

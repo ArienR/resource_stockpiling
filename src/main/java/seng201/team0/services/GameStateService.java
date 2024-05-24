@@ -52,10 +52,6 @@ public class GameStateService {
         }
         else if (consecutiveUses < getRandomEvent()){
             tower.incrementTowerLevel();
-            if (tower.getConsecutiveUses() < 5){
-                tower.incrementConsecutiveUses();
-
-            }
         } else {
             tower.setTowerIsBroken(true);
             int playerMoney = gameManager.getPlayer().getPlayerMoney();
@@ -72,6 +68,7 @@ public class GameStateService {
 
     public void unusedTowerRandomEvent(Tower tower){
         int levelBefore = tower.getTowerLevel();
+        tower.incrementConsecutiveNonUses();
         int levelDownChance = tower.getConsecutiveNonUses();
         if (levelDownChance >= getRandomEvent()){
             if (tower.getTowerLevel() > 1){
@@ -79,7 +76,6 @@ public class GameStateService {
             }
         }
         tower.wipeConsecutiveUses();
-        tower.incrementConsecutiveNonUses();
         int currentLevel = tower.getTowerLevel();
         if (levelBefore != currentLevel){
             tower.setTowerTableLevel(levelBefore + "  ==>  " + currentLevel);
@@ -90,7 +86,7 @@ public class GameStateService {
 
     public int getRandomEvent(){
         Random r = new Random();
-        return r.nextInt(1, 11);
+        return r.nextInt(1, 6);
     }
 
     // move to RoundLogicService
