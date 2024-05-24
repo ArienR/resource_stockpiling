@@ -25,6 +25,15 @@ public class MeatCartTest {
     }
 
     @Test
+    void testInitializationChangedSpeed() {
+        meatCart = new MeatCart(-5);
+        assertEquals(30, meatCart.getCartSpeed());
+        assertEquals(200, meatCart.getCartCapacity());
+        assertEquals(1000, meatCart.getScoreValue());
+        assertEquals(200, meatCart.getMoneyValue());
+    }
+
+    @Test
     void testGetScoreValue() {
         assertEquals(1000, meatCart.getScoreValue());
     }

@@ -24,6 +24,15 @@ public class DairyCartTest {
     }
 
     @Test
+    void testInitializationChangedSpeed() {
+        dairyCart = new DairyCart(-5);
+        assertEquals(35, dairyCart.getCartSpeed());
+        assertEquals(300, dairyCart.getCartCapacity());
+        assertEquals(1500, dairyCart.getScoreValue());
+        assertEquals(300, dairyCart.getMoneyValue());
+    }
+
+    @Test
     void testGetScoreValue() {
         assertEquals(1500, dairyCart.getScoreValue());
     }

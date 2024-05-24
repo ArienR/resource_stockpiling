@@ -4,6 +4,7 @@ import seng201.team0.GameManager;
 import seng201.team0.models.*;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 public class GameStateService {
@@ -23,6 +24,7 @@ public class GameStateService {
             gameManager.gameScreenToAfterRoundScreen();
         } else if (gameManager.isRoundWon() && gameManager.getCurrentRoundNumber() == gameManager.getNumberOfRounds()) {
             gameManager.incrementCurrentRoundNumber();
+            moneyEarned();
             scoreEarned();
             gameManager.setGameWon(true);
             gameManager.launchEndScreen();
@@ -102,7 +104,7 @@ public class GameStateService {
         int moneyValueDairyCart = new DairyCart(bonusCartSpeed).getMoneyValue();
         float speedValueMultiplier = gameManager.getUpcomingRound().getChangedCartSpeed()/10.0f;
         int moneyEarnedInRound = (int) ((numberProduceCarts*moneyValueProduceCart+numberMeatCarts*moneyValueMeatCart+numberDairyCarts*moneyValueDairyCart)*(1+speedValueMultiplier));
-        if (gameManager.getGameDifficulty() == "Hard"){
+        if (Objects.equals(gameManager.getGameDifficulty(), "Hard")){
             moneyEarnedInRound += gameManager.getCurrentRoundNumber()*100;
         }
         gameManager.getPlayer().setPlayerMoney(playerMoney+moneyEarnedInRound);
@@ -110,7 +112,7 @@ public class GameStateService {
 
     }
 
-    public void scoreEarned(){
+    public void scoreEarned() {
         int numberProduceCarts = gameManager.getUpcomingRound().getProduceCount();
         int bonusCartSpeed = gameManager.getUpcomingRound().getChangedCartSpeed();
         int scoreValueProduceCart = new ProduceCart(bonusCartSpeed).getScoreValue();
@@ -119,8 +121,7 @@ public class GameStateService {
         int numberDairyCarts = gameManager.getUpcomingRound().getDairyCount();
         int scoreValueDairyCart = new DairyCart(bonusCartSpeed).getScoreValue();
         int scoreEarnedInRound = (int) ((numberProduceCarts*scoreValueProduceCart+numberMeatCarts*scoreValueMeatCart
-                +numberDairyCarts*scoreValueDairyCart)*gameManager.getDifficultyBonus());
+                +numberDairyCarts*scoreValueDairyCart)*(1/gameManager.getDifficultyBonus()));
         gameManager.getPlayer().addToPlayerScore(scoreEarnedInRound);
     }
-
 }

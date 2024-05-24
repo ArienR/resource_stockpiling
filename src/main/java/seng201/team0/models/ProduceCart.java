@@ -12,6 +12,5 @@ public class ProduceCart extends Cart{
 
     public int getMoneyValue() {
         return 100;
-
     }
 }

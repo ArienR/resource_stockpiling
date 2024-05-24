@@ -24,6 +24,15 @@ public class ProduceCartTest {
     }
 
     @Test
+    void testInitializationChangedSpeed() {
+        produceCart = new ProduceCart(-5);
+        assertEquals(25, produceCart.getCartSpeed());
+        assertEquals(100, produceCart.getCartCapacity());
+        assertEquals(500, produceCart.getScoreValue());
+        assertEquals(100, produceCart.getMoneyValue());
+    }
+
+    @Test
     void testGetScoreValue() {
         assertEquals(500, produceCart.getScoreValue());
     }
