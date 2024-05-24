@@ -34,7 +34,7 @@ public class SellScreenController {
 
     @FXML
     public void initialize() {
-        playerMoneyLabel.setText("Money: " + gameManager.getPlayer().getPlayerMoney());
+        playerMoneyLabel.setText("Money: " + gameManager.getPlayer().getPlayerMoney() + "$");
         towerButtons = List.of(sellTower1Button, sellTower2Button, sellTower3Button, sellTower4Button, sellTower5Button, sellTower6Button, sellTower7Button, sellTower8Button);
         itemButtons = List.of(sellItem1Button, sellItem2Button, sellItem3Button, sellItem4Button);
 

@@ -175,6 +175,14 @@
                         <Insets left="30.0" />
                      </HBox.margin>
                   </Button>
+                  <Button fx:id="buyItem3Button" alignment="CENTER" mnemonicParsing="false" prefHeight="170.0" prefWidth="170.0" style="-fx-background-radius: 10px;" text="Item 3" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </Button>
                </children>
             </HBox>
             <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="30.0" GridPane.columnIndex="1">
@@ -183,16 +191,25 @@
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets left="30.0" />
+                     </VBox.margin>
                   </Label>
                   <Label fx:id="selectedItemTypeLabel" text="Affects:">
                      <font>
                         <Font size="24.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets left="30.0" />
+                     </VBox.margin>
                   </Label>
                   <Label fx:id="selectedItemStatLabel" text="Stat Affected:" wrapText="true">
                      <font>
                         <Font size="24.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets left="30.0" />
+                     </VBox.margin>
                   </Label>
                </children>
             </VBox>

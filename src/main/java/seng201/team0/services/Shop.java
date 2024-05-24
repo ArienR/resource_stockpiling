@@ -147,6 +147,7 @@ public class Shop {
      */
     private void generateRandomItems() {
         Random rand = new Random();
+        // Need to get rid of these
         try {
             Round upcomingRound = gameManager.getUpcomingRound();
             if (upcomingRound == null) {
@@ -160,7 +161,7 @@ public class Shop {
             int totalCarts = numberProduceCarts + numberMeatCarts + numberDairyCarts;
             int currentRoundNumber = gameManager.getCurrentRoundNumber();
 
-            for (int i = 0; i < 2; i++) {
+            for (int i = 0; i < 3; i++) {
                 Tower towerTypeAffected;
                 int itemTypeLots = rand.nextInt(totalCarts);
                 if (itemTypeLots < numberProduceCarts) {

@@ -17,7 +17,7 @@ public class ShopScreenController {
     private Shop shop;
 
     @FXML private Button buyTower1Button, buyTower2Button, buyTower3Button, buyTower4Button;
-    @FXML private Button buyItem1Button, buyItem2Button;
+    @FXML private Button buyItem1Button, buyItem2Button, buyItem3Button;
     @FXML private Label selectedItemStatLabel;
     @FXML private Label selectedItemTypeLabel;
     @FXML private Label selectedTowerLevelLabel;
@@ -48,7 +48,7 @@ public class ShopScreenController {
         exceedingLimitLabel.setText("");
 
         towerButtons = List.of(buyTower1Button, buyTower2Button, buyTower3Button, buyTower4Button);
-        itemButtons = List.of(buyItem1Button, buyItem2Button);
+        itemButtons = List.of(buyItem1Button, buyItem2Button, buyItem3Button);
         List<Tower> towers = shop.getTowers();
         List<Item> items = shop.getItems();
 
