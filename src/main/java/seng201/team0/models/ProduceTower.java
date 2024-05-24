@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * Represents a Produce Tower in the game to handle fill produce carts.
+ * Represents a Produce Tower in the game to handle filling produce carts.
  * This tower class includes functionality specific to produce-related operations, distinguishing it
  * from other types of towers.
  */
@@ -23,11 +23,11 @@ public class ProduceTower extends Tower {
     /**
      * Constructs a ProduceTower with specified parameters.
      *
-     * @param towerSpeed      The speed at which the tower operates.
+     * @param towerSpeed The speed at which the tower operates.
      * @param towerFillAmount The amount of product the tower can fill.
-     * @param buyPrice        The cost to purchase the tower.
+     * @param buyPrice The cost to purchase the tower.
      * @param difficultyBonus The difficulty multiplier affecting sell price.
-     * @param towerLevel      The initial level of the tower.
+     * @param towerLevel The initial level of the tower.
      */
     public ProduceTower(int towerSpeed, int towerFillAmount, int buyPrice, float difficultyBonus, int towerLevel) {
         super(towerSpeed, towerFillAmount, buyPrice, difficultyBonus, towerLevel);
@@ -36,7 +36,7 @@ public class ProduceTower extends Tower {
     /**
      * Empty constructor for ProduceTower, used for identifying the type of tower an item will affect.
      */
-    public ProduceTower() {} // Empty constructor with no attributes to store typeAffected for an item
+    public ProduceTower() {}
 
     /**
      * Generates a random name for the ProduceTower from the predefined list of produce tower names.

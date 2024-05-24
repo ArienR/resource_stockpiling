@@ -190,6 +190,9 @@ public class Player {
         return playerScore;
     }
 
+    /**
+     * Add a given amount tp the player's current score.
+     */
     public void addToPlayerScore(int tempRoundScore) {
         playerScore += tempRoundScore;
     }

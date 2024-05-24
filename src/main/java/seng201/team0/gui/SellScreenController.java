@@ -7,9 +7,12 @@ import seng201.team0.Player;
 import seng201.team0.models.Item;
 import seng201.team0.models.Tower;
 
-import javax.sound.midi.SysexMessage;
 import java.util.List;
 
+/**
+ * The controller which manages the UI of the sell screen and handles the selling actions
+ * for items and towers.
+ */
 public class SellScreenController {
 
     private GameManager gameManager;
@@ -22,16 +25,39 @@ public class SellScreenController {
     private @FXML Label selectedTowerLevelLabel, selectedTowerTypeLabel, selectedTowerCollectionAmountLabel, selectedTowerCollectionSpeedLabel;
     private @FXML Label selectedItemTypeLabel, selectedItemStatLabel;
 
+    /**
+     * The list of buttons corresponding to the players' towers,
+     */
     private List<Button> towerButtons;
+
+    /**
+     * The list of buttons corresponding to the players' items.
+     */
     private List<Button> itemButtons;
+
+    /**
+     * The Tower object corresponding to the button the player has selected.
+     */
     private Tower selectedTower;
+
+    /**
+     * The Item object corresponding to the button the player has selected.
+     */
     private Item selectedItem;
 
 
+    /**
+     * Constructor initializes the controller with a reference to the game manager.
+     *
+     * @param tempGameManager The GameManager singleton instance.
+     */
     SellScreenController(GameManager tempGameManager) {
         this.gameManager = tempGameManager;
     }
 
+    /**
+     * Initializes the sell screen by loading available towers and items to sell and updating the UI accordingly.
+     */
     @FXML
     public void initialize() {
         playerMoneyLabel.setText("Money: $" + gameManager.getPlayer().getPlayerMoney());
@@ -44,6 +70,9 @@ public class SellScreenController {
         sellSelectedObjectButton.setOnAction(event -> sellSelectedObject());
     }
 
+    /**
+     * Updates the UI buttons on the screen to correspond with the users towers in the inventory.
+     */
     private void populateTowerButtons() {
         List<Tower> towers = gameManager.getPlayer().getTowerList();
         for (int i = 0; i < towerButtons.size(); i++) {
@@ -69,6 +98,9 @@ public class SellScreenController {
         }
     }
 
+    /**
+     * Updates the UI buttons on the screen to correspond with the users items in the inventory.
+     */
     private void populateItemButtons() {
         List<Item> items = gameManager.getPlayer().getItemList();
         for (int i = 0; i < itemButtons.size(); i++) {
@@ -94,6 +126,9 @@ public class SellScreenController {
         }
     }
 
+    /**
+     * Handles the action of selling the selected object.
+     */
     private void sellSelectedObject() {
         Player player = gameManager.getPlayer();
 
@@ -113,6 +148,12 @@ public class SellScreenController {
     }
 
 
+    /**
+     * Updates the button styles after a new button had been selected or an item is sold.
+     *
+     * @param buttons All the item/tower buttons.
+     * @param selectedButton The button corresponding to the sold item.
+     */
     private void updateButtonStyles(List<Button> buttons, Button selectedButton) {
         for (Button button : buttons) {
             if (button == selectedButton) {
@@ -123,6 +164,11 @@ public class SellScreenController {
         }
     }
 
+    /**
+     * Displays the selected towers stats in the UI.
+     *
+     * @param tower The selected tower.
+     */
     private void displayTowerStats(Tower tower) {
         selectedTowerLevelLabel.setText("Tower Level: " + tower.getTowerLevel());
         selectedTowerCollectionAmountLabel.setText("Fill Amount: " + tower.getTowerFillAmount() + " Litres");
@@ -130,27 +176,47 @@ public class SellScreenController {
         selectedTowerTypeLabel.setText("Type: " + splitCamelCase(tower.getClass().getSimpleName()));
     }
 
+    /**
+     * Removes the towers stats from the UI.
+     */
     private void removeTowerStats() {
         selectedTowerCollectionAmountLabel.setText("");
         selectedTowerCollectionSpeedLabel.setText("");
         selectedTowerTypeLabel.setText("");
     }
 
+    /**
+     * Displays the selected items stats in the UI.
+     *
+     * @param item The selected tower.
+     */
     private void displayItemStats(Item item) {
-        selectedItemStatLabel.setText("Fill Increase: " + item.getCollectionIncrease() + "%\n" +
+        selectedItemStatLabel.setText("Fill Increase: " + item.getFillIncrease() + "%\n" +
                 "Speed Increase: " + item.getSpeedIncrease() + "%");
         selectedItemTypeLabel.setText("Affects: " + splitCamelCase(item.getTowerTypeAffected().getClass().getSimpleName()));
     }
 
+    /**
+     * Removes the towers stats from the UI.
+     */
     private void removeItemStats() {
         selectedItemStatLabel.setText("");
         selectedItemTypeLabel.setText("");
     }
 
+    /**
+     * Splits camel case strings into human-readable format.
+     *
+     * @param s The string to be split.
+     * @return The reformatted string.
+     */
     public static String splitCamelCase(String s) {
         return s.replaceAll("([a-z])([A-Z])", "$1 $2");
     }
 
+    /**
+     * Clears the selected item/tower after it has been sold.
+     */
     private void clearSelection() {
         selectedTower = null;
         selectedItem = null;
@@ -161,6 +227,9 @@ public class SellScreenController {
         updateButtonStyles(itemButtons, null);
     }
 
+    /**
+     * Goes back to the inventory when the player selects the button.
+     */
     @FXML
     public void goToInventory() {
         gameManager.closeSellShopScreen();

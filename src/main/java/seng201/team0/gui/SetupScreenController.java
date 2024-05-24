@@ -8,6 +8,9 @@ import javafx.scene.control.Slider;
 import java.util.Arrays;
 import java.util.Objects;
 
+/**
+ * Controls the setup screen where the player will pick their name, number of rounds, and difficulty.
+ */
 public class SetupScreenController {
 
     private GameManager gameManager;
@@ -24,10 +27,18 @@ public class SetupScreenController {
 
     private String gameDifficulty;
 
+    /**
+     * Constructor initialises the controller with a reference to the game manager
+     *
+     * @param tempGameManager The GameManager instance.
+     */
     public SetupScreenController(GameManager tempGameManager) {
         this.gameManager = tempGameManager;
     }
 
+    /**
+     * Initializes the setup screen by loading the UI accordingly.
+     */
     public void initialize() {
 
 //        Changes number of rounds based on slider position and updates selected rounds label
@@ -59,6 +70,12 @@ public class SetupScreenController {
 
     }
 
+    /**
+     * Updates the game difficulty when one of game difficulty buttons are pressed.
+     *
+     * @param gameDifficulty The string indicating game difficulty.
+     * @param button The button the user has selected.
+     */
     public void updateGameDifficultyLabel(String gameDifficulty, Button button) {
         selectedDiffucltyLabel.setText("Selected game difficulty: " + gameDifficulty);
         easyDifficultyButton.setStyle("");
@@ -66,6 +83,9 @@ public class SetupScreenController {
         button.setStyle("-fx-background-color: #b3b3b3; -fx-background-radius: 5;");
     }
 
+    /**
+     * Continues to start the game where the player will first pick their upcoming round.
+     */
     @FXML
     private void startGameAction() {
         String playerName = nameInputTextField.getText();

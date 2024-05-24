@@ -109,7 +109,7 @@ public class RoundLogicService {
 
         for (Item item : items) {
             if (towerType.isAssignableFrom(item.getTowerTypeAffected().getClass())) {
-                totalItemIncrease += (item.getSpeedIncrease() + item.getCollectionIncrease()) / 100.0f;
+                totalItemIncrease += (item.getSpeedIncrease() + item.getFillIncrease()) / 100.0f;
             }
         }
 

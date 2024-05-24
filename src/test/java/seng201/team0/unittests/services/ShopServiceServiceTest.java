@@ -10,7 +10,6 @@ import seng201.team0.models.Round;
 import seng201.team0.models.Tower;
 import seng201.team0.services.ShopService;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -115,7 +114,7 @@ public class ShopServiceServiceTest {
         List<Item> shopItems = testShopService.getItems();
 
         for (Item item : shopItems) {
-            int fillIncrease = item.getCollectionIncrease();
+            int fillIncrease = item.getFillIncrease();
             int speedIncrease = item.getSpeedIncrease();
             assertTrue(fillIncrease >= 0 && fillIncrease <= 25 && fillIncrease % 5 == 0);
             assertTrue(speedIncrease >= 0 && speedIncrease <= 25 && speedIncrease % 5 == 0);
@@ -130,7 +129,7 @@ public class ShopServiceServiceTest {
 
         for (Item item : shopItems) {
             int buyPrice = item.getBuyPrice();
-            int fillIncrease = item.getCollectionIncrease();
+            int fillIncrease = item.getFillIncrease();
             int speedIncrease = item.getSpeedIncrease();
             double priceAdjustmentFactor = 1 + Math.log(1 + testGameManager.getCurrentRoundNumber());
             int expectedMinPrice = (int) ((fillIncrease + speedIncrease) * 8 * priceAdjustmentFactor);
@@ -150,7 +149,7 @@ public class ShopServiceServiceTest {
 
         for (Item item : shopItems) {
             int buyPrice = item.getBuyPrice();
-            int fillIncrease = item.getCollectionIncrease();
+            int fillIncrease = item.getFillIncrease();
             int speedIncrease = item.getSpeedIncrease();
             double priceAdjustmentFactor = 2 + Math.log(1 + testGameManager.getCurrentRoundNumber());
             int expectedMinPrice = (int) ((fillIncrease + speedIncrease) * 8 * priceAdjustmentFactor);
@@ -170,7 +169,7 @@ public class ShopServiceServiceTest {
 
         for (Item item : shopItems) {
             int buyPrice = item.getBuyPrice();
-            int fillIncrease = item.getCollectionIncrease();
+            int fillIncrease = item.getFillIncrease();
             int speedIncrease = item.getSpeedIncrease();
             double priceAdjustmentFactor = 3 + Math.log(1 + testGameManager.getCurrentRoundNumber());
             int expectedMinPrice = (int) ((fillIncrease + speedIncrease) * 8 * priceAdjustmentFactor);

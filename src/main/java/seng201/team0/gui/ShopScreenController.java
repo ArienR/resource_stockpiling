@@ -11,10 +11,13 @@ import seng201.team0.services.ShopService;
 
 import java.util.List;
 
+/**
+ * The controller which manages the UI of the shop and handles the buying action
+ * for items and towers.
+ */
 public class ShopScreenController {
 
     GameManager gameManager;
-    private ShopService shopService;
 
     @FXML private Button buyTower1Button, buyTower2Button, buyTower3Button, buyTower4Button;
     @FXML private Button buyItem1Button, buyItem2Button, buyItem3Button;
@@ -28,21 +31,51 @@ public class ShopScreenController {
     @FXML private Label selectedCostLabel;
     @FXML private Label insufficientFundsLabel, exceedingLimitLabel;
 
+    /**
+     * The list of tower buttons.
+     */
     private List<Button> towerButtons;
+
+    /**
+     * The list of item buttons
+     */
     private List<Button> itemButtons;
+
+    /**
+     * The tower the player has selected on the screen.
+     */
     private Tower selectedTower;
+
+    /**
+     * The corresponding index to the tower the player has selected.
+     */
     private int selectedTowerIndex = -1;
+
+    /**
+     * The item the player has selected on the screen.
+     */
     private Item selectedItem;
+
+    /**
+     * The corresponding index to the item the player has selected.
+     */
     private int selectedItemIndex = -1;
 
-
+    /**
+     * Constructor initializes the controller with a reference to the game manager.
+     *
+     * @param tempGameManager The GameManager singleton instance.
+     */
     ShopScreenController(GameManager tempGameManager) {
         this.gameManager = tempGameManager;
     }
 
+    /**
+     * Initializes the shop screen by loading available towers and items and updating the UI accordingly.
+     */
     @FXML
     private void initialize() {
-        this.shopService = gameManager.getShop();
+        ShopService shopService = gameManager.getShop();
         shopPlayerMoneyLabel.setText("Money: $" + gameManager.getPlayer().getPlayerMoney());
         insufficientFundsLabel.setText("");
         exceedingLimitLabel.setText("");
@@ -62,12 +95,21 @@ public class ShopScreenController {
         }
     }
 
+    /**
+     * Disables buttons for purchasing items. Typically called when items are not available or permissible to purchase.
+     */
     private void disableItemButtons() {
         for (Button button : itemButtons) {
             button.setDisable(true);
+            button.setText("Locked");
         }
     }
 
+    /**
+     * Populates tower purchase buttons with available towers and sets up their event handlers.
+     *
+     * @param towers The list of towers available for purchase.
+     */
     public void populateTowerButtons(List<Tower> towers) {
         Player player = gameManager.getPlayer();
         for (int i = 0; i < towerButtons.size(); i++) {
@@ -89,6 +131,11 @@ public class ShopScreenController {
         }
     }
 
+    /**
+     * Populates item purchase buttons with available items and sets up their event handlers.
+     *
+     * @param items The list of items available for purchase.
+     */
     public void populateItemButtons(List<Item> items) {
         Player player = gameManager.getPlayer();
         for (int i = 0; i < itemButtons.size(); i++) {
@@ -110,18 +157,30 @@ public class ShopScreenController {
         }
     }
 
+    /**
+     * Resets the selection of towers after a tower is purchased or deselected.
+     */
     private void resetTowerSelection() {
         selectedTower = null;
         selectedTowerIndex = -1;
         updateButtonStyles(towerButtons, null);
     }
 
+    /**
+     * Resets the selection of items after an item is purchased or deselected.
+     */
     private void resetItemSelection() {
         selectedItem = null;
         selectedItemIndex = -1;
         updateButtonStyles(itemButtons, null);
     }
 
+    /**
+     * Updates the style of buttons to reflect selection status.
+     *
+     * @param buttons The list of buttons to update.
+     * @param selectedButton The button that is currently selected.
+     */
     private void updateButtonStyles(List<Button> buttons, Button selectedButton) {
         for (Button button : buttons) {
             if (button == selectedButton) {
@@ -132,6 +191,11 @@ public class ShopScreenController {
         }
     }
 
+    /**
+     * Displays statistics for a selected tower.
+     *
+     * @param tower The tower whose stats are to be displayed.
+     */
     private void displayTowerStats(Tower tower) {
         selectedTowerLevelLabel.setText("Tower Level: " + tower.getTowerLevel());
         selectedTowerFillLabel.setText("Fill Amount: " + tower.getTowerFillAmount() + " Litres");
@@ -142,8 +206,13 @@ public class ShopScreenController {
         selectedItemTypeLabel.setText("");
     }
 
+    /**
+     * Displays statistics for a selected item.
+     *
+     * @param item The item whose stats are to be displayed.
+     */
     private void displayItemStats(Item item) {
-        selectedItemStatLabel.setText("Fill Increase: " + item.getCollectionIncrease() + "%\n" +
+        selectedItemStatLabel.setText("Fill Increase: " + item.getFillIncrease() + "%\n" +
                 "Speed Increase: " + item.getSpeedIncrease() + "%");
         selectedItemTypeLabel.setText("Affects: " + splitCamelCase(item.getTowerTypeAffected().getClass().getSimpleName()));
         selectedTowerLevelLabel.setText("");
@@ -152,12 +221,19 @@ public class ShopScreenController {
         selectedTowerTypeLabel.setText("");
     }
 
-
+    /**
+     * Splits camel case strings into human-readable format.
+     *
+     * @param s The string to be split.
+     * @return The reformatted string.
+     */
     public static String splitCamelCase(String s) {
         return s.replaceAll("([a-z])([A-Z])", "$1 $2");
     }
 
-
+    /**
+     * Handles the confirmation of a purchase and updates inventory and player money.
+     */
     @FXML
     public void onConfirmBuy() {
         Player player = gameManager.getPlayer();
@@ -174,6 +250,17 @@ public class ShopScreenController {
         }
     }
 
+    /**
+     * Generic method to handle the buying process for towers or items, updating inventory and UI.
+     *
+     * @param playerInventoryList The player's inventory list.
+     * @param purchasedList List of purchased items or towers.
+     * @param purchasable The item or tower to purchase.
+     * @param button The button associated with the purchase.
+     * @param maxCount The maximum allowed count of the items or towers.
+     * @param maxMessage The message to display if the max count is exceeded.
+     * @param <T> The type of the purchasable object.
+     */
     private <T> void handleBuy(List<T> playerInventoryList, List<T> purchasedList, Purchasable purchasable, Button button, int maxCount, String maxMessage) {
         if (playerInventoryList.size() >= maxCount) {
             exceedingLimitLabel.setText(maxMessage);
@@ -195,15 +282,26 @@ public class ShopScreenController {
         }
     }
 
+    /**
+     * Disables a button and adjusts its style to reflect its disabled state.
+     *
+     * @param button The button to disable.
+     */
     private void disableButton(Button button) {
         button.setDisable(true);
         button.setStyle("-fx-background-color: #d3d3d3; -fx-text-fill: #a9a9a9; -fx-border-color: #b3b3b3; -fx-background-radius: 30;");
     }
 
+    /**
+     * Updates the label showing the player's current money.
+     */
     private void updatePlayerMoneyLabel() {
         shopPlayerMoneyLabel.setText("Money: " + gameManager.getPlayer().getPlayerMoney() + "$");
     }
 
+    /**
+     * Goes back to the inventory screen when button is pressed.
+     */
     @FXML
     public void goToInventory() {
         gameManager.closeBuyShopScreen();

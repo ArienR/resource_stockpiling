@@ -3,7 +3,7 @@ package seng201.team0.models;
 /**
  * Represents a cart specifically designed for transporting produce in the game.
  */
-public class ProduceCart extends Cart{
+public class ProduceCart extends Cart {
 
     /**
      * Constructs a ProduceCart with a specified bonus to speed when it is instantiated.

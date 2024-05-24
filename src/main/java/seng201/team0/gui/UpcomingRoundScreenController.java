@@ -16,17 +16,21 @@ import java.io.IOException;
 
 import java.util.*;
 
+/**
+ * Controller class for the Upcoming Round selection screen in the game.
+ * This class handles the display and selection of upcoming round options,
+ */
 public class UpcomingRoundScreenController {
 
-    private GameManager gameManager;
+    /**
+     * The GameManager singleton.
+     */
+    private final GameManager gameManager;
     private Round option1Round, option2Round, option3Round;
     private Round selectedRound;
     private int selectedRoundIndex = -1;
-    private Random cartSpeedPercentage;
     private List<Label> optionProduceCountLabels;
-
     private List<Label> optionMeatCountLabels;
-
     private List<Label> optionDairyCountLabels;
     private List<Label> optionCartSpeedLabels;
 
@@ -49,12 +53,19 @@ public class UpcomingRoundScreenController {
 
     private @FXML Button cartStatsPopupButton;
 
-
+    /**
+     * Constructor which initialises the controller with the game manager and generates the round options.
+     *
+     * @param tempGameManager The GameManager singleton.
+     */
     public UpcomingRoundScreenController(GameManager tempGameManager) {
         this.gameManager = tempGameManager;
         generateRoundOptions();
     }
 
+    /**
+     * Initialises the controller and the general interface of the screen.
+     */
     public void initialize() {
         roundSelectTitleLabel.setText(String.format("Select Round %d/%d", gameManager.getCurrentRoundNumber(), gameManager.getNumberOfRounds()));
         List<Button> selectedRoundButtons = List.of(selectOption1Button, selectOption2Button, selectOption3Button);
@@ -89,6 +100,9 @@ public class UpcomingRoundScreenController {
         }
     }
 
+    /**
+     * Generates the round options based on the current round number from which the user will pick from.
+     */
     public void generateRoundOptions() {
         Random cartSpeedPercentage = new Random();
         Random cartCount = new Random();
@@ -120,6 +134,9 @@ public class UpcomingRoundScreenController {
         }
     }
 
+    /**
+     * Updates the labels which display the number of produce carts for each round.
+     */
     private void updateProduceCountLabels() {
         List<Round> roundOptions = List.of(option1Round, option2Round, option3Round);
         for (int i = 0; i < roundOptions.size(); i++) {
@@ -127,6 +144,9 @@ public class UpcomingRoundScreenController {
         }
     }
 
+    /**
+     * Updates the labels which display the number of meat carts for each round.
+     */
     private void updateMeatCountLabels() {
         List<Round> roundOptions = List.of(option1Round, option2Round, option3Round);
 
@@ -135,6 +155,9 @@ public class UpcomingRoundScreenController {
         }
     }
 
+    /**
+     * Updates the labels which display the number of produce dairy for each round.
+     */
     private void updateDairyCountLabels() {
         List<Round> roundOptions = List.of(option1Round, option2Round, option3Round);
 
@@ -143,6 +166,9 @@ public class UpcomingRoundScreenController {
         }
     }
 
+    /**
+     * Updates the labels which display the speed increase for a particular round.
+     */
     private void updateCartSpeedLabels() {
         List<Round> roundOptions = List.of(option1Round, option2Round, option3Round);
 
@@ -153,10 +179,12 @@ public class UpcomingRoundScreenController {
         }
     }
 
+    /**
+     * Loads a new fxml file and opens a popup displaying how difficult the game is.
+     */
     @FXML
     private void openGameRulesPopup() {
         try {
-            // load a new fxml file
             FXMLLoader newStageLoader = new FXMLLoader(getClass().getResource("/fxml/game_rules_popup.fxml"));
             GridPane root = newStageLoader.load();
             Scene modalScene = new Scene(root);
@@ -166,16 +194,17 @@ public class UpcomingRoundScreenController {
             modalStage.setHeight(600);
             modalStage.setResizable(false);
             modalStage.setTitle("Cart Rules");
-            // If we want the modal to not block the other window we can change modality to Modality.NONE
             modalStage.initModality(Modality.WINDOW_MODAL);
             modalStage.initOwner(cartStatsPopupButton.getScene().getWindow());
-            // Show the modal and wait for it to be closed
             modalStage.showAndWait();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * Continues to the inventory screen if a round has been chosen by the user.
+     */
     @FXML
     private void continueToInventoryAction() {
         if (selectedRoundIndex != -1) {

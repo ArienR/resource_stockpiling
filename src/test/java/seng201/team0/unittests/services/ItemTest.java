@@ -1,6 +1,5 @@
 package seng201.team0.unittests.services;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import seng201.team0.models.*;
 
@@ -23,7 +22,7 @@ public class ItemTest {
     @Test
     void testInitialisation() {
         item = new Item(new ProduceTower(), 25, 25, 100, 0.75f);
-        assertEquals(25, item.getCollectionIncrease());
+        assertEquals(25, item.getFillIncrease());
         assertEquals(25, item.getSpeedIncrease());
         assertEquals(100, item.getBuyPrice());
         assertEquals(75, item.getSellPrice());

@@ -9,7 +9,6 @@ import seng201.team0.models.Tower;
 import seng201.team0.services.CheckValidStartService;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class InventoryScreenController {
@@ -37,22 +36,59 @@ public class InventoryScreenController {
     @FXML private Label inventorySelectedItemTypeLabel, inventorySelectedItemStatLabel;
     @FXML private Button inventoryStartButton, inventoryShopButton, inventorySellButton;
 
+    /**
+     * The buttons which will display the users towers.
+     */
     private List<Button> towerButtons;
+
+    /**
+     * The buttons which will display the users items.
+     */
     private List<Button> itemButtons;
+
+    /**
+     * The towers to be used within the rounds.
+     */
     private List<Button> selectedTowerButtons;
+
+    /**
+     * The items to be used within the rounds.
+     */
     private List<Button> selectedItemButtons;
+
+    /**
+     * The tower selected by the user.
+     */
     private Tower selectedTower;
+
+    /**
+     * The item selected by the user.
+     */
     private Item selectedItem;
+
+    /**
+     * The index corresponding to the selected tower.
+     */
     private int selectedTowerIndex = -1;
+
+    /**
+     * The index corresponding to the selected items.
+     */
     private int selectedItemIndex = -1;
 
 
-    // constructor
+    /**
+     * Constructor initializes the controller with a reference to the game manager.
+     *
+     * @param tempGameManager The GameManager singleton instance.
+     */
     public InventoryScreenController(GameManager tempGameManager) {
         this.gameManager = tempGameManager;
     }
 
-    // methods
+    /**
+     * Initializes the inventory screen by loading available towers and items and updating the UI accordingly.
+     */
     @FXML
     public void initialize() {
         Player player = gameManager.getPlayer();
@@ -72,6 +108,9 @@ public class InventoryScreenController {
         setupEquipButtons();
     }
 
+    /**
+     * Populates tower buttons with users towers and sets up their event handlers.
+     */
     private void populateTowerButtons() {
         List<Tower> towers = gameManager.getPlayer().getTowerList();
         for (int i = 0; i < towerButtons.size(); i++) {
@@ -97,6 +136,9 @@ public class InventoryScreenController {
         }
     }
 
+    /**
+     * Populates item buttons with users items and sets up their event handlers.
+     */
     private void populateItemButtons() {
         List<Item> items = gameManager.getPlayer().getItemList();
         for (int i = 0; i < itemButtons.size(); i++) {
@@ -122,6 +164,9 @@ public class InventoryScreenController {
         }
     }
 
+    /**
+     * Sets up the equip buttons to be used to equip items and towers.
+     */
     private void setupEquipButtons() {
         for (Button button : selectedTowerButtons) {
             button.setText("");
@@ -149,6 +194,11 @@ public class InventoryScreenController {
         }
     }
 
+    /**
+     * Handles the action of a player equipping a tower to a particular slot.
+     *
+     * @param slot The slot the tower will go to.
+     */
     private void equipTower(int slot) {
         List<Tower> equippedTowers = gameManager.getPlayer().getEquippedTowers();
         if (!equippedTowers.contains(selectedTower)) {
@@ -166,6 +216,11 @@ public class InventoryScreenController {
         }
     }
 
+    /**
+     * Handles the action of a player equipping an item to a particular slot.
+     *
+     * @param slot The slot the tower will go to.
+     */
     private void equipItem(int slot) {
         List<Item> equippedItems = gameManager.getPlayer().getEquippedItems();
         if (!equippedItems.contains(selectedItem)) {
@@ -181,6 +236,12 @@ public class InventoryScreenController {
         }
     }
 
+    /**
+     * Updates the buttons style after a new button is selected.
+     *
+     * @param buttons The List of all buttons.
+     * @param selectedButton The selected button.
+     */
     private void updateButtonStyles(List<Button> buttons, Button selectedButton) {
         for (Button button : buttons) {
             if (button == selectedButton) {
@@ -191,6 +252,11 @@ public class InventoryScreenController {
         }
     }
 
+    /**
+     * Displays the selected towers' stats.
+     *
+     * @param tower the selected tower Object.
+     */
     private void displayTowerStats(Tower tower) {
         inventorySelectedTowerLevelLabel.setText("Tower Level: " + tower.getTowerLevel());
         inventorySelectedTowerFillAmountLabel.setText("Fill Amount: " + tower.getTowerFillAmount() + " Litres");
@@ -198,6 +264,9 @@ public class InventoryScreenController {
         inventorySelectedTowerTypeLabel.setText("Type: " + splitCamelCase(tower.getClass().getSimpleName()));
     }
 
+    /**
+     * Removes the towers' stats if an item is selected.
+     */
     private void removeTowerStats() {
         inventorySelectedTowerLevelLabel.setText("Tower Level: ");
         inventorySelectedTowerFillAmountLabel.setText("Fill Amount: ");
@@ -205,32 +274,55 @@ public class InventoryScreenController {
         inventorySelectedTowerTypeLabel.setText("Type: ");
     }
 
+    /**
+     * Displays the selected items' stats.
+     *
+     * @param item the selected tower Object.
+     */
     private void displayItemStats(Item item) {
-        inventorySelectedItemStatLabel.setText("Fill Increase: " + item.getCollectionIncrease() + "%\n" + "Speed Increase: " + item.getSpeedIncrease() + "%");
+        inventorySelectedItemStatLabel.setText("Fill Increase: " + item.getFillIncrease() + "%\n" + "Speed Increase: " + item.getSpeedIncrease() + "%");
         inventorySelectedItemTypeLabel.setText("Affects: " + splitCamelCase(item.getTowerTypeAffected().getClass().getSimpleName()));
     }
 
+    /**
+     * Removes the items' stats if a tower is selected.
+     */
     private void removeItemStats() {
         inventorySelectedItemStatLabel.setText("Fill Increase: " + "\n" + "Speed Increase: ");
         inventorySelectedItemTypeLabel.setText("Affects: ");
     }
 
+    /**
+     * Splits camel case strings into human-readable format.
+     *
+     * @param s The string to be split.
+     * @return The reformatted string.
+     */
     public static String splitCamelCase(String s) {
         return s.replaceAll("([a-z])([A-Z])", "$1 $2");
     }
 
+    /**
+     * Launches the sell shop screen if the player chooses to go there.
+     */
     @FXML
     public void goToSellShop() {
         gameManager.launchSellShopScreen();
         gameManager.inventoryScreenToSellScreen();
     }
 
+    /**
+     * Launches the sell buy screen if the player chooses to go there.
+     */
     @FXML
     public void goToBuyShop() {
         gameManager.launchSellShopScreen();
         gameManager.inventoryScreenToBuyScreen();
     }
 
+    /**
+     * Continues to start the round if the player has selected sufficient towers.
+     */
     @FXML
     public void goToGameScreen() {
         Player player = gameManager.getPlayer();
