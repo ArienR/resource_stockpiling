@@ -152,6 +152,7 @@ public class Shop {
 
     /**
      * Generates a list of random items that are purchasable from the shop, and assures
+     * Excluding the first round which generates 3 items that are intentionally not able to be bought)
      * there are sufficient items for the upcoming round.
      */
     private void generateRandomItems() {
@@ -169,7 +170,6 @@ public class Shop {
             int numberDairyCarts = upcomingRound.getDairyCount();
             int totalCarts = numberProduceCarts + numberMeatCarts + numberDairyCarts;
             int currentRoundNumber = gameManager.getCurrentRoundNumber();
-
             for (int i = 0; i < 3; i++) {
                 Tower towerTypeAffected;
                 int itemTypeLots = rand.nextInt(totalCarts);
@@ -198,6 +198,7 @@ public class Shop {
                 }
 
                 int buyPrice = (int) ((fillIncrease + speedIncrease) * rand.nextInt(80, 120)/10*priceAdjustmentFactor);
+                if (currentRoundNumber == 1){buyPrice = rand.nextInt(1900, 2000);}
                 items.add(new Item(towerTypeAffected, fillIncrease, speedIncrease, buyPrice, gameManager.getDifficultyBonus()));
             }
         } catch (NullPointerException e) {

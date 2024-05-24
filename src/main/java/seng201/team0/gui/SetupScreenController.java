@@ -73,7 +73,7 @@ public class SetupScreenController {
             startErrorLabel.setText("Please enter a name between 3 and 15 characters");
         } else {
             gameManager.getPlayer().setName(nameInputTextField.getText());
-            gameManager.getPlayer().setPlayerMoney(5000);
+            gameManager.getPlayer().setPlayerMoney(1500);
             gameManager.setNumberOfRounds((int) numberOfRoundsSlider.getValue());
             gameManager.setGameDifficulty(gameDifficulty);
             gameManager.setDifficultyBonus(gameDifficulty);
