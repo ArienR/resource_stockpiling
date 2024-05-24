@@ -137,11 +137,11 @@ public class GameScreenController {
 
     private String getColorByType(Tower tower) {
         if (tower instanceof ProduceTower) {
-            return "#00C14A";
+            return "#00c14a";
         } else if (tower instanceof MeatTower) {
             return "#FF5757";
         } else if (tower instanceof DairyTower) {
-            return "#E3CCCC";
+            return "#f8eeee";
         } else {
             return "#737171";
         }

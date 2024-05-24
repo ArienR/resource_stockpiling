@@ -100,14 +100,12 @@ public class GameStateService {
         int numberDairyCarts = gameManager.getUpcomingRound().getDairyCount();
         int moneyValueDairyCart = new DairyCart(0).getMoneyValue();
         float speedValueMultiplier = gameManager.getUpcomingRound().getChangedCartSpeed()/10.0f;
-        System.out.println(speedValueMultiplier);
-
-
         int moneyEarnedInRound = (int) ((numberProduceCarts*moneyValueProduceCart+numberMeatCarts*moneyValueMeatCart+numberDairyCarts*moneyValueDairyCart)*(1+speedValueMultiplier));
-        System.out.println(moneyEarnedInRound);
-
-
+        if (gameManager.getGameDifficulty() == "Hard"){
+            moneyEarnedInRound += gameManager.getCurrentRoundNumber()*100;
+        }
         gameManager.getPlayer().setPlayerMoney(playerMoney+moneyEarnedInRound);
+
 
     }
 

@@ -31,7 +31,7 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label fx:id="moneyEarnedLabel" text="You earned a total of: {totalPlayerMoney}">
+            <Label fx:id="moneyEarnedLabel" text="You finished with a total of: {totalPlayerMoney}">
                <font>
                   <Font size="24.0" />
                </font>

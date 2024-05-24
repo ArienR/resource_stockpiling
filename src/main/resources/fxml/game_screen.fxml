@@ -39,11 +39,11 @@
             <Insets top="25.0" />
          </GridPane.margin>
       </Rectangle>
-      <Circle fx:id="tower3Circle" fill="#737171" radius="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+      <Circle fx:id="tower3Circle" fill="#9a9a9a" radius="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
       <Circle fx:id="tower1Circle" fill="#00bf60" radius="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
       <Circle fx:id="tower5Circle" fill="#ff5757" radius="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" GridPane.columnIndex="4" GridPane.halignment="LEFT" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
       <Circle fx:id="tower4Circle" fill="#737171" radius="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
-      <Circle fx:id="tower2Circle" fill="#e3cccc" radius="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+      <Circle fx:id="tower2Circle" fill="#f8eeee" radius="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
       <Label fx:id="tower1NameLabel" alignment="CENTER" prefHeight="82.0" prefWidth="117.0" text="Tower 1" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="3">
          <font>
             <Font size="20.0" />
@@ -53,7 +53,7 @@
          </GridPane.margin>
       </Label>
       <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="4" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4cccc" height="75.0" scaleX="0.5" scaleY="0.5" scaleZ="0.5" stroke="#0d0d0d" strokeType="OUTSIDE" strokeWidth="6.0" width="250.0" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8eeee" height="75.0" scaleX="0.5" scaleY="0.5" scaleZ="0.5" stroke="#0d0d0d" strokeType="OUTSIDE" strokeWidth="6.0" width="250.0" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
