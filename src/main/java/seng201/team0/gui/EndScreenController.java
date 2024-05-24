@@ -31,7 +31,7 @@ public class EndScreenController {
         }
 
         moneyEarnedLabel.setText(String.format("You Survived %d/%d", gameManager.getCurrentRoundNumber()-1, gameManager.getNumberOfRounds()));
-        roundsCompletedLabel.setText(String.format("You earned a total of: %d", player.getTotalPlayerMoney()));
+        roundsCompletedLabel.setText(String.format("You earned a total of: $%d", player.getPlayerMoney()));
         scoreAchievedLabel.setText(String.format("You achieved a score of: %d", player.getPlayerScore()));
     }
 

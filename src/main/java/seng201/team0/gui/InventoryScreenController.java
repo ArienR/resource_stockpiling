@@ -6,6 +6,7 @@ import seng201.team0.GameManager;
 import seng201.team0.Player;
 import seng201.team0.models.Item;
 import seng201.team0.models.Tower;
+import seng201.team0.services.CheckValidStartService;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -234,11 +235,11 @@ public class InventoryScreenController {
 
     @FXML
     public void goToGameScreen() {
-        if (!gameManager.getPlayer().getEquippedTowers().isEmpty()) {
+        if (CheckValidStartService.checkValidStart(gameManager).isEmpty()) {
             gameManager.launchGameScreen();
             gameManager.inventoryScreenToGameScreen();
         } else {
-            insufficientTowersLabel.setText("Please select at least one tower to begin");
+            insufficientTowersLabel.setText(CheckValidStartService.checkValidStart(gameManager));
         }
     }
 }

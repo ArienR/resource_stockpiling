@@ -180,13 +180,10 @@ public class Shop {
 
                 double priceAdjustmentFactor;
                 if (currentRoundNumber <= 5) {
-                    // Slow growth in early rounds
                     priceAdjustmentFactor = 1 + Math.log(1 + currentRoundNumber);
                 } else if (currentRoundNumber <= 10) {
-                    // Moderate growth in mid rounds
                     priceAdjustmentFactor = 2 + Math.log(1 + currentRoundNumber);
                 } else {
-                    // Faster growth in late rounds
                     priceAdjustmentFactor = 3 + Math.log(1 + currentRoundNumber);
                 }
 

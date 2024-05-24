@@ -135,7 +135,6 @@ public class GameScreenController {
         }
     }
 
-    //THIS CODE IS CURRENTLY BROKEN AND CAUSING ISSUES WITH ANIMATIONS
     private String getColorByType(Tower tower) {
         if (tower instanceof ProduceTower) {
             return "#00C14A";
