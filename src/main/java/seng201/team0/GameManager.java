@@ -3,13 +3,14 @@ package seng201.team0;
 import javafx.application.Platform;
 import seng201.team0.gui.FXWindow;
 import seng201.team0.models.Round;
-import seng201.team0.services.Shop;
+import seng201.team0.services.ShopService;
+
 import java.util.function.Consumer;
 
 /**
  * The GameManager class manages the general flow of the game and the game state, including the player's progress,
  * game rounds, and transitions between UI screens. It interacts with many components of the game such as the player
- * singleton, shop, and screens.
+ * singleton, shopService, and screens.
  */
 public class GameManager {
     /**
@@ -38,9 +39,9 @@ public class GameManager {
     private final Player player;
 
     /**
-     * Holds the shop which is updated every round.
+     * Holds the shopService which is updated every round.
      */
-    private Shop shop;
+    private ShopService shopService;
 
     /**
      * The game difficulty string.
@@ -59,7 +60,7 @@ public class GameManager {
     private int trackDistance;
 
     /**
-     * Indicates if the round has ended, used to reset the shop.
+     * Indicates if the round has ended, used to reset the shopService.
      */
 
     private boolean isRoundEnded = true;
@@ -90,7 +91,7 @@ public class GameManager {
     private final Consumer<GameManager> sellShopScreenLauncher;
 
     /**
-     * Consumer for launching the shop screen.
+     * Consumer for launching the shopService screen.
      */
     private final Consumer<GameManager> buyShopScreenLauncher;
 
@@ -122,7 +123,7 @@ public class GameManager {
      * @param upcomingRoundScreenLauncher consumer to launch FXML upcoming screen
      * @param inventoryScreenLauncher consumer to launch FXML inventory screen
      * @param sellShopScreenLauncher consumer to launch FXML sell screen
-     * @param buyShopScreenLauncher consumer to launch FXML shop screen
+     * @param buyShopScreenLauncher consumer to launch FXML shopService screen
      * @param gameScreenLauncher consumer to launch FXML game screen
      * @param afterRoundScreenLauncher consumer to launch FXML after round screen
      * @param endScreenLauncher consumer to launch FXML end screen
@@ -440,20 +441,20 @@ public class GameManager {
     }
 
     /**
-     * Resets the shop, method typically triggered every time a round has ended.
+     * Resets the shopService, method typically triggered every time a round has ended.
      */
     private void resetShop() {
-        this.shop = new Shop(this);
+        this.shopService = new ShopService(this);
     }
 
     /**
-     * Gets the shop object which will be used in the shop screen to display the
+     * Gets the shopService object which will be used in the shopService screen to display the
      * towers and items available to buy.
      *
-     * @return shop with generate items
+     * @return shopService with generate items
      */
-    public Shop getShop() {
-        return shop;
+    public ShopService getShop() {
+        return shopService;
     }
 
     /**

@@ -7,14 +7,14 @@ import seng201.team0.Player;
 import seng201.team0.models.Item;
 import seng201.team0.models.Purchasable;
 import seng201.team0.models.Tower;
-import seng201.team0.services.Shop;
+import seng201.team0.services.ShopService;
 
 import java.util.List;
 
 public class ShopScreenController {
 
     GameManager gameManager;
-    private Shop shop;
+    private ShopService shopService;
 
     @FXML private Button buyTower1Button, buyTower2Button, buyTower3Button, buyTower4Button;
     @FXML private Button buyItem1Button, buyItem2Button, buyItem3Button;
@@ -42,15 +42,15 @@ public class ShopScreenController {
 
     @FXML
     private void initialize() {
-        this.shop = gameManager.getShop();
+        this.shopService = gameManager.getShop();
         shopPlayerMoneyLabel.setText("Money: $" + gameManager.getPlayer().getPlayerMoney());
         insufficientFundsLabel.setText("");
         exceedingLimitLabel.setText("");
 
         towerButtons = List.of(buyTower1Button, buyTower2Button, buyTower3Button, buyTower4Button);
         itemButtons = List.of(buyItem1Button, buyItem2Button, buyItem3Button);
-        List<Tower> towers = shop.getTowers();
-        List<Item> items = shop.getItems();
+        List<Tower> towers = shopService.getTowers();
+        List<Item> items = shopService.getItems();
 
         populateTowerButtons(towers);
         populateItemButtons(items);

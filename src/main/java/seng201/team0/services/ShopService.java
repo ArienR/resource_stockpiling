@@ -9,11 +9,11 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * The Shop class represents the in-game shop from which the player will buy
+ * The ShopService class represents the in-game shop from which the player will buy
  * towers and items to prepare for the upcoming round they have selected. The
  * generates towers and items based on the current round number.
  */
-public class Shop {
+public class ShopService {
 
     /**
      * Reference to the GameManager singleton managing the game state.
@@ -31,12 +31,12 @@ public class Shop {
     private final List<Item> items;
 
     /**
-     * Constructs a new Shop which is associated with the GamaManager
+     * Constructs a new ShopService which is associated with the GamaManager
      * depending on the current round number.
      *
      * @param gameManager the GameManager managing the game state
      */
-    public Shop(GameManager gameManager) {
+    public ShopService(GameManager gameManager) {
         this.gameManager = gameManager;
         this.towers = new ArrayList<>();
         items = new ArrayList<>();

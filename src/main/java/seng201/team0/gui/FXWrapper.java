@@ -72,7 +72,7 @@ public class FXWrapper {
             sellShopScreenLoader.setControllerFactory(param -> new SellScreenController(gameManager));
             Parent setupParent = sellShopScreenLoader.load();
             pane.getChildren().add(setupParent);
-            stage.setTitle("Sell Shop Screen");
+            stage.setTitle("Sell ShopService Screen");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -84,7 +84,7 @@ public class FXWrapper {
             buyShopScreenLoader.setControllerFactory(param -> new ShopScreenController(gameManager));
             Parent setupParent = buyShopScreenLoader.load();
             pane.getChildren().add(setupParent);
-            stage.setTitle("Buy Shop Screen");
+            stage.setTitle("Buy ShopService Screen");
         } catch (IOException e) {
             e.printStackTrace();
         }
