@@ -50,8 +50,11 @@ public class Shop {
      * towers for the player to prepare for the upcoming round.
      */
     private void generateRandomTowers() {
+
         Random rand = new Random();
+        int roundNumber =  gameManager.getCurrentRoundNumber();
         Round upcomingRound = gameManager.getUpcomingRound();
+
         int numberProduceCarts = upcomingRound.getProduceCount();
         int numberMeatCarts = upcomingRound.getMeatCount();
         int numberDairyCarts = upcomingRound.getDairyCount();
@@ -61,7 +64,7 @@ public class Shop {
         int towersToGenerate = 4;
         if (numberProduceCarts != 0){
             towersToGenerate -= 1;
-            towers.add(generateProduceTower(rand));
+            towers.add(generateProduceTower(rand, roundNumber));
         }
         if (numberMeatCarts != 0){
             towersToGenerate -= 1;
@@ -74,7 +77,7 @@ public class Shop {
         for (int i = 0; i < towersToGenerate; i++){
             int itemTypeLots = rand.nextInt(totalCarts);
             if (itemTypeLots < numberProduceCarts) {
-                towers.add(generateProduceTower(rand));
+                towers.add(generateProduceTower(rand, roundNumber));
             } else if (itemTypeLots < numberProduceCarts + numberMeatCarts) {
                 towers.add(generateMeatTower(rand));
             } else {
@@ -87,7 +90,6 @@ public class Shop {
         if (currentRoundNumber <= 3){
             return 1;
         } else if (currentRoundNumber <= 6){
-            System.out.println(currentRoundNumber);
             return 1 + rand.nextInt(0,3);
         } else if (currentRoundNumber <= 9){
             return 2 + rand.nextInt(0, 3);
@@ -100,15 +102,22 @@ public class Shop {
 
     /**
      * Generates a new ProduceTower with random attributes.
+     * Excluding the first round which generates 4 towers and player can only afford 3 (start)
      *
      * @param rand the Random object for randomisation
      * @return a new ProduceTower with random attributes
      */
-    private ProduceTower generateProduceTower(Random rand) {
+    private ProduceTower generateProduceTower(Random rand, int roundNumber) {
         int towerSpeed = rand.nextInt(3, 6);
         int towerFillAmount = rand.nextInt(10, 21);
         int towerLevel = getRequiredTowerLevel(gameManager.getCurrentRoundNumber(), rand);
-        int buyPrice = towerSpeed*towerFillAmount*(3+towerLevel)/4*rand.nextInt(6, 10);
+        int buyPrice;
+        System.out.println(roundNumber);
+        if (roundNumber == 1) {
+            buyPrice = rand.nextInt(480, 500);
+        } else {
+            buyPrice = towerSpeed*towerFillAmount*(3+towerLevel)/4*rand.nextInt(6, 10);
+        }
         return new ProduceTower(towerSpeed, towerFillAmount, buyPrice, gameManager.getDifficultyBonus(), towerLevel);
     }
 
