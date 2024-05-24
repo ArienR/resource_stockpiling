@@ -38,7 +38,7 @@ public class ShopService {
      */
     public ShopService(GameManager gameManager) {
         this.gameManager = gameManager;
-        this.towers = new ArrayList<>();
+        towers = new ArrayList<>();
         items = new ArrayList<>();
         generateRandomTowers();
         generateRandomItems();
@@ -155,54 +155,46 @@ public class ShopService {
      * Excluding the first round which generates 3 items that are intentionally not able to be bought)
      * there are sufficient items for the upcoming round.
      */
-    private void generateRandomItems() {
+    public void generateRandomItems() {
         Random rand = new Random();
-        // Need to get rid of these
-        try {
-            Round upcomingRound = gameManager.getUpcomingRound();
-            if (upcomingRound == null) {
-                System.err.println("Upcoming round is not set. Cannot generate random items.");
-                return;
+        Round upcomingRound = gameManager.getUpcomingRound();
+
+        int numberProduceCarts = upcomingRound.getProduceCount();
+        int numberMeatCarts = upcomingRound.getMeatCount();
+        int numberDairyCarts = upcomingRound.getDairyCount();
+        int totalCarts = numberProduceCarts + numberMeatCarts + numberDairyCarts;
+        int currentRoundNumber = gameManager.getCurrentRoundNumber();
+        for (int i = 0; i < 3; i++) {
+            Tower towerTypeAffected;
+            int itemTypeLots = rand.nextInt(totalCarts);
+            if (itemTypeLots < numberProduceCarts) {
+                towerTypeAffected = new ProduceTower();
+            } else if (itemTypeLots < numberProduceCarts + numberMeatCarts) {
+                towerTypeAffected = new MeatTower();
+            } else {
+                towerTypeAffected = new DairyTower();
             }
 
-            int numberProduceCarts = upcomingRound.getProduceCount();
-            int numberMeatCarts = upcomingRound.getMeatCount();
-            int numberDairyCarts = upcomingRound.getDairyCount();
-            int totalCarts = numberProduceCarts + numberMeatCarts + numberDairyCarts;
-            int currentRoundNumber = gameManager.getCurrentRoundNumber();
-            for (int i = 0; i < 3; i++) {
-                Tower towerTypeAffected;
-                int itemTypeLots = rand.nextInt(totalCarts);
-                if (itemTypeLots < numberProduceCarts) {
-                    towerTypeAffected = new ProduceTower();
-                } else if (itemTypeLots < numberProduceCarts + numberMeatCarts) {
-                    towerTypeAffected = new MeatTower();
-                } else {
-                    towerTypeAffected = new DairyTower();
-                }
-
-                int fillIncrease = 0;
-                int speedIncrease = 0;
-                while (fillIncrease == 0 && speedIncrease == 0) {
-                    fillIncrease = rand.nextInt(6) * 5;
-                    speedIncrease = rand.nextInt(6) * 5;
-                }
-
-                double priceAdjustmentFactor;
-                if (currentRoundNumber <= 5) {
-                    priceAdjustmentFactor = 1 + Math.log(1 + currentRoundNumber);
-                } else if (currentRoundNumber <= 10) {
-                    priceAdjustmentFactor = 2 + Math.log(1 + currentRoundNumber);
-                } else {
-                    priceAdjustmentFactor = 3 + Math.log(1 + currentRoundNumber);
-                }
-
-                int buyPrice = (int) ((fillIncrease + speedIncrease) * rand.nextInt(80, 120)/10*priceAdjustmentFactor);
-                if (currentRoundNumber == 1){buyPrice = rand.nextInt(1900, 2000);}
-                items.add(new Item(towerTypeAffected, fillIncrease, speedIncrease, buyPrice, gameManager.getDifficultyBonus()));
+            int fillIncrease = 0;
+            int speedIncrease = 0;
+            while (fillIncrease == 0 && speedIncrease == 0) {
+                fillIncrease = rand.nextInt(6) * 5;
+                speedIncrease = rand.nextInt(6) * 5;
             }
-        } catch (NullPointerException e) {
-            e.printStackTrace();
+
+            double priceAdjustmentFactor;
+            if (currentRoundNumber <= 5) {
+                priceAdjustmentFactor = 1 + Math.log(1 + currentRoundNumber);
+            } else if (currentRoundNumber <= 10) {
+                priceAdjustmentFactor = 2 + Math.log(1 + currentRoundNumber);
+            } else {
+                priceAdjustmentFactor = 3 + Math.log(1 + currentRoundNumber);
+            }
+
+            int buyPrice = (int) ((fillIncrease + speedIncrease) * rand.nextInt(80, 120)/10*priceAdjustmentFactor);
+            if (currentRoundNumber == 1){buyPrice = rand.nextInt(1900, 2000);}
+            Item newItem = new Item(towerTypeAffected, fillIncrease, speedIncrease, buyPrice, gameManager.getDifficultyBonus());
+            items.add(newItem);
         }
     }
 
