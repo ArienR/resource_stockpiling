@@ -128,7 +128,6 @@ public class GameManager {
      * @param endScreenLauncher consumer to launch FXML end screen
      * @param clearScreen runnable which clears the window
      */
-
     public GameManager(Player player, Consumer<GameManager> setupScreenLauncher, Consumer<GameManager> upcomingRoundScreenLauncher,
                        Consumer<GameManager> inventoryScreenLauncher, Consumer<GameManager> sellShopScreenLauncher, Consumer<GameManager> buyShopScreenLauncher, Consumer<GameManager> gameScreenLauncher,
                        Consumer<GameManager> afterRoundScreenLauncher, Consumer<GameManager> endScreenLauncher,
@@ -147,6 +146,26 @@ public class GameManager {
         this.clearScreen = clearScreen;
         launchSetupScreen();
     }
+
+    /**
+     * Creates a new GameManager class for testing
+     *
+     * @param player the singleton Player object
+     */
+    public GameManager(Player player) {
+        this.player = player;
+        this.currentRoundNumber = 1;
+        this.setupScreenLauncher = gm -> {};
+        this.upcomingRoundScreenLauncher = gm -> {};
+        this.inventoryScreenLauncher = gm -> {};
+        this.sellShopScreenLauncher = gm -> {};
+        this.buyShopScreenLauncher = gm -> {};
+        this.gameScreenLauncher = gm -> {};
+        this.afterRoundScreenLauncher = gm -> {};
+        this.endScreenLauncher = gm -> {};
+        this.clearScreen = () -> {};
+    }
+
 
     /**
      * Gets the total number of rounds the user has selected to play
