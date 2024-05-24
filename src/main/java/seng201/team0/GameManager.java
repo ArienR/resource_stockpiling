@@ -219,7 +219,7 @@ public class GameManager {
      * @param difficulty string indicating difficulty
      */
     public void setDifficultyBonus(String difficulty){
-        if (difficulty.equals("Easy")){
+        if (difficulty.equals("Easy")) {
             difficultyBonus = 0.75f;
         } else {
             difficultyBonus = 0.5f;

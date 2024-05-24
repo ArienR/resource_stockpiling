@@ -53,7 +53,19 @@ public class ShopScreenController {
         List<Item> items = shopService.getItems();
 
         populateTowerButtons(towers);
-        populateItemButtons(items);
+
+        // Disable item buttons for the first round
+        if (gameManager.getCurrentRoundNumber() >= 2) {
+            populateItemButtons(items);
+        } else {
+            disableItemButtons();
+        }
+    }
+
+    private void disableItemButtons() {
+        for (Button button : itemButtons) {
+            button.setDisable(true);
+        }
     }
 
     public void populateTowerButtons(List<Tower> towers) {

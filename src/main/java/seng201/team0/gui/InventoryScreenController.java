@@ -78,7 +78,6 @@ public class InventoryScreenController {
             if (i < towers.size()) {
                 Tower tower = towers.get(i);
                 towerButtons.get(i).setText(tower.getTowerName());
-                towerButtons.get(i).setDisable(false);
                 int finalI = i;
                 towerButtons.get(i).setOnAction(event -> {
                     selectedTower = towers.get(finalI);
@@ -104,7 +103,7 @@ public class InventoryScreenController {
             if (i < items.size()) {
                 Item item = items.get(i);
                 itemButtons.get(i).setText(item.getItemName());
-                itemButtons.get(i).setDisable(false);
+                itemButtons.get(i).setDisable(true);
                 int finalI = i;
                 itemButtons.get(i).setOnAction(event -> {
                     selectedItem = items.get(finalI);

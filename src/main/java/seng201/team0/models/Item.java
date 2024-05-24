@@ -13,12 +13,12 @@ public class Item implements Purchasable {
             "Delivery Dynamo", "Provision Propeller", "Cart Commander", "Stock Swift",
             "Vendor Velocity", "Retail Rush"
     );
-    private String itemName;
-    private Tower towerTypeAffected;
-    private int fillIncrease;
-    private int speedIncrease;
-    private int buyPrice;
-    private int sellPrice;
+    private final String itemName;
+    private final Tower towerTypeAffected;
+    private final int fillIncrease;
+    private final int speedIncrease;
+    private final int buyPrice;
+    private final int sellPrice;
 
     public Item(Tower towerTypeAffected, int fillIncrease, int speedIncrease, int buyPrice, float difficultyBonus) {
         this.buyPrice = buyPrice;
@@ -48,31 +48,15 @@ public class Item implements Purchasable {
         return itemName;
     }
 
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
-    }
-
     public Tower getTowerTypeAffected() {
         return towerTypeAffected;
-    }
-
-    public void setTowerTypeAffected(Tower towerTypeAffected) {
-        this.towerTypeAffected = towerTypeAffected;
     }
 
     public int getCollectionIncrease() {
         return fillIncrease;
     }
 
-    public void setCollectionIncrease(int collectionIncrease) {
-        this.fillIncrease = collectionIncrease;
-    }
-
     public int getSpeedIncrease() {
         return speedIncrease;
-    }
-
-    public void setSpeedIncrease(int speedIncrease) {
-        this.speedIncrease = speedIncrease;
     }
 }

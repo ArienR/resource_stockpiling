@@ -2,10 +2,10 @@ package seng201.team0.models;
 
 public class Round {
 
-    private int produceCount;
-    private int meatCount;
-    private int dairyCount;
-    private int cartSpeedChange;
+    private final int produceCount;
+    private final int meatCount;
+    private final int dairyCount;
+    private final int cartSpeedChange;
 
 
 //  Constructor for first round

@@ -59,11 +59,11 @@ public class GameStateServiceTest {
 
     private int calculateExpectedMoney(Round round, String difficulty, int roundNumber) {
         int numberProduceCarts = round.getProduceCount();
-        int moneyValueProduceCart = new ProduceCart(0).getMoneyValue();
+        int moneyValueProduceCart = new ProduceCart().getMoneyValue();
         int numberMeatCarts = round.getMeatCount();
-        int moneyValueMeatCart = new MeatCart(0).getMoneyValue();
+        int moneyValueMeatCart = new MeatCart().getMoneyValue();
         int numberDairyCarts = round.getDairyCount();
-        int moneyValueDairyCart = new DairyCart(0).getMoneyValue();
+        int moneyValueDairyCart = new DairyCart().getMoneyValue();
         float speedValueMultiplier = round.getChangedCartSpeed() / 10.0f;
         int moneyEarnedInRound = (int) ((numberProduceCarts * moneyValueProduceCart + numberMeatCarts * moneyValueMeatCart + numberDairyCarts * moneyValueDairyCart) * (1 + speedValueMultiplier));
         if ("Hard".equals(difficulty)) {
@@ -74,11 +74,11 @@ public class GameStateServiceTest {
 
     private int calculateExpectedScore(Round round, float difficultyBonus) {
         int numberProduceCarts = round.getProduceCount();
-        int scoreValueProduceCart = new ProduceCart(0).getScoreValue();
+        int scoreValueProduceCart = new ProduceCart().getScoreValue();
         int numberMeatCarts = round.getMeatCount();
-        int scoreValueMeatCart = new MeatCart(0).getScoreValue();
+        int scoreValueMeatCart = new MeatCart().getScoreValue();
         int numberDairyCarts = round.getDairyCount();
-        int scoreValueDairyCart = new DairyCart(0).getScoreValue();
+        int scoreValueDairyCart = new DairyCart().getScoreValue();
         return (int) ((numberProduceCarts * scoreValueProduceCart + numberMeatCarts * scoreValueMeatCart + numberDairyCarts * scoreValueDairyCart) * difficultyBonus);
     }
 }

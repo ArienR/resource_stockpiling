@@ -1,8 +1,6 @@
 package seng201.team0.services;
 
-import com.sun.tools.attach.AgentInitializationException;
 import seng201.team0.GameManager;
-import seng201.team0.gui.GameScreenController;
 import seng201.team0.models.*;
 
 import java.util.List;
@@ -20,9 +18,9 @@ public class RoundLogicService {
         GenerateCartsService generateCarts = new GenerateCartsService(gameManager);
         List<Item> items = gameManager.getPlayer().getEquippedItems();
 
-        List<ProduceCart> produceCarts = generateCarts.generateProduceCarts(gameManager);
-        List<MeatCart> meatCarts = generateCarts.generateMeatCarts(gameManager);
-        List<DairyCart> dairyCarts = generateCarts.generateDairyCarts(gameManager);
+        List<ProduceCart> produceCarts = generateCarts.generateProduceCarts();
+        List<MeatCart> meatCarts = generateCarts.generateMeatCarts();
+        List<DairyCart> dairyCarts = generateCarts.generateDairyCarts();
 
         int totalProduceCartCapacity = calculateTotalCartCapacity(produceCarts);
         int totalMeatCartCapacity = calculateTotalCartCapacity(meatCarts);

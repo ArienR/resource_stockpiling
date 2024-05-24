@@ -24,28 +24,28 @@ public class GenerateCartsService {
         changedCartSpeed = upcomingRound.getChangedCartSpeed();
     }
 
-    public List<ProduceCart> generateProduceCarts(GameManager gameManager){
+    public List<ProduceCart> generateProduceCarts(){
         List<ProduceCart> listOfProduceCarts = new ArrayList<>();
         for (int i = 0; i < produceCartCount; i++){
-            listOfProduceCarts.add(new ProduceCart(changedCartSpeed));
+            listOfProduceCarts.add(new ProduceCart());
         }
         return listOfProduceCarts;
     }
 
-    public List<MeatCart> generateMeatCarts(GameManager gameManager){
+    public List<MeatCart> generateMeatCarts(){
         List<MeatCart> listOfMeatCarts = new ArrayList<>();
         for (int i = 0; i < meatCartCount; i++){
-            listOfMeatCarts.add(new MeatCart(changedCartSpeed));
+            listOfMeatCarts.add(new MeatCart());
         }
         return listOfMeatCarts;
     }
 
 
 
-    public List<DairyCart> generateDairyCarts(GameManager gameManager){
+    public List<DairyCart> generateDairyCarts(){
         List<DairyCart> listOfDairyCarts = new ArrayList<DairyCart>();
         for (int i = 0; i < dairyCartCount; i++){
-            listOfDairyCarts.add(new DairyCart(changedCartSpeed));
+            listOfDairyCarts.add(new DairyCart());
         }
         return listOfDairyCarts;
     }

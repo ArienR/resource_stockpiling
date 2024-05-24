@@ -86,7 +86,15 @@ public class ShopService {
         }
     }
 
-    private int getRequiredTowerLevel(int currentRoundNumber, Random rand){
+    /**
+     * Depending on the current round number it will produce an appropriate level
+     * for a tower in the shop.
+     *
+     * @param currentRoundNumber the current round
+     * @param rand a Random object
+     * @return an appropriate tower level
+     */
+    public int getRequiredTowerLevel(int currentRoundNumber, Random rand){
         if (currentRoundNumber <= 3){
             return 1;
         } else if (currentRoundNumber <= 6){
@@ -101,43 +109,43 @@ public class ShopService {
     }
 
     /**
-     * Generates a new ProduceTower with random attributes.
-     * Excluding the first round which generates 4 towers and player can only afford 3 (start)
+     * Generates a new ProduceTower with random attributes. The generation assures that the price
+     * scales with the towers' ability.
      *
      * @param rand the Random object for randomisation
      * @return a new ProduceTower with random attributes
      */
-    private ProduceTower generateProduceTower(Random rand, int roundNumber) {
+    public ProduceTower generateProduceTower(Random rand, int roundNumber) {
         int towerSpeed = rand.nextInt(3, 6);
         int towerFillAmount = rand.nextInt(10, 21);
         int towerLevel = getRequiredTowerLevel(gameManager.getCurrentRoundNumber(), rand);
         int buyPrice;
-        System.out.println(roundNumber);
         if (roundNumber == 1) {
             buyPrice = rand.nextInt(480, 500);
         } else {
-            buyPrice = towerSpeed*towerFillAmount*(3+towerLevel)/4*rand.nextInt(7, 10);
+            buyPrice = towerSpeed*towerFillAmount*(3+towerLevel)/4*rand.nextInt(7, 11);
         }
         return new ProduceTower(towerSpeed, towerFillAmount, buyPrice, gameManager.getDifficultyBonus(), towerLevel);
     }
 
     /**
-     * Generates a new MeatTower with random attributes.
-     * The (4 + towerLevel)/4 is to change the buy price based on how powerful the tower is.
+     * Generates a new MeatTower with random attributes. The generation assures that the price
+     * scales with the towers' ability.
      *
      * @param rand the Random object for randomisation
      * @return a new MeatTower with random attributes
      */
-    private MeatTower generateMeatTower(Random rand) {
+    public MeatTower generateMeatTower(Random rand) {
         int towerSpeed = rand.nextInt(3, 6);
         int towerFillAmount = rand.nextInt(30, 41);
         int towerLevel = getRequiredTowerLevel(gameManager.getCurrentRoundNumber(), rand);
-        int buyPrice = towerSpeed*towerFillAmount/2*(3+towerLevel)/4*rand.nextInt(7, 10);
+        int buyPrice = towerSpeed*towerFillAmount/2*(3+towerLevel)/4*rand.nextInt(7, 11); // The (4 + towerLevel)/4 is to change the buy price based on how powerful the tower is.
         return new MeatTower(towerSpeed, towerFillAmount, buyPrice, gameManager.getDifficultyBonus(), towerLevel);
     }
 
     /**
-     * Generates a new DairyTower with random attributes.
+     * Generates a new DairyTower with random attributes. The generation assures that the price
+     * scales with the towers' ability.
      *
      * @param rand the Random object for randomisation
      * @return a new DairyTower with random attributes
@@ -146,13 +154,12 @@ public class ShopService {
         int towerSpeed = rand.nextInt(3, 6);
         int towerFillAmount = rand.nextInt(50, 61);
         int towerLevel = getRequiredTowerLevel(gameManager.getCurrentRoundNumber(), rand);
-        int buyPrice = towerSpeed*towerFillAmount/2*(3+towerLevel)/4*rand.nextInt(7, 10);
+        int buyPrice = towerSpeed*towerFillAmount/2*(3+towerLevel)/4*rand.nextInt(7, 11);
         return new DairyTower(towerSpeed, towerFillAmount, buyPrice, gameManager.getDifficultyBonus(), towerLevel);
     }
 
     /**
      * Generates a list of random items that are purchasable from the shop, and assures
-     * Excluding the first round which generates 3 items that are intentionally not able to be bought)
      * there are sufficient items for the upcoming round.
      */
     public void generateRandomItems() {
@@ -192,7 +199,6 @@ public class ShopService {
             }
 
             int buyPrice = (int) ((fillIncrease + speedIncrease) * rand.nextInt(80, 120)/10*priceAdjustmentFactor);
-            if (currentRoundNumber == 1){buyPrice = rand.nextInt(1900, 2000);}
             Item newItem = new Item(towerTypeAffected, fillIncrease, speedIncrease, buyPrice, gameManager.getDifficultyBonus());
             items.add(newItem);
         }
@@ -200,6 +206,7 @@ public class ShopService {
 
     /**
      * Gets the randomly generated towers.
+     *
      * @return randomly generated towers
      */
     public List<Tower> getTowers() {
@@ -208,6 +215,7 @@ public class ShopService {
 
     /**
      * Gets the randomly generated items.
+     *
      * @return randomly generated items
      */
     public List<Item> getItems() {

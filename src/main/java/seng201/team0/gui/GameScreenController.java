@@ -16,7 +16,6 @@ import seng201.team0.services.GenerateCartsService;
 import javafx.scene.shape.Rectangle;
 import seng201.team0.services.RoundLogicService;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -85,9 +84,9 @@ public class GameScreenController {
         this.gameStateService = new GameStateService(gameManager);
         this.roundLogicService = new RoundLogicService((gameManager));
 
-        this.listOfProduceCarts = generateCartsService.generateProduceCarts(gameManager);
-        this.listOfMeatCarts = generateCartsService.generateMeatCarts(gameManager);
-        this.listOfDairyCarts = generateCartsService.generateDairyCarts(gameManager);
+        this.listOfProduceCarts = generateCartsService.generateProduceCarts();
+        this.listOfMeatCarts = generateCartsService.generateMeatCarts();
+        this.listOfDairyCarts = generateCartsService.generateDairyCarts();
         this.changedCartSpeed = generateCartsService.getChangedCartSpeed();
 
         produceCartsRemainingLabel.setText("Produce " + listOfProduceCarts.size() + "x");
