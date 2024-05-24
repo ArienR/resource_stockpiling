@@ -158,6 +158,7 @@ public class Shop {
             int numberMeatCarts = upcomingRound.getMeatCount();
             int numberDairyCarts = upcomingRound.getDairyCount();
             int totalCarts = numberProduceCarts + numberMeatCarts + numberDairyCarts;
+            int currentRoundNumber = gameManager.getCurrentRoundNumber();
 
             for (int i = 0; i < 2; i++) {
                 Tower towerTypeAffected;
@@ -176,7 +177,20 @@ public class Shop {
                     fillIncrease = rand.nextInt(6) * 5;
                     speedIncrease = rand.nextInt(6) * 5;
                 }
-                int buyPrice = (fillIncrease + speedIncrease) * rand.nextInt(80, 120)/10;
+
+                double priceAdjustmentFactor;
+                if (currentRoundNumber <= 5) {
+                    // Slow growth in early rounds
+                    priceAdjustmentFactor = 1 + Math.log(1 + currentRoundNumber);
+                } else if (currentRoundNumber <= 10) {
+                    // Moderate growth in mid rounds
+                    priceAdjustmentFactor = 2 + Math.log(1 + currentRoundNumber);
+                } else {
+                    // Faster growth in late rounds
+                    priceAdjustmentFactor = 3 + Math.log(1 + currentRoundNumber);
+                }
+
+                int buyPrice = (int) ((fillIncrease + speedIncrease) * rand.nextInt(80, 120)/10*priceAdjustmentFactor);
                 items.add(new Item(towerTypeAffected, fillIncrease, speedIncrease, buyPrice, gameManager.getDifficultyBonus()));
             }
         } catch (NullPointerException e) {
