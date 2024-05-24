@@ -128,7 +128,6 @@ public class InventoryScreenController {
                     removeItemStats();
                     updateButtonStyles(towerButtons, towerButtons.get(finalI));
                     updateButtonStyles(itemButtons, null);
-                    disableItemButtons();
                 });
             } else {
                 towerButtons.get(i).setText("Empty");
@@ -157,7 +156,6 @@ public class InventoryScreenController {
                     removeTowerStats();
                     updateButtonStyles(itemButtons, itemButtons.get(finalI));
                     updateButtonStyles(towerButtons, null);
-                    disableTowerButtons();
                 });
             } else {
                 itemButtons.get(i).setText("Empty");
@@ -165,14 +163,6 @@ public class InventoryScreenController {
                 itemButtons.get(i).setStyle("-fx-opacity: 0.5;");
             }
         }
-    }
-
-    private void disableTowerButtons() {
-        towerButtons.forEach(button -> button.setDisable(true));
-    }
-
-    private void disableItemButtons() {
-        itemButtons.forEach(button -> button.setDisable(true));
     }
 
     /**
